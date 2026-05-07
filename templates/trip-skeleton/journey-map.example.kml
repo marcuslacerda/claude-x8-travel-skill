@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>{{SLUG}} — Trip Map</name>
+    <description>POIs and driving routes for the trip. Edit in Google My Maps or by hand.</description>
+
+    <!-- ========== ICON STYLES ========== -->
+    <!-- Use the new (category, kind) taxonomy. KML <styleUrl> uses the kind name. -->
+    <!-- Full enum: see ../../docs/format-conventions.md -->
+
+    <Style id="headline">
+      <IconStyle><scale>1.3</scale><Icon><href>http://maps.google.com/mapfiles/kml/paddle/grn-stars.png</href></Icon></IconStyle>
+    </Style>
+    <Style id="destination">
+      <IconStyle><scale>1.3</scale><Icon><href>http://maps.google.com/mapfiles/kml/paddle/red-stars.png</href></Icon></IconStyle>
+    </Style>
+    <Style id="city">
+      <IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle>
+    </Style>
+    <Style id="lake">
+      <IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/paddle/blu-circle.png</href></Icon></IconStyle>
+    </Style>
+    <Style id="castle">
+      <IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/paddle/purple-square.png</href></Icon></IconStyle>
+    </Style>
+    <Style id="trek">
+      <IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/shapes/hiker.png</href></Icon></IconStyle>
+    </Style>
+    <Style id="camp">
+      <IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/shapes/campground.png</href></Icon></IconStyle>
+    </Style>
+    <Style id="restaurant">
+      <IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/shapes/dining.png</href></Icon></IconStyle>
+    </Style>
+
+    <!-- ========== ROUTE STYLES — color is aaBBGGRR (KML byte order) ========== -->
+    <Style id="route-orange">
+      <LineStyle><color>ff0078ff</color><width>4</width></LineStyle>
+    </Style>
+    <Style id="route-blue">
+      <LineStyle><color>ffaa5500</color><width>4</width></LineStyle>
+    </Style>
+    <Style id="route-green">
+      <LineStyle><color>ff00aa55</color><width>4</width></LineStyle>
+    </Style>
+
+    <!-- ========== POIs ========== -->
+    <Folder>
+      <name>Pontos de Interesse</name>
+
+      <!-- Trip start (e.g. arrival airport, car pickup) -->
+      <Placemark>
+        <name>Trip Start</name>
+        <description>[Headline] Day 1 — pickup point</description>
+        <styleUrl>#headline</styleUrl>
+        <Point><coordinates>0.0000,0.0000,0</coordinates></Point>
+      </Placemark>
+
+      <!-- Trip end (for roundtrips, set styleUrl to #destination on the second
+           occurrence sharing the same coordinates) -->
+      <Placemark>
+        <name>Trip End — Return</name>
+        <description>[Destination] Day N — return point</description>
+        <styleUrl>#destination</styleUrl>
+        <Point><coordinates>0.0000,0.0000,0</coordinates></Point>
+      </Placemark>
+
+      <!-- Example POIs — replace or remove -->
+      <Placemark>
+        <name>Sample Lake</name>
+        <description>[Lake] Day 3 — short walk + photo stop</description>
+        <styleUrl>#lake</styleUrl>
+        <Point><coordinates>0.0000,0.0000,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+
+    <!-- ========== ROUTES ========== -->
+    <Folder>
+      <name>Rotas</name>
+
+      <!-- Route name format: "<Header>: <Body>" — header is parsed for dayNum.
+           Use either "Mon DD (Day): ..." or "Day N: ..." -->
+      <Placemark>
+        <name>Day 1: Pickup → Hotel (XXkm ~Xh base / ~Xh +30%)</name>
+        <styleUrl>#route-orange</styleUrl>
+        <LineString>
+          <coordinates>
+            0.0000,0.0000,0
+            0.0001,0.0001,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+    </Folder>
+
+  </Document>
+</kml>

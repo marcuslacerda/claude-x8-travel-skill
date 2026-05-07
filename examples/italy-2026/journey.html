@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dolomites & Slovenia — Motorhome road trip 2026</title>
+<meta name="description" content="20 dias de motorhome pelas Dolomitas e Eslovênia — roteiro dia-a-dia, trilhas, lagos, castelos e scenic drives. Jun 2026.">
+<meta property="og:title" content="Dolomites & Slovenia — Road Trip 2026">
+<meta property="og:description" content="20 dias de motorhome pelas Dolomitas e Eslovênia. 1.870km, 5 trilhas, 8 lagos, 3 castelos. Roteiro completo dia-a-dia.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?w=1200&h=630&fit=crop&q=80">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://github.com/marcuslacerda/claude-x8-travel-skill/blob/main/examples/italy-2026/journey.html">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dolomites & Slovenia — Road Trip 2026">
+<meta name="twitter:description" content="20 dias de motorhome pelas Dolomitas e Eslovênia. Roteiro completo dia-a-dia.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?w=1200&h=630&fit=crop&q=80">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F3D4;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --stone: #2c2825;
+  --warm: #8b7355;
+  --cream: #faf6f0;
+  --sky: #6ba3be;
+  --forest: #4a7c59;
+  --rose: #c4856a;
+  --gold: #d4a843;
+  --snow: #ffffff;
+  --emerald: #2e8b57;
+  --danger: #c0392b;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--stone);
+  background: var(--cream);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === STICKY NAV === */
+.sticky-nav {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e8e4de;
+  padding: 0.6rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.sticky-nav::-webkit-scrollbar { display: none; }
+.sticky-nav a {
+  flex-shrink: 0;
+  padding: 0.35rem 0.8rem;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--warm);
+  background: #f0ece6;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.sticky-nav a:hover, .sticky-nav a.active { background: var(--sky); color: #fff; }
+.sticky-nav .nav-today {
+  background: var(--sky); color: #fff; font-weight: 600;
+}
+
+/* === HERO (compact) === */
+.hero {
+  position: relative;
+  height: 40vh;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 100%),
+              url('https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?w=1920&q=80') center/cover no-repeat;
+  color: var(--snow);
+}
+.hero-content { max-width: 700px; padding: 1.5rem; }
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.3rem;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+.hero .subtitle {
+  font-size: clamp(0.9rem, 2vw, 1.15rem);
+  font-weight: 300;
+  opacity: 0.92;
+  margin-bottom: 0.8rem;
+}
+.hero .dates {
+  display: inline-block;
+  padding: 0.4rem 1.4rem;
+  border: 1.5px solid rgba(255,255,255,0.6);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 100px;
+  color: var(--snow);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.share-btn:hover { background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.5); }
+.share-btn svg { width: 14px; height: 14px; }
+.share-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--stone);
+  color: var(--snow);
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: none;
+  z-index: 9999;
+}
+.share-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* === SECTIONS === */
+section { padding: 3rem 1.5rem; max-width: 1100px; margin: 0 auto; }
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: var(--stone);
+}
+.section-sub {
+  font-size: 0.95rem;
+  color: var(--warm);
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+/* === STATS === */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.stat {
+  text-align: center;
+  padding: 1.2rem 0.8rem;
+  background: var(--snow);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--sky);
+}
+.stat-label { font-size: 0.72rem; color: var(--warm); margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* === MAP === */
+.map-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+}
+.map-container iframe {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  border: 0; border-radius: 16px;
+}
+
+/* === TIMELINE === */
+.timeline { position: relative; margin: 1.5rem 0; }
+.timeline::before {
+  content: '';
+  position: absolute; left: 20px; top: 0; bottom: 0; width: 2px;
+  background: linear-gradient(180deg, var(--sky), var(--forest), var(--emerald), var(--gold), var(--rose));
+  border-radius: 2px;
+}
+.day-card {
+  position: relative;
+  margin-left: 52px;
+  margin-bottom: 1rem;
+  background: var(--snow);
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  transition: box-shadow 0.2s;
+  cursor: pointer;
+  overflow: hidden;
+}
+.day-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+.day-card::before {
+  content: '';
+  position: absolute; left: -40px; top: 1.4rem;
+  width: 14px; height: 14px; border-radius: 50%;
+  border: 3px solid var(--sky); background: var(--cream);
+}
+.day-card.rest::before { border-color: var(--forest); background: var(--forest); }
+.day-card.city::before { border-color: var(--gold); background: var(--gold); }
+.day-card.slovenia::before { border-color: var(--emerald); background: var(--emerald); }
+
+.day-summary {
+  padding: 1.2rem 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+}
+.day-summary-left { flex: 1; min-width: 0; }
+.day-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.2rem;
+}
+.day-date { font-weight: 700; font-size: 0.88rem; color: var(--stone); }
+.day-num { font-weight: 400; font-size: 0.78rem; color: var(--warm); text-transform: uppercase; letter-spacing: 0.04em; }
+.day-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; }
+.day-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.4rem; }
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 100px;
+  font-size: 0.68rem;
+  font-weight: 500;
+}
+.tag-trek { background: #e8f5e9; color: #2e7d32; }
+.tag-city { background: #fff3e0; color: #e65100; }
+.tag-lake { background: #e3f2fd; color: #1565c0; }
+.tag-rest { background: #f3e5f5; color: #7b1fa2; }
+.tag-drive { background: #eceff1; color: #455a64; }
+.tag-castle { background: #fce4ec; color: #c62828; }
+.tag-wellness { background: #e0f2f1; color: #00695c; }
+.tag-food { background: #fff8e1; color: #f57f17; }
+.tag-slovenia { background: #e8f5e9; color: #1b5e20; }
+.tag-cave { background: #efebe9; color: #4e342e; }
+.tag-adventure { background: #e1f5fe; color: #01579b; }
+.tag-nature { background: #f1f8e9; color: #33691e; }
+.tag-unesco { background: #fff8e1; color: #f57f17; }
+
+.expand-icon {
+  font-size: 1.2rem; color: var(--warm); transition: transform 0.3s;
+  flex-shrink: 0;
+}
+.day-card.open .expand-icon { transform: rotate(180deg); }
+
+/* === DAY DETAIL (expandable) === */
+.day-detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  border-top: 0px solid transparent;
+}
+.day-card.open .day-detail {
+  max-height: 4000px;
+  border-top: 1px solid #eee;
+}
+.day-detail-inner { padding: 1rem 1.4rem 1.4rem; }
+
+.schedule-table {
+  width: 100%;
+  font-size: 0.85rem;
+  border-collapse: collapse;
+}
+.schedule-table td {
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px solid #f5f2ee;
+  vertical-align: top;
+}
+.schedule-table td:first-child {
+  width: 52px;
+  font-weight: 600;
+  color: var(--sky);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.schedule-table tr:last-child td { border-bottom: none; }
+
+.day-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid #f0ece6;
+  font-size: 0.78rem;
+  color: var(--warm);
+}
+.day-meta span { display: flex; align-items: center; gap: 0.25rem; }
+.day-meta a { color: var(--sky); text-decoration: none; font-weight: 500; }
+.day-meta a:hover { text-decoration: underline; }
+
+.day-warnings {
+  margin-top: 0.7rem;
+  padding: 0.6rem 0.8rem;
+  background: #fff5f5;
+  border-radius: 8px;
+  border-left: 3px solid var(--danger);
+  font-size: 0.8rem;
+  color: var(--danger);
+}
+
+.day-restaurant {
+  margin-top: 0.6rem;
+  padding: 0.5rem 0.8rem;
+  background: #fff8e1;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+.day-restaurant a { color: #f57f17; font-weight: 600; text-decoration: none; }
+
+/* === EXPERIENCE MINI-CARDS === */
+.day-experiences {
+  margin-top: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.day-experiences-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--warm);
+  margin-bottom: 0.2rem;
+}
+.exp-card {
+  padding: 0.6rem 0.8rem;
+  background: #f8f7f5;
+  border-radius: 8px;
+  border-left: 3px solid var(--sky);
+  font-size: 0.82rem;
+}
+.exp-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.exp-card-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.exp-card-cat {
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 0.1rem 0.4rem;
+  border-radius: 100px;
+  background: #eee;
+  color: var(--warm);
+}
+.exp-card-desc {
+  color: #5a5550;
+  margin: 0.2rem 0 0.4rem;
+  line-height: 1.4;
+  font-size: 0.78rem;
+}
+.exp-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  font-size: 0.75rem;
+  color: var(--warm);
+  align-items: center;
+}
+.exp-card-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+.exp-card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.4rem;
+}
+.exp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 100px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.exp-link.alltrails { background: #e8f5e9; color: #2e7d32; }
+.exp-link.alltrails:hover { background: #c8e6c9; }
+.exp-link.tripadvisor { background: #e3f2fd; color: #1565c0; }
+.exp-link.tripadvisor:hover { background: #bbdefb; }
+.exp-link.getyourguide { background: #fff3e0; color: #e65100; }
+.exp-link.getyourguide:hover { background: #ffe0b2; }
+.exp-link.booking { background: #e3f2fd; color: #0d47a1; }
+.exp-link.booking:hover { background: #bbdefb; }
+.exp-link.website { background: #f3e5f5; color: #7b1fa2; }
+.exp-link.website:hover { background: #e1bee7; }
+.exp-link.official { background: #f5f5f5; color: #616161; }
+.exp-link.official:hover { background: #e0e0e0; }
+
+/* === FILTER BAR === */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+.filter-btn {
+  padding: 0.35rem 0.8rem;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  border: 1.5px solid #e0dcd6;
+  background: var(--snow);
+  color: var(--warm);
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.filter-btn:hover { border-color: var(--sky); color: var(--sky); }
+.filter-btn.active { background: var(--sky); color: #fff; border-color: var(--sky); }
+
+/* === TODAY HIGHLIGHT === */
+.day-card.today {
+  border-left: 4px solid var(--sky);
+  background: #f0f8ff;
+}
+.day-card.today::after {
+  content: 'HOJE';
+  position: absolute; top: 0.7rem; right: 3rem;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em;
+  color: #fff; background: var(--sky);
+  padding: 0.15rem 0.5rem; border-radius: 100px;
+}
+
+/* Past days */
+.day-card.past { opacity: 0.55; }
+.day-card.past:hover { opacity: 0.85; }
+
+/* === FLOATING TODAY BUTTON === */
+.fab-today {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 150;
+  background: var(--sky);
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  padding: 0.7rem 1.2rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: none;
+}
+.fab-today:hover { transform: scale(1.05); box-shadow: 0 6px 24px rgba(0,0,0,0.25); }
+
+/* === QUICK INFO === */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.info-card {
+  background: var(--snow);
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.info-card h3 {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--sky);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.6rem;
+}
+.info-card p, .info-card li {
+  font-size: 0.88rem;
+  color: #5a5550;
+  line-height: 1.5;
+}
+.info-card ul { list-style: none; }
+.info-card li { padding: 0.2rem 0; }
+.info-card .mono { font-family: 'SF Mono', 'Fira Code', monospace; font-weight: 600; color: var(--stone); }
+.info-card a { color: var(--sky); text-decoration: none; }
+.info-card a:hover { text-decoration: underline; }
+.info-card .emergency { color: var(--danger); font-weight: 600; }
+
+/* === CHECKLIST === */
+.checklist-group { margin-bottom: 1.5rem; }
+.checklist-group h3 {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--sky);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid #eee;
+}
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.5rem 0;
+  font-size: 0.88rem;
+  color: #5a5550;
+}
+.checklist-item input[type="checkbox"] {
+  margin-top: 0.25rem;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--sky);
+  flex-shrink: 0;
+}
+.checklist-item.checked label { text-decoration: line-through; opacity: 0.5; }
+.checklist-item.critical label { color: var(--danger); font-weight: 500; }
+.checklist-item.done label { text-decoration: line-through; opacity: 0.4; }
+.checklist-progress {
+  font-size: 0.8rem;
+  color: var(--warm);
+  margin-bottom: 1rem;
+}
+.checklist-progress-bar {
+  height: 4px;
+  background: #eee;
+  border-radius: 4px;
+  margin-top: 0.4rem;
+  overflow: hidden;
+}
+.checklist-progress-fill {
+  height: 100%;
+  background: var(--sky);
+  border-radius: 4px;
+  transition: width 0.3s;
+}
+
+/* === BUDGET TABLE === */
+.budget-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.88rem;
+}
+.budget-table th {
+  text-align: left; padding: 0.6rem 0.8rem;
+  border-bottom: 2px solid var(--stone);
+  font-weight: 600; font-size: 0.75rem;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--warm);
+}
+.budget-table td { padding: 0.5rem 0.8rem; border-bottom: 1px solid #eee; }
+.budget-table tr:last-child td { border-bottom: 2px solid var(--stone); font-weight: 600; }
+.budget-table .amount { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* === FOOTER === */
+footer {
+  text-align: center; padding: 2.5rem 1.5rem;
+  color: var(--warm); font-size: 0.82rem;
+  border-top: 1px solid #e8e4de;
+}
+
+/* === MOBILE === */
+@media (max-width: 640px) {
+  section { padding: 2rem 1rem; }
+  .timeline::before { left: 12px; }
+  .day-card { margin-left: 36px; }
+  .day-card::before { left: -32px; width: 10px; height: 10px; }
+  .day-summary { padding: 1rem; }
+  .day-detail-inner { padding: 0.8rem 1rem 1rem; }
+  .info-grid { grid-template-columns: 1fr; }
+  .hero { height: 35vh; min-height: 240px; }
+  .fab-today { bottom: 1rem; right: 1rem; padding: 0.6rem 1rem; font-size: 0.78rem; }
+  .filter-bar { gap: 0.3rem; }
+  .filter-btn { font-size: 0.72rem; padding: 0.3rem 0.6rem; }
+  .exp-card-links { gap: 0.25rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav" id="nav">
+  <a href="#today" class="nav-today" onclick="scrollToToday(event)">Hoje</a>
+  <a href="#stats">Resumo</a>
+  <a href="#map">Mapa</a>
+  <a href="#timeline-section">Roteiro</a>
+  <a href="#documents">Reservas</a>
+  <a href="#budget-section">Budget</a>
+  <a href="#checklist-section">Checklist</a>
+  <a href="#packing">Mala</a>
+</nav>
+
+<!-- HERO (compact) -->
+<div class="hero">
+  <div class="hero-content">
+    <h1>Dolomites & Slovenia</h1>
+    <p class="subtitle">Road trip de motorhome — The travelers</p>
+    <span class="dates">8 — 27 Junho 2026</span>
+    <br>
+    <button class="share-btn" onclick="shareTrip()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      Compartilhar roteiro
+    </button>
+  </div>
+</div>
+<div class="share-toast" id="shareToast">Link copiado!</div>
+
+<!-- STATS -->
+<section id="stats">
+  <h2>A viagem em números</h2>
+  <p class="section-sub">20 dias, 2 países, 1 motorhome</p>
+  <div class="stats">
+    <div class="stat"><div class="stat-value">20</div><div class="stat-label">Dias</div></div>
+    <div class="stat"><div class="stat-value">1.870</div><div class="stat-label">Km</div></div>
+    <div class="stat"><div class="stat-value">5</div><div class="stat-label">Trilhas</div></div>
+    <div class="stat"><div class="stat-value">8</div><div class="stat-label">Lagos</div></div>
+    <div class="stat"><div class="stat-value">3</div><div class="stat-label">Castelos</div></div>
+    <div class="stat"><div class="stat-value">2.519m</div><div class="stat-label">Altitude máx</div></div>
+    <div class="stat"><div class="stat-value">2.466m</div><div class="stat-label">Elevation Gain</div></div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section id="map">
+  <h2>Rota interativa</h2>
+  <p class="section-sub">Milan → Venezia → Eslovênia (Bled → Soča) → Cortina → Dolomitas → Sirmione → Milan</p>
+  <div class="map-container">
+    <iframe src="https://www.google.com/maps/d/embed?mid=1i6xWbsA4yqY78WwGv2mFpxkFuz0G7Bk&ehbc=2E312F" width="640" height="480"></iframe>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline-section">
+  <h2>Roteiro dia a dia</h2>
+  <p class="section-sub">Toque em um dia para expandir — filtre por tipo de experiência</p>
+  <div class="filter-bar" id="filter-bar"></div>
+  <div class="timeline" id="timeline"></div>
+</section>
+
+<!-- DOCUMENTOS & RESERVAS — now rendered from const bookings[] via JS -->
+<section id="documents">
+  <h2>Documentos & Reservas</h2>
+  <p class="section-sub">Todas as reservas da viagem em ordem cronológica — ✅ confirmadas · ⚠️ críticas · 🔗 pendentes</p>
+  <div id="bookings-table"></div>
+</section>
+
+<!-- BUDGET — rendered from const budget[] via JS -->
+<section id="budget-section">
+  <h2>Budget</h2>
+  <p class="section-sub">Estimativa total: €8.590 (~R$ 53.510)</p>
+  <div id="budget-table"></div>
+</section>
+
+<!-- OLD DOCUMENTS TABLE REMOVED — data moved to const bookings[] -->
+<!-- OLD TABLE START
+      <tr>
+        <td><strong>8 Jun</strong></td>
+        <td>✅</td>
+        <td>Seguro Viagem</td>
+        <td>Premium credit card / AIG MasterAssist</td>
+        <td><a href="https://drive.google.com/file/d/1132jG9xZs7ZdOnMdiwAs0yJX8xMwc44r/view" target="_blank">Abrir PDF →</a></td>
+      </tr>
+      <tr>
+        <td><strong>8 Jun</strong></td>
+        <td>✅</td>
+        <td>Passagem aérea GRU ↔ MXP</td>
+        <td>LATAM (LA8072 / LA8073)</td>
+        <td><a href="https://drive.google.com/file/d/12SaF4BwKbDIEtcUD9daWoB2NSgWge0hN/view" target="_blank">Abrir PDF →</a></td>
+      </tr>
+      <tr>
+        <td><strong>9 Jun</strong></td>
+        <td>✅</td>
+        <td>Contrato Motorhome</td>
+        <td>Indie Campers (Confirmado)</td>
+        <td><a href="https://drive.google.com/file/d/1dbNhWoKDhOdCfTDo-us1MgPaYyHh-zYQ/view" target="_blank">Abrir PDF →</a></td>
+      </tr>
+      <tr>
+        <td><strong>9 Jun</strong></td>
+        <td>✅</td>
+        <td>Reserva Camping Fusina</td>
+        <td>Camping Fusina (Venezia)</td>
+        <td><a href="https://drive.google.com/file/d/1HfWfW2MmMemtNkGSdo8pQRB8JPEYQq8H/view" target="_blank">Abrir PDF →</a></td>
+      </tr>
+      <tr>
+        <td><strong>10 Jun</strong></td>
+        <td>✅</td>
+        <td>Itinerari Segreti — Palazzo Ducale</td>
+        <td>CoopCulture (tour inglês 11:30)</td>
+        <td><em>aguardando confirmação por email</em></td>
+      </tr>
+      <tr>
+        <td><strong>10 Jun</strong></td>
+        <td>⚠️</td>
+        <td>Ingresso Basilica di San Marco</td>
+        <td>Basilica di San Marco (timed-entry ~09:45)</td>
+        <td><a href="https://tickets.basilicasanmarco.it/en/store" target="_blank">Reservar →</a></td>
+      </tr>
+      <tr>
+        <td><strong>10 Jun</strong></td>
+        <td>⚠️</td>
+        <td>Concerto Vivaldi — Four Seasons</td>
+        <td>I Musici Veneziani (20:30, Scuola Grande di San Teodoro)</td>
+        <td><a href="https://www.imusiciveneziani.com/en/concerts/a-vivaldis-four-seasons/" target="_blank">Reservar →</a></td>
+      </tr>
+      <tr>
+        <td><strong>11 Jun</strong></td>
+        <td>🔗</td>
+        <td>E-vinheta eslovena (7 dias)</td>
+        <td>DARS — Cat 2A, €16. Comprar ANTES de cruzar fronteira</td>
+        <td><a href="https://evinjeta.dars.si/en" target="_blank">Comprar →</a></td>
+      </tr>
+      <tr>
+        <td><strong>11 Jun</strong></td>
+        <td>🔗</td>
+        <td>Postojna Cave + Predjama Castle combo</td>
+        <td>Postojna Cave Park (~€47/pp)</td>
+        <td><a href="https://tickets.postojnska-jama.eu/en/postojna-cave-predjama-castle/pack-107.html" target="_blank">Reservar →</a></td>
+      </tr>
+      <tr>
+        <td><strong>11 Jun</strong></td>
+        <td>✅</td>
+        <td>Reserva Camping Bled</td>
+        <td>Camping Bled — Sava Hotels (3 noites, Jun 11–14)</td>
+        <td><a href="https://drive.google.com/file/d/1wxOdJxbN1d0-QOZJ_DKeTmWuCTNM3euD/view" target="_blank">Abrir PDF →</a></td>
+      </tr>
+      <tr>
+        <td><strong>12 Jun</strong></td>
+        <td>🔗</td>
+        <td>Ingresso Vintgar Gorge</td>
+        <td>Vintgar Gorge (~€15/pp)</td>
+        <td><a href="https://www.vintgar.si/en/" target="_blank">Reservar →</a></td>
+      </tr>
+      <tr>
+        <td><strong>12 Jun</strong></td>
+        <td>🔗</td>
+        <td>Ingresso Bled Castle</td>
+        <td>Blejski Grad (~€19/pp)</td>
+        <td><a href="https://www.blejski-grad.si/en/" target="_blank">Comprar →</a></td>
+      </tr>
+      <tr>
+        <td><strong>13 Jun</strong></td>
+        <td>🔗</td>
+        <td>Vogel Cable Car</td>
+        <td>Vogel Bohinj (~€33/pp RT)</td>
+        <td><a href="https://www.vogel.si/en/" target="_blank">Comprar →</a></td>
+      </tr>
+      <tr>
+        <td><strong>16 Jun</strong></td>
+        <td>🔗</td>
+        <td>Rafting Rio Soča</td>
+        <td>Sport Mix Bovec (~€70/pp)</td>
+        <td><a href="https://sportmix.si/en/rafting/" target="_blank">Reservar →</a></td>
+      </tr>
+      <tr>
+        <td><strong>18 Jun</strong></td>
+        <td>⚠️</td>
+        <td>Tre Cime toll road (slot 7h–8h)</td>
+        <td>Auronzo — €60/motorhome</td>
+        <td><a href="https://pass.auronzo.info" target="_blank">Reservar →</a></td>
+      </tr>
+      <tr>
+        <td><strong>20 Jun</strong></td>
+        <td>✅</td>
+        <td>Camping Olympia</td>
+        <td>Camping Olympia Dobbiaco — 2 noites (Jun 20–22), €65.50/noite. Wellness incluso</td>
+        <td><a href="https://drive.google.com/file/d/1S4mlh_jpZnoxD2iFZAVtgeFOgpWZxOhJ/view" target="_blank">Abrir PDF →</a></td>
+      </tr>
+      <tr>
+        <td><strong>23 Jun</strong></td>
+        <td>🔗</td>
+        <td>Seceda Cable Car</td>
+        <td>Funivie Ortisei — €74/pp RT. Comprar no dia (verificar clima)</td>
+        <td><a href="https://www.seceda.it/en/" target="_blank">Ver info →</a></td>
+      </tr>
+      <tr>
+        <td><strong>23 Jun</strong></td>
+        <td>🔗</td>
+        <td>Jantar tirolês em Ortisei</td>
+        <td>Ortisei — restaurante tirolês local (Val Gardena)</td>
+        <td><em>pesquisar e reservar</em></td>
+      </tr>
+      <tr>
+        <td><strong>25 Jun</strong></td>
+        <td>✅</td>
+        <td>Free parking Desenzano</td>
+        <td>Via Michelangelo 9, Desenzano del Garda (1 noite, Jun 25–26). Grátis. 15 min de Sirmione. Camping Sirmione exige min. 3 noites</td>
+        <td><a href="https://park4night.com/en/place/14906" target="_blank">Park4Night →</a></td>
+      </tr>
+      <tr>
+        <td><strong>26 Jun</strong></td>
+        <td>🔗</td>
+        <td>Pernoite pátio Indie Campers</td>
+        <td>Indie Campers MXP — perguntar se pode dormir no pátio véspera devolução</td>
+        <td><em>contactar Indie Campers</em></td>
+      </tr>
+OLD TABLE END -->
+
+
+<!-- LOGISTICS section removed — entries merged into day schedules. Specs kept as JS comment.
+  Motorhome Specs: diesel ~75L (~900km), água ~100L (3-4d), grey ~90L, WC ~18L (2-3d), gás Campingaz (~7-10d)
+  Video: https://www.youtube.com/embed/HxmSajWwG44
+  Supermercados: Venezia=Coop Marghera, Bled=Mercator/Lidl, Soča=Mercator Bovec, Cortina=Conad/Eurospar, Dobbiaco=Eurospar, VGardena=Despar
+-->
+
+<!-- CHECKLIST -->
+<section id="checklist-section">
+  <h2>Checklist de preparação</h2>
+  <p class="section-sub">Estado salvo no seu navegador — marque à medida que concluir</p>
+  <div class="checklist-progress"><span id="checklist-count"></span><div class="checklist-progress-bar"><div class="checklist-progress-fill" id="checklist-fill"></div></div></div>
+  <div id="checklist"></div>
+</section>
+
+<!-- PACKING LIST -->
+<section id="packing">
+  <h2>Packing List</h2>
+  <p class="section-sub">18 dias motorhome + 7 trilhas + 2 países — checkboxes salvos no navegador</p>
+  <div class="checklist-progress"><span id="packing-count"></span><div class="checklist-progress-bar"><div class="checklist-progress-fill" id="packing-fill"></div></div></div>
+  <div id="packing-list"></div>
+</section>
+
+<footer>
+  <p>The travelers — Dolomites & Slovenia 2026</p>
+  <p style="margin-top:0.3rem; font-size:0.7rem; opacity:0.6" id="commit-info"></p>
+</footer>
+<script>
+fetch("https://api.github.com/repos/marcuslacerda/claude-x8-travel-skill/commits?per_page=1&path=examples/italy-2026/journey.html")
+  .then(r => r.json())
+  .then(d => {
+    if (d[0]) {
+      const sha = d[0].sha.slice(0,7);
+      const date = new Date(d[0].commit.author.date).toLocaleDateString("pt-BR");
+      document.getElementById("commit-info").innerHTML =
+        `<a href="https://github.com/marcuslacerda/claude-x8-travel-skill/commit/${d[0].sha}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">v${sha}</a> · ${date}`;
+    }
+  }).catch(() => {});
+</script>
+
+<!-- FLOATING TODAY BUTTON -->
+<button class="fab-today" id="fab-today" onclick="scrollToToday(event)">Ir para Hoje</button>
+
+<script>
+// ============================================================
+// DAY DATA — enriched with schedules, trails, warnings
+// ============================================================
+const days = [
+  {
+    num: "0º dia", date: "8 Jun (Seg)", title: "São Paulo → Milão",
+    tags: ["drive"], cls: "", isoDate: "2026-06-08",
+    schedule: [
+      { t: "18:05", a: "Embarque no GRU — voo LATAM LA8072 direto para Milão (~12h)" }
+    ]
+  },
+  {
+    num: "1º dia", date: "9 Jun (Ter)", title: "Milão → Venezia",
+    tags: ["drive"], cls: "", isoDate: "2026-06-09",
+    schedule: [
+      { t: "10:15", a: "Chegada em Milano Malpensa. Imigração e retirar bagagem" },
+      { t: "11:30", a: "Descanso no aeroporto — café e organizar malas" },
+      { t: "16:00", a: "Retirar motorhome na Indie Campers (MXP). Inspeção do veículo e orientações" },
+      { t: "—", a: "⛽ Tanque cheio do pickup MXP (incluído na retirada)" },
+      { t: "16:30", a: "🛒 PRIMEIRA COMPRA DE SUPERMERCADO! Parar num Esselunga ou Carrefour perto de MXP (~5 min). Comprar essenciais para os primeiros 3 dias: massas, azeite, café, pão, queijos, frutas, água, temperos" },
+      { t: "17:00", a: "Dirigir pela A4 leste até Venezia (~3h)" },
+      { t: "20:00", a: "Chegada no Camping Fusina — frente à laguna de Veneza. Montar camp" },
+      { t: "—", a: "💧 Encher tanque de água limpa no Camping Fusina" },
+      { t: "20:30", a: "Jantar no motorhome — primeira refeição da viagem! Descanso" }
+    ],
+    driving: "MXP → Venezia | ~3h | A4",
+    camp: '<a href="https://park4night.com/en/place/14596" target="_blank">Camping Fusina, Venezia</a> (2 noites)'
+  },
+  {
+    num: "2º dia", date: "10 Jun (Qua)", title: "Venezia Dia Inteiro + Concerto Vivaldi 🎻",
+    tags: ["city"], cls: "city", isoDate: "2026-06-10",
+    schedule: [
+      { t: "09:00", a: "Vaporetto Fusina → San Marco (~30 min, ~€8/pp)" },
+      { t: "09:30", a: "Piazza San Marco — a sala de estar da Europa" },
+      { t: "09:45", a: "Basilica di San Marco — mosaicos bizantinos do séc. XI. Opção: missa das 10:00 (grátis). Ingresso online obrigatório" },
+      { t: "10:45", a: "Campanile di San Marco — vista 360° da laguna e dos telhados (€15/pp)" },
+      { t: "11:30", a: "Palazzo Ducale — Itinerari Segreti: prisão de Casanova, salas secretas do governo, Ponte dei Sospiri (€40/pp, 75 min)" },
+      { t: "13:15", a: "Basilica dei Santi Giovanni e Paolo — panteão dos doges (€3.50/pp)" },
+      { t: "14:00", a: "Chiesa di Santa Maria Assunta ai Gesuiti — teto barroco espetacular (grátis)" },
+      { t: "14:45", a: "🍽️ ALMOÇO: Cicchetti + spritz nos bacari do Rialto. Ponte di Rialto — a ponte mais famosa de Veneza" },
+      { t: "16:00", a: "Basilica dei Frari — Tiziano e Bellini. Uma das igrejas mais importantes de Veneza (€5/pp)" },
+      { t: "17:00", a: "Basilica di Santa Maria della Salute — cúpula barroca icônica na entrada do Grand Canal (grátis)" },
+      { t: "18:30", a: "Jantar leve em Veneza" },
+      { t: "20:30", a: "🎻 Concerto I Musici Veneziani: Vivaldi Four Seasons — Scuola Grande di San Teodoro. Músicos em figurinos barrocos (~€65/pp)" },
+      { t: "22:00", a: "Vaporetto de volta para Fusina" }
+    ],
+    experiences: [
+      { name: "Basilica di San Marco", desc: "Mosaicos bizantinos séc. XI. Opção missa 10:00 (grátis). Ingresso online obrigatório", category: "city", time: "1h", cost: "€3-24/pp", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g187870-d197702-Reviews-Basilica_di_San_Marco-Venice_Veneto.html" }] },
+      { name: "Palazzo Ducale — Itinerari Segreti", desc: "Tour secreto: prisão de Casanova, salas do governo, Ponte dei Sospiri", category: "city", time: "1h15", cost: "€40/pp", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g187870-d196648-Reviews-Doge_s_Palace-Venice_Veneto.html" }] },
+      { name: "Ponte di Rialto", desc: "Ponte mais famosa de Veneza sobre o Grand Canal", category: "city", time: "30 min", cost: "Grátis", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g187870-d195579-Reviews-Rialto_Bridge-Venice_Veneto.html" }] },
+      { name: "Basilica dei Frari", desc: "Obras de Tiziano e Bellini. Uma das igrejas mais importantes de Veneza", category: "city", time: "45 min", cost: "€5/pp", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g187870-d195913-Reviews-Basilica_dei_Frari-Venice_Veneto.html" }] },
+      { name: "Santa Maria della Salute", desc: "Cúpula barroca icônica na entrada do Grand Canal", category: "city", time: "30 min", cost: "Grátis", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g187870-d246929-Reviews-Basilica_di_Santa_Maria_della_Salute-Venice_Veneto.html" }] },
+      { name: "Concerto Vivaldi — I Musici Veneziani", desc: "Four Seasons na Scuola Grande di San Teodoro. Músicos em figurinos barrocos", category: "city", time: "1h15", cost: "~€65/pp", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com.br/AttractionProductReview-g187870-d11473467-I_Musici_Veneziani_Concert_Vivaldi_Four_Seasons-Venice_Veneto.html" }] }
+    ],
+    restaurant: { name: "Bacari do Rialto", meal: "Almoço", desc: "Cicchetti + spritz. Cantina Do Mori (desde 1462) ou All'Arco", url: "https://www.tripadvisor.com/Restaurant_Review-g187870-d1034566-Reviews-Cantina_Do_Mori-Venice_Veneto.html" },
+    warnings: ["Palazzo Ducale Itinerari Segreti: RESERVAR ONLINE com antecedência — grupos pequenos","Concerto Vivaldi: comprar ingresso online em imusiciveneziani.com"],
+    dayCost: "~€215 (vaporetto €32 + basílica €24 + campanile €30 + palazzo €80 + frari €10 + concerto €130 + refeições)",
+    camp: '<a href="https://park4night.com/en/place/14596" target="_blank">Camping Fusina, Venezia</a>'
+  },
+  {
+    num: "3º dia", date: "11 Jun (Qui)", title: "Venezia → Postojna → Predjama → Bled 🇸🇮",
+    tags: ["drive","nature","castle"], cls: "", isoDate: "2026-06-11",
+    schedule: [
+      { t: "07:00", a: "Desmontar camp em Fusina" },
+      { t: "07:30", a: "Dirigir até Postojna (~2h10). ⚠️ Comprar e-vinheta eslovena ONLINE antes de cruzar a fronteira!" },
+      { t: "09:45", a: "Postojna Cave — maior caverna turística da Europa. Tour de 1h30: trem subterrâneo de 3.7 km + caminhada pelas galerias. Combo com Predjama ~€47/pp" },
+      { t: "11:15", a: "Dirigir até Predjama Castle (~10 min). Castelo construído dentro de um paredão de 123m. Já incluído no combo" },
+      { t: "12:30", a: "Almoço (comida do motorhome)" },
+      { t: "13:00", a: "Dirigir até Bled (~1h30). Paisagem muda de planícies para Alpes" },
+      { t: "14:30", a: "Montar camp no Camping Bled — à beira do lago" },
+      { t: "15:30", a: "Primeira caminhada pelo Lago Bled — pôr do sol com a ilha e o castelo ao fundo" },
+      { t: "19:00", a: "Jantar no motorhome" }
+    ],
+    experiences: [
+      { name: "Postojna Cave", desc: "24 km galerias, trem subterrâneo 3.7 km, Proteus", category: "nature", time: "2h", cost: "€94 combo", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g274878-d277348-Reviews-Postojna_Cave-Postojna_Inner_Carniola_Region.html" }, { type: "official", url: "https://www.postojnska-jama.eu/en/tickets/two-adventures/" }] },
+      { name: "Predjama Castle", desc: "Castelo no paredão 123m, 700+ anos", category: "castle", time: "1–1.5h", cost: "combo", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g274878-d277346-Reviews-Predjama_Castle-Postojna_Inner_Carniola_Region.html" }, { type: "official", url: "https://www.postojnska-jama.eu/en/tickets/two-adventures/" }] },
+      { name: "Cividale del Friuli (opcional)", desc: "UNESCO. Ponte do Diabo, Tempietto Longobardo (séc. VIII). Desvio +41 km / +45 min via Palmanova", category: "city", time: "1–1.5h", cost: "Grátis", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Tourism-g790399-Cividale_del_Friuli_Province_of_Udine_Friuli_Venezia_Giulia.html" }] }
+    ],
+    warnings: ["Comprar e-vinheta eslovena ONLINE antes da fronteira: evinjeta.dars.si (~€15)","Comprar combo Postojna+Predjama online — preço melhor","Opcional: Cividale del Friuli — desvio +41 km / +45 min via Palmanova. Depende da energia e horário de saída"],
+    dayCost: "~€110 (combo €94 + vinheta €16)",
+    camp: '<a href="https://park4night.com/en/place/9328" target="_blank">Camping Bled</a> (3 noites)'
+  },
+  {
+    num: "4º dia", date: "12 Jun (Sex)", title: "Lago Bled & Vintgar Gorge",
+    tags: ["lake","castle","nature","drone"], cls: "", isoDate: "2026-06-12",
+    schedule: [
+      { t: "07:30", a: "Ir até a Vintgar Gorge (~4 km do camping). Abre às 8h" },
+      { t: "08:00", a: "Vintgar Gorge — desfiladeiro com 1.6 km de passarelas de madeira sobre o rio esmeralda. Termina na Cascata Sum (16m). ~€15/pp" },
+      { t: "09:30", a: "Voltar para Bled" },
+      { t: "10:00", a: "Barco Pletna até a ilha de Bled (~€20/pp). Subir 99 degraus até a igreja e tocar o sino dos desejos" },
+      { t: "12:00", a: "Subir ao Bled Castle — castelo do séc. XI no penhasco. Vista panorâmica do lago e dos Alpes (~€19/pp)" },
+      { t: "13:30", a: "Kremšnita (bolo de creme típico) na Confeitaria Park à beira do lago — obrigatório!" },
+      { t: "14:30", a: "Volta ao redor do Lago Bled a pé — circuito plano de 6 km (~1.5h)" },
+      { t: "17:00", a: "Descanso no camping. 🧺 Lavar roupa se necessário (ficamos 4 noites em Bled)" },
+      { t: "19:00", a: "Jantar no motorhome" }
+    ],
+    experiences: [
+      { name: "Vintgar Gorge", desc: "1.6 km passarelas sobre águas esmeralda, Cascata Sum 16m", category: "nature", time: "1–1.5h", cost: "€30", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g1870874-d519724-Reviews-Vintgar_Gorge-Gorje_Upper_Carniola_Region.html" }, { type: "official", url: "https://www.vintgar.si/en/my-visit/pricelist/" }] },
+      { name: "Bled Castle", desc: "Séc. XI, castelo mais antigo da Eslovênia, vista panorâmica", category: "castle", time: "1–1.5h", cost: "€19/pp", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g274863-d300864-Reviews-Bled_Castle-Bled_Upper_Carniola_Region.html" }, { type: "official", url: "https://www.blejski-grad.si/en/plan-your-visit/price-list/" }] },
+      { name: "Lago Bled", desc: "Cartão-postal da Eslovênia. Pletna boat €20/pp, ilha, 6 km walk", category: "lago", time: "4–5h", cost: "€78", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g274863-d296735-Reviews-Lake_Bled-Bled_Upper_Carniola_Region.html" }, { type: "official", url: "https://www.blejskiotok.si/en/welcome-to-the-island/" }] },
+      { name: "Bled", desc: "Vila charmosa, kremšnita na Confeitaria Park", category: "city", time: "dia inteiro", cost: "€78", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Tourism-g274863-Bled_Upper_Carniola_Region.html" }] }
+    ],
+    warnings: ["Vintgar Gorge: INGRESSO ONLINE OBRIGATÓRIO! Time slots esgotam"],
+    dayCost: "~€105 (gorge €30 + boat €40 + castle €38 + kremšnita)",
+    camp: '<a href="https://park4night.com/en/place/9328" target="_blank">Camping Bled</a>'
+  },
+  {
+    num: "5º dia", date: "13 Jun (Sáb)", title: "Lago Bohinj & Vogel",
+    tags: ["lake","trek"], cls: "", isoDate: "2026-06-13",
+    schedule: [
+      { t: "08:00", a: "Dirigir até o Lake Bohinj (~30 min). Maior lago glacial da Eslovênia — mais selvagem e tranquilo que Bled" },
+      { t: "09:00", a: "Teleférico Vogel até 1.535m (~€33/pp ida e volta). Vista panorâmica do Triglav e dos Alpes Julianos" },
+      { t: "10:30", a: "Caminhada no planalto de Vogel — trilhas leves de 1–2h com vistas de 360°" },
+      { t: "12:30", a: "Descer de teleférico. Piquenique à beira do lago" },
+      { t: "14:00", a: "Caminhar pela margem norte do Bohinj. Visitar a Igreja de St. John the Baptist (afrescos do séc. XV)" },
+      { t: "15:30", a: "Opcional: Savica Waterfall — cachoeira de 78m em dois estágios (~30 min de carro + 20 min de caminhada, €3/pp)" },
+      { t: "17:30", a: "Voltar para o Camping Bled" },
+      { t: "19:00", a: "Jantar no motorhome" }
+    ],
+    experiences: [
+      { name: "Vogel (1.535m)", desc: "Panorama Triglav, Alpes Julianos", category: "trekking", time: "4–5h", cost: "€66", links: [{ type: "alltrails", url: "https://www.alltrails.com/trail/slovenia/bohinj/okoli-vrha-vogel?u=m" }, { type: "official", url: "https://vogel.si/en/price-list-summer/" }] },
+      { name: "Lago Bohinj", desc: "Maior lago glacial esloveno. Igreja St. John (séc. XV)", category: "lago", time: "4–5h", cost: "€66", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g274865-d296736-Reviews-Lake_Bohinj-Bohinjsko_Jezero_Upper_Carniola_Region.html" }] }
+    ],
+    dayCost: "~€72 (cable car €66 + Savica €6)",
+    camp: '<a href="https://park4night.com/en/place/9328" target="_blank">Camping Bled</a>'
+  },
+  {
+    num: "6º dia", date: "14 Jun (Dom)", title: "REST — Pokljuka, Peričnik & Zelenci",
+    tags: ["rest","nature","lake"], cls: "rest", isoDate: "2026-06-14",
+    schedule: [
+      { t: "—", a: "💧 Reabastecer água no camping" },
+      { t: "—", a: "🧺 Lavanderia no camping" },
+      { t: "09:00", a: "Dormir até mais tarde. Café da manhã tranquilo" },
+      { t: "10:30", a: "Dirigir até o Pokljuka Plateau (~30 min). Planalto com floresta de abetos e centro de biatlo" },
+      { t: "11:30", a: "Pokljuka Gorge — desfiladeiro curto na floresta (~30 min de caminhada)" },
+      { t: "12:30", a: "Piquenique no planalto" },
+      { t: "13:30", a: "Dirigir até a Peričnik Waterfall (~30 min via Mojstrana). Cachoeira de 52m — dá pra caminhar atrás da cortina d'água!" },
+      { t: "14:30", a: "Dirigir até Zelenci Nature Reserve (~30 min via Kranjska Gora). Nascentes de água esmeralda a 6°C o ano todo" },
+      { t: "15:00", a: "Passeio pela passarela de Zelenci (~20 min). Cores surreais" },
+      { t: "16:00", a: "Passear por Kranjska Gora — vila alpina com cafés e artesanato" },
+      { t: "17:00", a: "🅿️ Free parking / pernoite em Kranjska Gora — já no pé do Vršič Pass para sair cedo amanhã" },
+      { t: "19:00", a: "Jantar no motorhome" }
+    ],
+    experiences: [
+      { name: "Pokljuka + Zelenci", desc: "Planalto de abetos + nascentes esmeralda a 6°C", category: "nature", time: "3–4h", cost: "Grátis", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g274870-d3626293-Reviews-Zelenci_Nature_Reserve-Kranjska_Gora_Upper_Carniola_Region.html" }] },
+      { name: "Peričnik Waterfall", desc: "Cachoeira de 52m — caminhar atrás da cortina d'água!", category: "nature", time: "~1h", cost: "Grátis", links: [{ type: "alltrails", url: "https://www.alltrails.com/trail/slovenia/kranjska-gora/slap-pericnik" }] },
+    ],
+    dayCost: "~€10 (tudo grátis, só café)",
+    camp: '🅿️ Free parking — Kranjska Gora (<a href="https://park4night.com" target="_blank">Park4Night</a>)'
+  },
+  {
+    num: "7º dia", date: "15 Jun (Seg)", title: "Jasna Lake → Vršič Pass → Vale do Soča",
+    tags: ["drive","nature","lake","drone"], cls: "", isoDate: "2026-06-15",
+    schedule: [
+      { t: "07:00", a: "Saída do free parking em Kranjska Gora — sair cedo para evitar trânsito no Vršič" },
+      { t: "07:45", a: "🏞️ Jasna Lake (~2 min de carro) — lago com reflexo perfeito do Triglav e estátua do Zlatorog. Passeio matinal tranquilo" },
+      { t: "09:45", a: "Início do Vršič Pass (1.611m) — estrada de montanha mais alta da Eslovênia, com 50 curvas de ferradura!" },
+      { t: "10:15", a: "Parada na Russian Chapel (curva 8) — memorial de prisioneiros russos da 1ª Guerra" },
+      { t: "10:45", a: "Paradas nos mirantes — vistas dos Alpes Julianos" },
+      { t: "11:15", a: "Topo do Vršič — parada para fotos. Vista dos dois lados do passo" },
+      { t: "11:45", a: "Descida pelo lado sul — vistas do vale do Trenta e do Rio Soča" },
+      { t: "12:15", a: "Opcional: Izvir Soče — trilha curta (~30 min) até a nascente do rio dentro de uma caverna" },
+      { t: "13:00", a: "Chegada em Bovec. Montar camp" },
+      { t: "15:00", a: "Velika Korita Soče (Great Soča Gorge) — gargantas estreitas com água verde-esmeralda (~30 min de caminhada)" },
+      { t: "16:00", a: "Caminhada pelo Soča Trail perto de Bovec — trilha à beira do rio com piscinas naturais" },
+      { t: "19:00", a: "Jantar no motorhome" }
+    ],
+    experiences: [
+      { name: "Jasna Lake", desc: "Reflexo perfeito do Triglav, estátua Zlatorog", category: "lago", time: "2h", cost: "Grátis", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g274870-d7930362-Reviews-Lake_Jasna-Kranjska_Gora_Upper_Carniola_Region.html" }] },
+      { name: "Vršič Pass (1.611m)", desc: "50 hairpin turns, Alpes Julianos, Russian Chapel", category: "nature", time: "2–3h", cost: "Grátis", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g274870-d3630674-Reviews-Vrsic_Pass-Kranjska_Gora_Upper_Carniola_Region.html" }] },
+      { name: "Soča Gorge", desc: "Rio esmeralda mundialmente famoso", category: "nature", time: "2–3h", cost: "Grátis", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g1091105-d19244212-Reviews-Velika_Korita_Soce-Soca_Slovenian_Littoral_Region.html" }] }
+    ],
+    warnings: ["⚠️ MOTORHOME NO VRŠIČ: 50 hairpins, cobblestones escorregadios, curvas sem linha divisória, gradiente >10%. Motorhome (2.7m alt × 6.3m) PASSA mas exige atenção máxima. Usar marcha baixa na descida, buzinar nas curvas cegas, sair CEDO para evitar trânsito. Se choveu: cobblestones ficam perigosos — considerar Predel Pass como alternativa"],
+    dayCost: "~€10 (grátis, só lanches)",
+    camp: '<a href="https://www.camp-liza.com/en/" target="_blank">Camp Liza</a>, Bovec (2 noites)'
+  },
+  {
+    num: "8º dia", date: "16 Jun (Ter)", title: "Slap Kozjak & Rafting no Soča",
+    tags: ["nature","adventure"], cls: "", isoDate: "2026-06-16",
+    schedule: [
+      { t: "08:30", a: "Dirigir até Slap Kozjak (~25 min de Bovec)" },
+      { t: "09:00", a: "🌊 Slap Kozjak — cachoeira espetacular em gruta rochosa semicircular. Piscina natural esmeralda. Trilha curta e fácil (~30 min ida). Grátis" },
+      { t: "10:00", a: "Volta para Bovec. Tempo livre no centro — cafés, lojas de aventura" },
+      { t: "12:00", a: "Almoço em Bovec" },
+      { t: "14:00", a: "🚣 Rafting no Rio Soča com SportMix (~€70/pp, ~3h). Corredeiras classe II-III em águas esmeralda. Fotos incluídas" },
+      { t: "17:00", a: "Voltar para o camping. Secar e descansar" },
+      { t: "19:00", a: "Jantar no motorhome. Última noite na Eslovênia" }
+    ],
+    experiences: [
+      { name: "Slap Kozjak", desc: "Cachoeira em gruta rochosa, piscina esmeralda", category: "waterfall", time: "1–1.5h", cost: "Grátis", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g319788-d10020027-Reviews-Kozjak_Waterfall-Kobarid_Slovenian_Littoral_Region.html" }] },
+      { name: "Rafting Rio Soča", desc: "Classe II-III, águas esmeralda, wetsuit incluído, fotos grátis", category: "adventure", time: "~3h", cost: "€140", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g274866-d3254803-Reviews-SPORT_MIX-Bovec_Slovenian_Littoral_Region.html" }, { type: "official", url: "https://sportmix.si/en/rafting/" }] }
+    ],
+    dayCost: "~€150 (rafting €140 + almoço)",
+    camp: '<a href="https://www.camp-liza.com/en/" target="_blank">Camp Liza, Bovec</a>'
+  },
+  {
+    num: "9º dia", date: "17 Jun (Qua)", title: "Soča → Predil → Fusine → Cortina",
+    tags: ["drive","lake"], cls: "", isoDate: "2026-06-17",
+    schedule: [
+      { t: "07:00", a: "Desmontar camp. Última caminhada matinal pelo rio Soča — despedida da Eslovênia" },
+      { t: "07:30", a: "Dirigir: Bovec → Predel Pass (rota cênica pela montanha)" },
+      { t: "08:30", a: "Lago del Predil — lago alpino esmeralda na fronteira Itália/Eslovênia. Passeio ~1h. Grátis" },
+      { t: "09:30", a: "Seguir até Tarvisio (~20 min)" },
+      { t: "09:50", a: "Lago di Fusine — dois lagos glaciais com reflexo perfeito do Monte Mangart. Passeio ~30 min. Grátis" },
+      { t: "10:30", a: "Dirigir até Cortina d'Ampezzo (~2h30 via Dobbiaco/SS51)" },
+      { t: "—", a: "⛽ Abastecer diesel antes de chegar em Cortina" },
+      { t: "13:00", a: "Chegada em Cortina. Montar camp no Camping Dolomiti" },
+      { t: "14:00", a: "Almoço (comida do motorhome)" },
+      { t: "15:00", a: "🔥 TROCAR GÁS — procurar no Conad ou Eurospar em Cortina, ou no próprio camping (obrigatório!)" },
+      { t: "—", a: "🛒 Compra grande supermercado: Conad City / Eurospar Cortina. Reabastecer bem para próximos dias" },
+      { t: "16:00", a: "Passeio por Cortina d'Ampezzo — sede dos Jogos Olímpicos de Inverno 2026. Comprar souvenirs: speck, queijo, grappa" },
+      { t: "19:00", a: "Jantar no motorhome" }
+    ],
+    experiences: [
+      { name: "Lago del Predil", desc: "Lago alpino esmeralda na fronteira IT/SI", category: "lago", time: "1h", cost: "Grátis", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g616173-d4828065-Reviews-Lago_del_Predil-Tarvisio_Province_of_Udine_Friuli_Venezia_Giulia.html" }] },
+      { name: "Lago di Fusine", desc: "Hidden gem, lagos glaciais, reflexo Mangart", category: "lago", time: "30–45m", cost: "Grátis", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g616173-d3539872-Reviews-Laghi_di_Fusine-Tarvisio_Province_of_Udine_Friuli_Venezia_Giulia.html" }] },
+      { name: "Cortina d'Ampezzo", desc: "Rainha das Dolomitas, sede Olimpíadas 2026", category: "city", time: "2–3h", cost: "Grátis", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Tourism-g194745-Cortina_d_Ampezzo_Province_of_Belluno_Veneto.html" }] }
+    ],
+    dayCost: "~€15 (lagos grátis, só lanches)",
+    camp: '<a href="https://park4night.com/en/place/37737" target="_blank">Camping Dolomiti, Cortina</a> (3 noites)'
+  },
+  {
+    num: "10º dia", date: "18 Jun (Qui)", title: "Tre Cime di Lavaredo",
+    tags: ["trek"], cls: "", isoDate: "2026-06-18",
+    schedule: [
+      { t: "07:00", a: "Dirigir até a estrada pedagiada do Rifugio Auronzo (~52 min). Pedágio €60 (motorhome). ⚠️ Reserva online obrigatória!" },
+      { t: "08:30", a: "Trilha Tre Cime — circuito de 10 km ao redor das três torres (3–4h). A trilha mais icônica das Dolomitas" },
+      { t: "10:30", a: "Rifugio Locatelli — a vista clássica das Tre Cime. Parada para fotos" },
+      { t: "12:30", a: "Voltar ao Rifugio Auronzo. Café" },
+      { t: "14:00", a: "Voltar para Cortina (~40 min)" },
+      { t: "15:00", a: "Descanso no camping — recuperação" },
+      { t: "19:00", a: "Jantar no motorhome" }
+    ],
+    experiences: [
+      { name: "Tre Cime di Lavaredo", desc: "O cartão-postal definitivo — 10 km, 400m↑, Moderate", category: "trekking", time: "4–5h", cost: "€60 (toll motorhome)", links: [{ type: "alltrails", url: "https://www.alltrails.com/trail/italy/veneto/tre-cime-di-lavaredo-laghi-dei-piani?u=m" }, { type: "official", url: "https://auronzo.info/en/parking-tre-cime-di-lavaredo/" }] }
+    ],
+    warnings: ["RESERVA ONLINE OBRIGATÓRIA para toll road desde 2025! Verificar trecime.info"],
+    dayCost: "~€75 (toll €60 motorhome + rifúgio)",
+    camp: '<a href="https://park4night.com/en/place/37737" target="_blank">Camping Dolomiti, Cortina</a>'
+  },
+  {
+    num: "11º dia", date: "19 Jun (Sex)", title: "Lago di Sorapis",
+    tags: ["trek","lake"], cls: "", isoDate: "2026-06-19",
+    schedule: [
+      { t: "06:30", a: "Sair cedo! Dirigir até Passo Tre Croci (~20 min). Estacionamento lota rápido" },
+      { t: "07:00", a: "Trilha do Lago di Sorapis — 11.5 km, 5–6h. Trecho com cabos de aço (levar luvas!)" },
+      { t: "10:00", a: "Rifugio Vandelli — café ao lado do lago turquesa leitoso" },
+      { t: "11:30", a: "Trilha de volta" },
+      { t: "14:00", a: "Almoço tardio em Cortina" },
+      { t: "15:30", a: "Descanso no camping — recuperação após trilha puxada. Pernas no alto!" },
+      { t: "19:00", a: "Jantar no motorhome" }
+    ],
+    experiences: [
+      { name: "Lago di Sorapis", desc: "Lago turquesa leitoso, cabos de aço — 11.5 km, 600m↑, Advanced", category: "trekking", time: "5–6h", cost: "Grátis", links: [{ type: "alltrails", url: "https://www.alltrails.com/trail/italy/veneto/passo-tre-croci-lago-sorapis?u=m" }] }
+    ],
+    warnings: ["Sair ANTES das 7h — parking lota!","Cabos de aço — levar luvas. NÃO fazer se choveu","Rifugio Vandelli: SOMENTE CASH"],
+    dayCost: "~€15 (rifúgio)",
+    camp: '<a href="https://park4night.com/en/place/37737" target="_blank">Camping Dolomiti, Cortina</a> (ultima noite)'
+  },
+  {
+    num: "12º dia", date: "20 Jun (Sáb)", title: "Cortina → Lago di Braies → Dobbiaco",
+    tags: ["lake","drive"], cls: "", isoDate: "2026-06-20",
+    schedule: [
+      { t: "07:30", a: "Desmontar camp em Cortina — Sabado, sair cedo!" },
+      { t: "08:30", a: "Dirigir até Lago di Braies via Dobbiaco (~1h05)" },
+      { t: "09:45", a: "Caminhada ao redor do lago (3.5 km, circuito). Opção: barco a remo (~€18/30 min)" },
+      { t: "11:30", a: "Piquenique à beira do lago" },
+      { t: "12:30", a: "Dirigir até Camping Olympia, Dobbiaco (~26 min)" },
+      { t: "13:00", a: "Montar camp no Camping Olympia. 🧺 Lavanderia — colocar roupa na máquina" },
+      { t: "—", a: "💧 Reabastecer água + 🚽 scarico no camping" },
+      { t: "15:00", a: "Explorar Dobbiaco e/ou San Candido — vilas tirolesas charmosas, gelato" },
+      { t: "19:00", a: "🍽️ Jantar em restaurante tirolês em Dobbiaco/San Candido" }
+    ],
+    experiences: [
+      {
+        name: "Lago di Braies",
+        desc: "A 'Pérola dos Lagos Dolomíticos'. Circuito 3.5 km ao redor do lago + barco a remo opcional. Águas turquesa com reflexo das montanhas. Acesso livre em junho (restrições só após 10 Jul)",
+        category: "lago",
+        time: "2–3h",
+        cost: "€18 (barco opcional)",
+        links: [
+          { type: "tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g194740-d3395875-Reviews-Pragser_Wildsee-Prags_Braies_Province_of_South_Tyrol_Trentino_Alto_Adige.html" },
+          { type: "alltrails", url: "https://www.alltrails.com/trail/italy/south-tyrol/lago-di-braies" }
+        ]
+      }
+    ],
+    warnings: ["Sair cedo (08:00) — estacionamento de Braies enche rápido no verão", "Barco a remo: ~€18/30 min, disponível na margem norte"],
+    dayCost: "~€50 (barco + jantar)",
+    camp: '<a href="https://park4night.com/en/place/37064" target="_blank">Camping Olympia, Dobbiaco</a> (2 noites)'
+  },
+  {
+    num: "13º dia", date: "21 Jun (Dom)", title: "REST DAY — Wellness Olympia & Dobbiaco",
+    tags: ["rest","drone"], cls: "rest", isoDate: "2026-06-21",
+    schedule: [
+      { t: "09:00", a: "Dormir até mais tarde. Café da manhã tranquilo no motorhome" },
+      { t: "10:30", a: "🧖 Wellness no Camping Olympia — sauna, banho turco, cabine infravermelhos, piscinas. Incluso na diária!" },
+      { t: "12:30", a: "Almoço no motorhome" },
+      { t: "14:00", a: "Passeio por Dobbiaco e/ou San Candido — vilas tirolesas, artesanato, gelato" },
+      { t: "16:00", a: "🧖 Mais wellness — aproveitar sauna e piscinas no final da tarde" },
+      { t: "19:00", a: "Jantar no motorhome" }
+    ],
+    experiences: [
+      {
+        name: "Camping Olympia Wellness",
+        desc: "Sauna finlandesa, banho turco, cabine infravermelhos, piscina aquecida. Incluso na diária do camping. Recuperação após 3 dias intensos (Tre Cime, Sorapis, Braies)",
+        category: "rest",
+        time: "dia inteiro",
+        cost: "Incluso",
+        links: [
+          { type: "official", url: "https://www.camping-olympia.com/en/wellness" }
+        ]
+      }
+    ],
+    dayCost: "~€10 (wellness incluso, só snacks)",
+    camp: '<a href="https://park4night.com/en/place/37064" target="_blank">Camping Olympia, Dobbiaco</a> (ultima noite)'
+  },
+  {
+    num: "14º dia", date: "22 Jun (Seg)", title: "Dobbiaco → Chiusa → Val Gardena",
+    tags: ["drive","city"], cls: "", isoDate: "2026-06-22",
+    schedule: [
+      { t: "08:00", a: "Desmontar camp em Olympia" },
+      { t: "08:30", a: "Dirigir até Bressanone via SS49 (~1h). Parada breve opcional" },
+      { t: "09:30", a: "Dirigir até Chiusa (~15 min)" },
+      { t: "09:45", a: "Chiusa (Klausen) — vielas medievais. Subida ao Monastero di Sabiona (~1h)" },
+      { t: "11:00", a: "Dirigir até Val Gardena (~25 min)" },
+      { t: "11:30", a: "Montar camp no Camping Seiser Alm" },
+      { t: "—", a: "💧 Reabastecer água no camping" },
+      { t: "12:00", a: "Almoço no motorhome" },
+      { t: "14:00", a: "Explorar Ortisei — esculturas em madeira, gelato, lojas de artesanato" },
+      { t: "19:00", a: "Jantar no motorhome" }
+    ],
+    experiences: [
+      { name: "Chiusa (Klausen)", desc: "Vielas medievais, Dürer 1494. Monastero di Sabiona no penhasco acima da vila", category: "city", time: "1–2h", cost: "Grátis", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Tourism-g1150025-Chiusa_Province_of_South_Tyrol_Trentino_Alto_Adige.html" }] },
+      { name: "Monastero di Sabiona", desc: "Mosteiro beneditino no penhasco acima de Chiusa, vista panoramica do vale", category: "city", time: "1h", cost: "Grátis", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g1150025-d1809967-Reviews-Kloster_Saben_Monastero_Di_Sabiona-Chiusa_Province_of_South_Tyrol_Trentino_Alto_.html" }] },
+      {
+        name: "Ortisei (St. Ulrich)",
+        desc: "Capital de Val Gardena. Tradição secular de escultura em madeira, lojas de artesanato, gelato. Vila alpina charmosa no coração das Dolomitas",
+        category: "city",
+        time: "2–3h",
+        cost: "Grátis",
+        links: [
+          { type: "tripadvisor", url: "https://www.tripadvisor.com/Tourism-g194900-Ortisei_St_Ulrich_Province_of_South_Tyrol_Trentino_Alto_Adige-Vacations.html" }
+        ]
+      }
+    ],
+    dayCost: "~€5",
+    camp: '<a href="https://park4night.com/en/place/106789" target="_blank">Camping Seiser Alm, Val Gardena</a> (3 noites)'
+  },
+  {
+    num: "15º dia", date: "23 Jun (Ter)", title: "Seceda Ridgeline",
+    tags: ["trek"], cls: "", isoDate: "2026-06-23",
+    schedule: [
+      { t: "09:00", a: "Cable car Ortisei → Seceda (~€41/pp online). RESERVA ONLINE OBRIGATORIA 2026 (seceda.it). Tickets pessoais, nao-reembolsaveis" },
+      { t: "09:30", a: "Taxa de acesso a crista — €5/pp no torniquete (NOVO 2026). Proibido sair das trilhas demarcadas" },
+      { t: "10:00", a: "Trilha Seceda Ridgeline — circuito de 10 km pela crista com vista das Odle (3–4h)" },
+      { t: "13:00", a: "Café e lanche no Rifugio Firenze" },
+      { t: "15:00", a: "Descer de teleférico. Passear por Ortisei e tomar gelato" },
+      { t: "19:00", a: "🍽️ JANTAR: restaurante tirolês em Ortisei (Tubladel, Concordia ou Hotel Nives) — cozinha local do Val Gardena" }
+    ],
+    experiences: [
+      { name: "Seceda Ridgeline (2.519m)", desc: "Crista icônica, Odle/Geisler — 10 km, 600m↑, Moderate", category: "trekking", time: "4–5h", cost: "€74/pp RT", links: [{ type: "alltrails", url: "https://www.alltrails.com/trail/italy/south-tyrol/seceda-resciesa?u=m" }, { type: "official", url: "https://www.seceda.it" }] }
+    ],
+    restaurant: { name: "Ortisei", meal: "Jantar", desc: "Cozinha tirolesa local em Val Gardena — Tubladel, Concordia ou Hotel Nives" },
+    warnings: ["€74/pp RT — NÃO comprar antecipado! Verificar clima no dia. Comprar no local se tempo bom (1/3 slots walk-up)"],
+    dayCost: "~€195 (cable car €148 RT + rifúgio + jantar)",
+    camp: '<a href="https://park4night.com/en/place/106789" target="_blank">Camping Seiser Alm, Val Gardena</a> (3 noites)'
+  },
+  {
+    num: "16º dia", date: "24 Jun (Qua)", title: "Alpe di Siusi — Peak Wildflower Season",
+    tags: ["trek","rest","drone"], cls: "", isoDate: "2026-06-24",
+    schedule: [
+      { t: "08:45", a: "Teleférico Siusi → Compatsch (~€30/pp ida e volta)" },
+      { t: "09:30", a: "Caminhada leve pela Alpe di Siusi — maior prado alpino da Europa (5-6 km). Flores silvestres, fotos e café no rifúgio" },
+      { t: "12:00", a: "Piquenique no planalto com vista do Sciliar" },
+      { t: "13:00", a: "Descer de teleférico" },
+      { t: "14:00", a: "Tarde livre — dia de recuperação. Descansar no camping. (Opcional: Castelrotto, vila medieval tirolesa a 10 min)" },
+      { t: "19:00", a: "Jantar no motorhome" }
+    ],
+    experiences: [
+      { name: "Alpe di Siusi", desc: "Maior prado alpino da Europa. Versão curta — 5-6 km, 150m↑, Easy. Pico das flores em junho", category: "trekking", time: "2–3h", cost: "€60", links: [{ type: "alltrails", url: "https://www.alltrails.com/trail/italy/south-tyrol/compatsch-biotop-grosses-moos-panorama?u=m" }, { type: "official", url: "https://www.seiseralm.it/en/info/getting-around/seiser-alm-aerial-cableway-summer.html" }] }
+    ],
+    dayCost: "~€75 (cable car €60 RT + snack)",
+    camp: '<a href="https://park4night.com/en/place/106789" target="_blank">Camping Seiser Alm, Val Gardena</a> (ultima noite)'
+  },
+  {
+    num: "17º dia", date: "25 Jun (Qui)", title: "Val Gardena → Lago di Carezza → Sirmione",
+    tags: ["drive","lake","drone"], cls: "", isoDate: "2026-06-25",
+    schedule: [
+      { t: "08:00", a: "Desmontar camp em Val Gardena" },
+      { t: "08:30", a: "Dirigir até Lago di Carezza via Val d'Ega (~48 km, 1h10)" },
+      { t: "09:45", a: "Lago di Carezza (Karersee) — lago alpino com reflexo do Latemar e Catinaccio. Caminhada curta ao redor (~30 min). Despedida das Dolomitas" },
+      { t: "10:30", a: "Packed lunch perto do lago" },
+      { t: "—", a: "⛽ Abastecer diesel na A22 antes do trecho longo" },
+      { t: "11:00", a: "Dirigir até Desenzano del Garda via A22 sul → A4 oeste (~175 km, 2h10)" },
+      { t: "13:15", a: "Chegada em Desenzano. Estacionar no free parking Via Michelangelo 9 (Park4Night). 5 min do lago" },
+      { t: "13:30", a: "Passeio por Desenzano — centro medieval, porto, vista Lago di Garda" },
+      { t: "15:00", a: "Drive até Sirmione (~15 min). Passeio pelo centro storico, gelato" },
+      { t: "19:00", a: "Retorno ao free parking Desenzano. Jantar no motorhome. Última noite relaxada" }
+    ],
+    experiences: [
+      { name: "Lago di Carezza (Karersee)", desc: "Pequeno lago alpino com reflexo do Latemar e Catinaccio/Rosengarten. Cores surreais entre turquesa e verde. Um dos lagos mais fotogênicos das Dolomitas", category: "lago", time: "1h", cost: "Estacionamento ~€5", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g1023620-d2335498-Reviews-Lake_Carezza-Nova_Levante_Province_of_South_Tyrol_Trentino_Alto_Adige.html" }] }
+    ],
+    dayCost: "~€10 (estacionamento + snack)",
+    camp: '🅿️ <a href="https://park4night.com/en/place/14906" target="_blank">Free parking Desenzano</a> (Via Michelangelo 9, grátis)'
+  },
+  {
+    num: "18º dia", date: "26 Jun (Sex)", title: "Sirmione → MXP",
+    tags: ["drive","castle","city"], cls: "city", isoDate: "2026-06-26",
+    schedule: [
+      { t: "08:30", a: "Café da manhã no motorhome com vista do Lago di Garda" },
+      { t: "09:30", a: "Castello Scaligero — fortaleza do séc. XIII sobre o lago. Subir na torre para vista panorâmica (~€8/pp)" },
+      { t: "11:00", a: "Caminhar pela península até as Grotte di Catullo — ruínas de villa romana com vista do Lago di Garda (~€10/pp)" },
+      { t: "12:30", a: "🍽️ ALMOÇO DE DESPEDIDA — walk-in, sem reserva. Descer das Grotte pela península e escolher um restaurante com terraço à beira do lago. Pedir peixe do Garda (lavarello, luccioperca) e vinho Lugana DOC (branco local). Última refeição especial da viagem!" },
+      { t: "14:30", a: "Último passeio por Sirmione. Gelato e souvenir" },
+      { t: "15:30", a: "🧹 LIMPEZA FINAL DO MOTORHOME (~30 min): esvaziar geladeira · limpar fogão, bancada e pia · varrer · 🚽 último scarico (esvaziar cassete do WC + tanque de água cinza) · recolher varal e extensão · separar lixo · conferir todos os armários · organizar malas (mão vs despachada)" },
+      { t: "17:00", a: "⛽ Abastecer diesel na A4 (posto na área de serviço Brescia/Bergamo) — tanque cheio para devolver à Indie Campers" },
+      { t: "17:30", a: "Dirigir de Sirmione até a região de MXP pela A4 (~2h)" },
+      { t: "19:30", a: "Chegada perto do aeroporto. Dormir no motorhome (pátio da Indie Campers ou estacionamento via Park4Night)" }
+    ],
+    experiences: [
+      { name: "Castello Scaligero", desc: "Sirmione, séc. XIII, torre, darsena, Lago di Garda", category: "castle", time: "1.5–2h", cost: "€8/pp", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g187842-d2218711-Reviews-Castello_Scaligero-Sirmione_Province_of_Brescia_Lombardy.html" }, { type: "official", url: "https://museilombardia.cultura.gov.it/musei/castello-scaligero-di-sirmione/" }] },
+      { name: "Sirmione", desc: "Grotte di Catullo (€10/pp), península no Lago di Garda", category: "city", time: "2–3h", cost: "€20", links: [{ type: "tripadvisor", url: "https://www.tripadvisor.com/Tourism-g187842-Sirmione_Province_of_Brescia_Lombardy.html" }, { type: "official", url: "https://www.grottedicatullo.beniculturali.it/" }] }
+    ],
+    restaurant: { name: "Farewell Lunch — Lago di Garda", meal: "Almoço", desc: "Italian fish, vinho Lugana DOC. Última refeição especial!" },
+    warnings: ["Perguntar à Indie Campers se pode pernoitar no pátio na véspera da devolução"],
+    dayCost: "~€74 (castelo €16 + grotte €20 + farewell lunch)",
+    camp: "Pernoite livre perto de MXP"
+  },
+  {
+    num: "19º dia", date: "27 Jun (Sáb)", title: "Return Motorhome → São Paulo",
+    tags: ["drive"], cls: "", isoDate: "2026-06-27",
+    schedule: [
+      { t: "07:00", a: "Acordar tranquilo — já estamos perto do aeroporto!" },
+      { t: "07:30", a: "Café da manhã no motorhome. Últimos preparativos e conferir se não esqueceu nada" },
+      { t: "08:00", a: "Devolver motorhome na Indie Campers (MXP). Inspeção do veículo" },
+      { t: "09:00", a: "Transfer até o terminal. Fazer check-in e despachar malas" },
+      { t: "10:30", a: "Tempo livre no aeroporto — duty free, último espresso italiano" },
+      { t: "13:00", a: "Voo LATAM LA8073 → GRU" },
+      { t: "20:00", a: "Chegada em São Paulo" }
+    ],
+    camp: "—"
+  },
+];
+
+// ============================================================
+// CHECKLIST DATA
+// ============================================================
+const checklistGroups = [
+  { title: "Março 2026 — 3 meses antes", items: [
+    { id: "c-voo", text: "Voos LATAM GRU↔MXP — Confirmado", done: true },
+    { id: "c-mh", text: "Motorhome Indie Campers — Confirmado", done: true },
+    { id: "c-seg", text: "Seguro viagem Premium credit card / AIG", done: true },
+  ]},
+  { title: "Abril 2026 — 2 meses antes", items: [
+    { id: "c-trecime", text: "✅ Tre Cime toll road — cadastro criado em pass.auronzo.info (<your registered name>). Tickets abrem ~final de maio", done: true },
+    { id: "c-vrsic", text: "✅ Vršič Pass: motorhome (2.7m alt × 6.3m) PASSA mas desafiador. 50 hairpins, cobblestones, curvas cegas. Sair cedo, marcha baixa na descida. Se chover: usar Predel Pass", done: true },
+    { id: "c-seceda", text: "Seceda cable car — EM 2026 RESERVA ONLINE OBRIGATORIA com time slot. Comprar em seceda.it para Jun 23" },
+    { id: "c-palazzo", text: "⚠️ Itinerari Segreti — Palazzo Ducale (tour inglês 11:30, Jun 10) — solicitação enviada 12/Abr, aguardando confirmação", critical: true },
+    { id: "c-sanmarco", text: "⚠️ Comprar ingresso Basilica di San Marco online (obrigatório desde Jul 2025). Timed-entry Jun 10 ~09:45", critical: true },
+    { id: "c-fisico", text: "Condicionamento físico (trilhas de 6h com 700m+ desnível) ✅", done: true },
+    { id: "c-seceda-buy", text: "Comprar Seceda cable car online (seceda.it) — time slot Jun 23. Reserva obrigatoria em 2026. ~€41/pp (5% desc). Nao-reembolsavel", critical: true },
+    { id: "c-fusina", text: "Reservar Camping Fusina (Venezia) — Jun 9–11 (2 noites) — Confirmado", done: true },
+    { id: "c-bled", text: "Reservar Camping Bled (Jun 11–14) — 3 noites confirmadas", done: true },
+    { id: "c-olympia", text: "Reservar Camping Olympia (Dobbiaco) — Jun 20–22, 2 noites, €65.50/noite. Confirmado", done: true },
+    { id: "c-sirmione-camp", text: "Camping Sirmione — min. 3 noites, não aceita 1 noite. Alternativa: free parking Desenzano (Via Michelangelo 9, grátis)", done: true },
+    { id: "c-postojna", text: "Comprar combo Postojna+Predjama online (~€47/pp)" },
+    { id: "c-rafting", text: "Reservar rafting Soča" },
+    { id: "c-indie-overnight", text: "Perguntar Indie Campers se pode pernoitar no pátio na noite de 26 Jun (véspera da devolução)" },
+  ]},
+  { title: "Maio 2026 — 1 mês antes", items: [
+    { id: "c-translado", text: "Home → Airport transfer — onibus 09:30 + Uber → GRU ~14:00. R$300", done: true },
+    { id: "c-pet-care", text: "Pet sitter — confirmada. R$100/dia x 20 dias = R$2.000", done: true },
+    { id: "c-confirmar", text: "Confirmar todas as reservas (motorhome, campings, voos)" },
+    { id: "c-vinheta", text: "Comprar e-vinheta eslovena (evinjeta.dars.si) — 7-day pass, Cat 2A" },
+    { id: "c-banco", text: "Avisar banco sobre viagem (Itália + Eslovênia)", done: true },
+    { id: "c-cnh", text: "Verificar carteira de motorista internacional", done: true },
+    { id: "c-roaming", text: "Verificar roaming celular (EU roaming — cobre Itália e Eslovênia)", done: true },
+    { id: "c-drone-dflight", text: "Drone Avata 2 — Registrar no D-Flight (d-flight.it). €6/ano. Receber eID + QR code", critical: true },
+    { id: "c-drone-seguro", text: "Drone — Contratar seguro RC (Responsabilidade Civil). Obrigatório na UE. Min ~€920k cobertura", critical: true },
+    { id: "c-drone-qr", text: "Drone — Colar QR code (eID) fisicamente no Avata 2" },
+    { id: "c-drone-app", text: "Drone — Baixar app D-Flight (verificar zonas de voo em tempo real)" },
+    { id: "c-drone-guide", text: "Drone — Estudar drone-guide.md. Spots permitidos vs proibidos" },
+    { id: "c-placa-mh", text: "Pedir placa do motorhome a Indie Campers por email — necessaria para reservar Tre Cime toll road", critical: true },
+    { id: "c-franquia", text: "Verificar franquia seguro Indie Campers (pode ser €1.500-3.000). Considerar reducao de franquia (~€10-15/dia)", critical: true },
+    { id: "c-ztl", text: "Estudar ZTL (Zona Traffico Limitato): Cortina, Bressanone, Sirmione. Motorhome NAO entra. Multa €80-335" },
+    { id: "c-farois-si", text: "Eslovenia: farois baixos obrigatorios 24h/dia (mesmo de dia). Multa ~€40" },
+    { id: "c-mapas", text: "Baixar mapas offline: Google Maps (Itália + Eslovênia), Komoot/AllTrails" },
+    { id: "c-apps", text: "Baixar apps: Park4Night, CamperContact, MeteoTrentino, ARSO (meteo.si)" },
+  ]},
+  { title: "Semanas anterior (início de junho)", items: [
+    { id: "c-trecime-ticket", text: "⚠️ ~19 Mai (30 dias antes): Reservar Tre Cime toll road ticket — reserva abre apenas 30 dias antes! Placa do veiculo necessaria", critical: true },
+    { id: "c-concerto", text: "⚠️ Comprar tickets Concerto I Musici Veneziani: Vivaldi Four Seasons (Jun 10, 20:30). ~€65/pp. Site: imusiciveneziani.com", critical: true },
+    { id: "c-missa", text: "Verificar horário de missas na Basilica di San Marco (orarimesse.it)" },
+    { id: "c-clima", text: "Verificar condições climáticas de longo prazo" },
+    { id: "c-vrsicopen", text: "Verificar se Vršič Pass está aberto (geralmente abre maio/junho)" },
+    { id: "c-vrsic-vespera", text: "⚠️ Véspera do Vršič (Jun 14): checar condições da estrada. Se choveu → Predel Pass", critical: true },
+    { id: "c-sorapis-check", text: "Verificar condicoes Lago di Sorapis (1 semana antes): neve/gelo nas secoes com cabos. Instagram Rifugio Vandelli ou grupo Dolomites Hiking", critical: true },
+    { id: "c-neve", text: "Verificar condições de neve nos passes dolomíticos (Gardena, Sella)" },
+    { id: "c-cash", text: "Trocar €300 em espécie (notas pequenas)" },
+    { id: "c-playlist", text: "Preparar playlist/podcasts para estrada" },
+    { id: "c-mala", text: "Fazer mala seguindo packing list" },
+    { id: "c-eletro", text: "Carregar eletrônicos + power bank" },
+    { id: "c-checkin", text: "Check-in LATAM (24h antes do voo)" },
+  ]},
+  { title: "2-3 dias antes do voo (05-06/06)", items: [
+    { id: "c-seguro2", text: "⚠️ Emitir NOVO seguro viagem Premium credit card — bilhete expira 07/06. NÃO deixar para o dia do voo! Salvar PDF em docs/", critical: true },
+  ]},
+  { title: "Dia do voo — 08/06/2026", items: [
+    { id: "c-seceda2", text: "Seceda cable car — ja reservado online. Confirmar time slot Jun 23. Levar €10 cash para taxa da crista (€5/pp, torniquete)", critical: true },
+  ]},
+];
+
+// ============================================================
+// TAG LABELS
+// ============================================================
+const tagLabels = {
+  trek: ["🥾 Trekking", "tag-trek"], city: ["🏰 Cidades", "tag-city"], lake: ["🏞️ Lagos", "tag-lake"],
+  castle: ["🏰 Castelos", "tag-castle"], nature: ["🌿 Natureza", "tag-nature"],
+  adventure: ["🚣 Aventura", "tag-adventure"], rest: ["🧘 Descanso", "tag-rest"],
+  drive: ["🚐 Drive", "tag-drive"], drone: ["🎮 Drone", "tag-drone"],
+};
+
+// ============================================================
+// CATEGORY & LINK LABELS
+// ============================================================
+const categoryLabels = {
+  trekking:  { emoji: "🥾", label: "Trekking" },
+  city:      { emoji: "🏰", label: "Cidades" },
+  lago:      { emoji: "🏞️", label: "Lagos" },
+  castle:    { emoji: "🏰", label: "Castelos" },
+  nature:    { emoji: "🌿", label: "Natureza" },
+  adventure: { emoji: "🚣", label: "Aventura" },
+  rest:      { emoji: "🧘", label: "Descanso" },
+  drive:     { emoji: "🚐", label: "Drive" },
+  drone:     { emoji: "🎮", label: "Drone" },
+};
+
+const linkLabels = {
+  alltrails:     { icon: "🥾", label: "AllTrails" },
+  tripadvisor:   { icon: "📍", label: "TripAdvisor" },
+  getyourguide:  { icon: "🎫", label: "GetYourGuide" },
+  booking:       { icon: "🏨", label: "Booking" },
+  website:       { icon: "🔗", label: "Website" },
+  official:      { icon: "💶", label: "Preço oficial" },
+};
+
+// ============================================================
+// RENDER FILTER BAR
+// ============================================================
+const filterBar = document.getElementById("filter-bar");
+const usedCategories = new Set();
+days.forEach(d => {
+  if (d.experiences) d.experiences.forEach(e => usedCategories.add(e.category));
+  if (d.tags) d.tags.forEach(t => usedCategories.add(t));
+});
+
+let filterHTML = `<button class="filter-btn active" data-cat="all" onclick="filterDays('all', this)">Todos</button>`;
+for (const [key, val] of Object.entries(categoryLabels)) {
+  if (usedCategories.has(key)) {
+    filterHTML += `<button class="filter-btn" data-cat="${key}" onclick="filterDays('${key}', this)">${val.emoji} ${val.label}</button>`;
+  }
+}
+filterBar.innerHTML = filterHTML;
+
+// ============================================================
+// RENDER TIMELINE
+// ============================================================
+const today = new Date().toISOString().slice(0, 10);
+
+const tl = document.getElementById("timeline");
+days.forEach((d, i) => {
+  const isToday = d.isoDate === today;
+  const isPast = d.isoDate < today;
+  const tags = d.tags.map(t => tagLabels[t] ? `<span class="tag ${tagLabels[t][1]}">${tagLabels[t][0]}</span>` : "").join("");
+
+  let detailHTML = "";
+  if (d.schedule) {
+    let rows = d.schedule.map(s => `<tr><td>${s.t}</td><td>${s.a}</td></tr>`).join("");
+    detailHTML += `<table class="schedule-table">${rows}</table>`;
+  }
+  if (d.restaurant) {
+    const rLink = d.restaurant.url ? `<a href="${d.restaurant.url}" target="_blank" rel="noopener">TripAdvisor →</a>` : '';
+    detailHTML += `<div class="day-restaurant">🍽️ <strong>${d.restaurant.meal}:</strong> ${d.restaurant.name} — ${d.restaurant.desc} ${rLink}</div>`;
+  }
+  if (d.experiences && d.experiences.length) {
+    detailHTML += `<div class="day-experiences"><div class="day-experiences-title">🎯 Experiências do dia</div>`;
+    d.experiences.forEach(exp => {
+      const cat = categoryLabels[exp.category] || { emoji: "📌", label: exp.category };
+      const linksHtml = (exp.links || [])
+        .map(l => {
+          const lb = linkLabels[l.type] || { icon: "🔗", label: l.type };
+          return `<a href="${l.url}" target="_blank" rel="noopener" class="exp-link ${l.type}">${lb.icon} ${lb.label} →</a>`;
+        }).join("");
+      detailHTML += `
+        <div class="exp-card">
+          <div class="exp-card-header">
+            <span class="exp-card-name">${exp.name}</span>
+            <span class="exp-card-cat">${cat.emoji} ${cat.label}</span>
+          </div>
+          <div class="exp-card-desc">${exp.desc}</div>
+          <div class="exp-card-meta">
+            <span>⏱ ${exp.time}</span>
+            <span>💶 ${exp.cost}</span>
+          </div>
+          ${linksHtml ? `<div class="exp-card-links">${linksHtml}</div>` : ''}
+        </div>`;
+    });
+    detailHTML += `</div>`;
+  }
+  if (d.warnings && d.warnings.length) {
+    detailHTML += `<div class="day-warnings">${d.warnings.map(w => "⚠️ " + w).join("<br>")}</div>`;
+  }
+  let metaParts = [];
+  if (d.dayCost) metaParts.push(`<span>💶 ${d.dayCost}</span>`);
+  if (d.camp) metaParts.push(`<span>⛺ ${d.camp}</span>`);
+  if (d.driving) metaParts.push(`<span>🚐 ${d.driving}</span>`);
+  if (metaParts.length) detailHTML += `<div class="day-meta">${metaParts.join("")}</div>`;
+
+  tl.innerHTML += `
+    <div class="day-card ${d.cls} ${isToday ? 'today' : ''} ${isPast ? 'past' : ''}" id="day-${i}" ${isToday ? 'data-today="true"' : ''} onclick="toggleDay(this, event)">
+      <div class="day-summary">
+        <div class="day-summary-left">
+          <div class="day-header"><span class="day-date">${d.date}</span> <span class="day-num">(${d.num})</span></div>
+          <div class="day-title">${d.title}</div>
+          <div class="day-tags">${tags}</div>
+        </div>
+        <span class="expand-icon">▼</span>
+      </div>
+      <div class="day-detail"><div class="day-detail-inner">${detailHTML}</div></div>
+    </div>`;
+});
+
+function shareTrip() {
+  const url = 'https://github.com/marcuslacerda/claude-x8-travel-skill/blob/main/examples/italy-2026/journey.html';
+  const text = 'Dolomites & Slovenia 2026 — 20 dias de motorhome, trilhas e lagos. Roteiro completo:';
+  if (navigator.share) {
+    navigator.share({ title: 'Dolomites & Slovenia 2026', text: text, url: url }).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(url).then(() => {
+      const toast = document.getElementById('shareToast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2000);
+    });
+  }
+}
+
+function toggleDay(card, event) {
+  if (event && event.target.closest('.day-detail')) return;
+  if (event && event.target.tagName === 'A') return;
+  card.classList.toggle("open");
+}
+
+function filterDays(category, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.day-card').forEach((card, i) => {
+    const day = days[i];
+    if (category === 'all') {
+      card.style.display = '';
+      return;
+    }
+    const hasExpMatch = day.experiences && day.experiences.some(e => e.category === category);
+    const hasTagMatch = day.tags && day.tags.includes(category);
+    card.style.display = (hasExpMatch || hasTagMatch) ? '' : 'none';
+  });
+}
+
+// ============================================================
+// RENDER CHECKLIST with localStorage
+// ============================================================
+const clEl = document.getElementById("checklist");
+const saved = JSON.parse(localStorage.getItem("trip-checklist") || "{}");
+
+let totalItems = 0, checkedItems = 0;
+checklistGroups.forEach(g => {
+  let html = `<div class="checklist-group"><h3>${g.title}</h3>`;
+  g.items.forEach(item => {
+    totalItems++;
+    const isChecked = item.done || saved[item.id];
+    if (isChecked) checkedItems++;
+    const cls = item.done ? "done" : item.critical ? "critical" : "";
+    html += `<div class="checklist-item ${cls} ${isChecked && !item.done ? 'checked' : ''}">
+      <input type="checkbox" id="${item.id}" ${isChecked ? 'checked' : ''} ${item.done ? 'disabled' : ''} onchange="toggleCheck('${item.id}', this)">
+      <label for="${item.id}">${item.text}</label>
+    </div>`;
+  });
+  html += `</div>`;
+  clEl.innerHTML += html;
+});
+
+updateProgress();
+
+function toggleCheck(id, el) {
+  const s = JSON.parse(localStorage.getItem("trip-checklist") || "{}");
+  s[id] = el.checked;
+  localStorage.setItem("trip-checklist", JSON.stringify(s));
+  el.closest(".checklist-item").classList.toggle("checked", el.checked);
+  // recount
+  checkedItems = 0;
+  document.querySelectorAll('#checklist input[type="checkbox"]:checked').forEach(() => checkedItems++);
+  updateProgress();
+}
+
+function updateProgress() {
+  const pct = Math.round((checkedItems / totalItems) * 100);
+  document.getElementById("checklist-count").textContent = `${checkedItems}/${totalItems} concluídos (${pct}%)`;
+  document.getElementById("checklist-fill").style.width = pct + "%";
+}
+
+// ============================================================
+// PACKING LIST
+// ============================================================
+const packingGroups = [
+  { title: "🔴 Documentos & Dinheiro", items: [
+    { id: "p-passaporte", text: "Passaportes (validade 6+ meses)" },
+    { id: "p-cnh", text: "Carteira de motorista internacional" },
+    { id: "p-cartoes", text: "Cartões de crédito (avisar banco!)" },
+    { id: "p-cash", text: "€300 em cash (notas pequenas — rifúgios só aceitam cash)" },
+    { id: "p-reservas", text: "Confirmações impressas: motorhome, voos, campings, Tre Cime, Seceda, Postojna, rafting" },
+    { id: "p-copiadigital", text: "Cópia digital de todos os docs no celular" },
+    { id: "p-seguro", text: "Seguro viagem emitido (Premium credit card — emitir 08/06!)" },
+    { id: "p-vinheta", text: "E-vinheta eslovena comprada (evinjeta.dars.si)" },
+  ]},
+  { title: "🥾 Trekking", items: [
+    { id: "p-botas", text: "Botas de trekking impermeáveis (já amaciadas! testar em trilha longa antes)" },
+    { id: "p-mochila", text: "Mochila de trilha 25-35L com capa de chuva" },
+    { id: "p-bastoes", text: "Bastões de caminhada telescópicos (essenciais para Sorapis, Seceda, descidas longas)" },
+    { id: "p-garrafa", text: "Garrafa d'água reutilizável 1L cada (reabastecer em fontes alpinas)" },
+    { id: "p-luvas", text: "Luvas leves de trekking (cabos de aço em Sorapis — grip essencial)" },
+    { id: "p-headlamp", text: "Headlamp/lanterna de cabeça (Postojna Cave + saídas cedo antes do amanhecer)" },
+    { id: "p-protetor", text: "Protetor solar SPF 50 + protetor labial com FPS (altitude = UV intenso)" },
+    { id: "p-oculos", text: "Óculos de sol categoria 3-4 (mountain-grade, UV-rated)" },
+    { id: "p-buff", text: "Buff / neck gaiter (vento, sol, frio — multiuso)" },
+    { id: "p-sacoseco", text: "Saco estanque para eletrônicos (chuvas repentinas nas Dolomitas)" },
+    { id: "p-apito", text: "Apito de emergência" },
+    { id: "p-snacks", text: "Snacks de trilha: barras energéticas, frutas secas, nuts (comprar no mercado italiano)" },
+  ]},
+  { title: "💊 Saúde & Segurança", items: [
+    { id: "p-bolhas", text: "Kit primeiro socorros: band-aids/Compeed (bolhas), fita atlética, gaze estéril, esparadrapo" },
+    { id: "p-antisseptico", text: "Antisséptico: Povidona iodada (Betadine) sachês — cortes em trilha, arranhões" },
+    { id: "p-analgesico", text: "Ibuprofeno 400mg (dor muscular, entorse, altitude) + Paracetamol 750mg (febre, dor geral)" },
+    { id: "p-antidiarreia", text: "Loperamida/Imosec — mudança de dieta, água diferente" },
+    { id: "p-antialergico", text: "Loratadina ou Cetirizina — pólen de flores alpinas em junho" },
+    { id: "p-antiacido", text: "Omeprazol — jantares pesados (Tyrolean cuisine, speck, queijos)" },
+    { id: "p-relaxante", text: "Ciclobenzaprina/Miosan — pernas travadas após trilhas longas" },
+    { id: "p-sro", text: "Sal de reidratação oral (2-3 sachês) — desidratação em altitude + sol" },
+    { id: "p-colirio", text: "Colírio lubrificante — vento + poeira em altitude" },
+    { id: "p-buscopan", text: "Buscopan — cólica por frio ou alimentação diferente" },
+    { id: "p-repelente", text: "Repelente de insetos (mosquitos nos lagos ao entardecer — Bled, Bohinj, Fusine)" },
+    { id: "p-medicamentos", text: "Medicamentos pessoais + receitas (se aplicável)" },
+    { id: "p-pastilhas", text: "Pastilhas para purificar água (emergência — fontes alpinas geralmente potáveis)" },
+    { id: "p-emergencia", text: "Emergência: 112 (Europa), 118 (resgate montanha IT), <your card issuer's emergency line>" },
+  ]},
+  { title: "👕 Roupas (Junho: 8-30°C, variável por altitude)", items: [
+    { id: "p-camisetas", text: "Base layer: 5-6 camisetas técnicas dry-fit (secar rápido)" },
+    { id: "p-fleece", text: "Mid layer: 2 fleece / softshell (um leve para vale, um quente para altitude)" },
+    { id: "p-jaqueta", text: "Outer layer: 1 jaqueta corta-vento impermeável com capuz (ESSENCIAL — trovoadas!)" },
+    { id: "p-puffer", text: "Insulation: 1 puffer jacket leve/compactável (noites em altitude 2-8°C)" },
+    { id: "p-calcas", text: "2 calças de trekking (1 conversível em shorts — mais versátil)" },
+    { id: "p-shorts", text: "2 shorts para caminhadas em vales quentes (20-28°C)" },
+    { id: "p-calcacasual", text: "1 calça casual/jeans para cidades e jantares" },
+    { id: "p-meias", text: "5 pares de meias de trekking (merino wool ideal — não usar algodão!)" },
+    { id: "p-meiasnormais", text: "2 pares de meias normais" },
+    { id: "p-chinelo", text: "Chinelo para camping/motorhome/wellness" },
+    { id: "p-tenis", text: "Tênis casual/walking shoes para dias de cidade (Veneza, Cortina, Bled)" },
+    { id: "p-casual", text: "2-3 conjuntos casuais para cidades e jantares (Bressanone, Cortina, Veneza, Sirmione)" },
+    { id: "p-bone", text: "Boné / chapéu de sol com proteção UV" },
+    { id: "p-toalha", text: "Toalha de secagem rápida (microfiber — para camping, lago, wellness)" },
+    { id: "p-banho", text: "Roupa de banho (piscinas campings + Lago Bohinj + rafting Soča)" },
+    { id: "p-canga", text: "Canga ou roupão leve (piscinas dos campings, wellness)" },
+    { id: "p-interior", text: "Roupa interior suficiente para ~7 dias (lavar no camping mid-trip)" },
+  ]},
+  { title: "🚐 Motorhome — itens para trazer do Brasil", description: "Já incluso no Comfort Compact: fogão 2 bocas, pia, geladeira, WC + chuveiro, kit cozinha (4 pratos, 4 bowls, 4 copos, talheres, 2 panelas, 1 frigideira, tábua). NÃO inclui: roupa de cama, toalhas, mesa/cadeiras outdoor, produtos de limpeza.", items: [
+    { id: "p-bedding", text: "⚠️ Bedding Kit — verificar se já está na reserva Indie Campers. Se não: alugar Essential Travel Kit ou bedding avulso" },
+    { id: "p-toalhas", text: "Toalhas de banho microfiber (2) — Indie Campers NÃO fornece toalhas" },
+    { id: "p-panosprato", text: "Panos de prato / pano multiuso (3-4) — não vem no kit cozinha" },
+    { id: "p-abridor", text: "Abridor de lata/garrafa + saca-rolhas — não garantido no kit" },
+    { id: "p-facachef", text: "Faca de chef pequena — facas do kit são básicas, uma boa facilita 18 dias cozinhando" },
+    { id: "p-moka", text: "Moka pot para café italiano (indispensável!)" },
+    { id: "p-varal", text: "Varal + pregadores (secar roupas de trilha ao sol — seca em 2-3h)" },
+    { id: "p-prendedores", text: "Prendedores de mola / clips (fixar toalhas no motorhome)" },
+    { id: "p-faca", text: "Faca multiuso / canivete (queijos, speck, frutas)" },
+    { id: "p-tupperware", text: "Tupperware / potes herméticos (para packed lunch nas trilhas)" },
+    { id: "p-sacotermico", text: "Saco térmico pequeno (manter lunch fresco durante trilhas longas)" },
+    { id: "p-lanterna", text: "Lanterna (para noites no camping sem iluminação)" },
+    { id: "p-extensao", text: "Extensão elétrica curta (tomadas nos campings podem ser distantes)" },
+    { id: "p-adaptgas", text: "Adaptador de gás europeu universal (compatibilidade Campingaz R907 — verificar com Indie Campers no pickup)" },
+    { id: "p-temperos", text: "Temperos básicos em potes pequenos: sal, pimenta, azeite mini" },
+  ]},
+  { title: "🛒 Motorhome — comprar no primeiro supermercado (D1)", items: [
+    { id: "p-limpeza", text: "Kit de limpeza: esponja, detergente, pano de chão" },
+    { id: "p-lixo", text: "Sacos de lixo extras (separar reciclável — obrigatório na Itália)" },
+    { id: "p-papeltoalha", text: "Papel toalha + papel higiênico" },
+    { id: "p-pastilhaswc", text: "Pastilhas WC químico (Thetford Aqua Kem) — se não alugou Essential Travel Kit" },
+    { id: "p-temperosgrandes", text: "Azeite, sal, temperos (embalagens maiores para cozinhar no motorhome)" },
+  ]},
+  { title: "📱 Tech & Navegação", items: [
+    { id: "p-carregador", text: "Celulares + carregadores + power bank 10.000+ mAh (trilhas longas sem tomada)" },
+    { id: "p-cabousb", text: "Cabo USB-C extra (backup)" },
+    { id: "p-adaptador", text: "Adaptador de tomada europeu Tipo C/F (funciona em Itália e Eslovênia)" },
+    { id: "p-roaming", text: "Celular com roaming EU ativo (cobre ambos os países)" },
+    { id: "p-mapas", text: "Mapas offline baixados: Google Maps (Trentino-Alto Adige + Eslovênia inteira), AllTrails (7 trilhas), Komoot (backup)" },
+    { id: "p-apps", text: "Apps instalados: Park4Night, CamperContact, MeteoTrentino, ARSO (meteo.si), AllTrails, Google Translate (IT/DE/SL offline)" },
+  ]},
+  { title: "📷 Câmera & Fotografia", items: [
+    { id: "p-camera", text: "Câmera + carregador + bateria reserva (dias longos de trilha)" },
+    { id: "p-cartao", text: "Cartão de memória extra (ou espaço no celular)" },
+    { id: "p-tripe", text: "Tripé compacto / gorillapod (fotos a dois, long exposure em lagos)" },
+    { id: "p-panolente", text: "Pano de limpeza para lente (altitude = poeira + vento)" },
+  ]},
+];
+
+// ============================================================
+// BOOKINGS DATA — reservas e documentos
+// ============================================================
+const bookings = [
+  { date: "8 Jun", isoDate: "2026-06-08", status: "confirmed", document: "Seguro Viagem", company: "Premium credit card / AIG MasterAssist", link: "https://drive.google.com/file/d/1132jG9xZs7ZdOnMdiwAs0yJX8xMwc44r/view", linkLabel: "Abrir PDF →" },
+  { date: "8 Jun", isoDate: "2026-06-08", status: "confirmed", document: "Passagem aérea GRU ↔ MXP", company: "LATAM (LA8072 / LA8073)", link: "https://drive.google.com/file/d/12SaF4BwKbDIEtcUD9daWoB2NSgWge0hN/view", linkLabel: "Abrir PDF →" },
+  { date: "9 Jun", isoDate: "2026-06-09", status: "confirmed", document: "Contrato Motorhome", company: "Indie Campers (Confirmado)", link: "https://drive.google.com/file/d/1dbNhWoKDhOdCfTDo-us1MgPaYyHh-zYQ/view", linkLabel: "Abrir PDF →" },
+  { date: "9 Jun", isoDate: "2026-06-09", status: "confirmed", document: "Reserva Camping Fusina", company: "Camping Fusina (Venezia)", link: "https://drive.google.com/file/d/1HfWfW2MmMemtNkGSdo8pQRB8JPEYQq8H/view", linkLabel: "Abrir PDF →" },
+  { date: "10 Jun", isoDate: "2026-06-10", status: "confirmed", document: "Itinerari Segreti — Palazzo Ducale", company: "CoopCulture (tour inglês 11:30)", linkLabel: "aguardando confirmação" },
+  { date: "10 Jun", isoDate: "2026-06-10", status: "critical", document: "Ingresso Basilica di San Marco", company: "Basilica di San Marco (timed-entry ~09:45)", link: "https://tickets.basilicasanmarco.it/en/store", linkLabel: "Reservar →" },
+  { date: "10 Jun", isoDate: "2026-06-10", status: "critical", document: "Concerto Vivaldi — Four Seasons", company: "I Musici Veneziani (20:30, Scuola Grande di San Teodoro)", link: "https://www.imusiciveneziani.com/en/concerts/a-vivaldis-four-seasons/", linkLabel: "Reservar →" },
+  { date: "11 Jun", isoDate: "2026-06-11", status: "pending", document: "E-vinheta eslovena (7 dias)", company: "DARS — Cat 2A, €16", link: "https://evinjeta.dars.si/en", linkLabel: "Comprar →" },
+  { date: "11 Jun", isoDate: "2026-06-11", status: "pending", document: "Postojna Cave + Predjama Castle combo", company: "Postojna Cave Park (~€47/pp)", link: "https://tickets.postojnska-jama.eu/en/postojna-cave-predjama-castle/pack-107.html", linkLabel: "Reservar →" },
+  { date: "11 Jun", isoDate: "2026-06-11", status: "confirmed", document: "Reserva Camping Bled", company: "Camping Bled — Sava Hotels (3 noites, Jun 11–14)", link: "https://drive.google.com/file/d/1wxOdJxbN1d0-QOZJ_DKeTmWuCTNM3euD/view", linkLabel: "Abrir PDF →" },
+  { date: "12 Jun", isoDate: "2026-06-12", status: "pending", document: "Ingresso Vintgar Gorge", company: "Vintgar Gorge (~€15/pp)", link: "https://www.vintgar.si/en/", linkLabel: "Reservar →" },
+  { date: "12 Jun", isoDate: "2026-06-12", status: "pending", document: "Ingresso Bled Castle", company: "Blejski Grad (~€19/pp)", link: "https://www.blejski-grad.si/en/", linkLabel: "Comprar →" },
+  { date: "13 Jun", isoDate: "2026-06-13", status: "pending", document: "Vogel Cable Car", company: "Vogel Bohinj (~€33/pp RT)", link: "https://www.vogel.si/en/", linkLabel: "Comprar →" },
+  { date: "16 Jun", isoDate: "2026-06-16", status: "pending", document: "Rafting Rio Soča", company: "Sport Mix Bovec (~€70/pp)", link: "https://sportmix.si/en/rafting/", linkLabel: "Reservar →" },
+  { date: "18 Jun", isoDate: "2026-06-18", status: "critical", document: "Tre Cime toll road (slot 7h–8h)", company: "Auronzo — €60/motorhome", link: "https://pass.auronzo.info", linkLabel: "Reservar →" },
+  { date: "20 Jun", isoDate: "2026-06-20", status: "confirmed", document: "Camping Olympia", company: "Camping Olympia Dobbiaco — 2 noites, €65.50/noite. Wellness incluso", link: "https://drive.google.com/file/d/1S4mlh_jpZnoxD2iFZAVtgeFOgpWZxOhJ/view", linkLabel: "Abrir PDF →" },
+  { date: "23 Jun", isoDate: "2026-06-23", status: "pending", document: "Seceda Cable Car", company: "Funivie Ortisei — €74/pp RT", link: "https://www.seceda.it/en/", linkLabel: "Ver info →" },
+  { date: "23 Jun", isoDate: "2026-06-23", status: "pending", document: "Jantar tirolês em Ortisei", company: "Ortisei — restaurante tirolês local (Val Gardena)", linkLabel: "pesquisar e reservar" },
+  { date: "25 Jun", isoDate: "2026-06-25", status: "confirmed", document: "Free parking Desenzano", company: "Via Michelangelo 9, Desenzano del Garda (1 noite). Grátis", link: "https://park4night.com/en/place/14906", linkLabel: "Park4Night →" },
+  { date: "26 Jun", isoDate: "2026-06-26", status: "pending", document: "Pernoite pátio Indie Campers", company: "Indie Campers MXP — perguntar se pode dormir no pátio", linkLabel: "contactar Indie Campers" },
+];
+
+// ============================================================
+// BUDGET DATA — from journey-plan.md
+// ============================================================
+const budget = [
+  { category: "Flights (2 pax)", amount: 2090, pct: 27, status: "paid", notes: "LATAM GRU↔MXP — R$ 12.997" },
+  { category: "Motorhome (18 days)", amount: 2170, pct: 28, status: "paid", notes: "Indie Campers roundtrip MXP + gás" },
+  { category: "Campgrounds", amount: 714, pct: 9, status: "estimated", notes: "18 nights × ~€42 avg" },
+  { category: "Fuel", amount: 430, pct: 5, status: "estimated", notes: "~1,870 km × ~11L/100km × €1.85/L" },
+  { category: "Tolls & vinhetas", amount: 81, pct: 1, status: "estimated", notes: "Autostrada (~€65) + e-vinheta SI (€16)" },
+  { category: "Restaurantes", amount: 350, pct: 4, status: "estimated", notes: "4 experiências gastronômicas" },
+  { category: "Rifúgios (trilhas)", amount: 220, pct: 3, status: "estimated", notes: "Coffee, snacks, sopas" },
+  { category: "Supermercado", amount: 580, pct: 8, status: "estimated", notes: "~€32/dia × 18 dias" },
+  { category: "Cable cars & lifts", amount: 218, pct: 3, status: "estimated", notes: "Seceda + Siusi + Vogel" },
+  { category: "Wellness & spa", amount: 50, pct: 1, status: "estimated", notes: "Camping Olympia (incluído)" },
+  { category: "Atividades & museus", amount: 488, pct: 6, status: "estimated", notes: "Postojna, Vintgar, Bled Castle, rafting, Tre Cime..." },
+  { category: "Souvenirs", amount: 130, pct: 2, status: "estimated", notes: "Speck, grappa, mel esloveno" },
+  { category: "Translado GRU", amount: 48, pct: 1, status: "confirmed", notes: "R$ 300" },
+  { category: "Pet sitter", amount: 322, pct: 4, status: "confirmed", notes: "R$ 2.000 (20 dias)" },
+  { category: "Emergency buffer (10%)", amount: 717, pct: 8, status: "reserve", notes: "" },
+];
+// Total: €8,590 (~R$ 53.510)
+
+const packEl = document.getElementById("packing-list");
+const packSaved = JSON.parse(localStorage.getItem("trip-packing") || "{}");
+let packTotal = 0, packChecked = 0;
+
+packingGroups.forEach(g => {
+  let html = `<div class="checklist-group"><h3>${g.title}</h3>`;
+  if (g.description) html += `<p style="font-size:0.85rem;color:var(--stone);margin:-0.3rem 0 0.7rem;line-height:1.4">${g.description}</p>`;
+  g.items.forEach(item => {
+    packTotal++;
+    const isChecked = packSaved[item.id];
+    if (isChecked) packChecked++;
+    html += `<div class="checklist-item ${isChecked ? 'checked' : ''}">
+      <input type="checkbox" id="${item.id}" ${isChecked ? 'checked' : ''} onchange="togglePack('${item.id}', this)">
+      <label for="${item.id}">${item.text}</label>
+    </div>`;
+  });
+  html += `</div>`;
+  packEl.innerHTML += html;
+});
+
+updatePackProgress();
+
+function togglePack(id, el) {
+  const s = JSON.parse(localStorage.getItem("trip-packing") || "{}");
+  s[id] = el.checked;
+  localStorage.setItem("trip-packing", JSON.stringify(s));
+  el.closest(".checklist-item").classList.toggle("checked", el.checked);
+  packChecked = 0;
+  document.querySelectorAll('#packing-list input[type="checkbox"]:checked').forEach(() => packChecked++);
+  updatePackProgress();
+}
+
+function updatePackProgress() {
+  const pct = Math.round((packChecked / packTotal) * 100);
+  document.getElementById("packing-count").textContent = `${packChecked}/${packTotal} itens na mala (${pct}%)`;
+  document.getElementById("packing-fill").style.width = pct + "%";
+}
+
+// ============================================================
+// SCROLL TO TODAY
+// ============================================================
+function scrollToToday(e) {
+  if (e) e.preventDefault();
+  const todayCard = document.querySelector('[data-today="true"]');
+  if (todayCard) {
+    todayCard.scrollIntoView({ behavior: "smooth", block: "center" });
+    if (!todayCard.classList.contains("open")) toggleDay(todayCard);
+  } else {
+    document.getElementById("timeline-section").scrollIntoView({ behavior: "smooth" });
+  }
+}
+
+// Auto-scroll to today on load (during trip)
+const todayCard = document.querySelector('[data-today="true"]');
+if (todayCard) {
+  document.getElementById("fab-today").style.display = "block";
+  setTimeout(() => {
+    todayCard.scrollIntoView({ behavior: "smooth", block: "center" });
+    toggleDay(todayCard);
+  }, 600);
+}
+
+// ============================================================
+// RENDER BOOKINGS TABLE
+// ============================================================
+const statusIcons = { confirmed: "✅", critical: "⚠️", pending: "🔗" };
+const bookingsEl = document.getElementById("bookings-table");
+if (bookingsEl) {
+  let html = '<table class="budget-table"><thead><tr><th>Data</th><th></th><th>Documento</th><th>Empresa</th><th>📎</th></tr></thead><tbody>';
+  bookings.forEach(b => {
+    const linkCell = b.link
+      ? `<a href="${b.link}" target="_blank">${b.linkLabel || "Link →"}</a>`
+      : `<em>${b.linkLabel || "—"}</em>`;
+    html += `<tr><td><strong>${b.date}</strong></td><td>${statusIcons[b.status] || ""}</td><td>${b.document}</td><td>${b.company}</td><td>${linkCell}</td></tr>`;
+  });
+  html += '</tbody></table>';
+  bookingsEl.innerHTML = html;
+}
+
+// ============================================================
+// RENDER BUDGET TABLE
+// ============================================================
+const budgetEl = document.getElementById("budget-table");
+if (budgetEl) {
+  const total = budget.reduce((s, b) => s + b.amount, 0);
+  const statusLabels = { paid: "✅ Pago", confirmed: "✅", estimated: "~", reserve: "🔒" };
+  let html = '<table class="budget-table"><thead><tr><th>Categoria</th><th>€</th><th>%</th><th>Status</th><th>Notas</th></tr></thead><tbody>';
+  budget.forEach(b => {
+    html += `<tr><td>${b.category}</td><td>€${b.amount.toLocaleString()}</td><td>${b.pct}%</td><td>${statusLabels[b.status] || b.status}</td><td style="font-size:0.8rem;color:var(--stone)">${b.notes}</td></tr>`;
+  });
+  html += `<tr style="font-weight:bold;border-top:2px solid var(--warm)"><td>TOTAL</td><td>€${total.toLocaleString()}</td><td>100%</td><td></td><td></td></tr>`;
+  html += '</tbody></table>';
+  budgetEl.innerHTML = html;
+}
+
+</script>
+</body>
+</html>

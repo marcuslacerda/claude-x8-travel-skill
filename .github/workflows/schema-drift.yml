@@ -1,0 +1,49 @@
+name: schema-drift
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "cli/lib/schema.ts"
+  pull_request:
+    branches: [main]
+    paths:
+      - "cli/lib/schema.ts"
+  schedule:
+    # Daily — catches drift introduced by changes on the explor8 side
+    - cron: "37 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  diff:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Fetch explor8 schema (private repo, requires PAT)
+        env:
+          GH_TOKEN: ${{ secrets.SCHEMA_DRIFT_PAT }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::warning::SCHEMA_DRIFT_PAT secret not configured. Skipping drift check."
+            echo "To enable: create a fine-grained PAT scoped to marcuslacerda/travels"
+            echo "with 'Contents: Read' permission, and add it as a repo secret."
+            exit 0
+          fi
+
+          # Use api.github.com for private repos — raw.githubusercontent.com 404s
+          # without auth even when you have a token.
+          curl -fsSL \
+            -H "Authorization: token $GH_TOKEN" \
+            -H "Accept: application/vnd.github.raw" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/marcuslacerda/travels/contents/src/lib/schemas/trip.ts \
+            -o /tmp/explor8-schema.ts
+
+          if ! diff -u cli/lib/schema.ts /tmp/explor8-schema.ts; then
+            echo "::error::Schema drift detected between this repo and explor8."
+            echo "::error::Update both cli/lib/schema.ts (here) and src/lib/schemas/trip.ts (in explor8) in lockstep."
+            exit 1
+          fi
+
+          echo "OK — schemas in sync."

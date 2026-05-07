@@ -1,0 +1,17 @@
+node_modules/
+.DS_Store
+*.log
+dist/
+.env
+.env.local
+coverage/
+
+# Editor
+.idea/
+.vscode/
+
+# Generated trip artefacts (derived from .md/.kml — not checked in)
+**/trip.json
+**/map.json
+**/publish.json
+.claude/travel-context

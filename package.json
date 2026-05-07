@@ -1,0 +1,56 @@
+{
+  "name": "x8-travel",
+  "version": "0.1.0",
+  "description": "Claude Code skill + CLI for planning multi-day, multi-stop trips. Outputs JSON + KML + Markdown — usable standalone or publishable to explor8.ai.",
+  "license": "MIT",
+  "author": "marcuslacerda",
+  "homepage": "https://github.com/marcuslacerda/claude-x8-travel-skill#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcuslacerda/claude-x8-travel-skill.git"
+  },
+  "keywords": [
+    "claude-code",
+    "claude-skill",
+    "travel",
+    "trip-planner",
+    "kml",
+    "explor8"
+  ],
+  "type": "module",
+  "bin": {
+    "x8-travel": "./cli/index.ts"
+  },
+  "files": [
+    "cli",
+    "skill",
+    "templates",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "lint": "eslint . && prettier --check .",
+    "lint:fix": "eslint . --fix && prettier --write .",
+    "type-check": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "commander": "^14.0.0",
+    "nanoid": "^5.1.0",
+    "zod": "^4.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.59.0",
+    "@typescript-eslint/parser": "^8.59.0",
+    "eslint": "^10.0.0",
+    "prettier": "^3.8.0",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.0",
+    "vitest": "^4.1.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

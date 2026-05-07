@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scotland 2025 — Highlands road trip</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --stone: #2c2825;
+  --warm: #8b7355;
+  --cream: #faf6f0;
+  --sky: #3a7ca5;
+  --forest: #4a7c59;
+  --heather: #7b4f8a;
+  --tartan: #c0392b;
+  --gold: #d4a843;
+  --snow: #ffffff;
+  --loch: #2e6171;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--stone);
+  background: var(--cream);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.back-link {
+  position: fixed; top: 1.5rem; left: 1.5rem; z-index: 100;
+  color: #fff; text-decoration: none; font-size: 0.85rem; font-weight: 500;
+  background: rgba(0,0,0,0.3); padding: 0.5rem 1rem; border-radius: 100px;
+  backdrop-filter: blur(6px); transition: background 0.2s;
+}
+.back-link:hover { background: rgba(0,0,0,0.5); }
+
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 100%),
+              url('https://images.unsplash.com/photo-1506377585622-bedcbb027afc?w=1920&q=80') center/cover no-repeat;
+  color: var(--snow);
+}
+
+.hero-content { max-width: 700px; padding: 2rem; }
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+.hero .subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  font-weight: 300;
+  opacity: 0.92;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.03em;
+}
+.hero .dates {
+  display: inline-block;
+  padding: 0.6rem 1.8rem;
+  border: 1.5px solid rgba(255,255,255,0.6);
+  border-radius: 100px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+}
+.hero .badge-past {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.35rem 1rem;
+  background: rgba(255,255,255,0.15);
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+}
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  opacity: 0.6;
+  letter-spacing: 0.1em;
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+section { padding: 5rem 1.5rem; max-width: 1100px; margin: 0 auto; }
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--stone);
+}
+.section-sub {
+  font-size: 1.05rem;
+  color: var(--warm);
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+.stat {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: var(--snow);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--sky);
+}
+.stat-label { font-size: 0.8rem; color: var(--warm); margin-top: 0.3rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+#map {
+  width: 100%;
+  height: 550px;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+  z-index: 1;
+}
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--warm);
+}
+.map-legend span { display: flex; align-items: center; gap: 0.4rem; }
+.legend-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+
+.timeline { position: relative; margin: 2rem 0; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--sky), var(--loch), var(--heather), var(--tartan), var(--gold));
+  border-radius: 2px;
+}
+.day-card {
+  position: relative;
+  margin-left: 52px;
+  margin-bottom: 1.5rem;
+  background: var(--snow);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  transition: box-shadow 0.2s;
+}
+.day-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+.day-card::before {
+  content: '';
+  position: absolute;
+  left: -40px;
+  top: 1.6rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 3px solid var(--sky);
+  background: var(--cream);
+}
+.day-card.castle::before { border-color: var(--tartan); background: var(--tartan); }
+.day-card.nature::before { border-color: var(--forest); background: var(--forest); }
+.day-card.city::before { border-color: var(--gold); background: var(--gold); }
+.day-card.rest::before { border-color: var(--heather); background: var(--heather); }
+.day-card.outlander::before { border-color: var(--heather); background: var(--heather); }
+
+.day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+.day-num { font-weight: 600; font-size: 0.85rem; color: var(--sky); text-transform: uppercase; letter-spacing: 0.06em; }
+.day-date { font-size: 0.8rem; color: var(--warm); }
+.day-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 0.3rem; }
+.day-desc { font-size: 0.92rem; color: #5a5550; line-height: 1.55; }
+.day-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.7rem; }
+.tag {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+.tag-castle { background: #fce4ec; color: #c62828; }
+.tag-trek { background: #e8f5e9; color: #2e7d32; }
+.tag-city { background: #fff3e0; color: #e65100; }
+.tag-lake { background: #e3f2fd; color: #1565c0; }
+.tag-drive { background: #eceff1; color: #455a64; }
+.tag-outlander { background: #f3e5f5; color: #7b1fa2; }
+.tag-food { background: #fff8e1; color: #f57f17; }
+.tag-train { background: #e0f7fa; color: #00695c; }
+.tag-whisky { background: #efebe9; color: #4e342e; }
+
+.attractions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.attraction {
+  background: var(--snow);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.attraction:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+.attraction-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.attraction-body { padding: 1.2rem 1.4rem 1.4rem; }
+.attraction-num { font-size: 0.72rem; font-weight: 600; color: var(--sky); text-transform: uppercase; letter-spacing: 0.08em; }
+.attraction-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; margin: 0.2rem 0 0.5rem; }
+.attraction-desc { font-size: 0.88rem; color: #5a5550; line-height: 1.5; margin-bottom: 0.8rem; }
+.attraction-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  font-size: 0.78rem;
+  color: var(--warm);
+}
+.attraction-meta span { display: flex; align-items: center; gap: 0.3rem; }
+
+/* PHOTO GALLERY */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.gallery-item.featured {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+.gallery-item.real::after {
+  content: '📸';
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  font-size: 1.1rem;
+  background: rgba(0,0,0,0.4);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+.gallery-item {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 4/3;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.gallery-item:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+.gallery-item:hover img { transform: scale(1.05); }
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2.5rem 1rem 0.8rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.gallery-caption small {
+  display: block;
+  font-size: 0.72rem;
+  opacity: 0.8;
+  font-weight: 300;
+  margin-top: 0.15rem;
+}
+
+/* LIGHTBOX */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.lightbox.active { display: flex; }
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 8px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+}
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  background: none;
+  border: none;
+}
+.lightbox-close:hover { opacity: 1; }
+.lightbox-caption {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  max-width: 600px;
+}
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 2.5rem;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  background: none;
+  border: none;
+  padding: 1rem;
+}
+.lightbox-nav:hover { opacity: 1; }
+.lightbox-prev { left: 1rem; }
+.lightbox-next { right: 1rem; }
+
+.budget-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.92rem;
+}
+.budget-table th {
+  text-align: left;
+  padding: 0.8rem 1rem;
+  border-bottom: 2px solid var(--stone);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--warm);
+}
+.budget-table td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid #eee;
+}
+.budget-table tr:last-child td { border-bottom: 2px solid var(--stone); font-weight: 600; }
+.budget-table .amount { text-align: right; font-variant-numeric: tabular-nums; }
+.budget-table .category-header td {
+  background: #f5f0ea;
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--warm);
+  border-bottom: 1px solid #e0d9cf;
+}
+
+footer {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--warm);
+  font-size: 0.85rem;
+  border-top: 1px solid #e8e4de;
+}
+footer a { color: var(--sky); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+@media (max-width: 640px) {
+  section { padding: 3rem 1rem; }
+  .timeline::before { left: 12px; }
+  .day-card { margin-left: 36px; padding: 1.2rem; }
+  .day-card::before { left: -32px; width: 10px; height: 10px; }
+  .attractions-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item.featured { grid-column: span 1; }
+  #map { height: 400px; }
+}
+</style>
+</head>
+<body>
+
+<a href="../index.html" class="back-link">&#8592; Travels</a>
+
+<div class="hero">
+  <div class="hero-content">
+    <h1>Londres → Escócia</h1>
+    <p class="subtitle">Castelos, highlands, Outlander e whisky — para The travelers</p>
+    <span class="dates">11 Junho — 2 Julho 2025</span>
+    <div class="badge-past">Viagem realizada</div>
+  </div>
+  <div class="scroll-hint">↓ scroll</div>
+</div>
+
+<section>
+  <h2>A viagem em números</h2>
+  <p class="section-sub">21 dias, 2 países, 20+ atrações, 1.200 km pelas Highlands</p>
+  <div class="stats">
+    <div class="stat"><div class="stat-value">21</div><div class="stat-label">Dias</div></div>
+    <div class="stat"><div class="stat-value">1.200</div><div class="stat-label">Km percorridos</div></div>
+    <div class="stat"><div class="stat-value">10</div><div class="stat-label">Castelos</div></div>
+    <div class="stat"><div class="stat-value">4</div><div class="stat-label">Locações Outlander</div></div>
+    <div class="stat"><div class="stat-value">3</div><div class="stat-label">Trilhas</div></div>
+    <div class="stat"><div class="stat-value">6</div><div class="stat-label">Cidades</div></div>
+    <div class="stat"><div class="stat-value">1.345m</div><div class="stat-label">Ben Nevis</div></div>
+    <div class="stat"><div class="stat-value">~R$55k</div><div class="stat-label">Custo total</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>Rota interativa</h2>
+  <p class="section-sub">De Londres a Edinburgh, passando pelas Highlands e Isle of Skye</p>
+  <div id="map"></div>
+  <div class="map-legend">
+    <span><span class="legend-dot" style="background:#c0392b"></span> Castelos</span>
+    <span><span class="legend-dot" style="background:#2e7d32"></span> Natureza / Trilhas</span>
+    <span><span class="legend-dot" style="background:#FF9800"></span> Cidades</span>
+    <span><span class="legend-dot" style="background:#7b4f8a"></span> Outlander</span>
+    <span><span class="legend-dot" style="background:#1565c0"></span> Lochs</span>
+    <span style="color:#1a73e8;">━━ Rota do carro</span>
+  </div>
+</section>
+
+<section>
+  <h2>Dia a dia</h2>
+  <p class="section-sub">6 dias em Londres + 10 dias pela Escócia + 2 dias em Edinburgh</p>
+  <div class="timeline" id="timeline"></div>
+</section>
+
+<section>
+  <h2>O que visitamos</h2>
+  <p class="section-sub">Castelos medievais, highlands selvagens e locações de Outlander</p>
+  <div class="attractions-grid" id="attractions"></div>
+</section>
+
+<section>
+  <h2>Galeria de fotos</h2>
+  <p class="section-sub">Nossos momentos favoritos — 📸 fotos pessoais</p>
+  <div class="gallery-grid" id="gallery"></div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <button class="lightbox-nav lightbox-prev" onclick="navLightbox(-1)">&#8249;</button>
+  <img id="lightbox-img" src="" alt="">
+  <button class="lightbox-nav lightbox-next" onclick="navLightbox(1)">&#8250;</button>
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<section>
+  <h2>Orçamento</h2>
+  <p class="section-sub">Custo real para 2 pessoas — 21 dias</p>
+  <table class="budget-table">
+    <thead><tr><th>Categoria</th><th class="amount">Custo (£)</th><th class="amount">Custo (R$)</th><th>%</th></tr></thead>
+    <tbody>
+      <tr class="category-header"><td colspan="4">Passagens & Transporte</td></tr>
+      <tr><td>Voos LATAM (2 pax)</td><td class="amount">—</td><td class="amount">R$ 12.406</td><td>23%</td></tr>
+      <tr><td>Cuidados pets</td><td class="amount">—</td><td class="amount">R$ 2.100</td><td>4%</td></tr>
+      <tr><td>Translado aeroporto ida/volta</td><td class="amount">—</td><td class="amount">R$ 1.000</td><td>2%</td></tr>
+      <tr><td>Trem London → Edinburgh + Edinburgh → London</td><td class="amount">£320</td><td class="amount">R$ 2.362</td><td>4%</td></tr>
+      <tr><td>Aluguel carro Escócia (10 dias — Sixt)</td><td class="amount">£658</td><td class="amount">R$ 4.856</td><td>9%</td></tr>
+      <tr><td>Gasolina (~1.250 km)</td><td class="amount">£105</td><td class="amount">R$ 775</td><td>1%</td></tr>
+      <tr><td>Transporte Londres (Oyster + Airlink)</td><td class="amount">£250</td><td class="amount">R$ 1.846</td><td>3%</td></tr>
+      <tr class="category-header"><td colspan="4">Hospedagem</td></tr>
+      <tr><td>Aberdeen (2 noites)</td><td class="amount">£202</td><td class="amount">R$ 1.493</td><td>3%</td></tr>
+      <tr><td>Inverness / Drumnadrochit (2 noites)</td><td class="amount">£337</td><td class="amount">R$ 2.489</td><td>5%</td></tr>
+      <tr><td>Skye / Inverinate (2 noites)</td><td class="amount">£375</td><td class="amount">R$ 2.765</td><td>5%</td></tr>
+      <tr><td>Glencoe / Fort William (2 noites)</td><td class="amount">£269</td><td class="amount">R$ 1.984</td><td>4%</td></tr>
+      <tr><td>Linlithgow / Court Residence (2 noites)</td><td class="amount">£336</td><td class="amount">R$ 2.476</td><td>5%</td></tr>
+      <tr><td>Edinburgh / Premier Inn (2 noites)</td><td class="amount">£356</td><td class="amount">R$ 2.627</td><td>5%</td></tr>
+      <tr class="category-header"><td colspan="4">Lazer & Alimentação</td></tr>
+      <tr><td>Alimentação (21 dias)</td><td class="amount">£1.154</td><td class="amount">R$ 9.151</td><td>17%</td></tr>
+      <tr><td>Explorer Pass + castelos</td><td class="amount">£89</td><td class="amount">R$ 657</td><td>1%</td></tr>
+      <tr><td>Eilean Donan + lazer Escócia</td><td class="amount">£160</td><td class="amount">R$ 1.177</td><td>2%</td></tr>
+      <tr><td>Lazer Londres (Silverstone + geral)</td><td class="amount">£300</td><td class="amount">R$ 2.714</td><td>5%</td></tr>
+      <tr><td>Holyroodhouse</td><td class="amount">£42</td><td class="amount">R$ 310</td><td>1%</td></tr>
+      <tr><td>Reserva emergencial (10%)</td><td class="amount">—</td><td class="amount">R$ 1.623</td><td>3%</td></tr>
+      <tr><td><strong>Total</strong></td><td class="amount"><strong>£4.953</strong></td><td class="amount"><strong>R$ 54.812</strong></td><td><strong>100%</strong></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<footer>
+  <p><a href="../index.html">← Voltar para viagens</a></p>
+  <p style="margin-top:0.8rem;">The travelers — Scotland 2025</p>
+  <p style="margin-top:0.3rem; font-size:0.75rem;">Viagem realizada em Junho 2025</p>
+</footer>
+
+<script>
+const days = [
+  { num: "Dia 1", date: "12 Jun", title: "Chegada em Londres", desc: "Deslocamento para casa do FH de metrô. Supermercado, vinhos — Dia dos Namorados.", tags: ["city"], cls: "city" },
+  { num: "Dia 2", date: "13 Jun", title: "Wimbledon & Richmond Park", desc: "Visita a Wimbledon, picnic em Richmond Park, Millennium Bridge. Happy hour no The Black Dog Pub.", tags: ["city"], cls: "city" },
+  { num: "Dia 3", date: "14 Jun", title: "Silverstone & West End", desc: "Drive-day em Silverstone. Shopping em Camden Town. West End e Leadenhall Market.", tags: ["city"], cls: "city" },
+  { num: "Dia 4", date: "15 Jun", title: "Notting Hill & Borough Market", desc: "Notting Hill, Borough Market (morango!), Covent Garden, Piccadilly Circus. DJI & Hasselblad Store.", tags: ["city","food"], cls: "city" },
+  { num: "Dia 5", date: "16 Jun", title: "Big Ben, Buckingham & Hyde Park", desc: "Big Ben, London Eye, Buckingham Palace. Picnic em Hyde Park.", tags: ["city"], cls: "city" },
+  { num: "Dia 6", date: "17 Jun", title: "Greenwich & Cable Car", desc: "Greenwich Park, Cable Car. Shopping. Arrumar as malas para a Escócia.", tags: ["city"], cls: "city" },
+  { num: "Dia 7", date: "18 Jun", title: "London → Edinburgh → Aberdeen", desc: "Trem London-Edinburgh (4h30). Pickup do carro no aeroporto. Drive para Aberdeen passando por Dundee.", tags: ["train","drive"], cls: "" },
+  { num: "Dia 8", date: "19 Jun", title: "Dunnottar & Glamis Castle", desc: "Stonehaven costeira. Dunnottar Castle à beira-mar. Glamis Castle (séc. XVII) — berço da Rainha Mãe. City tour Aberdeen.", tags: ["castle"], cls: "castle" },
+  { num: "Dia 9", date: "20 Jun", title: "Aberdeen → Inverness via Cairngorms", desc: "Aldeia de Ballater. Cairngorms National Park — Loch An Eilein, Rothiemurchus. Inverness. Check-in em Drumnadrochit com vista para Urquhart.", tags: ["drive","trek"], cls: "nature" },
+  { num: "Dia 10", date: "21 Jun", title: "Beauly Priory, Cawdor & Urquhart", desc: "Beauly Priory (Outlander, séc. XIII). Cawdor Castle (lenda de Macbeth, séc. XIV). Urquhart Castle ao pôr do sol — Loch Ness.", tags: ["castle","outlander"], cls: "castle" },
+  { num: "Dia 11", date: "22 Jun", title: "Inverness → Isle of Skye", desc: "Curtir a pousada em Drumnadrochit. Lundie viewpoint no lago. Eilean Donan Castle — um dos mais bonitos da Escócia. Jantar romântico em Inverinate.", tags: ["castle","drive"], cls: "castle" },
+  { num: "Dia 12", date: "23 Jun", title: "Isle of Skye — Dia Épico", desc: "Old Man of Storr (hiking). Kilt Rock & Mealt Falls. Quiraing (formações rochosas dramáticas). Fairy Glen. Fairy Pools (opcional).", tags: ["trek"], cls: "nature" },
+  { num: "Dia 13", date: "24 Jun", title: "Skye → Glencoe", desc: "Glen Shiel & Five Sisters of Kintail. Glenfinnan Viaduct (Harry Potter!). Glenfinnan Monument (Outlander / Jacobitas). Fort William.", tags: ["drive","outlander"], cls: "outlander" },
+  { num: "Dia 14", date: "25 Jun", title: "Ben Nevis & Steall Falls", desc: "Ben Nevis beginner track (3h ida). Steall Falls — cenário do Quidditch de Hogwarts. City tour em Fort William.", tags: ["trek"], cls: "nature" },
+  { num: "Dia 15", date: "26 Jun", title: "Glencoe → Linlithgow", desc: "Three Sisters of Glencoe (007 Skyfall). Vacas Highland! Doune Castle (Outlander — Castle Leoch). Stirling Castle. Wallace Monument.", tags: ["castle","outlander","drive"], cls: "castle" },
+  { num: "Dia 16", date: "27 Jun", title: "Linlithgow — Dia de Palace", desc: "Linlithgow Palace (berço de Mary Queen of Scots). Igreja St. Michael's (séc. XV). Loch walk. High Street. Beecraigs Country Park.", tags: ["castle","trek"], cls: "castle" },
+  { num: "Dia 17", date: "28 Jun", title: "Linlithgow → Edinburgh", desc: "Blackness Castle (Outlander — Fort William). Hopetoun House. Devolução do carro. Edinburgh Castle.", tags: ["castle","outlander"], cls: "castle" },
+  { num: "Dia 18", date: "29 Jun", title: "Edinburgh — Dia Completo", desc: "Edinburgh Castle. Calton Hill. Arthur's Seat. National Museum. Dean Village (onde a Traveler 2 quer morar). Royal Mile. St Giles' Cathedral.", tags: ["city","trek"], cls: "city" },
+  { num: "Dia 19", date: "30 Jun", title: "Edinburgh → London", desc: "Trem Edinburgh-London. Últimos passeios em Londres.", tags: ["train","city"], cls: "" },
+  { num: "Dia 20", date: "1 Jul", title: "London — Último Dia", desc: "Dia livre em Londres. Últimas compras e despedidas.", tags: ["city"], cls: "city" },
+  { num: "Dia 21", date: "2 Jul", title: "London → São Paulo", desc: "Voo LATAM de volta. Chegada em GRU.", tags: ["drive"], cls: "" },
+];
+
+const tagLabels = {
+  castle: ["🏰 Castelo", "tag-castle"],
+  trek: ["🥾 Trilha", "tag-trek"],
+  city: ["🏙️ Cidade", "tag-city"],
+  lake: ["🏞️ Loch", "tag-lake"],
+  drive: ["🚗 Drive", "tag-drive"],
+  outlander: ["🗡️ Outlander", "tag-outlander"],
+  food: ["🍽️ Food", "tag-food"],
+  train: ["🚂 Trem", "tag-train"],
+  whisky: ["🥃 Whisky", "tag-whisky"],
+};
+
+const tl = document.getElementById("timeline");
+days.forEach(d => {
+  const tags = d.tags.map(t => `<span class="tag ${tagLabels[t][1]}">${tagLabels[t][0]}</span>`).join("");
+  tl.innerHTML += `
+    <div class="day-card ${d.cls}">
+      <div class="day-header"><span class="day-num">${d.num}</span><span class="day-date">${d.date}</span></div>
+      <div class="day-title">${d.title}</div>
+      <div class="day-desc">${d.desc}</div>
+      <div class="day-tags">${tags}</div>
+    </div>`;
+});
+
+const attractions = [
+  { name: "Dunnottar Castle", desc: "Um dos castelos mais impressionantes da Escócia, à beira de penhascos sobre o Mar do Norte. Ruínas dramáticas.", time: "2–3h", cost: "£18", type: "🏰 Castelo", img: "photos/dunnottar-castle.jpg" },
+  { name: "Glamis Castle", desc: "Castelo do séc. XVII onde nasceram a Rainha Mãe e a Princesa Margareth. Jardins espetaculares.", time: "2–3h", cost: "£18.50", type: "🏰 Castelo", img: "photos/glamis-castle.jpg" },
+  { name: "Cairngorms National Park", desc: "Maior parque nacional do Reino Unido. Loch An Eilein, florestas antigas, paisagens perfeitas para pintura e picnic.", time: "3–4h", cost: "Grátis", type: "🌲 Natureza", img: "photos/cairngorms.jpg" },
+  { name: "Beauly Priory", desc: "Cenário de Outlander. Ruínas medievais do séc. XIII com musgos, túmulos antigos e atmosfera mística.", time: "1–2h", cost: "Grátis", type: "🗡️ Outlander", img: "photos/cawdor-castle.jpg" },
+  { name: "Cawdor Castle", desc: "Castelo da lenda de Macbeth. Palácio medieval do séc. XIV com 3 jardins espetaculares.", time: "2–3h", cost: "£15", type: "🏰 Castelo", img: "photos/cawdor-castle.jpg" },
+  { name: "Urquhart Castle", desc: "Ruínas majestosas às margens do Loch Ness. Visita ideal ao pôr do sol para fotos dramáticas.", time: "2h", cost: "£14", type: "🏰 Castelo", img: "photos/urquhart-castle.jpg" },
+  { name: "Eilean Donan Castle", desc: "Um dos castelos mais fotografados da Escócia. Situado numa ilha onde três lochs se encontram.", time: "2h", cost: "£12", type: "🏰 Castelo", img: "photos/eilean-donan.jpg" },
+  { name: "Old Man of Storr", desc: "Formação rochosa icônica na Isle of Skye. Hiking com vistas espetaculares, especialmente ao nascer do sol.", time: "2–3h", cost: "Grátis", type: "🥾 Trilha", img: "photos/old-man-storr.jpg" },
+  { name: "Kilt Rock & Mealt Falls", desc: "Penhasco de 90m com aparência de kilt escocês. Cachoeira caindo direto no mar. Vista impressionante.", time: "30min", cost: "Grátis", type: "🌊 Vista", img: "photos/kilt-rock.jpg" },
+  { name: "Quiraing", desc: "Formações rochosas dramáticas criadas por deslizamento de terra. Paisagem de outro planeta na Isle of Skye.", time: "2–3h", cost: "Grátis", type: "🥾 Trilha", img: "photos/quiraing.jpg" },
+  { name: "Fairy Glen", desc: "Colinas cônicas em miniatura e rochas encantadas. Dizem que fadas criaram esta paisagem.", time: "1h", cost: "Grátis", type: "✨ Mágico", img: "photos/fairy-glen.jpg" },
+  { name: "Glenfinnan Viaduct", desc: "O viaduto do Hogwarts Express! Trem passa entre 10-11h e 13:30-14:30. 20 min de caminhada até o viewpoint.", time: "1–2h", cost: "Grátis", type: "🚂 Harry Potter", img: "photos/glenfinnan-viaduct.jpg" },
+  { name: "Ben Nevis", desc: "A montanha mais alta da Escócia (1.345m). Trilha beginner de 3h. Paisagens incríveis das Highlands.", time: "5–6h", cost: "Grátis", type: "⛰️ Montanha", img: "photos/ben-nevis.jpg" },
+  { name: "Three Sisters of Glencoe", desc: "Três picos icônicos de Glencoe. Cenário de 007 Skyfall. Uma das paisagens mais dramáticas da Escócia.", time: "1h", cost: "Grátis", type: "🏔️ Vista", img: "photos/glencoe.jpg" },
+  { name: "Doune Castle", desc: "Castle Leoch de Outlander — lar do Clã MacKenzie. Castelo medieval bem preservado em Stirlingshire.", time: "1–2h", cost: "Explorer Pass", type: "🗡️ Outlander", img: "photos/stirling-castle.jpg" },
+  { name: "Stirling Castle", desc: "Palácio real — infância de Mary Queen of Scots. Local da batalha de William Wallace.", time: "2–3h", cost: "Explorer Pass", type: "🏰 Castelo", img: "photos/stirling-castle.jpg" },
+  { name: "Linlithgow Palace", desc: "Palácio onde nasceu Mary Queen of Scots. Ruínas majestosas às margens de um loch sereno.", time: "2h", cost: "Explorer Pass", type: "🏰 Palácio", img: "photos/linlithgow.jpg" },
+  { name: "Blackness Castle", desc: "Fort William de Outlander — onde Jamie levou as chibatadas do Capitão Randall. Vista sobre o Firth of Forth.", time: "1h", cost: "Explorer Pass", type: "🗡️ Outlander", img: "photos/linlithgow.jpg" },
+  { name: "Edinburgh Castle", desc: "O castelo mais famoso da Escócia. Vista panorâmica de toda Edinburgh. Mil anos de história.", time: "3h", cost: "Explorer Pass", type: "🏰 Castelo", img: "photos/edinburgh-castle.jpg" },
+  { name: "Arthur's Seat", desc: "Vulcão extinto no coração de Edinburgh. Trilha até o topo para vistas incríveis da cidade.", time: "2h", cost: "Grátis", type: "🥾 Trilha", img: "photos/edinburgh.jpg" },
+];
+
+const ag = document.getElementById("attractions");
+attractions.forEach((a, i) => {
+  ag.innerHTML += `
+    <div class="attraction">
+      <img class="attraction-img" src="${a.img}" alt="${a.name}" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#3a7ca5,#4a7c59)';this.style.height='200px'">
+      <div class="attraction-body">
+        <div class="attraction-num">#${i+1}</div>
+        <div class="attraction-name">${a.name}</div>
+        <div class="attraction-desc">${a.desc}</div>
+        <div class="attraction-meta">
+          <span>⏱ ${a.time}</span>
+          <span>💷 ${a.cost}</span>
+          <span>${a.type}</span>
+        </div>
+      </div>
+    </div>`;
+});
+
+// PHOTO GALLERY
+const photos = [];
+
+const realPhotos = new Set([0, 1, 2, 3, 4, 5]);
+const featuredPhotos = new Set([0, 1]);
+const gallery = document.getElementById("gallery");
+photos.forEach((p, i) => {
+  const classes = ["gallery-item"];
+  if (realPhotos.has(i)) classes.push("real");
+  if (featuredPhotos.has(i)) classes.push("featured");
+  gallery.innerHTML += `
+    <div class="${classes.join(" ")}" onclick="openLightbox(${i})">
+      <img src="${p.src}" alt="${p.caption}" loading="lazy">
+      <div class="gallery-caption">
+        ${p.caption}
+        <small>${p.location}</small>
+      </div>
+    </div>`;
+});
+
+let currentPhoto = 0;
+function openLightbox(i) {
+  currentPhoto = i;
+  document.getElementById("lightbox-img").src = photos[i].src;
+  document.getElementById("lightbox-caption").textContent = photos[i].caption + " — " + photos[i].location;
+  document.getElementById("lightbox").classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+function closeLightbox() {
+  document.getElementById("lightbox").classList.remove("active");
+  document.body.style.overflow = "";
+}
+function navLightbox(dir) {
+  currentPhoto = (currentPhoto + dir + photos.length) % photos.length;
+  openLightbox(currentPhoto);
+  event.stopPropagation();
+}
+document.getElementById("lightbox").addEventListener("click", function(e) {
+  if (e.target === this) closeLightbox();
+});
+document.addEventListener("keydown", function(e) {
+  if (!document.getElementById("lightbox").classList.contains("active")) return;
+  if (e.key === "Escape") closeLightbox();
+  if (e.key === "ArrowRight") navLightbox(1);
+  if (e.key === "ArrowLeft") navLightbox(-1);
+});
+
+// MAP
+const map = L.map("map", { scrollWheelZoom: false }).setView([56.8, -4.5], 6);
+L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
+  maxZoom: 17,
+}).addTo(map);
+
+const routeCoords = [
+  [51.50, -0.12],   // London
+  [55.95, -3.19],   // Edinburgh
+  [56.50, -2.97],   // Dundee
+  [57.15, -2.09],   // Aberdeen
+  [56.87, -2.20],   // Stonehaven / Dunnottar
+  [56.61, -3.00],   // Glamis
+  [57.15, -2.09],   // Aberdeen
+  [57.08, -3.39],   // Ballater
+  [57.48, -4.22],   // Inverness
+  [57.34, -4.47],   // Drumnadrochit
+  [57.49, -4.47],   // Beauly
+  [57.52, -3.93],   // Cawdor
+  [57.32, -4.44],   // Urquhart
+  [57.34, -4.47],   // Drumnadrochit
+  [57.28, -5.52],   // Eilean Donan
+  [57.28, -5.52],   // Inverinate
+  [57.50, -6.18],   // Old Man of Storr
+  [57.61, -6.17],   // Kilt Rock
+  [57.65, -6.28],   // Quiraing
+  [57.58, -6.33],   // Fairy Glen
+  [57.28, -5.52],   // back Inverinate
+  [57.05, -5.45],   // Glen Shiel
+  [56.87, -5.43],   // Glenfinnan
+  [56.82, -5.11],   // Fort William
+  [56.80, -5.00],   // Ben Nevis
+  [56.82, -5.11],   // back Fort William
+  [56.68, -5.03],   // Glencoe Three Sisters
+  [56.19, -4.05],   // Doune
+  [56.12, -3.94],   // Stirling
+  [55.98, -3.60],   // Linlithgow
+  [56.01, -3.51],   // Blackness
+  [55.98, -3.60],   // back Linlithgow
+  [55.95, -3.19],   // Edinburgh
+];
+
+L.polyline(routeCoords, { color: "#1a73e8", weight: 3, opacity: 0.7, dashArray: "8 6" }).addTo(map);
+
+function icon(color) {
+  return L.divIcon({
+    className: "",
+    html: `<div style="width:14px;height:14px;border-radius:50%;background:${color};border:2.5px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.3);"></div>`,
+    iconSize: [14, 14], iconAnchor: [7, 7],
+  });
+}
+
+const markers = [
+  [51.50, -0.12, "#FF9800", "London", "Base — Casa FH & Ju, Casa Amanda & Saverio"],
+  [57.15, -2.09, "#FF9800", "Aberdeen", "Old Aberdeen, Duthie Park"],
+  [56.87, -2.20, "#c0392b", "Dunnottar Castle", "Castelo à beira-mar — um dos mais impressionantes"],
+  [56.61, -3.00, "#c0392b", "Glamis Castle", "Séc. XVII — berço da Rainha Mãe"],
+  [57.08, -3.39, "#FF9800", "Ballater", "Vila charmosa no Cairngorms"],
+  [57.16, -3.80, "#2e7d32", "Cairngorms", "Loch An Eilein — maior parque nacional do UK"],
+  [57.48, -4.22, "#FF9800", "Inverness", "Capital das Highlands"],
+  [57.34, -4.44, "#c0392b", "Urquhart Castle", "Às margens do Loch Ness"],
+  [57.49, -4.47, "#7b4f8a", "Beauly Priory", "Cenário de Outlander — séc. XIII"],
+  [57.52, -3.93, "#c0392b", "Cawdor Castle", "Lenda de Macbeth — séc. XIV"],
+  [57.28, -5.52, "#c0392b", "Eilean Donan Castle", "O castelo mais fotografado da Escócia"],
+  [57.50, -6.18, "#2e7d32", "Old Man of Storr", "Formação rochosa icônica — Isle of Skye"],
+  [57.61, -6.17, "#1565c0", "Kilt Rock", "Penhasco de 90m + Mealt Falls"],
+  [57.65, -6.28, "#2e7d32", "Quiraing", "Formações rochosas dramáticas"],
+  [57.58, -6.33, "#7b4f8a", "Fairy Glen", "Paisagem encantada — colinas de fadas"],
+  [56.87, -5.43, "#7b4f8a", "Glenfinnan Viaduct", "Harry Potter + Memorial Jacobita"],
+  [56.82, -5.11, "#FF9800", "Fort William", "Base para Ben Nevis e Glencoe"],
+  [56.80, -5.00, "#2e7d32", "Ben Nevis (1.345m)", "Montanha mais alta da Escócia"],
+  [56.68, -5.03, "#2e7d32", "Glencoe", "Three Sisters — cenário de 007 Skyfall"],
+  [56.19, -4.05, "#7b4f8a", "Doune Castle", "Outlander — Castle Leoch dos MacKenzie"],
+  [56.12, -3.94, "#c0392b", "Stirling Castle", "Palácio real — Mary Queen of Scots"],
+  [56.12, -3.92, "#FF9800", "Wallace Monument", "Homenagem a William Wallace"],
+  [55.98, -3.60, "#c0392b", "Linlithgow Palace", "Berço de Mary Queen of Scots"],
+  [56.01, -3.51, "#7b4f8a", "Blackness Castle", "Outlander — Fort William (as chibatadas)"],
+  [55.95, -3.19, "#FF9800", "Edinburgh", "Capital — Castle, Royal Mile, Arthur's Seat"],
+  [55.95, -3.17, "#c0392b", "Edinburgh Castle", "O castelo mais famoso da Escócia"],
+];
+
+markers.forEach(m => {
+  L.marker([m[0], m[1]], { icon: icon(m[2]) })
+    .addTo(map)
+    .bindPopup(`<strong>${m[3]}</strong><br><span style="font-size:0.85em;color:#666;">${m[4]}</span>`);
+});
+</script>
+</body>
+</html>

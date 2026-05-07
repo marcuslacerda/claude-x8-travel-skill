@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v5
+        with:
+          version: 10
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm type-check
+      - run: pnpm test
+
+  sanitization-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Personal-data grep gate
+        run: |
+          set -e
+          # Block any personal-data leak in examples/ (case-insensitive).
+          # Whitelist `marcuslacerda/claude-x8-travel-skill` (the repo's own URL).
+          HITS=$(grep -rEi 'marcus|bruna|nubank|mastercard|indaiatuba|aurora.*pet' examples/ 2>/dev/null | grep -v 'marcuslacerda/claude-x8-travel-skill' || true)
+          if [ -n "$HITS" ]; then
+            echo "::error::Personal-data leak in examples/:"
+            echo "$HITS"
+            exit 1
+          fi
+          echo "OK — no personal-data leaks detected."
