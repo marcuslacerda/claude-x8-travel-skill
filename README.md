@@ -34,6 +34,22 @@ The viewer renders `trip.json` + `map.json` directly. No build step, no server, 
 - **Pricing & official booking links.** The skill pulls actual prices from official sources (museum tickets, ferry fares, hotel nightly rates, restaurant set menus) and attaches the direct booking URL to each item — so the budget reflects reality and you click straight through to the official site to reserve, no aggregator middlemen.
 - **Versionable when you want it.** `trips/` is gitignored by default. Move your trip out of `trips/` and into a personal git repo to version individual itineraries.
 
+## Local viewer
+
+`viewer/index.html` lists trips it discovers in `trips/` and `examples/`. Click one → `viewer/trip.html?slug=<slug>` loads the corresponding JSONs.
+
+- **No build step** — vanilla JS + ES modules.
+- **No API key required** — MapLibre GL JS + OpenStreetMap raster tiles, served from CDN.
+- **Persistent checkbox state** — checklist + packing checks save in `localStorage`.
+- **Tabs** — Itinerary, Bookings, Budget, Checklist (with Packing as a sub-section), Map. Optional **Google Map** tab when configured (see below).
+
+| Itinerary | Map | Budget |
+| --- | --- | --- |
+| ![Itinerary tab](docs/screenshots/viewer-itinerary.png) | ![Map tab](docs/screenshots/viewer-map.png) | ![Budget tab](docs/screenshots/viewer-budget.png) |
+
+See [`docs/local-viewer.md`](docs/local-viewer.md) for details.
+
+
 ## What it automates
 
 The skill handles the chores you'd otherwise do across a dozen browser tabs and a spreadsheet:
@@ -158,21 +174,6 @@ Renders [`examples/scotland-2027/`](examples/scotland-2027/) — 14-day Highland
 | `publish <slug>`  | POST `publish.json` to the configured explor8 endpoint |
 
 The skill (LLM-driven) generates `trip.json` and `map.json`. The CLI (deterministic) validates and publishes.
-
-## Local viewer
-
-`viewer/index.html` lists trips it discovers in `trips/` and `examples/`. Click one → `viewer/trip.html?slug=<slug>` loads the corresponding JSONs.
-
-- **No build step** — vanilla JS + ES modules.
-- **No API key required** — MapLibre GL JS + OpenStreetMap raster tiles, served from CDN.
-- **Persistent checkbox state** — checklist + packing checks save in `localStorage`.
-- **Tabs** — Itinerary, Bookings, Budget, Checklist (with Packing as a sub-section), Map. Optional **Google Map** tab when configured (see below).
-
-| Itinerary | Map | Budget |
-| --- | --- | --- |
-| ![Itinerary tab](docs/screenshots/viewer-itinerary.png) | ![Map tab](docs/screenshots/viewer-map.png) | ![Budget tab](docs/screenshots/viewer-budget.png) |
-
-See [`docs/local-viewer.md`](docs/local-viewer.md) for details.
 
 ### Optional: Google Map tab
 
