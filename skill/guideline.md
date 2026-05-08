@@ -160,17 +160,72 @@ Routes in `map.json.routes[]` should follow real roads, not draw straight lines 
 
 ## Weather
 
-- **Open-Meteo API** (`open-meteo.com`) for forecasts up to 16 days. No API key. Use to seed `Insight.warnings` for weather-sensitive days near departure.
-- **Trips >15 days out**: switch to monthly averages via WebSearch ("weather Highlands Scotland February average").
-- Trekking-day weather alerts (per user-preferences thresholds): thunderstorm probability + temperature drop, sustained wind > 30 km/h at altitude, snow possible below 0°C above 1500 m. Emit as Insight warnings.
+**Decision rule by horizon** (count days from today to the target date):
+
+| Horizon         | Source                                | Why                                              |
+| --------------- | ------------------------------------- | ------------------------------------------------ |
+| ≤ 16 days       | **Open-Meteo** (free, no key)         | Forecast model has skill within this window      |
+| > 16 days       | **WebSearch** monthly averages        | No model has reliable point-forecast skill yet   |
+
+Both options are free and require no API key — pick by horizon, not by "what's installed".
+
+### Open-Meteo (≤ 16 days)
+
+Two-step workflow: geocode the place name to lat/lng, then fetch the forecast.
+
+```bash
+# 1. Geocode → lat,lng
+curl 'https://geocoding-api.open-meteo.com/v1/search?name=Cortina+d%27Ampezzo&count=1'
+
+# 2a. Daily forecast (up to 16 days)
+curl 'https://api.open-meteo.com/v1/forecast?latitude=46.5405&longitude=12.1357\
+&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max\
+&timezone=Europe/Rome&forecast_days=10'
+
+# 2b. Hourly forecast (up to 384h ≈ 16 days) — useful for trekking-day decisions
+curl 'https://api.open-meteo.com/v1/forecast?latitude=46.5405&longitude=12.1357\
+&hourly=temperature_2m,precipitation,wind_speed_10m&forecast_hours=72'
+```
+
+- Always pass `timezone=` matching the destination so the daily buckets align with local sunrise/sunset (use `Europe/Rome`, `Europe/London`, `America/Sao_Paulo`, etc., or `auto` to let Open-Meteo infer it).
+- Prefer `forecast_days=N` for daily summaries, `forecast_hours=N` when you need to advise on a specific window (morning trek, ferry crossing, tee-time).
+- `precipitation_probability_max` is what to thread into Insight warnings — pair with `wind_speed_10m_max` and `temperature_2m_min` to evaluate trekking thresholds.
+
+### WebSearch (> 16 days)
+
+Search format: `weather <region> <month> average` (e.g. "weather Highland Scotland February average"). Pull min/max and rainfall expectations from a climatology source (Wikipedia, Holiday-Weather, official tourism boards). Surface as a single climatology summary rather than per-day forecasts — it's not a real forecast and the viewer should not pretend it is.
+
+### Trekking-day Insight warnings
+
+Per `user-preferences.md` thresholds, emit `Insight.warnings` when:
+- Thunderstorm probability ≥ 50 % combined with temp drop > 5 °C in 6 h.
+- Sustained wind > 30 km/h at altitude.
+- Snow possible (temp < 0 °C above 1500 m).
 
 ---
 
 ## Currency
 
-- **Frankfurter API** (`frankfurter.dev`) for currency conversion. ECB rates, no key.
-- **Fallback**: WebSearch ("EUR to BRL today") if the API doesn't respond.
-- Trip currency follows the destination (GBP for the UK, EUR for the eurozone, etc.). Conversion to the user's home currency is a viewer concern, not stored in `trip.json`.
+**Default**: **Frankfurter** (`frankfurter.dev`) — ECB rates, free, no API key.
+
+```bash
+# Latest single-pair rate
+curl 'https://api.frankfurter.dev/v1/latest?from=EUR&to=BRL'
+# → {"amount":1.0,"base":"EUR","date":"2026-05-06","rates":{"BRL":6.21}}
+
+# Multiple targets in one call (comma-separated)
+curl 'https://api.frankfurter.dev/v1/latest?from=EUR&to=BRL,USD,GBP'
+
+# Historical rate for a fixed date (useful when costs were paid earlier)
+curl 'https://api.frankfurter.dev/v1/2026-04-15?from=EUR&to=BRL'
+```
+
+- Conventions:
+  - `base` is always the trip currency (GBP for the UK, EUR for the eurozone, JPY for Japan, …). Convert *to* the user's home currency from `user-preferences.md`.
+  - Cache the rate per session — don't hit the endpoint repeatedly while answering one question.
+  - Show 2 decimals for currencies with cents, 0 for JPY/KRW/HUF.
+- **Fallback** (Frankfurter 5xx, network down, or unsupported pair like ARS/UYU): WebSearch `"EUR to BRL today"` and use the first major aggregator result (XE, Google Finance, central bank). Note in the response that the rate is from a search, not Frankfurter.
+- Trip currency follows the destination — conversion to the user's home currency is a viewer concern; **do not store converted values in `trip.json`**.
 
 ---
 

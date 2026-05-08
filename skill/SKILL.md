@@ -265,7 +265,11 @@ If the user provides a clear request, skip the help and go straight to the match
 2. Compute total + per-category percentage. Cross-check that `pct` fields sum to 100 (warn if drift).
 3. Verify `unplanned` exists (every trip must have it — emergency buffer 5–10%).
 4. Present a summary:
-   - Total in trip currency + user's home currency (Frankfurter API)
+   - Total in trip currency + user's home currency. Convert via **Frankfurter** (free, no key, ECB rates):
+     ```
+     https://api.frankfurter.dev/v1/latest?from=<TRIP_CCY>&to=<HOME_CCY>
+     ```
+     Cache the rate for the session — don't refetch per category. If Frankfurter is unreachable or the pair isn't supported, fall back to WebSearch (`"<TRIP_CCY> to <HOME_CCY> today"`) and note the rate source. Full reference in `skill/guideline.md` "Currency".
    - Breakdown by category with % and status (paid / confirmed / estimated / reserve)
    - Daily average per person
    - Compare to `traveler-profile.md` ranges if defined
@@ -277,15 +281,29 @@ If the user provides a clear request, skip the help and go straight to the match
 
 **Trigger:** "weather", "forecast", "will it rain"
 
+**Decision rule by horizon** (full reference in `skill/guideline.md` "Weather"):
+
+| Horizon         | Source                                                              |
+| --------------- | ------------------------------------------------------------------- |
+| ≤ 16 days       | **Open-Meteo** (`api.open-meteo.com`) — daily + hourly, no API key  |
+| > 16 days       | **WebSearch** monthly averages — no model has reliable skill yet    |
+
 **Workflow:**
 
 1. Parse user input for location + date range. Default = next upcoming days based on context.
-2. Geocode the location (Google Maps MCP if available; else WebSearch coords).
-3. Fetch weather:
-   - **Open-Meteo API** (`open-meteo.com`, no key) — daily up to 16 days, hourly up to 384h. Default.
-   - **Google Maps MCP** if installed — has `mcp__google-maps__maps_weather` with finer regional models.
-4. If trip is >15 days out, switch to monthly average (WebSearch "weather <region> <month> average").
-5. Present in travel-friendly format:
+2. **Geocode** via Open-Meteo's free geocoder (no key needed):
+   ```
+   https://geocoding-api.open-meteo.com/v1/search?name=<URL-encoded>&count=1
+   ```
+   Use Google Maps MCP only if already installed and you need higher precision (e.g. specific trailhead vs town center).
+3. **Fetch weather** based on horizon:
+   - **≤ 16 days** — Open-Meteo:
+     - Daily: `https://api.open-meteo.com/v1/forecast?latitude=<lat>&longitude=<lng>&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max&timezone=<TZ>&forecast_days=<N>`
+     - Hourly (up to 384 h): same base URL with `&hourly=temperature_2m,precipitation,wind_speed_10m&forecast_hours=<N>`. Use the hourly call when the user is deciding around a specific window (trek, ferry, golden-hour drive).
+     - Always set `timezone=` to the destination's local zone (e.g. `Europe/Rome`) — or `auto` to let the API infer it — so day buckets align with local sunrise/sunset.
+   - **> 16 days** — WebSearch `"weather <region> <month> average"`. Present as climatology, not a forecast.
+   - Google Maps MCP `mcp__google-maps__maps_weather` is a fine substitute when installed, but Open-Meteo is the default — works without any setup.
+4. Present in travel-friendly format:
 
    ```
    ## Forecast — Skye, Scotland (next 5 days)
@@ -296,7 +314,7 @@ If the user provides a clear request, skip the help and go straight to the match
    | Tue | 2–7°C | 🌧️ Rain | 35 km/h | 80% | ⚠️ Avoid coast |
    ```
 
-6. Trekking alerts (per `skill/guideline.md`):
+5. Trekking alerts (per `skill/guideline.md`):
    - **⚠️ Thunderstorm likely:** temp drop + high humidity + wind shift after 12h
    - **⚠️ High wind:** >30 km/h at altitude
    - **❄️ Snow possible:** temp <2°C above 1500m
