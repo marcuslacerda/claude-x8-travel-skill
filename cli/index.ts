@@ -55,7 +55,13 @@ program
 program
   .command("publish <slug>")
   .description("POST publish.json to the configured explor8 endpoint")
-  .action((slug: string) => withErrors(async () => await publish(slug)));
+  .option(
+    "--verbose",
+    "print env vars (masked) + request/response headers for debugging 401s",
+  )
+  .action((slug: string, opts: { verbose?: boolean }) =>
+    withErrors(async () => await publish(slug, opts)),
+  );
 
 program.parseAsync(process.argv).catch((err) => {
   log.error(err instanceof Error ? err.message : String(err));
