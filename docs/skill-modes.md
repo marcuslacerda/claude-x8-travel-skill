@@ -10,7 +10,7 @@ All modes (except `use`, `new-trip`) require a trip context. Set it once with `u
 
 ## `use <slug>` / `context`
 
-Set or view the active trip context. Writes the slug to `.claude/travel-context` (persists across conversations on the same machine).
+**Set the active trip for this session** (so every other mode picks it up automatically). Writes the slug to `.claude/travel-context`, which persists across conversations on the same machine.
 
 ```
 /travel-planner use scotland-2027
@@ -22,7 +22,7 @@ Without arguments, shows current context and lists available trips (subdirectori
 
 ## `new-trip <slug>`
 
-Plan a new trip from scratch. Required parameter: a slug like `iceland-2028` (lowercase, hyphen-separated, `{destination}-{year}`).
+**Plan a trip end-to-end** — wizard collects intent, then the skill researches and writes `trip.json` + `map.json`. Required parameter: a slug like `iceland-2028` (lowercase, hyphen-separated, `{destination}-{year}`).
 
 Workflow:
 
@@ -43,7 +43,7 @@ Workflow:
 
 ## `research`
 
-Deep-dive on a destination, trail, campground, restaurant. Useful when filling gaps in a trip already planned.
+**Dig into a specific destination, trail, campground, or restaurant** — fills gaps in a trip you've already planned. Each result is a structured POI with source-validated picture, geocoded lat/lng, and a popularity score.
 
 The skill:
 
@@ -58,7 +58,7 @@ POIs include source slug, geocoded lat/lng, kind, picture URL when available.
 
 ## `checklist`
 
-Status of prep vs today — flag overdue and critical items.
+**Check your prep status against today's date** — flags what's overdue, what's due now, and what's critical for the trip not to fall apart.
 
 Reads `trip.checklist[]` filtered to `type === "checklist"`. Computes period windows relative to `trip.startDate`. Surfaces:
 
@@ -72,7 +72,7 @@ Critical items (`critical: true`) get prominent badges. To mark items done, say 
 
 ## `budget`
 
-Cost analysis with breakdown and conversion.
+**Reconcile spend by category** — currency-converts to your home currency, validates the unplanned reserve, and compares against your `user-preferences.md` ranges if you've set them.
 
 Reads `trip.budget[]`. Verifies:
 
@@ -93,7 +93,7 @@ For specific cost questions, researches official sources only (per `guideline.md
 
 ## `weather`
 
-Forecast for trip locations.
+**Forecast weather per stop** — daily table with trekking alerts (thunderstorm probability, high wind, snow above altitude bands).
 
 Default: **Open-Meteo API** (`open-meteo.com`, no key, daily up to 16 days, hourly up to 384h). Google Maps MCP `mcp__google-maps__maps_weather` if installed.
 
@@ -105,7 +105,7 @@ Outputs a daily table with trekking alerts (thunderstorm probability, high wind,
 
 ## `validate-routes`
 
-Audit driving times against Google Maps. **Requires the Google Maps MCP** — without it, this mode is unavailable.
+**Audit stored drive times against live Google Maps** — catches the cases where your itinerary says "2h" but the actual route is 3h with the road closure in winter. **Requires the Google Maps MCP** — without it, this mode is unavailable.
 
 Reads `trip.json.days[].schedule[]`, extracts `Transfer` items with `model: "drive"`, calls `maps_directions` for each, compares to stored values + applies +30% margin (per `guideline.md`).
 
@@ -115,7 +115,7 @@ If the user confirms, updates Transfer `duration`/`distance` and the matching `M
 
 ## `map`
 
-Manage POIs and routes (advisory) — operates directly on `map.json`. No KML in v2.
+**Edit POIs and route coordinates on `map.json`** — validate, add a new POI (with geocoding + picture sourcing + taxonomy), or refresh a route after `validate-routes` flagged drift. No KML in v2.
 
 Sub-actions:
 

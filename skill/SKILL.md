@@ -67,16 +67,16 @@ If no context is resolved and the mode requires one, prompt the user to set it (
 
 ### Context required by mode
 
-| Mode                 | Context required? | Notes                                                                  |
-| -------------------- | ----------------- | ---------------------------------------------------------------------- |
-| **use** / **context**| No                | Sets or shows the active context                                       |
-| **new-trip**         | No (creates new)  | Slug is required parameter; auto-sets context after creation           |
-| **research**         | Yes               | Inline override OK                                                     |
-| **checklist**        | Yes               | Reads `trip.json.checklist`                                            |
-| **budget**           | Yes               | Reads `trip.json.budget`                                               |
-| **weather**          | Yes               | Reads location from POIs in `map.json`                                 |
-| **validate-routes**  | Yes               | Reads `map.json.routes`                                                |
-| **map**              | Yes               | Edits `map.json` directly                                              |
+| Mode                  | Context required? | Notes                                                        |
+| --------------------- | ----------------- | ------------------------------------------------------------ |
+| **use** / **context** | No                | Sets or shows the active context                             |
+| **new-trip**          | No (creates new)  | Slug is required parameter; auto-sets context after creation |
+| **research**          | Yes               | Inline override OK                                           |
+| **checklist**         | Yes               | Reads `trip.json.checklist`                                  |
+| **budget**            | Yes               | Reads `trip.json.budget`                                     |
+| **weather**           | Yes               | Reads location from POIs in `map.json`                       |
+| **validate-routes**   | Yes               | Reads `map.json.routes`                                      |
+| **map**               | Yes               | Edits `map.json` directly                                    |
 
 ---
 
@@ -172,8 +172,8 @@ If the user provides a clear request, skip the help and go straight to the match
     - `budget[]`: enum categories, must include one item with `id: "unplanned"` (5–10% reserve).
     - `checklist[]`: groups with `type: "checklist"` (period titles) + `type: "packing"` (category titles).
 11. **Generate `trips/<slug>/map.json`** following `TripMapDataSchema`:
-    - `pois[]`: one POI per specific Experience. Stable kebab-case `id` (matches `Experience.poiId`). `updatedBy: "skill"`, `source` (travel platform), `dayNum` if day-specific.
-    - `routes[]`: each leg as a polyline with road-following coordinates (per step 9 routes). `dayNum`-tagged. `kind`: driving / walking / ferry / transit / flight / train.
+    - `pois[]`: one POI per specific Experience. Stable kebab-case `id` (matches `Experience.poiId`). `updatedBy: "skill"`, `source` (travel platform), `dayNum` if day-specific. **`dayNum` accepts a single number (`10`) or an array (`[9, 10, 11]`) — use the array form for multi-night stays so the marker shows on every day it's relevant** (arrival, full days, departure morning).
+    - `routes[]`: each leg as a polyline with road-following coordinates (per step 9 routes). `dayNum`-tagged (number or array). `kind`: driving / walking / ferry / transit / flight / train.
 12. **Validate** both via the bundled CLI: `x8-travel validate <slug>`. If validation fails, fix and re-emit (don't write broken JSON).
 13. **Update the trips manifest** at `trips/trips-index.json`:
     - Read the file (create as `[]` if missing).
@@ -198,14 +198,14 @@ If the user provides a clear request, skip the help and go straight to the match
 
 #### Field ownership — skill writes vs user edits
 
-| Field                          | Skill writes? | User edits?  |
-| ------------------------------ | ------------- | ------------ |
-| `Experience.name/desc/cost`    | ✓             | ✓            |
-| `Experience.notes`             | ✗             | ✓ (only)     |
-| `Experience.kind/source/picture` | ✓           | ✓            |
-| `Experience.poiId`             | ✓             | ✗ (auto-set) |
-| `Insight.highlights/warnings`  | ✓ (only)      | ✗            |
-| `TripDay.planB`                | ✓             | ✓            |
+| Field                            | Skill writes? | User edits?  |
+| -------------------------------- | ------------- | ------------ |
+| `Experience.name/desc/cost`      | ✓             | ✓            |
+| `Experience.notes`               | ✗             | ✓ (only)     |
+| `Experience.kind/source/picture` | ✓             | ✓            |
+| `Experience.poiId`               | ✓             | ✗ (auto-set) |
+| `Insight.highlights/warnings`    | ✓ (only)      | ✗            |
+| `TripDay.planB`                  | ✓             | ✓            |
 
 `Experience.notes` is reserved for the user. Skill observations go into Insight items, never into notes.
 
@@ -394,8 +394,14 @@ Every POI and route has a kebab-case `id` (regex `^[a-z0-9][a-z0-9-]*$`). Genera
 
 ### Day binding
 
-- **Routes:** `dayNum` ties a polyline to a specific day. Omit for trip-wide overview.
-- **POIs:** `dayNum` filters POI to a specific day in the day-detail map. Omit = trip-wide (visible in overview map).
+`dayNum` accepts three shapes:
+
+- **Omit** → trip-wide (visible in the overview map and on every day filter, but doesn't pull camera bounds).
+- **Number** (e.g. `10`) → single-day item.
+- **Array** (e.g. `[9, 10, 11]`) → multi-day item. Use for multi-night stays (arrival → full days → departure morning) and for any route/POI the traveler interacts with on more than one day.
+
+- **Routes:** `dayNum` ties a polyline to a specific day, or to a list of days. Omit for trip-wide overview.
+- **POIs:** `dayNum` filters POI to a specific day (or set of days) in the day-detail map. Omit = trip-wide (visible in overview map).
 
 ### Provenance
 
@@ -422,13 +428,13 @@ Every POI and route has a kebab-case `id` (regex `^[a-z0-9][a-z0-9-]*$`). Genera
 
 ## MCP plugins (optional)
 
-| Tool                      | Use case                                                              |
-| ------------------------- | --------------------------------------------------------------------- |
-| **Google Maps Platform**  | Geocoding, real drive-time estimates, POI search, weather (preferred) |
-| **OpenWeatherMap**        | Weather forecast fallback                                             |
-| **WebSearch** (built-in)  | Destination research, current prices, events                          |
-| **WebFetch** (built-in)   | Source URL validation, image URL stability check                      |
-| **Google Calendar**       | Optional — create events from itinerary, prep deadlines               |
+| Tool                     | Use case                                                              |
+| ------------------------ | --------------------------------------------------------------------- |
+| **Google Maps Platform** | Geocoding, real drive-time estimates, POI search, weather (preferred) |
+| **OpenWeatherMap**       | Weather forecast fallback                                             |
+| **WebSearch** (built-in) | Destination research, current prices, events                          |
+| **WebFetch** (built-in)  | Source URL validation, image URL stability check                      |
+| **Google Calendar**      | Optional — create events from itinerary, prep deadlines               |
 
 `new-trip` works with WebSearch + WebFetch alone. Google Maps MCP upgrades the precision of routes, weather, and POI metadata.
 

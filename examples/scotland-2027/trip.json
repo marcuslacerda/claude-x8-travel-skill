@@ -1,0 +1,1582 @@
+{
+  "slug": "scotland-2027",
+  "title": "Highlands & Skye Winter Loop (v2.1)",
+  "destination": {
+    "startLocation": "São Paulo",
+    "headlineTo": "Edinburgh",
+    "headlineFrom": "Edinburgh"
+  },
+  "startDate": "2027-02-14",
+  "status": "planned",
+  "currency": "GBP",
+  "timezone": "Europe/London",
+  "isPublic": false,
+  "days": [
+    {
+      "num": "1",
+      "title": "São Paulo → Edinburgh",
+      "cls": "transit-day",
+      "desc": "Long-haul day. Overnight flight + layover. Land in Edinburgh evening.",
+      "schedule": [
+        {
+          "type": "transfer",
+          "time": "20:30",
+          "from": {
+            "name": "São Paulo (GRU)",
+            "lat": -23.4356,
+            "lng": -46.4731
+          },
+          "to": {
+            "name": "London (LHR)",
+            "lat": 51.47,
+            "lng": -0.4543
+          },
+          "model": "flight",
+          "duration": 690,
+          "cost": 1200,
+          "notes": "BA248 — overnight, 11h30 cruise"
+        },
+        {
+          "type": "transfer",
+          "time": "14:20",
+          "from": {
+            "name": "London (LHR)",
+            "lat": 51.47,
+            "lng": -0.4543
+          },
+          "to": {
+            "name": "Edinburgh (EDI)",
+            "lat": 55.9499,
+            "lng": -3.3725
+          },
+          "model": "flight",
+          "duration": 80,
+          "notes": "BA1444 — connection"
+        },
+        {
+          "type": "experience",
+          "time": "17:30",
+          "name": "Pickup rental car at EDI",
+          "category": "transport",
+          "desc": "Compact 4WD recommended for Highland tracks in winter.",
+          "kind": "headline",
+          "source": "google-maps",
+          "poiId": "edinburgh-airport"
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "EDI car rental desks open until 23:00 — late landing won't strand you."
+          ],
+          "warnings": [
+            "Fill up at the EDI petrol station before leaving — premium tariffs at airport return."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "19:00",
+          "name": "Old Town B&B (Edinburgh)",
+          "category": "stay",
+          "desc": "2 nights — Royal Mile area, walking distance everywhere.",
+          "cost": 120,
+          "kind": "hotel",
+          "source": "booking",
+          "poiId": "edinburgh-old-town-bnb"
+        }
+      ],
+      "dayCost": "£1,440"
+    },
+    {
+      "num": "2",
+      "title": "Edinburgh — Old Town",
+      "cls": "city-day",
+      "desc": "Recovery + sightseeing. Castle is open; weather may be windy/wet.",
+      "schedule": [
+        {
+          "type": "experience",
+          "time": "10:00",
+          "name": "Edinburgh Castle",
+          "category": "attraction",
+          "desc": "Crown jewels, Stone of Destiny, Mons Meg cannon. Pre-book to skip queue.",
+          "cost": 22,
+          "kind": "castle",
+          "source": "official",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/5/59/City_of_Edinburgh_-_Edinburgh_Castle_-_20140421004403.jpg",
+          "poiId": "edinburgh-castle",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.edinburghcastle.scot"
+            }
+          ],
+          "popularity": 5.5
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Esplanade has the best skyline view — go between exhibits for golden-hour photos around 16:00 in February.",
+            "Stone of Destiny chamber is small — visit early before tour groups arrive (~11:30)."
+          ],
+          "warnings": [
+            "Castle Rock is exposed — winds can hit 80 km/h. Bring waterproof; the ticketed visit is mostly outdoors."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "13:00",
+          "name": "Lunch break",
+          "category": "custom",
+          "desc": "Try haggis + neeps & tatties at any Royal Mile pub.",
+          "cost": 35
+        },
+        {
+          "type": "experience",
+          "time": "15:00",
+          "name": "Holyrood Park & Arthur's Seat (lower loop)",
+          "category": "attraction",
+          "desc": "Skip summit if icy. Lower loop is 1h, mostly flat.",
+          "kind": "trek",
+          "source": "alltrails",
+          "poiId": "arthurs-seat",
+          "links": [
+            {
+              "type": "alltrails",
+              "url": "https://www.alltrails.com/trail/scotland/edinburgh/arthurs-seat"
+            }
+          ],
+          "popularity": 5.4
+        },
+        {
+          "type": "insight",
+          "warnings": [
+            "High winds possible on Arthur's Seat in February — check forecast morning of and skip the upper section if gusts >40 km/h.",
+            "Trail can be muddy after rain — boots with grip recommended."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "20:00",
+          "name": "Old Town B&B (Edinburgh)",
+          "category": "stay",
+          "desc": "Night 2 of 2",
+          "cost": 120,
+          "kind": "hotel",
+          "poiId": "edinburgh-old-town-bnb"
+        }
+      ],
+      "planB": "If storm hits: National Museum of Scotland (free, indoor, 3h+). Then Mary King's Close underground tour."
+    },
+    {
+      "num": "3",
+      "title": "Edinburgh → Stirling → Cairngorms",
+      "cls": "drive-day",
+      "desc": "Drive north via Stirling Castle. End in Aviemore.",
+      "schedule": [
+        {
+          "type": "transfer",
+          "time": "09:00",
+          "from": {
+            "name": "Edinburgh",
+            "lat": 55.9533,
+            "lng": -3.1883
+          },
+          "to": {
+            "name": "Stirling Castle",
+            "lat": 56.1241,
+            "lng": -3.9476
+          },
+          "model": "drive",
+          "duration": 60,
+          "distance": 60,
+          "notes": "M9 north — straightforward."
+        },
+        {
+          "type": "experience",
+          "time": "10:30",
+          "name": "Stirling Castle",
+          "category": "attraction",
+          "desc": "Royal palace, Great Hall, tapestries. ~2h.",
+          "cost": 18,
+          "kind": "castle",
+          "source": "official",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Stirling_Castle_Aerial_Photo.jpg",
+          "poiId": "stirling-castle",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.stirlingcastle.scot"
+            }
+          ],
+          "popularity": 5.3
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Great Hall's hammerbeam roof is the largest of its kind in the UK — look up.",
+            "Combined ticket with Argyll's Lodging (5 min walk) saves 30%."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "13:00",
+          "name": "Lunch in Stirling Old Town",
+          "category": "food",
+          "cost": 30,
+          "kind": "restaurant"
+        },
+        {
+          "type": "transfer",
+          "time": "14:30",
+          "from": {
+            "name": "Stirling",
+            "lat": 56.1165,
+            "lng": -3.9369
+          },
+          "to": {
+            "name": "Aviemore",
+            "lat": 57.1916,
+            "lng": -3.8266
+          },
+          "model": "drive",
+          "duration": 165,
+          "distance": 175,
+          "notes": "A9 north. Watch for ice on Drumochter Pass (highest point: 462m)."
+        },
+        {
+          "type": "insight",
+          "warnings": [
+            "Drumochter Pass (462m, highest point on A9) — check Traffic Scotland live cameras before driving. Carry chains/snow socks in February.",
+            "Petrol stations sparse north of Perth — top up before leaving Stirling."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "18:00",
+          "name": "Aviemore guesthouse",
+          "category": "stay",
+          "desc": "2 nights base for Cairngorms.",
+          "cost": 95,
+          "kind": "hotel",
+          "source": "booking",
+          "poiId": "aviemore-guesthouse"
+        }
+      ]
+    },
+    {
+      "num": "4",
+      "title": "Cairngorms — winter walk + Speyside",
+      "cls": "rest-day",
+      "desc": "Light trekking morning, distillery tour afternoon. Restful pacing.",
+      "schedule": [
+        {
+          "type": "experience",
+          "time": "09:00",
+          "name": "Loch an Eilein loop",
+          "category": "attraction",
+          "desc": "Easy 5km loop around frozen loch + ruined island castle. ~1.5h.",
+          "kind": "trek",
+          "source": "alltrails",
+          "poiId": "loch-an-eilein",
+          "links": [
+            {
+              "type": "alltrails",
+              "url": "https://www.alltrails.com/trail/scotland/highlands/loch-an-eilein-circuit"
+            }
+          ],
+          "popularity": 4.0
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Frozen loch in February reflects the Cairngorm peaks — best photo around 11:00 with low sun."
+          ],
+          "warnings": [
+            "Trail can be icy near the boulder shore — microspikes recommended."
+          ]
+        },
+        {
+          "type": "transfer",
+          "time": "12:00",
+          "from": {
+            "name": "Aviemore",
+            "lat": 57.1916,
+            "lng": -3.8266
+          },
+          "to": {
+            "name": "Glenlivet Distillery",
+            "lat": 57.332,
+            "lng": -3.2937
+          },
+          "model": "drive",
+          "duration": 50,
+          "distance": 45
+        },
+        {
+          "type": "experience",
+          "time": "13:30",
+          "name": "Glenlivet distillery tour",
+          "category": "attraction",
+          "desc": "1h tour + tasting. Designated driver pickup encouraged.",
+          "cost": 30,
+          "kind": "wellness",
+          "source": "official",
+          "poiId": "glenlivet-distillery",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.theglenlivet.com/visit-us"
+            }
+          ],
+          "popularity": 4.8
+        },
+        {
+          "type": "insight",
+          "warnings": [
+            "Pre-book — winter slots limited (only 4 tours/day Nov-Mar).",
+            "Designated driver gets a take-home dram instead of in-house tasting — ask at booking."
+          ]
+        },
+        {
+          "type": "transfer",
+          "time": "16:00",
+          "from": {
+            "name": "Glenlivet",
+            "lat": 57.332,
+            "lng": -3.2937
+          },
+          "to": {
+            "name": "Aviemore",
+            "lat": 57.1916,
+            "lng": -3.8266
+          },
+          "model": "drive",
+          "duration": 50,
+          "distance": 45
+        },
+        {
+          "type": "experience",
+          "time": "18:00",
+          "name": "Aviemore guesthouse",
+          "category": "stay",
+          "desc": "Night 2 of 2",
+          "cost": 95,
+          "kind": "hotel",
+          "poiId": "aviemore-guesthouse"
+        }
+      ]
+    },
+    {
+      "num": "5",
+      "title": "Cairngorms → Inverness",
+      "cls": "drive-day",
+      "desc": "Move to Inverness. Stop at Culloden Battlefield.",
+      "schedule": [
+        {
+          "type": "transfer",
+          "time": "10:00",
+          "from": {
+            "name": "Aviemore",
+            "lat": 57.1916,
+            "lng": -3.8266
+          },
+          "to": {
+            "name": "Culloden",
+            "lat": 57.4768,
+            "lng": -4.0878
+          },
+          "model": "drive",
+          "duration": 50,
+          "distance": 55
+        },
+        {
+          "type": "experience",
+          "time": "11:00",
+          "name": "Culloden Battlefield + visitor centre",
+          "category": "attraction",
+          "desc": "Site of 1746 Jacobite defeat. Audio guide essential. ~2h.",
+          "cost": 16,
+          "kind": "memorial",
+          "source": "official",
+          "poiId": "culloden-battlefield",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.nts.org.uk/visit/places/culloden"
+            }
+          ],
+          "popularity": 5.7
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Audio guide is non-skippable — expect 90 min minimum at the visitor centre.",
+            "Walking the battle lines outdoors gives the most haunting context — wear warm layers."
+          ]
+        },
+        {
+          "type": "transfer",
+          "time": "14:00",
+          "from": {
+            "name": "Culloden",
+            "lat": 57.4768,
+            "lng": -4.0878
+          },
+          "to": {
+            "name": "Inverness",
+            "lat": 57.4778,
+            "lng": -4.2247
+          },
+          "model": "drive",
+          "duration": 20,
+          "distance": 12
+        },
+        {
+          "type": "experience",
+          "time": "15:00",
+          "name": "Inverness Castle viewpoint + River Ness walk",
+          "category": "attraction",
+          "desc": "Castle interior closed for refurb until 2025; walking riverside is free + atmospheric.",
+          "kind": "city",
+          "source": "wikivoyage"
+        },
+        {
+          "type": "experience",
+          "time": "19:00",
+          "name": "Dinner in Inverness city centre",
+          "category": "food",
+          "cost": 45,
+          "kind": "restaurant"
+        },
+        {
+          "type": "experience",
+          "time": "21:00",
+          "name": "Inverness B&B",
+          "category": "stay",
+          "desc": "1 night",
+          "cost": 110,
+          "kind": "hotel",
+          "poiId": "inverness-bnb"
+        }
+      ]
+    },
+    {
+      "num": "6",
+      "title": "Inverness → Loch Ness → Eilean Donan → Skye",
+      "cls": "drive-day",
+      "desc": "Big driving day — but the route is the highlight. Skye Bridge to Portree late afternoon.",
+      "schedule": [
+        {
+          "type": "transfer",
+          "time": "08:30",
+          "from": {
+            "name": "Inverness",
+            "lat": 57.4778,
+            "lng": -4.2247
+          },
+          "to": {
+            "name": "Urquhart Castle (Loch Ness)",
+            "lat": 57.3239,
+            "lng": -4.4422
+          },
+          "model": "drive",
+          "duration": 35,
+          "distance": 27
+        },
+        {
+          "type": "experience",
+          "time": "09:30",
+          "name": "Urquhart Castle on Loch Ness",
+          "category": "attraction",
+          "desc": "Ruined castle on the famous loch. Photogenic; visitor centre + ruins ~2h.",
+          "cost": 14,
+          "kind": "castle",
+          "source": "official",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Urquhart_Castle_2017-05-22.jpg/1280px-Urquhart_Castle_2017-05-22.jpg",
+          "poiId": "urquhart-castle",
+          "popularity": 4.9
+        },
+        {
+          "type": "transfer",
+          "time": "12:00",
+          "from": {
+            "name": "Urquhart",
+            "lat": 57.3239,
+            "lng": -4.4422
+          },
+          "to": {
+            "name": "Eilean Donan Castle",
+            "lat": 57.274,
+            "lng": -5.516
+          },
+          "model": "drive",
+          "duration": 90,
+          "distance": 95,
+          "notes": "A82 → A87 — scenic, mostly two-lane."
+        },
+        {
+          "type": "experience",
+          "time": "14:00",
+          "name": "Eilean Donan Castle",
+          "category": "attraction",
+          "desc": "Iconic island castle. Quick visit (1h) — interior small but atmospheric.",
+          "cost": 13,
+          "kind": "castle",
+          "source": "official",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Eilean_Donan_Castle%2C_Scotland_-_Jan_2011.jpg/1280px-Eilean_Donan_Castle%2C_Scotland_-_Jan_2011.jpg",
+          "poiId": "eilean-donan-castle",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.eileandonancastle.com"
+            }
+          ],
+          "popularity": 5.1
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Photo from the bridge approach is the iconic shot — best with low afternoon sun (~14:30 in Feb)."
+          ],
+          "warnings": [
+            "Daylight ends ~17:30 in mid-February — finish all single-track driving in Skye before dusk.",
+            "Skye Bridge — no toll, no booking. The old ferry route is replaced."
+          ]
+        },
+        {
+          "type": "transfer",
+          "time": "15:30",
+          "from": {
+            "name": "Eilean Donan",
+            "lat": 57.274,
+            "lng": -5.516
+          },
+          "to": {
+            "name": "Portree (Skye)",
+            "lat": 57.4135,
+            "lng": -6.1947
+          },
+          "model": "drive",
+          "duration": 75,
+          "distance": 67,
+          "notes": "A87 via Skye Bridge."
+        },
+        {
+          "type": "experience",
+          "time": "18:00",
+          "name": "Portree B&B (Skye)",
+          "category": "stay",
+          "desc": "3 nights — Skye base",
+          "cost": 130,
+          "kind": "hotel",
+          "source": "booking",
+          "poiId": "portree-bnb"
+        }
+      ]
+    },
+    {
+      "num": "7",
+      "title": "Skye — Trotternish loop",
+      "cls": "trek-day",
+      "desc": "Old Man of Storr (lower viewpoint) + Quiraing drive-by. Winter caution.",
+      "schedule": [
+        {
+          "type": "experience",
+          "time": "09:30",
+          "name": "Old Man of Storr — lower viewpoint",
+          "category": "attraction",
+          "desc": "Steep first 30min. Skip the upper section if icy. ~2h round trip lower.",
+          "kind": "trek",
+          "source": "alltrails",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/b/b4/The_Storr_by_Grinner.jpg",
+          "poiId": "old-man-of-storr",
+          "links": [
+            {
+              "type": "alltrails",
+              "url": "https://www.alltrails.com/trail/scotland/highlands/old-man-of-storr"
+            }
+          ],
+          "popularity": 3.3
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Storr's iconic boulder field is best mid-morning when the light angles across the pinnacles.",
+            "Lower viewpoint reaches the photo-spot in 45 min — perfect winter compromise."
+          ],
+          "warnings": [
+            "Trail can be icy near the boulder field — microspikes essential. Turn back if losing footing.",
+            "Park4Night reports: parking fills by 9:00 am even in February — arrive early or plan to roadside park."
+          ]
+        },
+        {
+          "type": "transfer",
+          "time": "13:00",
+          "from": {
+            "name": "Old Man of Storr",
+            "lat": 57.507,
+            "lng": -6.1819
+          },
+          "to": {
+            "name": "Quiraing viewpoint",
+            "lat": 57.6437,
+            "lng": -6.266
+          },
+          "model": "drive",
+          "duration": 35,
+          "distance": 30,
+          "notes": "Single-track road — passing places only."
+        },
+        {
+          "type": "experience",
+          "time": "13:45",
+          "name": "Quiraing — drive-by viewpoints",
+          "category": "attraction",
+          "desc": "Short walks from car park, no full traverse in winter conditions.",
+          "kind": "viewpoint",
+          "source": "alltrails",
+          "poiId": "quiraing",
+          "popularity": 4.5
+        },
+        {
+          "type": "insight",
+          "warnings": [
+            "Single-track road to Quiraing — pull into passing places early; locals drive fast.",
+            "Full traverse (Quiraing → Trotternish) is closed in winter due to ice and visibility risk."
+          ]
+        },
+        {
+          "type": "transfer",
+          "time": "15:30",
+          "from": {
+            "name": "Quiraing",
+            "lat": 57.6437,
+            "lng": -6.266
+          },
+          "to": {
+            "name": "Portree",
+            "lat": 57.4135,
+            "lng": -6.1947
+          },
+          "model": "drive",
+          "duration": 50,
+          "distance": 40
+        },
+        {
+          "type": "experience",
+          "time": "19:00",
+          "name": "Dinner in Portree",
+          "category": "food",
+          "desc": "Seafood (langoustines / scallops) — Scorrybreac if open.",
+          "cost": 70,
+          "kind": "restaurant",
+          "source": "tripadvisor"
+        },
+        {
+          "type": "experience",
+          "time": "21:00",
+          "name": "Portree B&B (Skye)",
+          "category": "stay",
+          "desc": "Night 2 of 3",
+          "cost": 130,
+          "kind": "hotel",
+          "poiId": "portree-bnb"
+        }
+      ],
+      "planB": "If trail closed/iced: Skye Museum of Island Life + Kilt Rock waterfall (drive-up viewpoint, 5min walk)."
+    },
+    {
+      "num": "8",
+      "title": "Skye — Fairy Pools + Talisker",
+      "cls": "rest-day",
+      "desc": "West coast day. Easy walk + distillery.",
+      "schedule": [
+        {
+          "type": "experience",
+          "time": "10:00",
+          "name": "Fairy Pools",
+          "category": "attraction",
+          "desc": "Series of waterfalls in Glen Brittle. 5km out-and-back, mostly flat.",
+          "kind": "waterfall",
+          "source": "alltrails",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/9/94/Fairy_Pools%2C_Skye%2C_Scotland_17_%28highest_pool%29.jpg",
+          "poiId": "fairy-pools",
+          "links": [
+            {
+              "type": "alltrails",
+              "url": "https://www.alltrails.com/trail/scotland/highlands/fairy-pools"
+            }
+          ],
+          "popularity": 4.5
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Highest pool (~2km in) is the iconic photo with Cuillin backdrop — keep going past the first falls."
+          ],
+          "warnings": [
+            "River crossings can be high after rain — turn back if water above knees.",
+            "Parking £6 (cash or card at machine) — no free options; arriving by 09:30 secures a spot."
+          ]
+        },
+        {
+          "type": "transfer",
+          "time": "13:30",
+          "from": {
+            "name": "Fairy Pools",
+            "lat": 57.251,
+            "lng": -6.2616
+          },
+          "to": {
+            "name": "Talisker Distillery",
+            "lat": 57.3018,
+            "lng": -6.3559
+          },
+          "model": "drive",
+          "duration": 30,
+          "distance": 18
+        },
+        {
+          "type": "experience",
+          "time": "14:30",
+          "name": "Talisker distillery tour",
+          "category": "attraction",
+          "desc": "Skye's classic peaty single-malt. 1h tour + tasting.",
+          "cost": 35,
+          "kind": "wellness",
+          "source": "official",
+          "poiId": "talisker-distillery",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.malts.com/en-row/distilleries/talisker"
+            }
+          ],
+          "popularity": 4.6
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Talisker 10-year is the signature pour; the 18-year is offered in higher tiers — worth the upgrade."
+          ],
+          "warnings": [
+            "Designated driver: ask for take-home dram instead of in-house tasting (no waste)."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "18:00",
+          "name": "Portree B&B (Skye)",
+          "category": "stay",
+          "desc": "Night 3 of 3",
+          "cost": 130,
+          "kind": "hotel",
+          "poiId": "portree-bnb"
+        }
+      ]
+    },
+    {
+      "num": "9",
+      "title": "Skye → Mallaig (ferry) → Glencoe",
+      "cls": "drive-day",
+      "desc": "Ferry across Sound of Sleat. Photo stop at Glenfinnan Viaduct. End in Glencoe.",
+      "schedule": [
+        {
+          "type": "transfer",
+          "time": "09:00",
+          "from": {
+            "name": "Portree",
+            "lat": 57.4135,
+            "lng": -6.1947
+          },
+          "to": {
+            "name": "Armadale (Skye ferry port)",
+            "lat": 57.0631,
+            "lng": -5.8929
+          },
+          "model": "drive",
+          "duration": 75,
+          "distance": 75
+        },
+        {
+          "type": "transfer",
+          "time": "11:00",
+          "from": {
+            "name": "Armadale",
+            "lat": 57.0631,
+            "lng": -5.8929
+          },
+          "to": {
+            "name": "Mallaig",
+            "lat": 57.0061,
+            "lng": -5.8298
+          },
+          "model": "ferry",
+          "duration": 30,
+          "cost": 18,
+          "notes": "Caledonian MacBrayne — 4 sailings/day winter. Pre-book vehicle slot."
+        },
+        {
+          "type": "insight",
+          "warnings": [
+            "Winter timetable: only 4 sailings/day vs 9 in summer. Book the 11:00 slot specifically — later sailings risk dusk arrival in Glencoe."
+          ]
+        },
+        {
+          "type": "transfer",
+          "time": "12:00",
+          "from": {
+            "name": "Mallaig",
+            "lat": 57.0061,
+            "lng": -5.8298
+          },
+          "to": {
+            "name": "Glenfinnan Viaduct",
+            "lat": 56.8755,
+            "lng": -5.4359
+          },
+          "model": "drive",
+          "duration": 50,
+          "distance": 50,
+          "notes": "Road of the Isles — A830, scenic, two-lane."
+        },
+        {
+          "type": "experience",
+          "time": "13:00",
+          "name": "Glenfinnan Viaduct (Harry Potter bridge)",
+          "category": "attraction",
+          "desc": "Walk to the viewpoint above the viaduct. ~30min round trip from car park.",
+          "kind": "scenic",
+          "source": "tripadvisor",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/1/10/Glenfinnan_Viaduct_-_2022.jpg",
+          "poiId": "glenfinnan-viaduct",
+          "popularity": 5.0
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Viaduct is empty in February (Jacobite steam train doesn't run) but the curve is still photogenic — fewer crowds."
+          ]
+        },
+        {
+          "type": "transfer",
+          "time": "15:00",
+          "from": {
+            "name": "Glenfinnan",
+            "lat": 56.8755,
+            "lng": -5.4359
+          },
+          "to": {
+            "name": "Glencoe village",
+            "lat": 56.6868,
+            "lng": -5.0996
+          },
+          "model": "drive",
+          "duration": 95,
+          "distance": 90
+        },
+        {
+          "type": "experience",
+          "time": "17:30",
+          "name": "Glencoe inn",
+          "category": "stay",
+          "desc": "2 nights",
+          "cost": 115,
+          "kind": "hotel",
+          "source": "booking",
+          "poiId": "glencoe-inn"
+        }
+      ]
+    },
+    {
+      "num": "10",
+      "title": "Glencoe — winter walks",
+      "cls": "trek-day",
+      "desc": "Glencoe valley walk. Big landscapes; minimal elevation gain.",
+      "schedule": [
+        {
+          "type": "experience",
+          "time": "09:30",
+          "name": "Lost Valley (Coire Gabhail)",
+          "category": "attraction",
+          "desc": "Famous hidden glen — 5km round, 250m elevation. Boulder hop crossing of River Coe.",
+          "kind": "trek",
+          "source": "alltrails",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/GlencoeVillage.jpg/1280px-GlencoeVillage.jpg",
+          "poiId": "lost-valley",
+          "links": [
+            {
+              "type": "alltrails",
+              "url": "https://www.alltrails.com/trail/scotland/highlands/lost-valley-coire-gabhail"
+            }
+          ],
+          "popularity": 4.9
+        },
+        {
+          "type": "insight",
+          "warnings": [
+            "Skip if river is high (>knee depth). Microspikes useful on upper section.",
+            "Trailhead parking (Three Sisters) fills by 10:00 — arrive at opening."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "13:30",
+          "name": "Lunch at Clachaig Inn",
+          "category": "food",
+          "desc": "Classic walker's pub — hearty food, real ales.",
+          "cost": 25,
+          "kind": "restaurant",
+          "source": "tripadvisor"
+        },
+        {
+          "type": "experience",
+          "time": "15:00",
+          "name": "Glencoe Visitor Centre",
+          "category": "attraction",
+          "desc": "Massacre history + viewpoint terrace. Indoor option for bad weather.",
+          "cost": 8,
+          "kind": "memorial",
+          "source": "official",
+          "poiId": "glencoe-visitor-centre",
+          "popularity": 4.9
+        },
+        {
+          "type": "experience",
+          "time": "18:00",
+          "name": "Glencoe inn",
+          "category": "stay",
+          "desc": "Night 2 of 2",
+          "cost": 115,
+          "kind": "hotel",
+          "poiId": "glencoe-inn"
+        }
+      ],
+      "planB": "Storm/blizzard? Drive 30min south to Oban — fish & chips on the harbour, McCaig's Tower viewpoint."
+    },
+    {
+      "num": "11",
+      "title": "Glencoe → Loch Lomond → Edinburgh",
+      "cls": "drive-day",
+      "desc": "Long drive south via Loch Lomond. End in Edinburgh.",
+      "schedule": [
+        {
+          "type": "transfer",
+          "time": "10:00",
+          "from": {
+            "name": "Glencoe",
+            "lat": 56.6868,
+            "lng": -5.0996
+          },
+          "to": {
+            "name": "Loch Lomond (Luss)",
+            "lat": 56.1027,
+            "lng": -4.6313
+          },
+          "model": "drive",
+          "duration": 90,
+          "distance": 110,
+          "notes": "A82 south — scenic loch-side road."
+        },
+        {
+          "type": "experience",
+          "time": "11:30",
+          "name": "Luss village + loch shore",
+          "category": "attraction",
+          "desc": "Tiny conservation village. 1h walk along the loch.",
+          "kind": "vila",
+          "source": "wikivoyage",
+          "poiId": "luss-village",
+          "popularity": 4.3
+        },
+        {
+          "type": "experience",
+          "time": "13:00",
+          "name": "Lunch in Luss (Coach House Coffee Shop)",
+          "category": "food",
+          "cost": 20,
+          "kind": "coffee"
+        },
+        {
+          "type": "transfer",
+          "time": "13:30",
+          "from": {
+            "name": "Luss",
+            "lat": 56.1027,
+            "lng": -4.6313
+          },
+          "to": {
+            "name": "Edinburgh",
+            "lat": 55.9533,
+            "lng": -3.1883
+          },
+          "model": "drive",
+          "duration": 105,
+          "distance": 110,
+          "notes": "M9 east — straightforward."
+        },
+        {
+          "type": "experience",
+          "time": "16:30",
+          "name": "Old Town B&B (Edinburgh)",
+          "category": "stay",
+          "desc": "3 nights — same place as start",
+          "cost": 120,
+          "kind": "hotel",
+          "source": "booking",
+          "poiId": "edinburgh-old-town-bnb"
+        }
+      ]
+    },
+    {
+      "num": "12",
+      "title": "Edinburgh — New Town + museums",
+      "cls": "city-day",
+      "desc": "Indoor-friendly day. Museums, shops, Princes Street.",
+      "schedule": [
+        {
+          "type": "experience",
+          "time": "10:00",
+          "name": "National Museum of Scotland",
+          "category": "attraction",
+          "desc": "Massive, free, world-class. 3h+ for highlights.",
+          "kind": "unesco",
+          "source": "official",
+          "poiId": "national-museum-scotland",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.nms.ac.uk"
+            }
+          ],
+          "popularity": 4.7
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Free entry. The Grand Gallery (atrium) and the Earth & Space halls are the don't-miss combinations."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "13:30",
+          "name": "Lunch break",
+          "category": "custom",
+          "desc": "Princes Street Gardens cafés or food trucks.",
+          "cost": 20
+        },
+        {
+          "type": "experience",
+          "time": "15:00",
+          "name": "Calton Hill",
+          "category": "attraction",
+          "desc": "Best panoramic view of Edinburgh. 15min walk up.",
+          "kind": "viewpoint",
+          "source": "tripadvisor",
+          "poiId": "calton-hill",
+          "popularity": 4.8
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Sunset photos from Nelson Monument terrace — best ~17:00 in Feb (golden hour over Old Town)."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "18:00",
+          "name": "Old Town B&B (Edinburgh)",
+          "category": "stay",
+          "desc": "Night 2 of 3",
+          "cost": 120,
+          "kind": "hotel",
+          "poiId": "edinburgh-old-town-bnb"
+        }
+      ]
+    },
+    {
+      "num": "13",
+      "title": "Edinburgh — Royal Mile + buffer day",
+      "cls": "rest-day",
+      "desc": "Buffer for missed highlights, shopping, last-minute reservations.",
+      "schedule": [
+        {
+          "type": "experience",
+          "time": "10:00",
+          "name": "Royal Mile shops",
+          "category": "shopping",
+          "desc": "Tartan, whisky, woolens. Avoid tourist traps near castle.",
+          "kind": "shop",
+          "source": "tripadvisor"
+        },
+        {
+          "type": "experience",
+          "time": "13:00",
+          "name": "Real Mary King's Close (underground tour)",
+          "category": "attraction",
+          "desc": "Pre-book. Guided 1h tour through 17th-century lanes buried under City Chambers.",
+          "cost": 22,
+          "kind": "memorial",
+          "source": "official",
+          "poiId": "mary-kings-close",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.realmarykingsclose.com"
+            }
+          ]
+        },
+        {
+          "type": "insight",
+          "warnings": [
+            "Pre-book — winter slots fill 1-2 days ahead with locals + cruise visitors."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "19:00",
+          "name": "Final dinner — The Devil's Advocate",
+          "category": "food",
+          "desc": "Hidden close, modern Scottish.",
+          "cost": 90,
+          "kind": "restaurant",
+          "source": "thefork"
+        },
+        {
+          "type": "experience",
+          "time": "22:00",
+          "name": "Old Town B&B (Edinburgh)",
+          "category": "stay",
+          "desc": "Night 3 of 3",
+          "cost": 120,
+          "kind": "hotel",
+          "poiId": "edinburgh-old-town-bnb"
+        }
+      ]
+    },
+    {
+      "num": "14",
+      "title": "Edinburgh → São Paulo",
+      "cls": "transit-day",
+      "desc": "Return rental car, fly home. Long-haul evening.",
+      "schedule": [
+        {
+          "type": "experience",
+          "time": "10:00",
+          "name": "Return rental car at EDI",
+          "category": "transport",
+          "desc": "Drop the car at the airport return. Full tank required.",
+          "kind": "destination",
+          "source": "google-maps",
+          "poiId": "edinburgh-airport-return"
+        },
+        {
+          "type": "transfer",
+          "time": "13:00",
+          "from": {
+            "name": "Edinburgh (EDI)",
+            "lat": 55.9499,
+            "lng": -3.3725
+          },
+          "to": {
+            "name": "London (LHR)",
+            "lat": 51.47,
+            "lng": -0.4543
+          },
+          "model": "flight",
+          "duration": 80
+        },
+        {
+          "type": "transfer",
+          "time": "21:30",
+          "from": {
+            "name": "London (LHR)",
+            "lat": 51.47,
+            "lng": -0.4543
+          },
+          "to": {
+            "name": "São Paulo (GRU)",
+            "lat": -23.4356,
+            "lng": -46.4731
+          },
+          "model": "flight",
+          "duration": 690,
+          "notes": "BA245 — overnight."
+        }
+      ]
+    }
+  ],
+  "bookings": [
+    {
+      "date": "2027-02-14",
+      "item": "British Airways · GRU→EDI via LHR · round-trip 2 pax",
+      "status": "pending",
+      "critical": true,
+      "link": "https://www.britishairways.com"
+    },
+    {
+      "date": "2027-02-14",
+      "item": "Rental car · Edinburgh airport · 14 days · compact 4WD",
+      "status": "pending",
+      "critical": true,
+      "link": "https://www.skyscanner.com/carhire"
+    },
+    {
+      "date": "2027-02-14",
+      "item": "Old Town B&B · Edinburgh · 5 nights total (2+3)",
+      "status": "pending",
+      "critical": false,
+      "link": "https://www.booking.com"
+    },
+    {
+      "date": "2027-02-15",
+      "item": "Edinburgh Castle · timed entry 10:00",
+      "status": "pending",
+      "critical": false,
+      "link": "https://www.edinburghcastle.scot"
+    },
+    {
+      "date": "2027-02-17",
+      "item": "Glenlivet Distillery · tour + tasting 13:30",
+      "status": "pending",
+      "critical": true,
+      "link": "https://www.theglenlivet.com/visit-us"
+    },
+    {
+      "date": "2027-02-19",
+      "item": "Portree B&B · Skye · 3 nights",
+      "status": "pending",
+      "critical": true,
+      "link": "https://www.booking.com"
+    },
+    {
+      "date": "2027-02-21",
+      "item": "Talisker Distillery · tour + tasting 14:30",
+      "status": "pending",
+      "critical": true,
+      "link": "https://www.malts.com/en-row/distilleries/talisker"
+    },
+    {
+      "date": "2027-02-22",
+      "item": "CalMac Ferry · Armadale → Mallaig · 11:00 sailing · 2 pax + car",
+      "status": "pending",
+      "critical": true,
+      "link": "https://www.calmac.co.uk"
+    },
+    {
+      "date": "2027-02-22",
+      "item": "Glencoe inn · 2 nights",
+      "status": "pending",
+      "critical": false,
+      "link": "https://www.booking.com"
+    },
+    {
+      "date": "2027-02-26",
+      "item": "Mary King's Close tour · 13:00",
+      "status": "pending",
+      "critical": false,
+      "link": "https://www.realmarykingsclose.com"
+    }
+  ],
+  "budget": [
+    {
+      "id": "flights",
+      "category": "flights",
+      "amount": 2400,
+      "pct": 41,
+      "status": "estimated",
+      "notes": "Round-trip GRU→EDI via LHR, 2 pax."
+    },
+    {
+      "id": "accommodations",
+      "category": "accommodations",
+      "amount": 1620,
+      "pct": 28,
+      "status": "estimated",
+      "notes": "13 nights × ~£125 avg (B&Bs winter rates)."
+    },
+    {
+      "id": "transportation",
+      "category": "transportation",
+      "amount": 650,
+      "pct": 11,
+      "status": "estimated",
+      "notes": "Rental car 14d + insurance + ferry."
+    },
+    {
+      "id": "fuel",
+      "category": "fuel",
+      "amount": 200,
+      "pct": 3,
+      "status": "estimated",
+      "notes": "~1500km × £1.50/L diesel."
+    },
+    {
+      "id": "food",
+      "category": "food",
+      "amount": 600,
+      "pct": 10,
+      "status": "estimated",
+      "notes": "Mostly cooked breakfast included; pubs + restaurants 1×/day."
+    },
+    {
+      "id": "attractions",
+      "category": "attractions",
+      "amount": 280,
+      "pct": 5,
+      "status": "estimated",
+      "notes": "Castles, distilleries, museums."
+    },
+    {
+      "id": "unplanned",
+      "category": "unplanned",
+      "amount": 100,
+      "pct": 2,
+      "status": "reserve",
+      "notes": "Required emergency buffer (~2%)."
+    }
+  ],
+  "checklist": [
+    {
+      "title": "3 months before",
+      "type": "checklist",
+      "items": [
+        {
+          "id": "book-flights",
+          "text": "Book BA flights GRU→EDI",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "book-rental-car",
+          "text": "Reserve rental car (compact 4WD)",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "book-skye-bnb",
+          "text": "Book Portree B&B (3 nights — fills fast)",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "book-ferry",
+          "text": "Reserve CalMac Armadale→Mallaig ferry (vehicle slot)",
+          "status": "pending",
+          "critical": true
+        }
+      ]
+    },
+    {
+      "title": "2 months before",
+      "type": "checklist",
+      "items": [
+        {
+          "id": "book-distilleries",
+          "text": "Book Glenlivet + Talisker tours",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "book-edinburgh-bnb",
+          "text": "Book Edinburgh B&B (5 nights total)",
+          "status": "pending"
+        },
+        {
+          "id": "book-glencoe-inn",
+          "text": "Book Glencoe inn (2 nights)",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "title": "1 month before",
+      "type": "checklist",
+      "items": [
+        {
+          "id": "book-castle-tickets",
+          "text": "Book Edinburgh + Stirling castle timed-entry tickets",
+          "status": "pending"
+        },
+        {
+          "id": "book-mary-kings-close",
+          "text": "Book Mary King's Close underground tour",
+          "status": "pending"
+        },
+        {
+          "id": "buy-microspikes",
+          "text": "Buy microspikes (2 pairs) for icy trails",
+          "status": "pending",
+          "critical": true
+        }
+      ]
+    },
+    {
+      "title": "1 week before",
+      "type": "checklist",
+      "items": [
+        {
+          "id": "check-weather",
+          "text": "Check 7-day forecast (MeteoBlue + Mountain-Forecast for Skye)",
+          "status": "pending"
+        },
+        {
+          "id": "download-osmaps",
+          "text": "Download OS Maps offline tiles for Highlands",
+          "status": "pending"
+        },
+        {
+          "id": "uk-travel-insurance",
+          "text": "Confirm travel insurance covers winter walking",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "title": "Travel day",
+      "type": "checklist",
+      "items": [
+        {
+          "id": "online-checkin",
+          "text": "Online check-in 24h ahead",
+          "status": "pending"
+        },
+        {
+          "id": "passport-meds",
+          "text": "Passports + meds in carry-on",
+          "status": "pending",
+          "critical": true
+        }
+      ]
+    },
+    {
+      "title": "Documents",
+      "type": "packing",
+      "items": [
+        {
+          "id": "p-passport",
+          "text": "Passports (validity ≥6mo)",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "p-driving-licence",
+          "text": "Driving licence + IDP",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "p-insurance",
+          "text": "Travel insurance docs (printed + offline PDF)",
+          "status": "pending"
+        },
+        {
+          "id": "p-bookings",
+          "text": "B&B + ferry + distillery booking refs",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "title": "Clothing",
+      "type": "packing",
+      "items": [
+        {
+          "id": "p-waterproof-jacket",
+          "text": "Waterproof shell (Goretex or equivalent)",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "p-base-layers",
+          "text": "Merino base layers ×2",
+          "status": "pending"
+        },
+        {
+          "id": "p-fleece",
+          "text": "Fleece mid-layer",
+          "status": "pending"
+        },
+        {
+          "id": "p-walking-trousers",
+          "text": "Walking trousers ×2 (quick-dry)",
+          "status": "pending"
+        },
+        {
+          "id": "p-warm-hat",
+          "text": "Beanie + buff",
+          "status": "pending"
+        },
+        {
+          "id": "p-gloves",
+          "text": "Waterproof gloves",
+          "status": "pending"
+        },
+        {
+          "id": "p-warm-socks",
+          "text": "Wool socks ×4",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "title": "Gear",
+      "type": "packing",
+      "items": [
+        {
+          "id": "p-walking-boots",
+          "text": "Walking boots — broken in",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "p-microspikes",
+          "text": "Microspikes for icy trails",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "p-daypack",
+          "text": "Daypack 25L",
+          "status": "pending"
+        },
+        {
+          "id": "p-headtorch",
+          "text": "Head torch (early sunsets)",
+          "status": "pending"
+        },
+        {
+          "id": "p-water-bottle",
+          "text": "Water bottle 1L ×2",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "title": "Tech",
+      "type": "packing",
+      "items": [
+        {
+          "id": "p-uk-adapter",
+          "text": "UK plug adapters (Type G) ×2",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "p-power-bank",
+          "text": "Power bank 20kAh",
+          "status": "pending"
+        },
+        {
+          "id": "p-camera",
+          "text": "Camera + spare battery (cold drains them)",
+          "status": "pending"
+        },
+        {
+          "id": "p-offline-maps",
+          "text": "OS Maps / Komoot offline downloaded",
+          "status": "pending"
+        }
+      ]
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 import { z } from "zod/v4";
 
 // ============================================================================
-// Schema v2 — see /skill/sources-travel-experience.md
-// Canonical source: explor8 repo — src/lib/schemas/trip.ts
+// Schema v2 — see /skill/sources-travel-experience.md and spec.md
+// Canonical source: ~/dev/marcus/travel/src/lib/schemas/trip.ts
 // This file is vendored. Schema-drift CI keeps both files byte-identical.
 // ============================================================================
 
@@ -332,8 +332,12 @@ export const MapPOISchema = z.object({
   source: TravelSourceSchema.optional(),
   /** Who/what last touched this POI. */
   updatedBy: MapUpdatedBySchema.default("skill"),
-  /** Omit = trip-wide overview. Set = day-specific. */
-  dayNum: z.number().int().positive().optional(),
+  /** Omit = trip-wide overview. Number = single day (e.g. `10`). Array =
+   *  multiple days (e.g. `[9, 10, 11]` for a multi-night stay that
+   *  doubles as the next morning's departure point). */
+  dayNum: z
+    .union([z.number().int().positive(), z.array(z.number().int().positive()).nonempty()])
+    .optional(),
   /** Popularity score (0–10) — same value as the linked Experience's
    *  `popularity`. Mirrored here for map-tab UI (e.g. sort POIs by score). */
   popularity: z.number().min(0).max(10).optional(),
@@ -358,8 +362,12 @@ export const MapRouteSchema = z.object({
   /** Hex color for polyline stroke (e.g. "#669944"). */
   color: z.string(),
   kind: MapRouteKindSchema,
-  /** Omit = trip-wide overview polyline. Set = drawn only inside day N. */
-  dayNum: z.number().int().positive().optional(),
+  /** Omit = trip-wide overview polyline. Number = drawn only inside day N.
+   *  Array = drawn on each listed day (e.g. a multi-day driving leg that
+   *  the user wants visible from both endpoints' day filters). */
+  dayNum: z
+    .union([z.number().int().positive(), z.array(z.number().int().positive()).nonempty()])
+    .optional(),
   coordinates: z.array(z.object({ lat: z.number(), lng: z.number() })),
   updatedBy: MapUpdatedBySchema.default("skill"),
 });

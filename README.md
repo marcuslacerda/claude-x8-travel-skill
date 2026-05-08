@@ -29,9 +29,27 @@ The viewer renders `trip.json` + `map.json` directly. No build step, no server, 
 
 - **Wizard-first.** The skill asks 8 structured questions (origin, destination, duration, dates, transport, type, constraints) plus one open-ended one. Answers are persisted; you don't repeat them.
 - **Cleaner schema.** `trip.json` is a typed structure (Zod-validated) with `Experience | Transfer` discriminated schedule items, separated `critical` flag on bookings, closed enums for budget categories. See [`cli/lib/schema.ts`](cli/lib/schema.ts).
-- **Local-first.** Open `viewer/trip.html?slug=<slug>` in any browser. MapLibre + OpenStreetMap renders the interactive map without needing a Google Maps API key.
+- **Local-first.** Open `viewer/trip.html?slug=<slug>` in any browser. MapLibre + OpenStreetMap renders the interactive map. If you have a Google Maps API key, it will show a google map integration (richer UI).
 - **Source-aware research.** The skill picks travel sources from a 26-source catalog (`skill/sources-travel-experience.md`) — Google Maps, Booking, Skyscanner, AllTrails, Park4Night, MeteoBlue, etc. Every POI carries a `source` slug + validated URL.
+- **Pricing & official booking links.** The skill pulls actual prices from official sources (museum tickets, ferry fares, hotel nightly rates, restaurant set menus) and attaches the direct booking URL to each item — so the budget reflects reality and you click straight through to the official site to reserve, no aggregator middlemen.
 - **Versionable when you want it.** `trips/` is gitignored by default. Move your trip out of `trips/` and into a personal git repo to version individual itineraries.
+
+## What it automates
+
+The skill handles the chores you'd otherwise do across a dozen browser tabs and a spreadsheet:
+
+| Manual task                    | Skill mode                | What it does                                                                |
+| ------------------------------ | ------------------------- | --------------------------------------------------------------------------- |
+| Weather forecast per stop      | `weather`                 | Open-Meteo 16-day forecast + trekking alerts (thunderstorm, wind, snow).    |
+| Drive-time audit               | `validate-routes`         | Compares stored Transfer durations vs live Google Maps; flags ±30% drift.   |
+| Picture sourcing for POIs      | `research`, `map`         | Wikipedia og:image first, HEAD-validates URLs; never stores broken links.   |
+| POI popularity ranking         | `research`                | Auto-scores 0–10 from Wikipedia 12-month pageviews (log10) — no guesswork.  |
+| Critical-booking flagging      | `new-trip`, `checklist`   | Marks ferries, timed tickets, high-season cars, Michelin spots as critical. |
+| Prep timeline tracking         | `checklist`               | Computes overdue / due-now / upcoming against today's date.                 |
+| Multi-currency budget          | `budget`                  | Frankfurter API conversion + category breakdown + 5–10% reserve check.      |
+| Source URL rot detection       | `research`, `map`         | WebFetch validates content matches the POI before saving; drops dead links. |
+
+Every POI carries a `source` slug + validated URL, so the published trip never points at a 404.
 
 ## Install
 
@@ -117,16 +135,16 @@ Renders [`examples/scotland-2027/`](examples/scotland-2027/) — 14-day Highland
 
 `/travel-planner <mode> [args]` — full reference at [`docs/skill-modes.md`](docs/skill-modes.md).
 
-| Mode              | Purpose                                                            |
-| ----------------- | ------------------------------------------------------------------ |
-| `use <slug>`      | Set the active trip context                                        |
-| `new-trip <slug>` | Wizard + research → generate `trip.json` + `map.json`              |
-| `research`        | Deep-dive on a destination, trail, campground, restaurant          |
-| `checklist`       | Status of prep vs today — flag overdue & critical                  |
-| `budget`          | Cost analysis with breakdown and conversion                        |
-| `weather`         | Forecast (Open-Meteo API; Google Maps MCP optional)                |
-| `validate-routes` | Audit driving times against Google Maps (requires MCP)             |
-| `map`             | Validate / add POIs / update routes (operates on `map.json`)       |
+| Mode              | What it does                                                                  |
+| ----------------- | ----------------------------------------------------------------------------- |
+| `use <slug>`      | **Set** the active trip for this session.                                     |
+| `new-trip <slug>` | **Plan** a trip end-to-end: 8-question wizard → research → `trip.json` + `map.json`. |
+| `research`        | **Dig** into a specific destination, trail, campground, or restaurant.        |
+| `checklist`       | **Check** prep status vs today; surface overdue and critical items.           |
+| `budget`          | **Reconcile** spend by category, currency-convert, validate the reserve.      |
+| `weather`         | **Forecast** weather per stop with trekking alerts (Open-Meteo).              |
+| `validate-routes` | **Audit** stored drive times against live Google Maps (requires MCP).         |
+| `map`             | **Edit** POIs and route coordinates on `map.json`.                            |
 
 ## CLI commands
 
@@ -149,6 +167,10 @@ The skill (LLM-driven) generates `trip.json` and `map.json`. The CLI (determinis
 - **No API key required** — MapLibre GL JS + OpenStreetMap raster tiles, served from CDN.
 - **Persistent checkbox state** — checklist + packing checks save in `localStorage`.
 - **Tabs** — Itinerary, Bookings, Budget, Checklist (with Packing as a sub-section), Map. Optional **Google Map** tab when configured (see below).
+
+| Itinerary | Map | Budget |
+| --- | --- | --- |
+| ![Itinerary tab](docs/screenshots/viewer-itinerary.png) | ![Map tab](docs/screenshots/viewer-map.png) | ![Budget tab](docs/screenshots/viewer-budget.png) |
 
 See [`docs/local-viewer.md`](docs/local-viewer.md) for details.
 
@@ -184,11 +206,10 @@ See [`docs/publish-to-explor8.md`](docs/publish-to-explor8.md) for setup details
 
 | Trip | Schema | Days | Status |
 |------|--------|------|--------|
-| [`examples/scotland-2027/`](examples/scotland-2027/) | **v2** (canonical) | 14 | Reference for the new wizard + JSON pipeline. Renders out-of-the-box in the local viewer. |
-| [`examples/italy-2026/`](examples/italy-2026/) | v1 (legacy) | 20 | 20-day Dolomites + Slovenia motorhome. Long-form `.md` + KML — predates v2. Won't validate against new schema. |
-| [`examples/scotland-2025/`](examples/scotland-2025/) | v1 (legacy) | 11 | Earlier Highlands road trip. Same status. |
+| [`examples/scotland-2027/`](examples/scotland-2027/) | **v2** (canonical) | 14 | 14-day winter Highlands & Skye loop. Reference for the new wizard + JSON pipeline. Renders out-of-the-box in the local viewer. |
+| [`examples/italy-2026/`](examples/italy-2026/) | **v2** | 19 | 19-day Italy + Slovenia + Dolomites motorhome loop. Re-researched from a v1 plan with v2.1 features (poiId, Insights, OSRM routes). Renders out-of-the-box. |
 
-See [`examples/README.md`](examples/README.md).
+Both are listed in [`examples/examples-index.json`](examples/examples-index.json) so they show up automatically in the local viewer index.
 
 ## Prerequisites
 

@@ -1,0 +1,4025 @@
+{
+  "slug": "italy-2026",
+  "title": "Itália + Eslovênia + Dolomitas — Motorhome Loop",
+  "destination": {
+    "startLocation": "São Paulo",
+    "headlineTo": "Milan, Italy",
+    "headlineFrom": "Milan, Italy"
+  },
+  "startDate": "2026-06-08",
+  "status": "planned",
+  "currency": "EUR",
+  "timezone": "Europe/Rome",
+  "isPublic": false,
+  "days": [
+    {
+      "num": "1",
+      "cls": "",
+      "title": "São Paulo → Milão",
+      "schedule": [
+        {
+          "type": "experience",
+          "time": "18:05",
+          "name": "Embarque no GRU — voo LATAM LA8072 direto para Milão (~12h)",
+          "category": "transport"
+        }
+      ]
+    },
+    {
+      "num": "2",
+      "cls": "",
+      "title": "Milão → Venezia",
+      "dayCost": "~€350 (motorhome pickup + supermercado D1)",
+      "schedule": [
+        {
+          "type": "insight",
+          "highlights": [
+            "🚗 MXP → Venezia | ~308km / ~3h19 base / ~4h19 com margem +30% | A4 leste"
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "10:15",
+          "name": "Chegada em Milano Malpensa. Imigração e retirar bagagem",
+          "category": "transport"
+        },
+        {
+          "type": "experience",
+          "time": "11:30",
+          "name": "Descanso no aeroporto — café e organizar malas",
+          "category": "custom"
+        },
+        {
+          "type": "experience",
+          "time": "16:00",
+          "name": "Retirar motorhome na Indie Campers (MXP). Inspeção do veículo e orientações",
+          "category": "transport",
+          "kind": "destination",
+          "poiId": "indie-campers-mxp-pickup-return",
+          "desc": "Pickup e devolução do motorhome Indie Campers no aeroporto MXP de Milão Malpensa.",
+          "source": "official",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://indiecampers.com/it/depots/milan"
+            }
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "16:15",
+          "name": "⛽ Tanque cheio do pickup MXP (incluído na retirada)",
+          "category": "transport"
+        },
+        {
+          "type": "experience",
+          "time": "16:30",
+          "name": "🛒 PRIMEIRA COMPRA DE SUPERMERCADO — Esselunga ou Carrefour perto de MXP. Essenciais para 3 dias: massas, azeite, café, pão, queijos, frutas, água, temperos",
+          "category": "shopping"
+        },
+        {
+          "type": "transfer",
+          "time": "17:00",
+          "from": {
+            "lat": 45.6197,
+            "lng": 8.7603,
+            "name": "Aeroporto MXP / Indie Campers"
+          },
+          "to": {
+            "name": "Camping Fusina, Venezia",
+            "lat": 45.4208,
+            "lng": 12.2582
+          },
+          "model": "drive",
+          "duration": 255,
+          "distance": 302,
+          "notes": "A4 leste — motorhome com +30% margin."
+        },
+        {
+          "type": "experience",
+          "time": "17:00",
+          "name": "Dirigir pela A4 leste até Venezia (~3h)",
+          "category": "transport"
+        },
+        {
+          "type": "experience",
+          "time": "20:00",
+          "name": "Chegada no Camping Fusina — frente à laguna. Montar camp",
+          "category": "stay"
+        },
+        {
+          "type": "experience",
+          "time": "20:15",
+          "name": "💧 Encher tanque de água limpa no Camping Fusina",
+          "category": "stay"
+        },
+        {
+          "type": "experience",
+          "time": "20:30",
+          "name": "Jantar no motorhome — primeira refeição da viagem!",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "",
+          "name": "Camping Fusina, Venezia",
+          "category": "stay",
+          "kind": "camp",
+          "poiId": "camp-fusina-venezia",
+          "desc": "Camping Fusina — frente à laguna de Veneza, vaporetto direto para San Marco. Aceita motorhomes.",
+          "source": "campercontact",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.campingfusina.com/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": "3",
+      "cls": "city",
+      "title": "Venezia Dia Inteiro + Concerto Vivaldi",
+      "dayCost": "~€215 (vaporetto €32 + basílica €24 + campanile €30 + palazzo €80 + frari €10 + concerto €130 + refeições)",
+      "schedule": [
+        {
+          "type": "insight",
+          "warnings": [
+            "Palazzo Ducale Itinerari Segreti: RESERVAR ONLINE com antecedência — grupos pequenos, esgota",
+            "Concerto Vivaldi I Musici Veneziani: comprar tickets antecipados",
+            "Basilica di San Marco: ingresso online OBRIGATÓRIO desde Jul/2025 (timed-entry)"
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "09:00",
+          "name": "Vaporetto Fusina → San Marco (~30 min, ~€8/pp)",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "09:00",
+          "from": {
+            "name": "Camping Fusina, Venezia",
+            "lat": 45.4208,
+            "lng": 12.2582
+          },
+          "to": {
+            "name": "Basilica di San Marco",
+            "lat": 45.4347,
+            "lng": 12.3398
+          },
+          "model": "ferry",
+          "duration": 30,
+          "distance": 9,
+          "cost": 16,
+          "notes": "Vaporetto Linea 16 — Fusina ↔ Zattere → walk to S. Marco."
+        },
+        {
+          "type": "experience",
+          "time": "09:30",
+          "name": "Piazza San Marco — a sala de estar da Europa",
+          "category": "custom"
+        },
+        {
+          "type": "experience",
+          "time": "09:45",
+          "name": "Basilica di San Marco — mosaicos bizantinos do séc. XI",
+          "category": "attraction",
+          "kind": "city",
+          "poiId": "basilica-san-marco",
+          "cost": 3,
+          "desc": "Catedral bizantina do séc. XI, conhecida pelos mosaicos dourados que cobrem cúpulas e abóbadas. Ingresso online obrigatório (timed-entry) desde 2025.",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Venezia_Basilica_di_San_Marco_Fassade_2.jpg/1280px-Venezia_Basilica_di_San_Marco_Fassade_2.jpg",
+          "popularity": 5.4,
+          "source": "official",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://tickets.basilicasanmarco.it/en/store"
+            },
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Attraction_Review-g187870-d197702-Reviews-Basilica_di_San_Marco-Venice_Veneto.html"
+            }
+          ]
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Mosaicos bizantinos cobrindo 8.000 m² de superfície interna.",
+            "Pala d'Oro — retábulo de ouro com 2.000 gemas."
+          ],
+          "warnings": [
+            "Ingresso online obrigatório (timed-entry) — esgota com antecedência."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "10:45",
+          "name": "Campanile di San Marco — vista 360° da laguna",
+          "category": "attraction",
+          "kind": "viewpoint",
+          "poiId": "campanile-san-marco",
+          "cost": 15,
+          "desc": "Campanário de 98m da Basílica de São Marco, com elevador para o topo e vista 360° sobre Veneza, a laguna e os Alpes em dias claros.",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Campanile_of_St._Mark%27s_Basilica_-_remote_view.jpg/960px-Campanile_of_St._Mark%27s_Basilica_-_remote_view.jpg",
+          "popularity": 5,
+          "source": "official",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://basilicasanmarco.it/en/visit/campanile/"
+            }
+          ]
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Vista panorâmica de Veneza e da laguna do alto da torre."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "11:30",
+          "name": "Palazzo Ducale — Itinerari Segreti",
+          "category": "attraction",
+          "kind": "castle",
+          "poiId": "palazzo-ducale-itinerari-segreti",
+          "cost": 40,
+          "desc": "Palácio gótico-veneziano sede do Doge da Sereníssima por 700+ anos. O tour 'Itinerari Segreti' visita prisões, salas secretas e a passagem de Casanova pela Ponte dei Sospiri.",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/%28Venice%29_Doge%27s_Palace_and_campanile_of_St._Mark%27s_Basilica_facing_the_sea.jpg/1280px-%28Venice%29_Doge%27s_Palace_and_campanile_of_St._Mark%27s_Basilica_facing_the_sea.jpg",
+          "popularity": 5.2,
+          "source": "tripadvisor",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://palazzoducale.visitmuve.it/en/"
+            },
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Attraction_Review-g187870-d196648-Reviews-Doge_s_Palace-Venice_Veneto.html"
+            }
+          ]
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Tour 'Itinerari Segreti' — grupos pequenos, narrativa sobre Casanova e o sistema judicial veneziano."
+          ],
+          "warnings": [
+            "Reservar online com antecedência — vagas limitadas."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "13:15",
+          "name": "Basilica dei SS. Giovanni e Paolo — panteão dos doges",
+          "category": "attraction",
+          "kind": "city",
+          "poiId": "basilica-santi-giovanni-paolo",
+          "cost": 3.5,
+          "desc": "Maior igreja gótica de Veneza, panteão de 25 doges. Vitrais do séc. XV e teto de Veronese.",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Exterior_of_Santi_Giovanni_e_Paolo_%28Venice%29.jpg/1280px-Exterior_of_Santi_Giovanni_e_Paolo_%28Venice%29.jpg",
+          "popularity": 4.5,
+          "source": "tripadvisor"
+        },
+        {
+          "type": "experience",
+          "time": "14:00",
+          "name": "Chiesa di Santa Maria Assunta ai Gesuiti — teto barroco espetacular",
+          "category": "attraction",
+          "kind": "city",
+          "poiId": "chiesa-gesuiti",
+          "cost": 0,
+          "desc": "Igreja barroca dos jesuítas (1729) com teto pintado por Tiepolo e mármore esculpido imitando damasco.",
+          "source": "wikivoyage",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Basilica_di_Santa_Maria_Assunta%2C_Torcello_%28cropped%29.jpg/1280px-Basilica_di_Santa_Maria_Assunta%2C_Torcello_%28cropped%29.jpg"
+        },
+        {
+          "type": "experience",
+          "time": "14:45",
+          "name": "Almoço — Cicchetti + spritz nos bacari (Cantina Do Mori desde 1462)",
+          "category": "food",
+          "kind": "restaurant",
+          "poiId": "bacari-do-rialto",
+          "desc": "Bares tradicionais venezianos próximos ao mercado de Rialto. Cantina Do Mori (desde 1462) é o mais antigo. Servem cicchetti (petiscos) com ombra (vinho local).",
+          "source": "tripadvisor",
+          "links": [
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Restaurant_Review-g187870-d1034566-Reviews-Cantina_Do_Mori-Venice_Veneto.html"
+            }
+          ]
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Cantina Do Mori funciona desde 1462 — autêntica experiência de bacaro veneziano."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "15:30",
+          "name": "Ponte di Rialto — a ponte mais famosa de Veneza",
+          "category": "attraction",
+          "kind": "city",
+          "poiId": "ponte-di-rialto",
+          "desc": "Ponte de pedra do séc. XVI sobre o Grand Canal — a mais antiga das quatro pontes que cruzam o canal e o ponto mais fotografado de Veneza.",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Rialto_2025_4.jpg/1280px-Rialto_2025_4.jpg",
+          "popularity": 5.1,
+          "source": "tripadvisor",
+          "links": [
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Attraction_Review-g187870-d195579-Reviews-Rialto_Bridge-Venice_Veneto.html"
+            }
+          ]
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Ponto turístico icônico — chegar cedo para fotos sem multidão."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "16:00",
+          "name": "Basilica dei Frari — Tiziano e Bellini",
+          "category": "attraction",
+          "kind": "city",
+          "poiId": "basilica-dei-frari",
+          "cost": 5,
+          "desc": "Basílica franciscana gótica do séc. XIV. Abriga obras de Tiziano (incluindo a 'Assunção da Virgem') e Bellini, e o túmulo de Cláudio Monteverdi.",
+          "source": "tripadvisor",
+          "links": [
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Attraction_Review-g187870-d195913-Reviews-Basilica_dei_Frari-Venice_Veneto.html"
+            }
+          ],
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Facade_of_Santa_Maria_Gloriosa_dei_Frari_%28Venice%29.jpg/1280px-Facade_of_Santa_Maria_Gloriosa_dei_Frari_%28Venice%29.jpg"
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "'Assunção da Virgem' de Tiziano sobre o altar-mor — uma das obras mais importantes do Renascimento veneziano."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "17:00",
+          "name": "Santa Maria della Salute — cúpula barroca na entrada do Grand Canal",
+          "category": "attraction",
+          "kind": "city",
+          "poiId": "santa-maria-della-salute",
+          "cost": 0,
+          "desc": "Basílica barroca octogonal (1631–1687) na entrada do Grand Canal, construída como agradecimento pela peste que matou ⅓ dos venezianos. Cúpula icônica.",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Santa_Maria_della_Salute_from_Hotel_Monaco.jpg/960px-Santa_Maria_della_Salute_from_Hotel_Monaco.jpg",
+          "popularity": 5,
+          "source": "tripadvisor"
+        },
+        {
+          "type": "experience",
+          "time": "18:30",
+          "name": "Jantar leve em Veneza",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "20:30",
+          "name": "🎻 Concerto I Musici Veneziani: Vivaldi Four Seasons — Scuola Grande di San Teodoro",
+          "category": "attraction",
+          "kind": "city",
+          "poiId": "concerto-vivaldi-i-musici-veneziani",
+          "cost": 65,
+          "desc": "Concerto interpretando 'As Quatro Estações' de Vivaldi pela orquestra I Musici Veneziani na Scuola Grande di San Teodoro, com músicos em figurinos barrocos do séc. XVIII.",
+          "source": "tripadvisor",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.imusiciveneziani.com/en/concerts/a-vivaldis-four-seasons/"
+            },
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com.br/AttractionProductReview-g187870-d11473467-I_Musici_Veneziani_Concert_Vivaldi_Four_Seasons-Venice_Veneto.html"
+            }
+          ]
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Vivaldi nasceu em Veneza — escutar 'As Quatro Estações' a cinco minutos da casa do compositor é experiência única."
+          ],
+          "warnings": [
+            "Comprar tickets online antecipados — concertos populares esgotam."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "22:00",
+          "name": "Vaporetto de volta para Fusina",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "22:00",
+          "from": {
+            "name": "Basilica di San Marco",
+            "lat": 45.4347,
+            "lng": 12.3398
+          },
+          "to": {
+            "name": "Camping Fusina, Venezia",
+            "lat": 45.4208,
+            "lng": 12.2582
+          },
+          "model": "ferry",
+          "duration": 30,
+          "distance": 9,
+          "cost": 16,
+          "notes": "Vaporetto Linea 16 noturno."
+        },
+        {
+          "type": "experience",
+          "time": "",
+          "name": "Camping Fusina, Venezia",
+          "category": "stay",
+          "kind": "camp",
+          "poiId": "camp-fusina-venezia",
+          "desc": "Camping Fusina — frente à laguna de Veneza, vaporetto direto para San Marco. Aceita motorhomes.",
+          "source": "campercontact",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.campingfusina.com/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": "4",
+      "cls": "",
+      "title": "Venezia → Postojna → Predjama → Bled 🇸🇮",
+      "dayCost": "~€110 (combo €94 + vinheta €16)",
+      "schedule": [
+        {
+          "type": "insight",
+          "warnings": [
+            "Comprar e-vinheta eslovena ONLINE antes da fronteira: evinjeta.dars.si (~€15)",
+            "Comprar combo Postojna + Predjama online — preço melhor",
+            "Cividale del Friuli é desvio +41 km / +45 min via Palmanova — opcional, depende do horário de saída"
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "07:00",
+          "name": "Desmontar camp em Fusina",
+          "category": "stay"
+        },
+        {
+          "type": "experience",
+          "time": "07:30",
+          "name": "Dirigir até Postojna (~2h10). ⚠️ Comprar e-vinheta antes da fronteira!",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "07:30",
+          "from": {
+            "name": "Camping Fusina, Venezia",
+            "lat": 45.4208,
+            "lng": 12.2582
+          },
+          "to": {
+            "name": "Postojna Cave",
+            "lat": 45.783,
+            "lng": 14.2038
+          },
+          "model": "drive",
+          "duration": 170,
+          "distance": 230,
+          "notes": "Travessia da fronteira IT/SI — verificar e-vinheta antes."
+        },
+        {
+          "type": "experience",
+          "time": "09:45",
+          "name": "Postojna Cave — maior caverna turística da Europa. Tour 1h30: trem subterrâneo 3.7km + galerias",
+          "category": "attraction",
+          "kind": "cave",
+          "poiId": "postojna-cave",
+          "cost": 47,
+          "desc": "Sistema de cavernas cársticas de 24 km no sudoeste da Eslovênia. Tour de 1h30 com trem subterrâneo elétrico de 3,7 km. Habitat do Proteus anguinus ('peixe-humano').",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Postojna_%2822206343750%29.jpg/1280px-Postojna_%2822206343750%29.jpg",
+          "popularity": 4.8,
+          "source": "official",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.postojnska-jama.eu/en/"
+            },
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Attraction_Review-g274878-d277348-Reviews-Postojna_Cave-Postojna_Inner_Carniola_Region.html"
+            }
+          ]
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Maior caverna turística da Europa — único sistema com trem subterrâneo elétrico."
+          ],
+          "warnings": [
+            "Comprar combo Postojna+Predjama online — preço melhor."
+          ]
+        },
+        {
+          "type": "transfer",
+          "time": "11:00",
+          "from": {
+            "name": "Postojna Cave",
+            "lat": 45.783,
+            "lng": 14.2038
+          },
+          "to": {
+            "name": "Predjama Castle",
+            "lat": 45.8158,
+            "lng": 14.1269
+          },
+          "model": "drive",
+          "duration": 10,
+          "distance": 9
+        },
+        {
+          "type": "experience",
+          "time": "11:15",
+          "name": "Predjama Castle — castelo no paredão de 123m",
+          "category": "attraction",
+          "kind": "castle",
+          "poiId": "predjama-castle",
+          "cost": 0,
+          "desc": "Castelo medieval do séc. XII construído dentro de um paredão de 123m de calcário. O maior castelo em caverna do mundo.",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/H%C3%B6hlenburg_Predjama_in_Slovenien.jpg/1280px-H%C3%B6hlenburg_Predjama_in_Slovenien.jpg",
+          "popularity": 4.8,
+          "source": "official",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.postojnska-jama.eu/en/predjama-castle/"
+            },
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Attraction_Review-g274878-d277346-Reviews-Predjama_Castle-Postojna_Inner_Carniola_Region.html"
+            }
+          ]
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Maior castelo em caverna do mundo (Guinness)."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "12:30",
+          "name": "Almoço (comida do motorhome)",
+          "category": "food"
+        },
+        {
+          "type": "transfer",
+          "time": "13:00",
+          "from": {
+            "name": "Predjama Castle",
+            "lat": 45.8158,
+            "lng": 14.1269
+          },
+          "to": {
+            "name": "Camping Bled",
+            "lat": 46.3614,
+            "lng": 14.081
+          },
+          "model": "drive",
+          "duration": 105,
+          "distance": 85,
+          "notes": "Paisagem muda de planícies para Alpes Julianos."
+        },
+        {
+          "type": "experience",
+          "time": "13:00",
+          "name": "Dirigir até Bled (~1h30). Paisagem muda de planícies para Alpes",
+          "category": "transport"
+        },
+        {
+          "type": "experience",
+          "time": "14:30",
+          "name": "Montar camp no Camping Bled — à beira do lago",
+          "category": "stay"
+        },
+        {
+          "type": "experience",
+          "time": "15:30",
+          "name": "Primeira caminhada pelo Lago Bled — pôr do sol com a ilha e o castelo",
+          "category": "custom"
+        },
+        {
+          "type": "experience",
+          "time": "19:00",
+          "name": "Jantar no motorhome",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "",
+          "name": "Camping Bled",
+          "category": "stay",
+          "kind": "camp",
+          "poiId": "camp-bled",
+          "desc": "Camping Bled — categoria 4 estrelas à beira do Lago Bled, com piscina, restaurantes e acesso direto ao circuito do lago.",
+          "source": "campercontact",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.camping-bled.com/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": "5",
+      "cls": "",
+      "title": "Lago Bled & Vintgar Gorge",
+      "dayCost": "~€105 (gorge €30 + boat €40 + castle €38 + kremšnita)",
+      "schedule": [
+        {
+          "type": "insight",
+          "warnings": [
+            "Vintgar Gorge: INGRESSO ONLINE obrigatório, time slots esgotam"
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "07:30",
+          "name": "Ir até a Vintgar Gorge (~4 km do camping). Abre às 8h",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "07:30",
+          "from": {
+            "name": "Camping Bled",
+            "lat": 46.3614,
+            "lng": 14.081
+          },
+          "to": {
+            "name": "Vintgar Gorge",
+            "lat": 46.3936,
+            "lng": 14.0857
+          },
+          "model": "drive",
+          "duration": 8,
+          "distance": 4
+        },
+        {
+          "type": "experience",
+          "time": "08:00",
+          "name": "Vintgar Gorge — 1.6km de passarelas sobre o rio esmeralda + Cascata Sum (16m)",
+          "category": "attraction",
+          "kind": "nature",
+          "poiId": "vintgar-gorge",
+          "cost": 15,
+          "desc": "Desfiladeiro de 1,6 km com passarelas de madeira sobre o rio Radovna em águas verde-esmeralda. Termina na Cascata Šum (16m).",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Slovenia_-_Waterfall_Sum_-_Vintgar_Klamm_%2843686688490%29.jpg/1280px-Slovenia_-_Waterfall_Sum_-_Vintgar_Klamm_%2843686688490%29.jpg",
+          "popularity": 4.2,
+          "source": "official",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.vintgar.si/en/"
+            },
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Attraction_Review-g1870874-d519724-Reviews-Vintgar_Gorge-Gorje_Upper_Carniola_Region.html"
+            }
+          ]
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Águas turquesa devido aos minerais do calcário alpino."
+          ],
+          "warnings": [
+            "Ingresso online obrigatório, time slots esgotam no verão.",
+            "Trecho com cachoeira pode ter pedras escorregadias após chuva."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "09:30",
+          "name": "Voltar para Bled",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "09:30",
+          "from": {
+            "name": "Vintgar Gorge",
+            "lat": 46.3936,
+            "lng": 14.0857
+          },
+          "to": {
+            "name": "Lago Bled",
+            "lat": 46.3636,
+            "lng": 14.0938
+          },
+          "model": "drive",
+          "duration": 8,
+          "distance": 4
+        },
+        {
+          "type": "experience",
+          "time": "10:00",
+          "name": "Barco Pletna até a ilha de Bled — 99 degraus + sino dos desejos",
+          "category": "attraction",
+          "kind": "lake",
+          "poiId": "lago-bled",
+          "cost": 20,
+          "desc": "Lago glacial de 2 km com a única ilha natural da Eslovênia, onde fica a Igreja da Assunção (séc. XVII) com 99 degraus e um sino dos desejos.",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Lake_Bled_from_the_Mountain.jpg/1280px-Lake_Bled_from_the_Mountain.jpg",
+          "popularity": 5.2,
+          "source": "tripadvisor",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.blejskiotok.si/en/welcome-to-the-island/"
+            },
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Attraction_Review-g274863-d296735-Reviews-Lake_Bled-Bled_Upper_Carniola_Region.html"
+            }
+          ]
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Cartão-postal da Eslovênia — a Pletna boat até a ilha é experiência tradicional desde 1590.",
+            "Caminhada de 6 km circundando o lago, plana e fácil."
+          ]
+        },
+        {
+          "type": "transfer",
+          "time": "11:45",
+          "from": {
+            "name": "Lago Bled",
+            "lat": 46.3636,
+            "lng": 14.0938
+          },
+          "to": {
+            "name": "Bled Castle",
+            "lat": 46.3699,
+            "lng": 14.1006
+          },
+          "model": "drive",
+          "duration": 6,
+          "distance": 1.5
+        },
+        {
+          "type": "experience",
+          "time": "12:00",
+          "name": "Bled Castle — séc. XI no penhasco. Vista do lago e dos Alpes",
+          "category": "attraction",
+          "kind": "castle",
+          "poiId": "bled-castle",
+          "cost": 19,
+          "desc": "Castelo medieval mais antigo da Eslovênia (séc. XI), no penhasco de 130m sobre o Lago Bled. Museu, capela gótica e gráfica funcional onde se imprime certificados.",
+          "popularity": 4.5,
+          "source": "official",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.blejski-grad.si/en/"
+            },
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Attraction_Review-g274863-d300864-Reviews-Bled_Castle-Bled_Upper_Carniola_Region.html"
+            }
+          ],
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/The_Great_Bled_Castle.jpg/1280px-The_Great_Bled_Castle.jpg"
+        },
+        {
+          "type": "experience",
+          "time": "13:30",
+          "name": "Kremšnita (bolo de creme típico) na Confeitaria Park",
+          "category": "food",
+          "kind": "coffee",
+          "poiId": "confeitaria-park-bled",
+          "desc": "Confeitaria histórica em Bled (1937) que serve a Kremšnita — bolo de creme com camadas de massa folhada, criado pelo confeiteiro Ištvan Lukačević. Receita nacional protegida.",
+          "source": "tripadvisor"
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Inventores oficiais da Kremšnita — receita protegida desde 1953."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "14:30",
+          "name": "Volta ao redor do Lago Bled a pé — circuito plano de 6 km (~1.5h)",
+          "category": "custom"
+        },
+        {
+          "type": "experience",
+          "time": "17:00",
+          "name": "Descanso no camping. 🧺 Lavar roupa",
+          "category": "stay"
+        },
+        {
+          "type": "experience",
+          "time": "19:00",
+          "name": "Jantar no motorhome",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "",
+          "name": "Camping Bled",
+          "category": "stay",
+          "kind": "camp",
+          "poiId": "camp-bled",
+          "desc": "Camping Bled — categoria 4 estrelas à beira do Lago Bled, com piscina, restaurantes e acesso direto ao circuito do lago.",
+          "source": "campercontact",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.camping-bled.com/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": "6",
+      "cls": "",
+      "title": "Lago Bohinj & Vogel",
+      "dayCost": "~€72 (cable car €66 + Savica €6)",
+      "schedule": [
+        {
+          "type": "experience",
+          "time": "08:00",
+          "name": "Dirigir até o Lake Bohinj (~30 min). Maior lago glacial da Eslovênia",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "08:00",
+          "from": {
+            "name": "Camping Bled",
+            "lat": 46.3614,
+            "lng": 14.081
+          },
+          "to": {
+            "name": "Vogel Cable Car (1.535m)",
+            "lat": 46.2757,
+            "lng": 13.8354
+          },
+          "model": "drive",
+          "duration": 40,
+          "distance": 30
+        },
+        {
+          "type": "experience",
+          "time": "09:00",
+          "name": "Teleférico Vogel até 1.535m. Vista panorâmica do Triglav e dos Alpes Julianos",
+          "category": "attraction",
+          "kind": "trek",
+          "poiId": "vogel-cable-car",
+          "cost": 33,
+          "desc": "Teleférico que sobe 1.000m até a estação Vogel a 1.535m, com vista panorâmica do Triglav (2.864m, ponto mais alto da Eslovênia) e dos Alpes Julianos. Trilhas leves no planalto.",
+          "source": "official",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://vogel.si/en/price-list-summer/"
+            }
+          ]
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Vista 360° do Triglav e dos Alpes Julianos — melhor mirante acessível da Eslovênia."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "10:30",
+          "name": "Caminhada no planalto de Vogel — trilhas leves de 1–2h com vistas 360°",
+          "category": "custom"
+        },
+        {
+          "type": "experience",
+          "time": "12:30",
+          "name": "Descer de teleférico. Piquenique à beira do lago",
+          "category": "food"
+        },
+        {
+          "type": "transfer",
+          "time": "13:30",
+          "from": {
+            "name": "Vogel Cable Car (1.535m)",
+            "lat": 46.2757,
+            "lng": 13.8354
+          },
+          "to": {
+            "name": "Lago Bohinj",
+            "lat": 46.284,
+            "lng": 13.8594
+          },
+          "model": "drive",
+          "duration": 8,
+          "distance": 3.5
+        },
+        {
+          "type": "experience",
+          "time": "14:00",
+          "name": "Caminhar pela margem norte do Bohinj",
+          "category": "attraction",
+          "kind": "lake",
+          "poiId": "lago-bohinj",
+          "desc": "Maior lago glacial da Eslovênia (4,2 km × 1 km), parte do Parque Nacional Triglav. Mais selvagem e tranquilo que Bled. Igreja de São João Batista do séc. XV na ponta leste.",
+          "popularity": 4.4,
+          "source": "tripadvisor",
+          "links": [
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Attraction_Review-g274865-d296736-Reviews-Lake_Bohinj-Bohinjsko_Jezero_Upper_Carniola_Region.html"
+            }
+          ],
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Wocheiner_See.jpg/1280px-Wocheiner_See.jpg"
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Mais autêntico que Bled — sem multidões, água potável."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "14:30",
+          "name": "Igreja de St. John the Baptist (afrescos do séc. XV)",
+          "category": "attraction",
+          "kind": "city",
+          "poiId": "st-john-baptist-bohinj",
+          "desc": "Igreja católica medieval na margem leste do Lago Bohinj, com afrescos do séc. XV.",
+          "source": "wikivoyage"
+        },
+        {
+          "type": "experience",
+          "time": "15:30",
+          "name": "Savica Waterfall (opcional) — cachoeira de 78m em 2 estágios",
+          "category": "attraction",
+          "kind": "waterfall",
+          "poiId": "savica-waterfall",
+          "cost": 3,
+          "desc": "Cachoeira de 78m em dois estágios, na nascente do rio Sava Bohinjka. Caminhada curta (~20 min) a partir do estacionamento.",
+          "popularity": 2.8,
+          "source": "tripadvisor",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Ukanc_-_slap_Savica.jpg/960px-Ukanc_-_slap_Savica.jpg"
+        },
+        {
+          "type": "transfer",
+          "time": "17:00",
+          "from": {
+            "name": "Savica Waterfall (opcional)",
+            "lat": 46.2927,
+            "lng": 13.7968
+          },
+          "to": {
+            "name": "Camping Bled",
+            "lat": 46.3614,
+            "lng": 14.081
+          },
+          "model": "drive",
+          "duration": 40,
+          "distance": 32
+        },
+        {
+          "type": "experience",
+          "time": "17:30",
+          "name": "Voltar para o Camping Bled",
+          "category": "transport"
+        },
+        {
+          "type": "experience",
+          "time": "19:00",
+          "name": "Jantar no motorhome",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "",
+          "name": "Camping Bled",
+          "category": "stay",
+          "kind": "camp",
+          "poiId": "camp-bled",
+          "desc": "Camping Bled — categoria 4 estrelas à beira do Lago Bled, com piscina, restaurantes e acesso direto ao circuito do lago.",
+          "source": "campercontact",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.camping-bled.com/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": "7",
+      "cls": "rest",
+      "title": "REST — Pokljuka, Peričnik & Zelenci",
+      "dayCost": "~€10 (tudo grátis, só café)",
+      "schedule": [
+        {
+          "type": "experience",
+          "time": "08:00",
+          "name": "💧 Reabastecer água + 🧺 lavanderia no camping",
+          "category": "stay"
+        },
+        {
+          "type": "experience",
+          "time": "09:00",
+          "name": "Dormir até mais tarde. Café da manhã tranquilo",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "10:30",
+          "name": "Dirigir até o Pokljuka Plateau (~30 min)",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "10:30",
+          "from": {
+            "name": "Camping Bled",
+            "lat": 46.3614,
+            "lng": 14.081
+          },
+          "to": {
+            "name": "Pokljuka Plateau",
+            "lat": 46.3397,
+            "lng": 13.9236
+          },
+          "model": "drive",
+          "duration": 40,
+          "distance": 26
+        },
+        {
+          "type": "experience",
+          "time": "11:30",
+          "name": "Pokljuka Gorge — desfiladeiro curto na floresta de abetos",
+          "category": "attraction",
+          "kind": "nature",
+          "poiId": "pokljuka-plateau",
+          "desc": "Planalto karst a 1.300m no Parque Nacional Triglav, coberto por floresta de abetos. Centro de biatlo durante o inverno; trilhas suaves no verão.",
+          "popularity": 3.9,
+          "source": "tripadvisor",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Mountain_pastures_at_Pokljuka_plateau%2C_Julian_alps_%2852339467762%29.jpg/1280px-Mountain_pastures_at_Pokljuka_plateau%2C_Julian_alps_%2852339467762%29.jpg"
+        },
+        {
+          "type": "experience",
+          "time": "12:30",
+          "name": "Piquenique no planalto",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "13:30",
+          "name": "Dirigir até Mojstrana (~30 min)",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "13:30",
+          "from": {
+            "name": "Pokljuka Plateau",
+            "lat": 46.3397,
+            "lng": 13.9236
+          },
+          "to": {
+            "name": "Peričnik Waterfall",
+            "lat": 46.4392,
+            "lng": 13.8938
+          },
+          "model": "drive",
+          "duration": 40,
+          "distance": 30,
+          "notes": "Via Mojstrana."
+        },
+        {
+          "type": "experience",
+          "time": "14:00",
+          "name": "Peričnik Waterfall — cachoeira de 52m, dá pra caminhar atrás da cortina d'água!",
+          "category": "attraction",
+          "kind": "waterfall",
+          "poiId": "pericnik-waterfall",
+          "desc": "Cachoeira de 52m no vale Vrata, com passagem atrás da cortina d'água. Acessível por trilha de 15 minutos.",
+          "popularity": 3.7,
+          "source": "alltrails",
+          "links": [
+            {
+              "type": "alltrails",
+              "url": "https://www.alltrails.com/trail/slovenia/kranjska-gora/slap-pericnik"
+            }
+          ],
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/8/8f/BurgerPericnikPoleti.jpg"
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Permite caminhar atrás da cortina d'água — experiência rara em cachoeiras alpinas."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "14:30",
+          "name": "Dirigir até Zelenci (~30 min via Kranjska Gora)",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "14:30",
+          "from": {
+            "name": "Peričnik Waterfall",
+            "lat": 46.4392,
+            "lng": 13.8938
+          },
+          "to": {
+            "name": "Zelenci Nature Reserve",
+            "lat": 46.4926,
+            "lng": 13.7378
+          },
+          "model": "drive",
+          "duration": 35,
+          "distance": 24
+        },
+        {
+          "type": "experience",
+          "time": "15:00",
+          "name": "Zelenci — nascentes esmeralda a 6°C o ano todo. Passarela 20 min",
+          "category": "attraction",
+          "kind": "nature",
+          "poiId": "zelenci-nature-reserve",
+          "desc": "Reserva natural com nascentes do rio Sava Dolinka, em águas esmeralda a 6°C constante o ano todo. Passarela de madeira de 20 minutos.",
+          "source": "tripadvisor",
+          "links": [
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Attraction_Review-g274870-d3626293-Reviews-Zelenci_Nature_Reserve-Kranjska_Gora_Upper_Carniola_Region.html"
+            }
+          ]
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Cores 'photoshopadas' naturalmente — minerais alpinos refletem o céu como espelho."
+          ]
+        },
+        {
+          "type": "transfer",
+          "time": "15:45",
+          "from": {
+            "name": "Zelenci Nature Reserve",
+            "lat": 46.4926,
+            "lng": 13.7378
+          },
+          "to": {
+            "name": "Kranjska Gora",
+            "lat": 46.4859,
+            "lng": 13.7898
+          },
+          "model": "drive",
+          "duration": 8,
+          "distance": 4.5
+        },
+        {
+          "type": "experience",
+          "time": "16:00",
+          "name": "Passear por Kranjska Gora — vila alpina com cafés e artesanato",
+          "category": "attraction",
+          "kind": "vila",
+          "poiId": "kranjska-gora",
+          "desc": "Vila alpina no extremo noroeste da Eslovênia, na fronteira com Itália e Áustria. Estação de esqui no inverno; base para o Vršič Pass no verão.",
+          "popularity": 4.6,
+          "source": "tripadvisor",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Kranjska_Gora-2736048.jpg/1280px-Kranjska_Gora-2736048.jpg"
+        },
+        {
+          "type": "experience",
+          "time": "17:00",
+          "name": "🅿️ Estacionar no free parking de Kranjska Gora — pé do Vršič para sair cedo amanhã",
+          "category": "stay"
+        },
+        {
+          "type": "experience",
+          "time": "19:00",
+          "name": "Jantar no motorhome",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "",
+          "name": "Free parking — Kranjska Gora",
+          "category": "stay",
+          "kind": "camp",
+          "poiId": "free-parking-kranjska-gora",
+          "desc": "Estacionamento livre em Kranjska Gora — ponto estratégico para sair cedo ao Vršič Pass (8 minutos da entrada do passo).",
+          "source": "park4night"
+        }
+      ]
+    },
+    {
+      "num": "8",
+      "cls": "",
+      "title": "Jasna Lake → Vršič Pass → Vale do Soča",
+      "dayCost": "~€10 (grátis, só lanches)",
+      "schedule": [
+        {
+          "type": "insight",
+          "warnings": [
+            "⚠️ MOTORHOME NO VRŠIČ: 50 hairpins, cobblestones escorregadios, curvas sem linha divisória, gradiente >10%. Motorhome (2.7m alt × 6.3m) PASSA mas exige atenção máxima",
+            "Sair CEDO para evitar trânsito; usar marcha baixa na descida; buzinar nas curvas cegas",
+            "Se choveu na véspera: cobblestones ficam perigosos — considerar Predel Pass como alternativa"
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "07:00",
+          "name": "Saída do free parking em Kranjska Gora — sair cedo",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "07:00",
+          "from": {
+            "name": "Free Parking Kranjska Gora",
+            "lat": 46.4859,
+            "lng": 13.7898
+          },
+          "to": {
+            "name": "Jasna Lake",
+            "lat": 46.474,
+            "lng": 13.7841
+          },
+          "model": "drive",
+          "duration": 6,
+          "distance": 2.5
+        },
+        {
+          "type": "experience",
+          "time": "07:45",
+          "name": "Jasna Lake — reflexo perfeito do Triglav e estátua do Zlatorog. Passeio matinal",
+          "category": "attraction",
+          "kind": "lake",
+          "poiId": "jasna-lake",
+          "desc": "Lago artificial duplo a 818m de altitude, na entrada sul do vale do Trenta. Reflexo do Triglav e estátua do Zlatorog (cabra-de-cristal mítica eslovena).",
+          "source": "tripadvisor",
+          "links": [
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Attraction_Review-g274870-d7930362-Reviews-Lake_Jasna-Kranjska_Gora_Upper_Carniola_Region.html"
+            }
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "09:45",
+          "name": "Início do Vršič Pass — estrada de montanha mais alta da Eslovênia, 50 curvas de ferradura",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "09:45",
+          "from": {
+            "name": "Jasna Lake",
+            "lat": 46.474,
+            "lng": 13.7841
+          },
+          "to": {
+            "name": "Vršič Pass (1.611m)",
+            "lat": 46.4329,
+            "lng": 13.7431
+          },
+          "model": "drive",
+          "duration": 90,
+          "distance": 14,
+          "notes": "50 hairpin turns — marcha baixa, buzinar nas curvas cegas."
+        },
+        {
+          "type": "experience",
+          "time": "10:15",
+          "name": "Russian Chapel (curva 8) — memorial dos prisioneiros russos da 1ª Guerra",
+          "category": "attraction",
+          "kind": "memorial",
+          "poiId": "russian-chapel",
+          "desc": "Capela ortodoxa de madeira na curva 8 do Vršič, memorial dos prisioneiros russos da 1ª Guerra mortos em uma avalanche em 1916 enquanto construíam a estrada.",
+          "popularity": 2.9,
+          "source": "wikivoyage",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Ruski_vojni_ujetniki_in_Avstro-ogrski_stra%C5%BEarji_pred_Ruska_kapelico.jpg/960px-Ruski_vojni_ujetniki_in_Avstro-ogrski_stra%C5%BEarji_pred_Ruska_kapelico.jpg"
+        },
+        {
+          "type": "experience",
+          "time": "10:45",
+          "name": "Paradas nos mirantes — vistas dos Alpes Julianos",
+          "category": "custom"
+        },
+        {
+          "type": "experience",
+          "time": "11:15",
+          "name": "Topo do Vršič — parada para fotos. Vista dos dois lados do passo",
+          "category": "attraction",
+          "kind": "scenic",
+          "poiId": "vrsic-pass",
+          "desc": "Estrada de montanha mais alta da Eslovênia (1.611m), com 50 curvas em ferradura conectando Kranjska Gora ao vale do Trenta. Construída pelos prisioneiros russos da 1ª Guerra.",
+          "popularity": 4.3,
+          "source": "tripadvisor",
+          "links": [
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Attraction_Review-g274870-d3630674-Reviews-Vrsic_Pass-Kranjska_Gora_Upper_Carniola_Region.html"
+            }
+          ],
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Vrsic2.JPG/1280px-Vrsic2.JPG"
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "50 hairpin turns numeradas — escultura icônica em cobblestone."
+          ],
+          "warnings": [
+            "Motorhome PASSA mas exige atenção máxima: cobblestones escorregadios, curvas cegas, gradiente >10%.",
+            "Se choveu na véspera — usar Predel Pass como alternativa."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "11:45",
+          "name": "Descida pelo lado sul — vistas do vale do Trenta e do Rio Soča",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "12:00",
+          "from": {
+            "name": "Vršič Pass (1.611m)",
+            "lat": 46.4329,
+            "lng": 13.7431
+          },
+          "to": {
+            "name": "Camp Liza, Bovec",
+            "lat": 46.3308,
+            "lng": 13.56
+          },
+          "model": "drive",
+          "duration": 75,
+          "distance": 36,
+          "notes": "Descida pelo vale do Trenta + Rio Soča."
+        },
+        {
+          "type": "experience",
+          "time": "12:15",
+          "name": "Opcional: Izvir Soče — trilha curta (~30 min) até a nascente do rio",
+          "category": "custom"
+        },
+        {
+          "type": "experience",
+          "time": "13:00",
+          "name": "Chegada em Bovec. Montar camp",
+          "category": "stay"
+        },
+        {
+          "type": "experience",
+          "time": "15:00",
+          "name": "Velika Korita Soče — gargantas estreitas com água verde-esmeralda (~30 min walk)",
+          "category": "attraction",
+          "kind": "nature",
+          "poiId": "great-soca-gorge",
+          "desc": "Velika Korita Soče — gargantas estreitas escavadas pelo rio Soča em águas verde-esmeralda. Passarelas e pontes pênseis. Trilha curta (~30 min).",
+          "source": "tripadvisor",
+          "links": [
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Attraction_Review-g1091105-d19244212-Reviews-Velika_Korita_Soce-Soca_Slovenian_Littoral_Region.html"
+            }
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "16:00",
+          "name": "Caminhada pelo Soča Trail perto de Bovec — trilha à beira do rio",
+          "category": "attraction",
+          "kind": "city",
+          "poiId": "bovec",
+          "desc": "Capital de aventura da Eslovênia, no alto vale do Soča. Base para rafting, kayak, canyoning e zipline. Cercada pelos Alpes Julianos.",
+          "popularity": 4.4,
+          "source": "tripadvisor",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Bovec_aerial_view.jpg"
+        },
+        {
+          "type": "experience",
+          "time": "19:00",
+          "name": "Jantar no motorhome",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "",
+          "name": "Camp Liza, Bovec",
+          "category": "stay",
+          "kind": "camp",
+          "poiId": "camp-liza-bovec",
+          "desc": "Camp Liza — camping à beira do Rio Soča em Bovec, com acesso direto às atividades aquáticas e trilhas dos Alpes Julianos.",
+          "source": "park4night",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.camp-liza.si/en/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": "9",
+      "cls": "",
+      "title": "Slap Kozjak & Rafting no Soča",
+      "dayCost": "~€150 (rafting €140 + almoço)",
+      "schedule": [
+        {
+          "type": "experience",
+          "time": "08:30",
+          "name": "Dirigir até Slap Kozjak (~25 min de Bovec)",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "08:30",
+          "from": {
+            "name": "Camp Liza, Bovec",
+            "lat": 46.3308,
+            "lng": 13.56
+          },
+          "to": {
+            "name": "Slap Kozjak",
+            "lat": 46.2648,
+            "lng": 13.5653
+          },
+          "model": "drive",
+          "duration": 30,
+          "distance": 18
+        },
+        {
+          "type": "experience",
+          "time": "09:00",
+          "name": "Slap Kozjak — cachoeira espetacular em gruta semicircular. Trilha curta e fácil (~30 min ida)",
+          "category": "attraction",
+          "kind": "waterfall",
+          "poiId": "slap-kozjak",
+          "cost": 0,
+          "desc": "Cachoeira de 15m em gruta semicircular esculpida pela água, formando uma piscina natural esmeralda. Trilha curta e fácil (~30 min ida).",
+          "source": "alltrails",
+          "links": [
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Attraction_Review-g319788-d10020027-Reviews-Kozjak_Waterfall-Kobarid_Slovenian_Littoral_Region.html"
+            }
+          ]
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Cenário de filme — gruta natural com cachoeira queda livre dentro de câmara rochosa."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "10:00",
+          "name": "Volta para Bovec. Tempo livre no centro",
+          "category": "custom"
+        },
+        {
+          "type": "transfer",
+          "time": "10:00",
+          "from": {
+            "name": "Slap Kozjak",
+            "lat": 46.2648,
+            "lng": 13.5653
+          },
+          "to": {
+            "name": "Rafting Rio Soča (SportMix)",
+            "lat": 46.29,
+            "lng": 13.56
+          },
+          "model": "drive",
+          "duration": 30,
+          "distance": 18
+        },
+        {
+          "type": "experience",
+          "time": "12:00",
+          "name": "Almoço em Bovec",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "14:00",
+          "name": "Rafting no Rio Soča com SportMix — corredeiras II-III em águas esmeralda",
+          "category": "attraction",
+          "kind": "adventure",
+          "poiId": "rafting-rio-soca",
+          "cost": 70,
+          "desc": "Rafting comercial no Rio Soča com SportMix, em corredeiras Classe II–III por 2-3h. Wetsuit incluído, fotos grátis no fim do tour.",
+          "source": "official",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://sportmix.si/en/rafting/"
+            }
+          ]
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Soča é considerado um dos rios mais belos da Europa pela cor verde-esmeralda persistente."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "17:00",
+          "name": "Voltar para o camping. Secar e descansar",
+          "category": "stay"
+        },
+        {
+          "type": "experience",
+          "time": "19:00",
+          "name": "Jantar no motorhome — última noite na Eslovênia",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "",
+          "name": "Camp Liza, Bovec",
+          "category": "stay",
+          "kind": "camp",
+          "poiId": "camp-liza-bovec",
+          "desc": "Camp Liza — camping à beira do Rio Soča em Bovec, com acesso direto às atividades aquáticas e trilhas dos Alpes Julianos.",
+          "source": "park4night",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.camp-liza.si/en/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": "10",
+      "cls": "",
+      "title": "Soča → Predil → Fusine → Cortina",
+      "dayCost": "~€15 (lagos grátis, só lanches)",
+      "schedule": [
+        {
+          "type": "experience",
+          "time": "07:00",
+          "name": "Desmontar camp. Última caminhada matinal pelo Rio Soča",
+          "category": "stay"
+        },
+        {
+          "type": "experience",
+          "time": "07:30",
+          "name": "Dirigir: Bovec → Predel Pass (rota cênica pela montanha)",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "07:30",
+          "from": {
+            "name": "Camp Liza, Bovec",
+            "lat": 46.3308,
+            "lng": 13.56
+          },
+          "to": {
+            "name": "Lago del Predil",
+            "lat": 46.4188,
+            "lng": 13.5651
+          },
+          "model": "drive",
+          "duration": 75,
+          "distance": 33,
+          "notes": "Predel Pass — rota cênica pela montanha."
+        },
+        {
+          "type": "experience",
+          "time": "08:30",
+          "name": "Lago del Predil — lago alpino esmeralda na fronteira IT/SI",
+          "category": "attraction",
+          "kind": "lake",
+          "poiId": "lago-del-predil",
+          "desc": "Lago alpino de 1 km a 959m de altitude na fronteira IT/SI. Cercado pelos Alpes Julianos, águas esmeralda. Passeio circular ~1h.",
+          "popularity": 3,
+          "source": "tripadvisor",
+          "links": [
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Attraction_Review-g616173-d4828065-Reviews-Lago_del_Predil-Tarvisio_Province_of_Udine_Friuli_Venezia_Giulia.html"
+            }
+          ],
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Lago_del_Predil%2C_Tarvisio%2C_2013.jpg/1280px-Lago_del_Predil%2C_Tarvisio%2C_2013.jpg"
+        },
+        {
+          "type": "experience",
+          "time": "09:30",
+          "name": "Seguir até Tarvisio (~20 min)",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "09:30",
+          "from": {
+            "name": "Lago del Predil",
+            "lat": 46.4188,
+            "lng": 13.5651
+          },
+          "to": {
+            "name": "Lago di Fusine",
+            "lat": 46.4797,
+            "lng": 13.6706
+          },
+          "model": "drive",
+          "duration": 25,
+          "distance": 14,
+          "notes": "Cruzar para Itália — Tarvisio."
+        },
+        {
+          "type": "experience",
+          "time": "09:50",
+          "name": "Lago di Fusine — dois lagos glaciais com reflexo do Monte Mangart",
+          "category": "attraction",
+          "kind": "lake",
+          "poiId": "lago-di-fusine",
+          "desc": "Pares de lagos glaciais (Superiore + Inferiore) em parque natural italiano na fronteira com Eslovênia. Reflexo do Monte Mangart (2.677m) em águas turquesa.",
+          "source": "tripadvisor",
+          "links": [
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Attraction_Review-g616173-d3539872-Reviews-Laghi_di_Fusine-Tarvisio_Province_of_Udine_Friuli_Venezia_Giulia.html"
+            }
+          ],
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Tarvisio_Fusine_in_Valromana_Parish_church_Saint_Leonard_17082013_044.jpg/1280px-Tarvisio_Fusine_in_Valromana_Parish_church_Saint_Leonard_17082013_044.jpg"
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Hidden gem — menos famoso que Braies/Carezza, mas tão fotogênico quanto."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "10:30",
+          "name": "Dirigir até Cortina d'Ampezzo (~2h30 via Dobbiaco/SS51)",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "10:30",
+          "from": {
+            "name": "Lago di Fusine",
+            "lat": 46.4797,
+            "lng": 13.6706
+          },
+          "to": {
+            "name": "Camping Dolomiti, Cortina",
+            "lat": 46.542,
+            "lng": 12.145
+          },
+          "model": "drive",
+          "duration": 180,
+          "distance": 155,
+          "notes": "Via Dobbiaco / SS51 — paisagem alpina toda a viagem."
+        },
+        {
+          "type": "experience",
+          "time": "13:00",
+          "name": "Chegada em Cortina. Montar camp no Camping Dolomiti",
+          "category": "stay"
+        },
+        {
+          "type": "experience",
+          "time": "14:00",
+          "name": "Almoço (comida do motorhome)",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "15:00",
+          "name": "🔥 TROCAR GÁS — Conad ou Eurospar em Cortina, ou no camping",
+          "category": "shopping"
+        },
+        {
+          "type": "experience",
+          "time": "15:30",
+          "name": "🛒 Compra grande supermercado: Conad City / Eurospar Cortina",
+          "category": "shopping"
+        },
+        {
+          "type": "experience",
+          "time": "16:00",
+          "name": "Passeio por Cortina — sede dos Jogos Olímpicos de Inverno 2026. Souvenirs: speck, queijo, grappa",
+          "category": "attraction",
+          "kind": "city",
+          "poiId": "cortina-d-ampezzo",
+          "desc": "Vila resort em altitude (1.224m) no coração das Dolomitas, conhecida como 'Rainha das Dolomitas'. Sede dos Jogos Olímpicos de Inverno 1956 e 2026 (com Milão).",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Faloria_Cortina_d%27Ampezzo_10.jpg/330px-Faloria_Cortina_d%27Ampezzo_10.jpg",
+          "popularity": 5.9,
+          "source": "tripadvisor",
+          "links": [
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Tourism-g194745-Cortina_d_Ampezzo_Province_of_Belluno_Veneto.html"
+            }
+          ]
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Sede dos JO de Inverno 2026 — restaurantes e infraestrutura premium."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "19:00",
+          "name": "Jantar no motorhome",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "",
+          "name": "Camping Dolomiti, Cortina",
+          "category": "stay",
+          "kind": "camp",
+          "poiId": "camp-dolomiti-cortina",
+          "desc": "Camping Dolomiti em Cortina — base para Tre Cime, Sorapis, Lago di Braies. Categoria A com lavanderia, restaurante e wellness.",
+          "source": "campercontact"
+        }
+      ]
+    },
+    {
+      "num": "11",
+      "cls": "",
+      "title": "Tre Cime di Lavaredo",
+      "dayCost": "~€75 (toll €60 motorhome + rifúgio)",
+      "schedule": [
+        {
+          "type": "insight",
+          "warnings": [
+            "RESERVA ONLINE OBRIGATÓRIA da estrada pedagiada — pass.auronzo.info, abre 30 dias antes",
+            "Pedágio motorhome €60. Sair às 7h para garantir vaga e evitar trânsito"
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "07:00",
+          "name": "Dirigir até a estrada pedagiada do Rifugio Auronzo (~52 min)",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "07:00",
+          "from": {
+            "name": "Camping Dolomiti, Cortina",
+            "lat": 46.542,
+            "lng": 12.145
+          },
+          "to": {
+            "name": "Rifugio Auronzo",
+            "lat": 46.6131,
+            "lng": 12.2956
+          },
+          "model": "drive",
+          "duration": 85,
+          "distance": 35,
+          "cost": 60,
+          "notes": "Toll road €60 motorhome. Reserva online obrigatória."
+        },
+        {
+          "type": "experience",
+          "time": "08:30",
+          "name": "Trilha Tre Cime — circuito de 10km ao redor das três torres (3–4h). A trilha mais icônica das Dolomitas",
+          "category": "attraction",
+          "kind": "trek",
+          "poiId": "tre-cime-di-lavaredo",
+          "cost": 60,
+          "desc": "Três torres de calcário (2.999m / 2.973m / 2.857m) no coração das Dolomitas. Trilha circular de 10 km ao redor delas é a caminhada mais icônica do parque.",
+          "popularity": 5,
+          "source": "alltrails",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://auronzo.info/en/parking-tre-cime-di-lavaredo/"
+            },
+            {
+              "type": "alltrails",
+              "url": "https://www.alltrails.com/trail/italy/veneto/tre-cime-di-lavaredo-laghi-dei-piani?u=m"
+            }
+          ],
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/2019_Tre_Cime.jpg/1280px-2019_Tre_Cime.jpg"
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Cartão-postal definitivo das Dolomitas — circuito de 10 km com vista das três faces ao longo do trajeto."
+          ],
+          "warnings": [
+            "Reserva online obrigatória da estrada pedagiada (pass.auronzo.info), abre apenas 30 dias antes.",
+            "Pedágio motorhome €60. Lota cedo no verão."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "10:30",
+          "name": "Rifugio Locatelli — a vista clássica das Tre Cime",
+          "category": "attraction",
+          "kind": "trek",
+          "poiId": "rifugio-locatelli",
+          "desc": "Rifúgio Locatelli/Dreizinnenhütte (2.405m) no ponto mais fotografado das Tre Cime — vista frontal das três torres.",
+          "source": "refuges-info"
+        },
+        {
+          "type": "experience",
+          "time": "12:30",
+          "name": "Voltar ao Rifugio Auronzo. Café",
+          "category": "attraction",
+          "kind": "trek",
+          "poiId": "rifugio-auronzo",
+          "desc": "Rifúgio a 2.320m no início da trilha das Tre Cime. Estacionamento, café e ponto de partida do circuito clássico.",
+          "source": "refuges-info"
+        },
+        {
+          "type": "experience",
+          "time": "14:00",
+          "name": "Voltar para Cortina (~40 min)",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "14:00",
+          "from": {
+            "name": "Rifugio Auronzo",
+            "lat": 46.6131,
+            "lng": 12.2956
+          },
+          "to": {
+            "name": "Camping Dolomiti, Cortina",
+            "lat": 46.542,
+            "lng": 12.145
+          },
+          "model": "drive",
+          "duration": 55,
+          "distance": 35
+        },
+        {
+          "type": "experience",
+          "time": "15:00",
+          "name": "Descanso no camping — recuperação",
+          "category": "stay"
+        },
+        {
+          "type": "experience",
+          "time": "19:00",
+          "name": "Jantar no motorhome",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "",
+          "name": "Camping Dolomiti, Cortina",
+          "category": "stay",
+          "kind": "camp",
+          "poiId": "camp-dolomiti-cortina",
+          "desc": "Camping Dolomiti em Cortina — base para Tre Cime, Sorapis, Lago di Braies. Categoria A com lavanderia, restaurante e wellness.",
+          "source": "campercontact"
+        }
+      ]
+    },
+    {
+      "num": "12",
+      "cls": "",
+      "title": "Lago di Sorapis",
+      "dayCost": "~€15 (rifúgio)",
+      "schedule": [
+        {
+          "type": "insight",
+          "warnings": [
+            "Sair ANTES das 7h — parking de Passo Tre Croci lota rápido",
+            "Cabos de aço em alguns trechos — levar luvas. NÃO fazer se choveu",
+            "Rifugio Vandelli: SOMENTE CASH"
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "06:30",
+          "name": "Dirigir até Passo Tre Croci (~20 min). Estacionamento lota rápido",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "06:30",
+          "from": {
+            "name": "Camping Dolomiti, Cortina",
+            "lat": 46.542,
+            "lng": 12.145
+          },
+          "to": {
+            "name": "Passo Tre Croci (Sorapis trailhead)",
+            "lat": 46.5618,
+            "lng": 12.1853
+          },
+          "model": "drive",
+          "duration": 25,
+          "distance": 8
+        },
+        {
+          "type": "experience",
+          "time": "07:00",
+          "name": "Trailhead Passo Tre Croci",
+          "category": "transport",
+          "kind": "parking",
+          "poiId": "passo-tre-croci",
+          "desc": "Passo a 1.809m a leste de Cortina, trailhead para o Lago di Sorapis. Estacionamento limitado — chegar antes das 7h no verão.",
+          "source": "park4night"
+        },
+        {
+          "type": "experience",
+          "time": "07:30",
+          "name": "Trilha do Lago di Sorapis — 11.5km, 5–6h. Lago turquesa leitoso. Trecho com cabos de aço",
+          "category": "attraction",
+          "kind": "lake",
+          "poiId": "lago-di-sorapis",
+          "desc": "Lago turquesa leitoso a 1.925m, alimentado pelo derretimento da geleira do Sorapis. Trilha de 11,5 km (5–6h) com trechos equipados com cabos de aço.",
+          "popularity": 4.6,
+          "source": "alltrails",
+          "links": [
+            {
+              "type": "alltrails",
+              "url": "https://www.alltrails.com/trail/italy/veneto/passo-tre-croci-lago-sorapis?u=m"
+            }
+          ],
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Lago_di_Sorapis_1.jpg/1280px-Lago_di_Sorapis_1.jpg"
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Cor turquesa leitosa devido ao 'leite glacial' (sedimentos da geleira) — única no mundo nessa intensidade."
+          ],
+          "warnings": [
+            "Cabos de aço em alguns trechos — luvas de trekking obrigatórias.",
+            "Não fazer se choveu — pedras escorregadias.",
+            "Rifugio Vandelli aceita SOMENTE CASH."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "11:30",
+          "name": "Trilha de volta",
+          "category": "custom"
+        },
+        {
+          "type": "experience",
+          "time": "14:00",
+          "name": "Almoço tardio em Cortina",
+          "category": "food"
+        },
+        {
+          "type": "transfer",
+          "time": "13:30",
+          "from": {
+            "name": "Passo Tre Croci (Sorapis trailhead)",
+            "lat": 46.5618,
+            "lng": 12.1853
+          },
+          "to": {
+            "name": "Camping Dolomiti, Cortina",
+            "lat": 46.542,
+            "lng": 12.145
+          },
+          "model": "drive",
+          "duration": 25,
+          "distance": 8
+        },
+        {
+          "type": "experience",
+          "time": "15:30",
+          "name": "Descanso no camping — recuperação após trilha puxada",
+          "category": "stay"
+        },
+        {
+          "type": "experience",
+          "time": "19:00",
+          "name": "Jantar no motorhome",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "",
+          "name": "Camping Dolomiti, Cortina",
+          "category": "stay",
+          "kind": "camp",
+          "poiId": "camp-dolomiti-cortina",
+          "desc": "Camping Dolomiti em Cortina — base para Tre Cime, Sorapis, Lago di Braies. Categoria A com lavanderia, restaurante e wellness.",
+          "source": "campercontact"
+        }
+      ]
+    },
+    {
+      "num": "13",
+      "cls": "",
+      "title": "Cortina → Lago di Braies → Dobbiaco",
+      "dayCost": "~€50 (barco + jantar)",
+      "schedule": [
+        {
+          "type": "insight",
+          "warnings": [
+            "Sair cedo (08:00) — estacionamento de Braies enche rápido no verão",
+            "Restrições de acesso a Braies: livre em junho, restrito após 10/Jul (sistema de reservas)"
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "07:30",
+          "name": "Desmontar camp em Cortina",
+          "category": "stay"
+        },
+        {
+          "type": "experience",
+          "time": "08:30",
+          "name": "Dirigir até Lago di Braies via Dobbiaco (~1h05)",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "08:30",
+          "from": {
+            "name": "Camping Dolomiti, Cortina",
+            "lat": 46.542,
+            "lng": 12.145
+          },
+          "to": {
+            "name": "Lago di Braies",
+            "lat": 46.6943,
+            "lng": 12.0854
+          },
+          "model": "drive",
+          "duration": 85,
+          "distance": 38
+        },
+        {
+          "type": "experience",
+          "time": "09:45",
+          "name": "Caminhada ao redor do Lago di Braies (3.5km, circuito) + barco a remo (~€18/30min)",
+          "category": "attraction",
+          "kind": "lake",
+          "poiId": "lago-di-braies",
+          "cost": 18,
+          "desc": "Lago alpino de 31 hectares a 1.496m, conhecido como 'Pérola dos Lagos Dolomíticos'. Águas turquesa com reflexo do Croda del Becco. Barcos a remo de madeira disponíveis.",
+          "source": "tripadvisor",
+          "links": [
+            {
+              "type": "alltrails",
+              "url": "https://www.alltrails.com/trail/italy/south-tyrol/lago-di-braies"
+            },
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Attraction_Review-g194740-d3395875-Reviews-Pragser_Wildsee-Prags_Braies_Province_of_South_Tyrol_Trentino_Alto_Adige.html"
+            }
+          ],
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Pragser_Wildsee_Seekofel_von_Bucht.jpg/1280px-Pragser_Wildsee_Seekofel_von_Bucht.jpg"
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Um dos lagos mais fotografados do mundo — barcos a remo Lärchenboot são marca registrada."
+          ],
+          "warnings": [
+            "Acesso restrito por reserva entre 10/Jul–10/Set — em junho ainda livre.",
+            "Estacionamento enche cedo no verão."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "11:30",
+          "name": "Piquenique à beira do lago",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "12:30",
+          "name": "Dirigir até Camping Olympia, Dobbiaco (~26 min)",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "12:30",
+          "from": {
+            "name": "Lago di Braies",
+            "lat": 46.6943,
+            "lng": 12.0854
+          },
+          "to": {
+            "name": "Camping Olympia, Dobbiaco",
+            "lat": 46.7344,
+            "lng": 12.1937
+          },
+          "model": "drive",
+          "duration": 35,
+          "distance": 26
+        },
+        {
+          "type": "experience",
+          "time": "13:00",
+          "name": "Montar camp no Camping Olympia. 🧺 Lavanderia",
+          "category": "stay"
+        },
+        {
+          "type": "experience",
+          "time": "13:30",
+          "name": "💧 Reabastecer água + 🚽 scarico no camping",
+          "category": "stay"
+        },
+        {
+          "type": "experience",
+          "time": "15:00",
+          "name": "Explorar Dobbiaco e/ou San Candido — vilas tirolesas charmosas, gelato",
+          "category": "attraction",
+          "kind": "vila",
+          "poiId": "dobbiaco-san-candido",
+          "desc": "Vilas tirolesas no Alto Adige (Dobbiaco/Toblach + San Candido/Innichen) — arquitetura germânica, ciclovia plana de 14 km entre as duas, gelaterias.",
+          "popularity": 3.2,
+          "source": "tripadvisor",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Dobbiaco.JPG/1280px-Dobbiaco.JPG"
+        },
+        {
+          "type": "experience",
+          "time": "19:00",
+          "name": "🍽️ Jantar em restaurante tirolês em Dobbiaco/San Candido",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "",
+          "name": "Camping Olympia, Dobbiaco",
+          "category": "stay",
+          "kind": "camp",
+          "poiId": "camp-olympia-dobbiaco",
+          "desc": "Camping Olympia ★★★★ em Dobbiaco — Categoria A. Wellness completo (sauna finlandesa, banho turco, infravermelhos, piscinas). Self-service laundry. Incluso na diária.",
+          "source": "campercontact",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.camping-olympia.com/en/wellness"
+            }
+          ]
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Wellness completo incluso na diária — recuperação ideal após Tre Cime/Sorapis."
+          ]
+        }
+      ]
+    },
+    {
+      "num": "14",
+      "cls": "rest",
+      "title": "REST — Wellness Olympia & Dobbiaco",
+      "dayCost": "~€10 (wellness incluso, só snacks)",
+      "schedule": [
+        {
+          "type": "experience",
+          "time": "09:00",
+          "name": "Dormir até mais tarde. Café da manhã tranquilo",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "10:30",
+          "name": "🧖 Wellness no Camping Olympia — sauna finlandesa, banho turco, infravermelhos, piscinas. Incluso na diária!",
+          "category": "stay"
+        },
+        {
+          "type": "experience",
+          "time": "12:30",
+          "name": "Almoço no motorhome",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "14:00",
+          "name": "Passeio por Dobbiaco e/ou San Candido — artesanato, gelato",
+          "category": "custom"
+        },
+        {
+          "type": "experience",
+          "time": "16:00",
+          "name": "🧖 Mais wellness — sauna e piscinas no final da tarde",
+          "category": "stay"
+        },
+        {
+          "type": "experience",
+          "time": "19:00",
+          "name": "Jantar no motorhome",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "",
+          "name": "Camping Olympia, Dobbiaco",
+          "category": "stay",
+          "kind": "camp",
+          "poiId": "camp-olympia-dobbiaco",
+          "desc": "Camping Olympia ★★★★ em Dobbiaco — Categoria A. Wellness completo (sauna finlandesa, banho turco, infravermelhos, piscinas). Self-service laundry. Incluso na diária.",
+          "source": "campercontact",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.camping-olympia.com/en/wellness"
+            }
+          ]
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Wellness completo incluso na diária — recuperação ideal após Tre Cime/Sorapis."
+          ]
+        }
+      ]
+    },
+    {
+      "num": "15",
+      "cls": "",
+      "title": "Dobbiaco → Chiusa → Val Gardena",
+      "dayCost": "~€5",
+      "schedule": [
+        {
+          "type": "experience",
+          "time": "08:00",
+          "name": "Desmontar camp em Olympia",
+          "category": "stay"
+        },
+        {
+          "type": "experience",
+          "time": "08:30",
+          "name": "Dirigir até Bressanone via SS49 (~1h)",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "08:30",
+          "from": {
+            "name": "Camping Olympia, Dobbiaco",
+            "lat": 46.7344,
+            "lng": 12.1937
+          },
+          "to": {
+            "name": "Bressanone (Brixen)",
+            "lat": 46.7104,
+            "lng": 11.6525
+          },
+          "model": "drive",
+          "duration": 75,
+          "distance": 55
+        },
+        {
+          "type": "experience",
+          "time": "09:00",
+          "name": "Bressanone (Brixen) — parada breve opcional",
+          "category": "attraction",
+          "kind": "city",
+          "poiId": "bressanone-brixen",
+          "desc": "Cidade episcopal do Tirol do Sul, fundada em 901. Catedral barroca, claustros românicos, centro pedonal medieval.",
+          "popularity": 4.8,
+          "source": "tripadvisor",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Brixen_Dom_Mari%C3%A4_Himmelfahrt_%28BD_14187_3_05-2015%29.jpg/1280px-Brixen_Dom_Mari%C3%A4_Himmelfahrt_%28BD_14187_3_05-2015%29.jpg"
+        },
+        {
+          "type": "experience",
+          "time": "09:30",
+          "name": "Dirigir até Chiusa (~15 min)",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "09:30",
+          "from": {
+            "name": "Bressanone (Brixen)",
+            "lat": 46.7104,
+            "lng": 11.6525
+          },
+          "to": {
+            "name": "Chiusa (Klausen)",
+            "lat": 46.6392,
+            "lng": 11.5641
+          },
+          "model": "drive",
+          "duration": 18,
+          "distance": 11
+        },
+        {
+          "type": "experience",
+          "time": "09:45",
+          "name": "Chiusa (Klausen) — vielas medievais",
+          "category": "attraction",
+          "kind": "vila",
+          "poiId": "chiusa-klausen",
+          "desc": "Vila medieval (Klausen em alemão) no Vale Eisack, fundada na Idade Média como ponto de pedágio. Albrecht Dürer pintou a vista em 1494.",
+          "popularity": 4,
+          "source": "tripadvisor",
+          "links": [
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Tourism-g1150025-Chiusa_Province_of_South_Tyrol_Trentino_Alto_Adige.html"
+            }
+          ],
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Chiusa_-_Klausen.jpg/1280px-Chiusa_-_Klausen.jpg"
+        },
+        {
+          "type": "experience",
+          "time": "10:30",
+          "name": "Subida ao Monastero di Sabiona — mosteiro beneditino no penhasco",
+          "category": "attraction",
+          "kind": "city",
+          "poiId": "monastero-di-sabiona",
+          "desc": "Mosteiro beneditino feminino fundado no séc. X sobre o penhasco acima de Chiusa. Vista panorâmica do Vale Eisack. Caminhada íngreme ~1h.",
+          "popularity": 3.6,
+          "source": "wikivoyage",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/4/44/Kloster_Saben.jpg"
+        },
+        {
+          "type": "experience",
+          "time": "11:00",
+          "name": "Dirigir até Val Gardena (~25 min)",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "11:00",
+          "from": {
+            "name": "Chiusa (Klausen)",
+            "lat": 46.6392,
+            "lng": 11.5641
+          },
+          "to": {
+            "name": "Camping Seiser Alm, Val Gardena",
+            "lat": 46.56,
+            "lng": 11.65
+          },
+          "model": "drive",
+          "duration": 35,
+          "distance": 22
+        },
+        {
+          "type": "experience",
+          "time": "11:30",
+          "name": "Montar camp no Camping Seiser Alm",
+          "category": "stay"
+        },
+        {
+          "type": "experience",
+          "time": "12:00",
+          "name": "Almoço no motorhome",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "14:00",
+          "name": "Explorar Ortisei (St. Ulrich) — capital de Val Gardena. Tradição em escultura em madeira, gelato",
+          "category": "attraction",
+          "kind": "vila",
+          "poiId": "ortisei-st-ulrich",
+          "desc": "Capital de Val Gardena (St. Ulrich em alemão, Urtijëi em ladino). Tradição secular de escultura em madeira. Centro pedonal com gelaterias e artesanato.",
+          "popularity": 4.7,
+          "source": "tripadvisor",
+          "links": [
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Tourism-g194900-Ortisei_St_Ulrich_Province_of_South_Tyrol_Trentino_Alto_Adige-Vacations.html"
+            }
+          ],
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Urtij%C3%ABi_cun_l_Sela_Y_Saslonch_da_Tlesura.jpg/1280px-Urtij%C3%ABi_cun_l_Sela_Y_Saslonch_da_Tlesura.jpg"
+        },
+        {
+          "type": "experience",
+          "time": "19:00",
+          "name": "Jantar no motorhome",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "",
+          "name": "Camping Seiser Alm, Val Gardena",
+          "category": "stay",
+          "kind": "camp",
+          "poiId": "camp-seiser-alm-val-gardena",
+          "desc": "Camping em Val Gardena — base para Seceda, Alpe di Siusi, Sassolungo. Vista das Odle/Geisler.",
+          "source": "campercontact"
+        }
+      ]
+    },
+    {
+      "num": "16",
+      "cls": "",
+      "title": "Seceda Ridgeline",
+      "dayCost": "~€195 (cable car €148 RT + rifúgio + jantar)",
+      "schedule": [
+        {
+          "type": "insight",
+          "warnings": [
+            "RESERVA ONLINE OBRIGATÓRIA em 2026 — seceda.it. Não-reembolsável",
+            "€74/pp RT cable car. Verificar clima na manhã antes de comprar",
+            "Taxa de €5/pp no torniquete (NOVO 2026) — proibido sair das trilhas demarcadas"
+          ]
+        },
+        {
+          "type": "transfer",
+          "time": "09:00",
+          "from": {
+            "name": "Camping Seiser Alm, Val Gardena",
+            "lat": 46.56,
+            "lng": 11.65
+          },
+          "to": {
+            "name": "Ortisei (St. Ulrich)",
+            "lat": 46.5762,
+            "lng": 11.6745
+          },
+          "model": "drive",
+          "duration": 15,
+          "distance": 7,
+          "notes": "Ortisei base station — depois cable car (transit)."
+        },
+        {
+          "type": "experience",
+          "time": "09:00",
+          "name": "Cable car Ortisei → Seceda. Trilha Seceda Ridgeline — circuito 10km pela crista com vista das Odle (3–4h)",
+          "category": "attraction",
+          "kind": "trek",
+          "poiId": "seceda-ridgeline",
+          "cost": 74,
+          "desc": "Crista a 2.519m em Val Gardena com a vista das Odle/Geisler — uma das paisagens mais fotografadas das Dolomitas. Cable car de Ortisei + circuito de 10 km.",
+          "source": "alltrails",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.seceda.it"
+            },
+            {
+              "type": "alltrails",
+              "url": "https://www.alltrails.com/trail/italy/south-tyrol/seceda-cir?u=m"
+            }
+          ]
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Crista icônica das Dolomitas — referência visual em filmes e calendários alpinos."
+          ],
+          "warnings": [
+            "Reserva online obrigatória em 2026 (seceda.it). Tickets pessoais e não-reembolsáveis.",
+            "Taxa €5/pp no torniquete (NOVO 2026). Proibido sair das trilhas."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "13:00",
+          "name": "Café e lanche no Rifugio Firenze (Regensburger Hütte)",
+          "category": "attraction",
+          "kind": "trek",
+          "poiId": "rifugio-firenze",
+          "desc": "Rifugio Firenze (Regensburger Hütte, 2.040m) abaixo das Odle/Geisler. Cozinha tradicional sul-tirolesa, terraço com vista da crista do Seceda.",
+          "source": "refuges-info"
+        },
+        {
+          "type": "experience",
+          "time": "15:00",
+          "name": "Descer de teleférico. Passear por Ortisei e gelato",
+          "category": "custom"
+        },
+        {
+          "type": "experience",
+          "time": "19:00",
+          "name": "Jantar tirolês em Ortisei — Tubladel, Concordia ou Hotel Nives",
+          "category": "food",
+          "kind": "restaurant",
+          "poiId": "ortisei-jantar-tiroles",
+          "desc": "Restaurantes tradicionais sul-tiroleses em Ortisei — Tubladel (cozinha gourmet ladina), Concordia (familiar) ou Hotel Nives (Michelin-recognized).",
+          "source": "tripadvisor"
+        },
+        {
+          "type": "experience",
+          "time": "",
+          "name": "Camping Seiser Alm, Val Gardena",
+          "category": "stay",
+          "kind": "camp",
+          "poiId": "camp-seiser-alm-val-gardena",
+          "desc": "Camping em Val Gardena — base para Seceda, Alpe di Siusi, Sassolungo. Vista das Odle/Geisler.",
+          "source": "campercontact"
+        }
+      ]
+    },
+    {
+      "num": "17",
+      "cls": "",
+      "title": "Alpe di Siusi — Peak Wildflower Season",
+      "dayCost": "~€75 (cable car €60 RT + snack)",
+      "schedule": [
+        {
+          "type": "transfer",
+          "time": "08:45",
+          "from": {
+            "name": "Camping Seiser Alm, Val Gardena",
+            "lat": 46.56,
+            "lng": 11.65
+          },
+          "to": {
+            "lat": 46.5468,
+            "lng": 11.5536,
+            "name": "Estação Cabinovia Siusi"
+          },
+          "model": "drive",
+          "duration": 15,
+          "distance": 8,
+          "notes": "Estação Siusi — cabinovia para Compatsch (~10 min, €60 RT)."
+        },
+        {
+          "type": "experience",
+          "time": "08:45",
+          "name": "Teleférico Siusi → Compatsch + caminhada pelo maior prado alpino da Europa (5–6km, easy). Pico de flores em junho",
+          "category": "attraction",
+          "kind": "trek",
+          "poiId": "alpe-di-siusi-compatsch",
+          "cost": 60,
+          "desc": "Maior prado alpino contínuo da Europa (56 km² a 1.700–2.300m). Vista panorâmica do Sassolungo, Sella e Catinaccio. Pico de florescimento em junho.",
+          "popularity": 2.7,
+          "source": "official",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.seiseralm.it/en/info/getting-around/seiser-alm-aerial-cableway-summer.html"
+            },
+            {
+              "type": "alltrails",
+              "url": "https://www.alltrails.com/trail/italy/south-tyrol/compatsch-biotop-grosses-moos-panorama?u=m"
+            }
+          ],
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Saslonch_udu_da_Mont_de_Seuc.jpg/1280px-Saslonch_udu_da_Mont_de_Seuc.jpg"
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Maior prado alpino da Europa — espetáculo de flores silvestres em junho.",
+            "Vista 360° dos três massivos dolomíticos: Sassolungo, Sella, Catinaccio."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "12:00",
+          "name": "Piquenique no planalto com vista do Sciliar",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "13:00",
+          "name": "Descer de teleférico",
+          "category": "transport"
+        },
+        {
+          "type": "experience",
+          "time": "14:00",
+          "name": "Tarde livre / opcional Castelrotto — vila medieval tirolesa a 10 min do camping",
+          "category": "attraction",
+          "kind": "vila",
+          "poiId": "castelrotto",
+          "desc": "Vila tirolesa medieval (Kastelruth em alemão), uma das mais charmosas do Alto Adige. Centro pedonal, igreja com torre barroca, Spitzbuam (banda folk famosa).",
+          "popularity": 4.4,
+          "source": "tripadvisor",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Kastelruth_mit_Kirche_Sankt_Peter_und_Paul.jpg/1280px-Kastelruth_mit_Kirche_Sankt_Peter_und_Paul.jpg"
+        },
+        {
+          "type": "experience",
+          "time": "19:00",
+          "name": "Jantar no motorhome",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "",
+          "name": "Camping Seiser Alm, Val Gardena",
+          "category": "stay",
+          "kind": "camp",
+          "poiId": "camp-seiser-alm-val-gardena",
+          "desc": "Camping em Val Gardena — base para Seceda, Alpe di Siusi, Sassolungo. Vista das Odle/Geisler.",
+          "source": "campercontact"
+        }
+      ]
+    },
+    {
+      "num": "18",
+      "cls": "",
+      "title": "Val Gardena → Lago di Carezza → Sirmione",
+      "dayCost": "~€10 (estacionamento + snack)",
+      "schedule": [
+        {
+          "type": "experience",
+          "time": "08:00",
+          "name": "Desmontar camp em Val Gardena",
+          "category": "stay"
+        },
+        {
+          "type": "experience",
+          "time": "08:30",
+          "name": "Dirigir até Lago di Carezza via Val d'Ega (~48km, 1h10)",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "08:30",
+          "from": {
+            "name": "Camping Seiser Alm, Val Gardena",
+            "lat": 46.56,
+            "lng": 11.65
+          },
+          "to": {
+            "name": "Lago di Carezza (Karersee)",
+            "lat": 46.4114,
+            "lng": 11.6014
+          },
+          "model": "drive",
+          "duration": 85,
+          "distance": 48,
+          "notes": "Via Val d'Ega."
+        },
+        {
+          "type": "experience",
+          "time": "09:45",
+          "name": "Lago di Carezza (Karersee) — reflexo do Latemar e Catinaccio. Caminhada curta (~30 min). Despedida das Dolomitas",
+          "category": "attraction",
+          "kind": "lake",
+          "poiId": "lago-di-carezza",
+          "desc": "Pequeno lago alpino a 1.520m com reflexo perfeito do Latemar e Catinaccio. Cores entre turquesa e verde-esmeralda. Caminhada circular de 30 min.",
+          "source": "tripadvisor",
+          "links": [
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Attraction_Review-g1023620-d2335498-Reviews-Lake_Carezza-Nova_Levante_Province_of_South_Tyrol_Trentino_Alto_Adige.html"
+            }
+          ],
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Carezza_Lake.jpg/1280px-Carezza_Lake.jpg"
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Cores 'arco-íris' lendárias — diz a lenda local que uma sereia se transformou no lago.",
+            "Um dos lagos mais fotogênicos das Dolomitas, sempre cheio em julho/agosto."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "10:30",
+          "name": "Packed lunch perto do lago",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "11:00",
+          "name": "Dirigir até Desenzano del Garda via A22 sul → A4 oeste (~175km, 2h10)",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "11:00",
+          "from": {
+            "name": "Lago di Carezza (Karersee)",
+            "lat": 46.4114,
+            "lng": 11.6014
+          },
+          "to": {
+            "name": "Free Parking: Desenzano del Garda",
+            "lat": 45.4597,
+            "lng": 10.5597
+          },
+          "model": "drive",
+          "duration": 170,
+          "distance": 218,
+          "notes": "A22 sul → A4 oeste. Posto Brescia/Bergamo é boa parada."
+        },
+        {
+          "type": "experience",
+          "time": "13:15",
+          "name": "Chegada em Desenzano. Estacionar no free parking Via Michelangelo 9. Centro medieval, porto",
+          "category": "attraction",
+          "kind": "city",
+          "poiId": "desenzano-del-garda",
+          "desc": "Cidade medieval na margem sul do Lago di Garda, com castelo do séc. X, porto histórico e ruínas romanas. 15 min de Sirmione.",
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Old_port_of_Desenzano.JPG",
+          "popularity": 4.5,
+          "source": "tripadvisor"
+        },
+        {
+          "type": "transfer",
+          "time": "15:00",
+          "from": {
+            "name": "Free Parking: Desenzano del Garda",
+            "lat": 45.4597,
+            "lng": 10.5597
+          },
+          "to": {
+            "name": "Sirmione",
+            "lat": 45.4925,
+            "lng": 10.6082
+          },
+          "model": "drive",
+          "duration": 15,
+          "distance": 8
+        },
+        {
+          "type": "experience",
+          "time": "15:00",
+          "name": "Drive até Sirmione (~15 min). Centro storico, gelato",
+          "category": "attraction",
+          "kind": "city",
+          "poiId": "sirmione",
+          "desc": "Península termal no Lago di Garda, com fortaleza scaligera do séc. XIII e ruínas da villa romana de Catulo. Centro storico pedonal com gelaterias.",
+          "popularity": 4.7,
+          "source": "tripadvisor",
+          "links": [
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Tourism-g187842-Sirmione_Province_of_Brescia_Lombardy.html"
+            }
+          ],
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Italy_-_Sirmione.jpg/1280px-Italy_-_Sirmione.jpg"
+        },
+        {
+          "type": "experience",
+          "time": "19:00",
+          "name": "Retorno ao free parking Desenzano. Jantar no motorhome",
+          "category": "food"
+        },
+        {
+          "type": "transfer",
+          "time": "18:00",
+          "from": {
+            "name": "Sirmione",
+            "lat": 45.4925,
+            "lng": 10.6082
+          },
+          "to": {
+            "name": "Free Parking: Desenzano del Garda",
+            "lat": 45.4597,
+            "lng": 10.5597
+          },
+          "model": "drive",
+          "duration": 15,
+          "distance": 8
+        },
+        {
+          "type": "experience",
+          "time": "",
+          "name": "Free parking Desenzano",
+          "category": "stay",
+          "kind": "camp",
+          "poiId": "free-parking-desenzano",
+          "desc": "Estacionamento livre em Via Michelangelo 9, Desenzano del Garda. 5 min do centro a pé. Permite pernoite. Park4Night verificado.",
+          "source": "park4night",
+          "links": [
+            {
+              "type": "park4night",
+              "url": "https://park4night.com/en/place/14906"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": "19",
+      "cls": "city",
+      "title": "Sirmione → MXP",
+      "dayCost": "~€74 (castelo €16 + grotte €20 + farewell lunch)",
+      "schedule": [
+        {
+          "type": "insight",
+          "warnings": [
+            "Perguntar à Indie Campers se pode pernoitar no pátio na véspera da devolução"
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "08:30",
+          "name": "Café da manhã no motorhome com vista do Lago di Garda",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "09:30",
+          "name": "Castello Scaligero — fortaleza do séc. XIII sobre o lago. Subir na torre",
+          "category": "attraction",
+          "kind": "castle",
+          "poiId": "castello-scaligero-sirmione",
+          "cost": 8,
+          "desc": "Fortaleza naval do séc. XIII construída pela família Scaligera de Verona. Único castelo italiano com darsena (porto fortificado interno) ainda intacto. Subida na torre com vista do lago.",
+          "source": "official",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://museilombardia.cultura.gov.it/musei/castello-scaligero-di-sirmione/"
+            },
+            {
+              "type": "tripadvisor",
+              "url": "https://www.tripadvisor.com/Attraction_Review-g187842-d2218711-Reviews-Castello_Scaligero-Sirmione_Province_of_Brescia_Lombardy.html"
+            }
+          ]
+        },
+        {
+          "type": "insight",
+          "highlights": [
+            "Único castelo medieval italiano com darsena (porto interno fortificado) preservada."
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "11:00",
+          "name": "Caminhar pela península até as Grotte di Catullo — ruínas de villa romana",
+          "category": "attraction",
+          "kind": "unesco",
+          "poiId": "grotte-di-catullo",
+          "cost": 10,
+          "desc": "Ruínas de villa romana do séc. I a.C. na ponta da península de Sirmione, atribuída ao poeta Catulo. Vista panorâmica do Lago di Garda do alto das ruínas.",
+          "popularity": 4.3,
+          "source": "official",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://www.grottedicatullo.beniculturali.it/"
+            }
+          ],
+          "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Grottoes_of_Catullus_-_Grotte_di_Catullo_%285364%29.jpg/1280px-Grottoes_of_Catullus_-_Grotte_di_Catullo_%285364%29.jpg"
+        },
+        {
+          "type": "experience",
+          "time": "12:30",
+          "name": "🍽️ ALMOÇO DE DESPEDIDA — restaurante com terraço no Lago di Garda. Peixe (lavarello, luccioperca) + vinho Lugana DOC",
+          "category": "food",
+          "kind": "restaurant",
+          "poiId": "farewell-lunch-garda",
+          "desc": "Almoço de despedida na península de Sirmione — pedir peixe do Garda (lavarello, luccioperca) acompanhado de Lugana DOC, vinho branco local DOC.",
+          "source": "tripadvisor"
+        },
+        {
+          "type": "experience",
+          "time": "14:30",
+          "name": "Último passeio por Sirmione. Gelato e souvenir",
+          "category": "custom"
+        },
+        {
+          "type": "experience",
+          "time": "15:30",
+          "name": "🧹 LIMPEZA FINAL DO MOTORHOME — esvaziar geladeira, limpar fogão/bancada/pia, varrer, scarico WC + tanque cinza, recolher varal, separar lixo, conferir armários, organizar malas",
+          "category": "stay"
+        },
+        {
+          "type": "experience",
+          "time": "17:00",
+          "name": "⛽ Abastecer diesel na A4 (Brescia/Bergamo) — tanque cheio para devolver",
+          "category": "transport"
+        },
+        {
+          "type": "experience",
+          "time": "17:30",
+          "name": "Dirigir de Sirmione até a região de MXP pela A4 (~2h)",
+          "category": "transport"
+        },
+        {
+          "type": "transfer",
+          "time": "17:30",
+          "from": {
+            "name": "Free Parking: Desenzano del Garda",
+            "lat": 45.4597,
+            "lng": 10.5597
+          },
+          "to": {
+            "lat": 45.6197,
+            "lng": 8.7603,
+            "name": "Aeroporto MXP / Indie Campers"
+          },
+          "model": "drive",
+          "duration": 140,
+          "distance": 170,
+          "notes": "A4 oeste. Tanque cheio antes de devolver."
+        },
+        {
+          "type": "experience",
+          "time": "19:30",
+          "name": "Chegada perto do aeroporto. Dormir no motorhome (pátio Indie Campers ou Park4Night)",
+          "category": "stay"
+        },
+        {
+          "type": "experience",
+          "time": "",
+          "name": "Pernoite livre perto de MXP",
+          "category": "stay",
+          "kind": "camp",
+          "poiId": "indie-campers-mxp-pickup-return",
+          "desc": "Pickup e devolução do motorhome Indie Campers no aeroporto MXP de Milão Malpensa.",
+          "source": "official",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://indiecampers.com/it/depots/milan"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": "20",
+      "cls": "",
+      "title": "Return Motorhome → São Paulo",
+      "schedule": [
+        {
+          "type": "experience",
+          "time": "07:00",
+          "name": "Acordar tranquilo — perto do aeroporto",
+          "category": "transport"
+        },
+        {
+          "type": "experience",
+          "time": "07:30",
+          "name": "Café da manhã no motorhome. Últimos preparativos",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "08:00",
+          "name": "Devolver motorhome na Indie Campers (MXP). Inspeção do veículo",
+          "category": "transport",
+          "kind": "destination",
+          "poiId": "indie-campers-mxp-pickup-return",
+          "desc": "Pickup e devolução do motorhome Indie Campers no aeroporto MXP de Milão Malpensa.",
+          "source": "official",
+          "links": [
+            {
+              "type": "official",
+              "url": "https://indiecampers.com/it/depots/milan"
+            }
+          ]
+        },
+        {
+          "type": "experience",
+          "time": "09:00",
+          "name": "Transfer até o terminal. Check-in e despachar malas",
+          "category": "transport"
+        },
+        {
+          "type": "experience",
+          "time": "10:30",
+          "name": "Tempo livre no aeroporto — duty free, último espresso italiano",
+          "category": "food"
+        },
+        {
+          "type": "experience",
+          "time": "13:00",
+          "name": "Voo LATAM LA8073 → GRU",
+          "category": "transport"
+        },
+        {
+          "type": "experience",
+          "time": "20:00",
+          "name": "Chegada em São Paulo",
+          "category": "transport"
+        }
+      ]
+    }
+  ],
+  "bookings": [
+    {
+      "date": "2026-06-08",
+      "item": "Seguro Viagem (Mastercard Black / AIG)",
+      "link": "https://drive.google.com/file/d/1132jG9xZs7ZdOnMdiwAs0yJX8xMwc44r/view",
+      "status": "confirmed",
+      "critical": false
+    },
+    {
+      "date": "2026-06-08",
+      "item": "Passagem aérea GRU ↔ MXP (LATAM LA8072/LA8073)",
+      "link": "https://drive.google.com/file/d/12SaF4BwKbDIEtcUD9daWoB2NSgWge0hN/view",
+      "status": "confirmed",
+      "critical": false
+    },
+    {
+      "date": "2026-06-09",
+      "item": "Contrato Motorhome Indie Campers",
+      "link": "https://drive.google.com/file/d/1dbNhWoKDhOdCfTDo-us1MgPaYyHh-zYQ/view",
+      "status": "confirmed",
+      "critical": false
+    },
+    {
+      "date": "2026-06-09",
+      "item": "Reserva Camping Fusina",
+      "link": "https://drive.google.com/file/d/1HfWfW2MmMemtNkGSdo8pQRB8JPEYQq8H/view",
+      "status": "confirmed",
+      "critical": false
+    },
+    {
+      "date": "2026-06-10",
+      "item": "Itinerari Segreti — Palazzo Ducale",
+      "status": "confirmed",
+      "critical": false
+    },
+    {
+      "date": "2026-06-10",
+      "item": "Ingresso Basilica di San Marco",
+      "link": "https://tickets.basilicasanmarco.it/en/store",
+      "status": "pending",
+      "critical": true
+    },
+    {
+      "date": "2026-06-10",
+      "item": "Concerto Vivaldi — Four Seasons (I Musici Veneziani)",
+      "link": "https://www.imusiciveneziani.com/en/concerts/a-vivaldis-four-seasons/",
+      "status": "pending",
+      "critical": true
+    },
+    {
+      "date": "2026-06-11",
+      "item": "E-vinheta eslovena (7 dias)",
+      "link": "https://evinjeta.dars.si/en",
+      "status": "pending",
+      "critical": false
+    },
+    {
+      "date": "2026-06-11",
+      "item": "Postojna Cave + Predjama Castle combo",
+      "link": "https://tickets.postojnska-jama.eu/en/postojna-cave-predjama-castle/pack-107.html",
+      "status": "pending",
+      "critical": false
+    },
+    {
+      "date": "2026-06-11",
+      "item": "Reserva Camping Bled",
+      "link": "https://drive.google.com/file/d/1wxOdJxbN1d0-QOZJ_DKeTmWuCTNM3euD/view",
+      "status": "confirmed",
+      "critical": false
+    },
+    {
+      "date": "2026-06-12",
+      "item": "Ingresso Vintgar Gorge",
+      "link": "https://www.vintgar.si/en/",
+      "status": "pending",
+      "critical": false
+    },
+    {
+      "date": "2026-06-12",
+      "item": "Ingresso Bled Castle",
+      "link": "https://www.blejski-grad.si/en/",
+      "status": "pending",
+      "critical": false
+    },
+    {
+      "date": "2026-06-13",
+      "item": "Vogel Cable Car",
+      "link": "https://www.vogel.si/en/",
+      "status": "pending",
+      "critical": false
+    },
+    {
+      "date": "2026-06-16",
+      "item": "Rafting Rio Soča (SportMix)",
+      "link": "https://sportmix.si/en/rafting/",
+      "status": "pending",
+      "critical": false
+    },
+    {
+      "date": "2026-06-18",
+      "item": "Tre Cime toll road (slot 7h–8h)",
+      "link": "https://pass.auronzo.info",
+      "status": "pending",
+      "critical": true
+    },
+    {
+      "date": "2026-06-20",
+      "item": "Camping Olympia (Dobbiaco)",
+      "link": "https://drive.google.com/file/d/1S4mlh_jpZnoxD2iFZAVtgeFOgpWZxOhJ/view",
+      "status": "confirmed",
+      "critical": false
+    },
+    {
+      "date": "2026-06-23",
+      "item": "Seceda Cable Car",
+      "link": "https://www.seceda.it/en/",
+      "status": "pending",
+      "critical": true
+    },
+    {
+      "date": "2026-06-23",
+      "item": "Jantar tirolês em Ortisei",
+      "status": "pending",
+      "critical": false
+    },
+    {
+      "date": "2026-06-25",
+      "item": "Free parking Desenzano (Park4Night)",
+      "link": "https://park4night.com/en/place/14906",
+      "status": "confirmed",
+      "critical": false
+    },
+    {
+      "date": "2026-06-26",
+      "item": "Pernoite pátio Indie Campers",
+      "status": "pending",
+      "critical": false
+    }
+  ],
+  "budget": [
+    {
+      "id": "flights",
+      "category": "flights",
+      "amount": 2090,
+      "pct": 27,
+      "status": "paid",
+      "notes": "LATAM GRU↔MXP — R$ 12.997"
+    },
+    {
+      "id": "motorhome",
+      "category": "transportation",
+      "amount": 2170,
+      "pct": 28,
+      "status": "confirmed",
+      "notes": "Indie Campers roundtrip MXP + gás"
+    },
+    {
+      "id": "campgrounds",
+      "category": "accommodations",
+      "amount": 714,
+      "pct": 9,
+      "status": "estimated",
+      "notes": "18 nights × ~€42 avg"
+    },
+    {
+      "id": "fuel",
+      "category": "fuel",
+      "amount": 430,
+      "pct": 5,
+      "status": "estimated",
+      "notes": "~1.870 km × ~11L/100km × €1.85/L"
+    },
+    {
+      "id": "tolls-vinhetas",
+      "category": "transportation",
+      "amount": 81,
+      "pct": 1,
+      "status": "estimated",
+      "notes": "Autostrada (~€65) + e-vinheta SI (€16)"
+    },
+    {
+      "id": "restaurantes",
+      "category": "food",
+      "amount": 350,
+      "pct": 4,
+      "status": "estimated",
+      "notes": "4 experiências gastronômicas"
+    },
+    {
+      "id": "rifugios",
+      "category": "food",
+      "amount": 220,
+      "pct": 3,
+      "status": "estimated",
+      "notes": "Coffee, snacks, sopas"
+    },
+    {
+      "id": "supermercado",
+      "category": "food",
+      "amount": 580,
+      "pct": 8,
+      "status": "estimated",
+      "notes": "~€32/dia × 18 dias"
+    },
+    {
+      "id": "cable-cars",
+      "category": "attractions",
+      "amount": 218,
+      "pct": 3,
+      "status": "estimated",
+      "notes": "Seceda + Siusi + Vogel"
+    },
+    {
+      "id": "wellness",
+      "category": "entertainment",
+      "amount": 50,
+      "pct": 1,
+      "status": "estimated",
+      "notes": "Camping Olympia (incluído)"
+    },
+    {
+      "id": "activities",
+      "category": "attractions",
+      "amount": 488,
+      "pct": 6,
+      "status": "estimated",
+      "notes": "Postojna, Vintgar, Bled Castle, rafting, Tre Cime…"
+    },
+    {
+      "id": "souvenirs",
+      "category": "shopping",
+      "amount": 130,
+      "pct": 2,
+      "status": "estimated",
+      "notes": "Speck, grappa, mel esloveno"
+    },
+    {
+      "id": "translado-gru",
+      "category": "transportation",
+      "amount": 48,
+      "pct": 1,
+      "status": "confirmed",
+      "notes": "R$ 300"
+    },
+    {
+      "id": "pet-care",
+      "category": "unplanned",
+      "amount": 322,
+      "pct": 4,
+      "status": "confirmed",
+      "notes": "Aurora R$ 2.000 (20 dias)"
+    },
+    {
+      "id": "unplanned",
+      "category": "unplanned",
+      "amount": 717,
+      "pct": 8,
+      "status": "reserve",
+      "notes": "Catch-all para imprevistos"
+    }
+  ],
+  "checklist": [
+    {
+      "title": "Março 2026 — 3 meses antes",
+      "type": "checklist",
+      "items": [
+        {
+          "id": "c-voo",
+          "text": "Voos LATAM GRU↔MXP — Confirmado",
+          "status": "done"
+        },
+        {
+          "id": "c-mh",
+          "text": "Motorhome Indie Campers — Confirmado",
+          "status": "done"
+        },
+        {
+          "id": "c-seg",
+          "text": "Seguro viagem Mastercard Black / AIG",
+          "status": "done"
+        }
+      ]
+    },
+    {
+      "title": "Abril 2026 — 2 meses antes",
+      "type": "checklist",
+      "items": [
+        {
+          "id": "c-trecime",
+          "text": "✅ Tre Cime toll road — cadastro criado em pass.auronzo.info. Tickets abrem ~final de maio",
+          "status": "done"
+        },
+        {
+          "id": "c-vrsic",
+          "text": "✅ Vršič Pass: motorhome PASSA mas desafiador. Sair cedo, marcha baixa na descida. Plan B: Predel Pass se chover",
+          "status": "done"
+        },
+        {
+          "id": "c-seceda",
+          "text": "Seceda cable car — RESERVA ONLINE OBRIGATÓRIA em 2026 com time slot. seceda.it para Jun 23",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "c-palazzo",
+          "text": "⚠️ Itinerari Segreti — Palazzo Ducale (tour inglês 11:30, Jun 10) — solicitação enviada, aguardando confirmação",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "c-sanmarco",
+          "text": "⚠️ Comprar ingresso Basilica di San Marco online — timed-entry obrigatório desde Jul/2025",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "c-fisico",
+          "text": "Condicionamento físico (trilhas de 6h com 700m+ desnível)",
+          "status": "done"
+        },
+        {
+          "id": "c-fusina",
+          "text": "Reservar Camping Fusina (Venezia) — Jun 9–11 — Confirmado",
+          "status": "done"
+        },
+        {
+          "id": "c-bled",
+          "text": "Reservar Camping Bled (Jun 11–14) — 3 noites confirmadas",
+          "status": "done"
+        },
+        {
+          "id": "c-olympia",
+          "text": "Reservar Camping Olympia (Dobbiaco) — Jun 20–22, €65.50/noite. Confirmado",
+          "status": "done"
+        },
+        {
+          "id": "c-sirmione-camp",
+          "text": "Camping Sirmione não aceita 1 noite. Alternativa: free parking Desenzano (Park4Night)",
+          "status": "done"
+        },
+        {
+          "id": "c-postojna",
+          "text": "Comprar combo Postojna+Predjama online (~€47/pp)",
+          "status": "pending"
+        },
+        {
+          "id": "c-rafting",
+          "text": "Reservar rafting Soča (SportMix)",
+          "status": "pending"
+        },
+        {
+          "id": "c-indie-overnight",
+          "text": "Perguntar Indie Campers sobre pernoite no pátio na noite de 26 Jun",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "title": "Maio 2026 — 1 mês antes",
+      "type": "checklist",
+      "items": [
+        {
+          "id": "c-translado",
+          "text": "Translado Indaiatuba → GRU — ônibus 09:30 + Uber. R$300",
+          "status": "done"
+        },
+        {
+          "id": "c-aurora",
+          "text": "Aurora (pet care) confirmada. R$100/dia × 20 dias = R$2.000",
+          "status": "done"
+        },
+        {
+          "id": "c-confirmar",
+          "text": "Confirmar todas as reservas (motorhome, campings, voos)",
+          "status": "pending"
+        },
+        {
+          "id": "c-vinheta",
+          "text": "Comprar e-vinheta eslovena (evinjeta.dars.si) — 7-day pass, Cat 2A",
+          "status": "pending"
+        },
+        {
+          "id": "c-banco",
+          "text": "Avisar banco sobre viagem (Itália + Eslovênia)",
+          "status": "done"
+        },
+        {
+          "id": "c-cnh",
+          "text": "Verificar carteira de motorista internacional",
+          "status": "done"
+        },
+        {
+          "id": "c-roaming",
+          "text": "Verificar roaming celular (EU roaming cobre IT + SI)",
+          "status": "done"
+        },
+        {
+          "id": "c-drone-dflight",
+          "text": "Drone Avata 2 — Registrar D-Flight (d-flight.it). €6/ano",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "c-drone-seguro",
+          "text": "Drone — Contratar seguro RC (obrigatório UE, ~€920k cobertura)",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "c-drone-qr",
+          "text": "Drone — Colar QR code (eID) no Avata 2",
+          "status": "pending"
+        },
+        {
+          "id": "c-drone-app",
+          "text": "Drone — Baixar app D-Flight",
+          "status": "pending"
+        },
+        {
+          "id": "c-drone-guide",
+          "text": "Drone — Estudar drone-guide.md. Spots permitidos vs proibidos",
+          "status": "pending"
+        },
+        {
+          "id": "c-placa-mh",
+          "text": "Pedir placa do motorhome a Indie Campers — necessária para Tre Cime toll",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "c-franquia",
+          "text": "Verificar franquia seguro Indie Campers (€1.500-3.000). Considerar redução (~€10-15/dia)",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "c-ztl",
+          "text": "Estudar ZTL (Zona Traffico Limitato) das cidades italianas",
+          "status": "pending"
+        },
+        {
+          "id": "c-farois-si",
+          "text": "Eslovênia: faróis baixos obrigatórios 24h/dia. Multa ~€40",
+          "status": "pending"
+        },
+        {
+          "id": "c-mapas",
+          "text": "Baixar mapas offline: Google Maps (IT + SI), Komoot/AllTrails",
+          "status": "pending"
+        },
+        {
+          "id": "c-apps",
+          "text": "Baixar apps: Park4Night, CamperContact, MeteoTrentino, ARSO",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "title": "Semanas anterior (início de junho)",
+      "type": "checklist",
+      "items": [
+        {
+          "id": "c-trecime-ticket",
+          "text": "⚠️ ~19 Mai (30 dias antes): Reservar Tre Cime toll road ticket — placa do veículo necessária",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "c-concerto",
+          "text": "⚠️ Comprar tickets Concerto I Musici Veneziani (Jun 10, 20:30) — ~€65/pp",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "c-missa",
+          "text": "Verificar horário de missas na Basilica di San Marco (orarimesse.it)",
+          "status": "pending"
+        },
+        {
+          "id": "c-clima",
+          "text": "Verificar condições climáticas de longo prazo",
+          "status": "pending"
+        },
+        {
+          "id": "c-vrsicopen",
+          "text": "Verificar se Vršič Pass está aberto (geralmente abre maio/junho)",
+          "status": "pending"
+        },
+        {
+          "id": "c-vrsic-vespera",
+          "text": "⚠️ Véspera do Vršič: checar condições da estrada. Se choveu → Predel Pass",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "c-sorapis-check",
+          "text": "Verificar condições Lago di Sorapis (1 semana antes): neve/gelo nos cabos. Instagram Rifugio Vandelli",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "c-neve",
+          "text": "Verificar condições de neve nos passes dolomíticos (Gardena, Sella)",
+          "status": "pending"
+        },
+        {
+          "id": "c-cash",
+          "text": "Trocar €300 em espécie (notas pequenas)",
+          "status": "pending"
+        },
+        {
+          "id": "c-playlist",
+          "text": "Preparar playlist/podcasts para estrada",
+          "status": "pending"
+        },
+        {
+          "id": "c-mala",
+          "text": "Fazer mala seguindo packing list",
+          "status": "pending"
+        },
+        {
+          "id": "c-eletro",
+          "text": "Carregar eletrônicos + power bank",
+          "status": "pending"
+        },
+        {
+          "id": "c-checkin",
+          "text": "Check-in LATAM (24h antes do voo)",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "title": "2-3 dias antes do voo (05-06/06)",
+      "type": "checklist",
+      "items": [
+        {
+          "id": "c-seguro2",
+          "text": "⚠️ Emitir NOVO seguro viagem premium — bilhete expira 07/06. NÃO deixar para o dia do voo!",
+          "status": "pending",
+          "critical": true
+        }
+      ]
+    },
+    {
+      "title": "Dia do voo — 08/06/2026",
+      "type": "checklist",
+      "items": [
+        {
+          "id": "c-seceda2",
+          "text": "Seceda cable car — confirmar time slot Jun 23. Levar €10 cash para taxa da crista (€5/pp)",
+          "status": "pending",
+          "critical": true
+        }
+      ]
+    },
+    {
+      "title": "🔴 Documentos & Dinheiro",
+      "type": "packing",
+      "items": [
+        {
+          "id": "p-passaporte",
+          "text": "Passaportes (validade 6+ meses)",
+          "status": "pending"
+        },
+        {
+          "id": "p-cnh",
+          "text": "Carteira de motorista internacional",
+          "status": "pending"
+        },
+        {
+          "id": "p-cartoes",
+          "text": "Cartões de crédito (avisar banco!)",
+          "status": "pending"
+        },
+        {
+          "id": "p-cash",
+          "text": "€300 em cash (notas pequenas — rifúgios só aceitam cash)",
+          "status": "pending"
+        },
+        {
+          "id": "p-reservas",
+          "text": "Confirmações impressas: motorhome, voos, campings, Tre Cime, Seceda, Postojna, rafting",
+          "status": "pending"
+        },
+        {
+          "id": "p-copiadigital",
+          "text": "Cópia digital de todos os docs no celular",
+          "status": "pending"
+        },
+        {
+          "id": "p-seguro",
+          "text": "Seguro viagem emitido (emitir 08/06)",
+          "status": "pending"
+        },
+        {
+          "id": "p-vinheta",
+          "text": "E-vinheta eslovena comprada (evinjeta.dars.si)",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "title": "🥾 Trekking",
+      "type": "packing",
+      "items": [
+        {
+          "id": "p-botas",
+          "text": "Botas de trekking impermeáveis (já amaciadas!)",
+          "status": "pending"
+        },
+        {
+          "id": "p-mochila",
+          "text": "Mochila de trilha 25-35L com capa de chuva",
+          "status": "pending"
+        },
+        {
+          "id": "p-bastoes",
+          "text": "Bastões de caminhada telescópicos",
+          "status": "pending"
+        },
+        {
+          "id": "p-garrafa",
+          "text": "Garrafa d'água reutilizável 1L cada",
+          "status": "pending"
+        },
+        {
+          "id": "p-luvas",
+          "text": "Luvas leves de trekking (cabos de aço em Sorapis)",
+          "status": "pending"
+        },
+        {
+          "id": "p-headlamp",
+          "text": "Headlamp/lanterna de cabeça (Postojna + saídas cedo)",
+          "status": "pending"
+        },
+        {
+          "id": "p-protetor",
+          "text": "Protetor solar SPF 50 + protetor labial com FPS",
+          "status": "pending"
+        },
+        {
+          "id": "p-oculos",
+          "text": "Óculos de sol categoria 3-4 (mountain-grade)",
+          "status": "pending"
+        },
+        {
+          "id": "p-buff",
+          "text": "Buff / neck gaiter (multiuso)",
+          "status": "pending"
+        },
+        {
+          "id": "p-sacoseco",
+          "text": "Saco estanque para eletrônicos (chuvas Dolomitas)",
+          "status": "pending"
+        },
+        {
+          "id": "p-apito",
+          "text": "Apito de emergência",
+          "status": "pending"
+        },
+        {
+          "id": "p-snacks",
+          "text": "Snacks de trilha: barras energéticas, frutas secas, nuts",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "title": "💊 Saúde & Segurança",
+      "type": "packing",
+      "items": [
+        {
+          "id": "p-bolhas",
+          "text": "Kit primeiros socorros: band-aids/Compeed, fita atlética, gaze, esparadrapo",
+          "status": "pending"
+        },
+        {
+          "id": "p-antisseptico",
+          "text": "Antisséptico: Povidona iodada (Betadine) sachês",
+          "status": "pending"
+        },
+        {
+          "id": "p-analgesico",
+          "text": "Ibuprofeno 400mg + Paracetamol 750mg",
+          "status": "pending"
+        },
+        {
+          "id": "p-antidiarreia",
+          "text": "Loperamida/Imosec — mudança de dieta",
+          "status": "pending"
+        },
+        {
+          "id": "p-antialergico",
+          "text": "Loratadina/Cetirizina — pólen alpino em junho",
+          "status": "pending"
+        },
+        {
+          "id": "p-antiacido",
+          "text": "Omeprazol — jantares pesados (Tyrolean cuisine)",
+          "status": "pending"
+        },
+        {
+          "id": "p-relaxante",
+          "text": "Ciclobenzaprina/Miosan — pernas após trilhas",
+          "status": "pending"
+        },
+        {
+          "id": "p-sro",
+          "text": "Sal de reidratação oral (2-3 sachês)",
+          "status": "pending"
+        },
+        {
+          "id": "p-colirio",
+          "text": "Colírio lubrificante",
+          "status": "pending"
+        },
+        {
+          "id": "p-buscopan",
+          "text": "Buscopan — cólica por frio/alimentação",
+          "status": "pending"
+        },
+        {
+          "id": "p-repelente",
+          "text": "Repelente de insetos (lagos ao entardecer)",
+          "status": "pending"
+        },
+        {
+          "id": "p-medicamentos",
+          "text": "Medicamentos pessoais + receitas",
+          "status": "pending"
+        },
+        {
+          "id": "p-pastilhas",
+          "text": "Pastilhas para purificar água (emergência)",
+          "status": "pending"
+        },
+        {
+          "id": "p-emergencia",
+          "text": "Emergência: 112 (Europa), 118 (resgate montanha IT)",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "title": "👕 Roupas (Junho: 8-30°C, variável por altitude)",
+      "type": "packing",
+      "items": [
+        {
+          "id": "p-camisetas",
+          "text": "Base layer: 5-6 camisetas técnicas dry-fit",
+          "status": "pending"
+        },
+        {
+          "id": "p-fleece",
+          "text": "Mid layer: 2 fleece / softshell",
+          "status": "pending"
+        },
+        {
+          "id": "p-jaqueta",
+          "text": "Outer layer: 1 jaqueta corta-vento impermeável (ESSENCIAL)",
+          "status": "pending"
+        },
+        {
+          "id": "p-puffer",
+          "text": "Insulation: 1 puffer jacket leve (noites em altitude 2-8°C)",
+          "status": "pending"
+        },
+        {
+          "id": "p-calcas",
+          "text": "2 calças de trekking (1 conversível em shorts)",
+          "status": "pending"
+        },
+        {
+          "id": "p-shorts",
+          "text": "2 shorts para vales quentes (20-28°C)",
+          "status": "pending"
+        },
+        {
+          "id": "p-calcacasual",
+          "text": "1 calça casual/jeans para cidades",
+          "status": "pending"
+        },
+        {
+          "id": "p-meias",
+          "text": "5 pares meias trekking merino (não algodão!)",
+          "status": "pending"
+        },
+        {
+          "id": "p-meiasnormais",
+          "text": "2 pares de meias normais",
+          "status": "pending"
+        },
+        {
+          "id": "p-chinelo",
+          "text": "Chinelo para camping/wellness",
+          "status": "pending"
+        },
+        {
+          "id": "p-tenis",
+          "text": "Tênis casual/walking shoes para cidades",
+          "status": "pending"
+        },
+        {
+          "id": "p-casual",
+          "text": "2-3 conjuntos casuais para cidades e jantares",
+          "status": "pending"
+        },
+        {
+          "id": "p-bone",
+          "text": "Boné / chapéu de sol UV",
+          "status": "pending"
+        },
+        {
+          "id": "p-toalha",
+          "text": "Toalha de secagem rápida (microfiber)",
+          "status": "pending"
+        },
+        {
+          "id": "p-banho",
+          "text": "Roupa de banho (piscinas, Bohinj, rafting)",
+          "status": "pending"
+        },
+        {
+          "id": "p-canga",
+          "text": "Canga ou roupão leve (wellness)",
+          "status": "pending"
+        },
+        {
+          "id": "p-interior",
+          "text": "Roupa interior para ~7 dias (lavar mid-trip)",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "title": "🚐 Motorhome — itens para trazer do Brasil",
+      "type": "packing",
+      "items": [
+        {
+          "id": "p-bedding",
+          "text": "⚠️ Bedding Kit — verificar reserva Indie Campers ou alugar Essential Travel Kit",
+          "status": "pending"
+        },
+        {
+          "id": "p-toalhas",
+          "text": "Toalhas de banho microfiber (2) — Indie Campers NÃO fornece",
+          "status": "pending"
+        },
+        {
+          "id": "p-panosprato",
+          "text": "Panos de prato / multiuso (3-4)",
+          "status": "pending"
+        },
+        {
+          "id": "p-abridor",
+          "text": "Abridor de lata/garrafa + saca-rolhas",
+          "status": "pending"
+        },
+        {
+          "id": "p-facachef",
+          "text": "Faca de chef pequena (facas do kit são básicas)",
+          "status": "pending"
+        },
+        {
+          "id": "p-moka",
+          "text": "Moka pot para café italiano",
+          "status": "pending"
+        },
+        {
+          "id": "p-varal",
+          "text": "Varal + pregadores (secar em 2-3h ao sol)",
+          "status": "pending"
+        },
+        {
+          "id": "p-prendedores",
+          "text": "Prendedores de mola / clips",
+          "status": "pending"
+        },
+        {
+          "id": "p-faca",
+          "text": "Faca multiuso / canivete",
+          "status": "pending"
+        },
+        {
+          "id": "p-tupperware",
+          "text": "Tupperware / potes herméticos para packed lunch",
+          "status": "pending"
+        },
+        {
+          "id": "p-sacotermico",
+          "text": "Saco térmico pequeno",
+          "status": "pending"
+        },
+        {
+          "id": "p-lanterna",
+          "text": "Lanterna (camping sem iluminação)",
+          "status": "pending"
+        },
+        {
+          "id": "p-extensao",
+          "text": "Extensão elétrica curta",
+          "status": "pending"
+        },
+        {
+          "id": "p-adaptgas",
+          "text": "Adaptador de gás europeu universal",
+          "status": "pending"
+        },
+        {
+          "id": "p-temperos",
+          "text": "Temperos básicos em potes pequenos: sal, pimenta, azeite mini",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "title": "🛒 Motorhome — comprar no primeiro supermercado (D1)",
+      "type": "packing",
+      "items": [
+        {
+          "id": "p-limpeza",
+          "text": "Kit de limpeza: esponja, detergente, pano de chão",
+          "status": "pending"
+        },
+        {
+          "id": "p-lixo",
+          "text": "Sacos de lixo extras (separar reciclável — obrigatório IT)",
+          "status": "pending"
+        },
+        {
+          "id": "p-papeltoalha",
+          "text": "Papel toalha + papel higiênico",
+          "status": "pending"
+        },
+        {
+          "id": "p-pastilhaswc",
+          "text": "Pastilhas WC químico (Thetford Aqua Kem)",
+          "status": "pending"
+        },
+        {
+          "id": "p-temperosgrandes",
+          "text": "Azeite, sal, temperos (embalagens maiores)",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "title": "📱 Tech & Navegação",
+      "type": "packing",
+      "items": [
+        {
+          "id": "p-carregador",
+          "text": "Celulares + carregadores + power bank 10.000+ mAh",
+          "status": "pending"
+        },
+        {
+          "id": "p-cabousb",
+          "text": "Cabo USB-C extra (backup)",
+          "status": "pending"
+        },
+        {
+          "id": "p-adaptador",
+          "text": "Adaptador de tomada europeu Tipo C/F",
+          "status": "pending"
+        },
+        {
+          "id": "p-roaming",
+          "text": "Celular com roaming EU ativo",
+          "status": "pending"
+        },
+        {
+          "id": "p-mapas2",
+          "text": "Mapas offline: Google Maps (Trentino + Eslovênia), AllTrails (7 trilhas), Komoot",
+          "status": "pending"
+        },
+        {
+          "id": "p-apps2",
+          "text": "Apps: Park4Night, CamperContact, MeteoTrentino, ARSO, AllTrails, Google Translate",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "title": "📷 Câmera & Fotografia",
+      "type": "packing",
+      "items": [
+        {
+          "id": "p-camera",
+          "text": "Câmera + carregador + bateria reserva",
+          "status": "pending"
+        },
+        {
+          "id": "p-cartao",
+          "text": "Cartão de memória extra",
+          "status": "pending"
+        },
+        {
+          "id": "p-tripe",
+          "text": "Tripé compacto / gorillapod (long exposure em lagos)",
+          "status": "pending"
+        },
+        {
+          "id": "p-panolente",
+          "text": "Pano de limpeza para lente",
+          "status": "pending"
+        }
+      ]
+    }
+  ]
+}

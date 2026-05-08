@@ -35,9 +35,8 @@ claude-x8-travel-skill/
     lib/                   # day-card.js, map-renderer.js, schema-types.js, tabs.js
   trips/                   # gitignored — your planned trips live here
   examples/
-    scotland-2027/         # canonical v2 example — renders in the viewer
-    italy-2026/            # legacy v1 example (kept for reference)
-    scotland-2025/         # legacy v1 example
+    scotland-2027/         # canonical v2 example — 14-day winter Highlands loop
+    italy-2026/            # v2 example — 19-day Italy + Slovenia + Dolomites motorhome
     examples-index.json    # list of v2 examples the viewer surfaces
   docs/
     skill-modes.md         # full reference for the 8 skill modes

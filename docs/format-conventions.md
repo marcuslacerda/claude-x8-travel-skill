@@ -66,7 +66,7 @@ Examples in `examples/<slug>/` follow the same structure (without `publish.json`
 ### `ScheduleItem` — discriminated union
 
 ```ts
-type ScheduleItem = Experience | Transfer
+type ScheduleItem = Experience | Transfer;
 ```
 
 The viewer and explor8 dispatch rendering on the `type` field.
@@ -175,7 +175,7 @@ The viewer renders checklist + packing on separate tabs but reads from the same 
   kind?: ExperienceKind,
   source?: TravelSource,           // travel platform — used for infowindow link
   updatedBy: "skill" | "chat" | "webui",  // provenance
-  dayNum?: number,                 // omit = trip-wide; set = day-specific
+  dayNum?: number | number[],      // omit = trip-wide; number = single day; array = multi-day (e.g. [9,10,11] for a multi-night stay)
 }
 ```
 
@@ -187,7 +187,7 @@ The viewer renders checklist + packing on separate tabs but reads from the same 
   name?: string,                   // popup label
   color: string,                   // hex
   kind: "driving" | "walking" | "ferry" | "transit" | "flight" | "train",
-  dayNum?: number,
+  dayNum?: number | number[],      // omit = trip-wide; number = single day; array = drawn on each listed day
   coordinates: { lat: number, lng: number }[],
   updatedBy: "skill" | "chat" | "webui",
 }
@@ -195,8 +195,14 @@ The viewer renders checklist + packing on separate tabs but reads from the same 
 
 ### Day binding
 
-- **Routes:** `dayNum` ties a polyline to a specific day. Omit for trip-wide overview.
-- **POIs:** `dayNum` filters to a specific day; trip-wide POIs (no `dayNum`) appear in the overview map.
+`dayNum` has three shapes:
+
+- **Omit** → trip-wide (visible in the overview map and not removed by any day filter; also doesn't pull camera bounds when a day is selected).
+- **Number** (e.g. `10`) → single-day item.
+- **Array** (e.g. `[9, 10, 11]`) → multi-day item. Canonical use: a multi-night stay (arrival night, full days, departure morning) or any POI/route that's relevant on more than one day.
+
+- **Routes:** `dayNum` ties a polyline to one day or several. Omit for a trip-wide overview line.
+- **POIs:** `dayNum` filters a POI into a day's day-detail map; trip-wide POIs (no `dayNum`) appear in every view.
 
 ### Stable IDs
 
