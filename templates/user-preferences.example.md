@@ -1,8 +1,8 @@
-# Traveler Profile
+# User preferences
 
-> Place this file at `traveler-profile.md` in the parent of your trip directories (or in the trip directory itself). The skill's `use` mode reads it as the default profile for any trip; `new-trip` reads it to seed defaults without re-asking.
+> Place this file at `trips/user-preferences.md`. Shared across every trip. The new-trip wizard reads it to seed defaults and skip questions you've already answered. Edit to taste. Anything set here propagates to all trips that don't override.
 
-> Edit to taste. Anything you set here propagates to all trips that don't override.
+> First time? Copy this file to `trips/user-preferences.md` and replace placeholders with your real values.
 
 ## Travelers
 

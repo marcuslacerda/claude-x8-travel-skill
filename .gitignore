@@ -10,8 +10,14 @@ coverage/
 .idea/
 .vscode/
 
-# Generated trip artefacts (derived from .md/.kml — not checked in)
-**/trip.json
-**/map.json
+# Personal trips folder (gitignored — contains personal data)
+trips/
+
+# Derived publish artefact (always re-buildable from trip.json + map.json)
 **/publish.json
+
+# Skill session state
 .claude/travel-context
+
+# Personal draft / planning notes
+spec.md

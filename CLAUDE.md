@@ -4,9 +4,9 @@ Workspace conventions for working on this repo with Claude Code.
 
 ## What this repo is
 
-A Claude Code skill + CLI for trip planning. The skill (`skill/SKILL.md`) drives the LLM-driven planning workflow. The CLI (`cli/`) handles deterministic-code steps: KML parsing, schema validation, HTTP publishing.
+A Claude Code skill + CLI + local viewer for trip planning. The skill (`skill/SKILL.md`) drives the LLM-driven planning workflow (wizard, research, generating `trip.json` + `map.json`). The CLI (`cli/`) handles deterministic-code steps (schema validation, HTTP publishing). The viewer (`viewer/`) renders the JSON locally with MapLibre + OSM — no API key, no build step.
 
-The repo's own users are people **using** the skill, not building a backend. Most contributions are doc updates, skill-mode tweaks, and CLI ergonomics.
+The repo's own users are people **using** the skill, not building a backend. Most contributions are doc updates, skill-mode tweaks, viewer polish, and CLI ergonomics.
 
 ## Repository structure
 
@@ -18,21 +18,32 @@ claude-x8-travel-skill/
   LICENSE                  # MIT
 
   skill/
-    SKILL.md               # the Claude Code skill — single file
+    SKILL.md                       # the Claude Code skill — single file
+    sources-travel-experience.md   # 26-source catalog for the TravelSource enum
+    guideline.md                   # planning rules (prices, MCP prefs, validation)
   cli/
     index.ts               # CLI entrypoint (commander)
-    commands/              # one file per subcommand
-    lib/                   # vendored schema + KML parser + utils
+    commands/              # one file per subcommand: init, build, validate, publish
+    lib/                   # vendored schema + helpers
   templates/
-    trip-skeleton/         # what `x8-travel init` clones
-    traveler-profile.example.md
+    trip-skeleton/         # what `x8-travel init` clones (trip-params.md)
+    user-preferences.example.md    # copy to trips/user-preferences.md (one-time)
+  viewer/
+    index.html             # lists trips found in trips/ + examples/
+    trip.html              # renders trip.json + map.json (?slug=...)
+    styles.css
+    lib/                   # day-card.js, map-renderer.js, schema-types.js, tabs.js
+  trips/                   # gitignored — your planned trips live here
   examples/
-    italy-2026/            # sanitized real trip
-    scotland-2025/         # sanitized real trip
+    scotland-2027/         # canonical v2 example — renders in the viewer
+    italy-2026/            # legacy v1 example (kept for reference)
+    scotland-2025/         # legacy v1 example
+    examples-index.json    # list of v2 examples the viewer surfaces
   docs/
-    skill-modes.md         # full reference for the 11 skill modes
+    skill-modes.md         # full reference for the 8 skill modes
     publish-to-explor8.md  # optional explor8 integration
-    format-conventions.md  # MD / KML / HTML format rules
+    format-conventions.md  # JSON format conventions
+    local-viewer.md        # how to run the local viewer
   .github/
     workflows/             # CI + schema-drift
 ```
@@ -43,10 +54,11 @@ claude-x8-travel-skill/
 | ----------------- | ---------------------------------------------------- |
 | Skill behavior    | `skill/SKILL.md`                                     |
 | Trip schema       | `cli/lib/schema.ts` (vendored — see CONTRIBUTING.md) |
-| Map taxonomy      | `cli/lib/schema.ts` + `cli/lib/map-taxonomy.ts`      |
-| KML parsing rules | `cli/lib/kml-to-mapdata.ts`                          |
+| Travel sources    | `skill/sources-travel-experience.md`                 |
+| Planning rules    | `skill/guideline.md`                                 |
 | User-facing docs  | `README.md` + `docs/`                                |
 | Trip format       | `docs/format-conventions.md`                         |
+| Local viewer      | `viewer/`                                            |
 
 Anywhere a fact lives in two places, **the file mentioned above is canonical**. Changes that cross both have to update both in lockstep.
 
@@ -64,8 +76,12 @@ pnpm type-check
 
 # Run CLI from source
 pnpm exec tsx cli/index.ts --help
-pnpm exec tsx cli/index.ts init test-trip
-pnpm exec tsx cli/index.ts map italy-2026   # operates on examples/italy-2026
+pnpm exec tsx cli/index.ts init test-trip            # → trips/test-trip/
+pnpm exec tsx cli/index.ts validate examples/scotland-2027
+
+# Serve the viewer locally
+python3 -m http.server 8000
+# → http://localhost:8000/viewer/index.html
 ```
 
 ## Style

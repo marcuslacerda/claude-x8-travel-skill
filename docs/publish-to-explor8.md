@@ -2,7 +2,7 @@
 
 Publishing your trip to [explor8.ai](https://explor8.ai) gives you the during-trip companion: Telegram bot for daily briefings, expense tracking, weather/closure alerts, proactive insights, offline-aware PWA. The trip becomes live at `https://explor8.ai/trip/<your-handle>/<slug>`.
 
-**Important: this is opt-in.** The skill works fully without explor8 — `journey-plan.md` + `journey-map.kml` + optional `journey.html` are portable, version-controllable, and shareable as-is. Publishing adds a runtime, it doesn't replace your local files.
+**Important: this is opt-in.** The skill works fully without explor8 — `trip.json` + `map.json` render in the local viewer and are portable, version-controllable, and shareable as-is. Publishing adds a runtime, it doesn't replace your local files.
 
 ## Today: invite-only
 
@@ -26,18 +26,15 @@ If you want a token now: DM the founder.
 ## Publish flow
 
 ```bash
-# 1. Generate trip.json via the skill
-# (in Claude Code:  /travel-planner export)
+# 1. Generate trip.json + map.json via the skill
+# (in Claude Code:  /travel-planner new-trip scotland-2027)
 
-# 2. Convert KML to map.json
-x8-travel map italy-2026
+# 2. Build the combined publish payload
+pnpm exec tsx cli/index.ts build scotland-2027
+# → trips/scotland-2027/publish.json
 
-# 3. Build the combined publish payload
-x8-travel build italy-2026
-# → italy-2026/publish.json
-
-# 4. Send to explor8
-x8-travel publish italy-2026
+# 3. Send to explor8
+pnpm exec tsx cli/index.ts publish scotland-2027
 # POST https://www.explor8.ai/api/admin/trips/publish
 # Bearer auth via EXPLOR8_PUBLISH_TOKEN
 # Body: { trip: TripSchema, mapData: TripMapDataSchema | null }
@@ -57,10 +54,10 @@ A successful publish returns:
 
 The publish payload is the `{ trip, mapData }` envelope built by `x8-travel build`. This includes:
 
-- All of `trip.json` (itinerary, checklist, packing, bookings, budget)
+- All of `trip.json` (itinerary, checklist + packing groups, bookings, budget)
 - All of `map.json` (POIs, routes)
 
-Sensitive data **stays in `journey-plan.md` only** — booking confirmation codes, passenger document numbers, personal IDs. The skill's `export` mode strips these from the JSON it produces.
+Sensitive data **stays in `trip-params.md` notes only** (or in your head) — booking confirmation codes, passenger document numbers, personal IDs. The skill never writes these into `trip.json` (which is publishable).
 
 The CLI sends an `X-Publish-Source: x8-travel/<version>` header for telemetry — the explor8 team uses this to track which CLI versions are in the wild.
 
@@ -94,7 +91,7 @@ You're trying to publish without a token. Set it via env or skip publishing — 
 The skill's `export` mode produced an invalid file. Run `x8-travel validate <slug>` to see specific field errors. Most common: missing `unplanned` budget item, missing `slug` on a budget item, day without `title`.
 
 **"map.json fails TripMapDataSchema"**
-KML produced something the schema rejects. Run `x8-travel map <slug>` again with verbose output. Most common: duplicate POI ids (two POIs with identical names), unknown `<styleUrl>`, malformed `<coordinates>`.
+Run `pnpm exec tsx cli/index.ts validate <slug>` for specific errors. Most common: duplicate POI ids, unknown `kind` not in the 27-value enum, missing `updatedBy`.
 
 **"HTTP 401"**
 Token wrong or expired. Tokens are issued one-off today; if yours stops working, ask the founder for a new one.
@@ -112,8 +109,8 @@ If you'd rather not depend on explor8.ai, the JSON files in your trip directory 
 
 You can:
 
-- Read these in your own frontend
-- Render `journey.html` and host on GitHub Pages / S3 / Vercel
-- Share the directory as a git repo
+- Open `viewer/trip.html?slug=<slug>` (this repo's local viewer) and host the whole `viewer/` + `trips/` folders on GitHub Pages / S3 / Vercel.
+- Read the JSON files from your own frontend.
+- Share the directory as a git repo.
 
 The skill doesn't lock you to explor8 — it's just one possible runtime.

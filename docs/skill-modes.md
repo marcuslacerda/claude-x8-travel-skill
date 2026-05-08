@@ -1,8 +1,10 @@
 # Skill modes — full reference
 
-The `/travel-planner` skill has 11 modes. This is the user-facing reference. For implementation detail (and the version Claude actually reads), see [`skill/SKILL.md`](../skill/SKILL.md).
+The `/travel-planner` skill has 8 modes (v2). This is the user-facing reference; the implementation Claude reads is in [`skill/SKILL.md`](../skill/SKILL.md).
 
 All modes (except `use`, `new-trip`) require a trip context. Set it once with `use <slug>`, or pass inline: `/travel-planner <mode> <slug>`.
+
+> **Migration note (v1 → v2):** the old `build-site`, `sync`, and `export` modes were removed. `journey-plan.md` is no longer a source of truth — `trip.json` + `map.json` are. The viewer in `viewer/` replaces per-trip `journey.html`.
 
 ---
 
@@ -11,197 +13,124 @@ All modes (except `use`, `new-trip`) require a trip context. Set it once with `u
 Set or view the active trip context. Writes the slug to `.claude/travel-context` (persists across conversations on the same machine).
 
 ```
-/travel-planner use italy-2026
+/travel-planner use scotland-2027
 ```
 
-Without arguments, shows current context and lists available trips (subdirectories of cwd containing `journey-plan.md`).
+Without arguments, shows current context and lists available trips (subdirectories of `trips/` containing `trip-params.md`).
 
 ---
 
 ## `new-trip <slug>`
 
-Plan a new trip from scratch. Required parameter: a slug like `norway-2027` (lowercase, hyphen-separated).
+Plan a new trip from scratch. Required parameter: a slug like `iceland-2028` (lowercase, hyphen-separated, `{destination}-{year}`).
 
-The skill:
+Workflow:
 
-1. Validates the slug doesn't collide with an existing directory
-2. Reads `traveler-profile.md` for defaults
-3. Asks only what's trip-specific (destination, dates, transport, special constraints)
-4. Researches via WebSearch (entry rules, weather, attractions, routes, accommodations, advance bookings)
-5. Scaffolds the directory (or prompts you to run `x8-travel init <slug>` first)
-6. Generates `journey-plan.md` following the standard 14-section structure
-7. Auto-sets the context
-
----
-
-## `build-site`
-
-Generate `journey.html` from `journey-plan.md`. Output is a self-contained HTML viewer with:
-
-- Filter bar by experience category
-- Expandable day cards
-- localStorage-persisted checkbox state for checklist & packing
-- Embedded `const days = [...]`, `const checklistGroups = [...]`, `const packingGroups = [...]` arrays
-
-Day-level dates are derived at render from `trip.startDate + index` — don't bake them into the static `const`. Use Playfair Display + Inter typography (override per trip).
-
-The skill verifies experience links before including them (via WebFetch):
-
-- Trekking → AllTrails
-- Cities → TripAdvisor Tourism page
-- Attractions → TripAdvisor Attraction page
-- Restaurants → TripAdvisor Restaurant page
+1. Validates slug doesn't collide with an existing `trips/<slug>/`.
+2. Reads `skill/guideline.md` and `skill/sources-travel-experience.md`.
+3. Reads `trips/user-preferences.md` (or copies the example template if missing).
+4. Runs `x8-travel init <slug>` to scaffold `trips/<slug>/trip-params.md`.
+5. **Wizard — 2 batches of 4 questions** via Claude Code's `AskUserQuestion`:
+   - Batch 1: origin, headline-to, headline-from, duration
+   - Batch 2: start date / month, primary transport, trip type, constraints
+6. **Open-ended question:** "Anything else I should consider for this trip?"
+7. Persists answers to `trip-params.md`.
+8. Researches (WebSearch + Google Maps MCP if available + Open-Meteo + Frankfurter), following `guideline.md`.
+9. Generates `trips/<slug>/trip.json` and `trips/<slug>/map.json` — validated against Zod schemas before writing.
+10. Auto-sets context. Returns a viewer URL.
 
 ---
 
 ## `research`
 
-Deep-dive on a specific topic — destination, trail, campground, restaurant. Output is formatted for direct insertion into `journey-plan.md`.
+Deep-dive on a destination, trail, campground, restaurant. Useful when filling gaps in a trip already planned.
 
-```
-/travel-planner research Lofoten Islands
-/travel-planner research Tre Cime di Lavaredo trek
-/travel-planner research Camping Olympia Cortina
-```
+The skill:
 
-For trails: AllTrails link, distance, elevation, difficulty, reviews summary.
-For accommodations: booking link, price range, facilities, location.
-For restaurants: TripAdvisor link, cuisine, price range, must-try.
-For attractions: opening hours, ticket prices, booking requirements, time needed.
+1. Researches via WebSearch + Google Maps MCP.
+2. Validates URLs via WebFetch.
+3. Proposes specific edits to `trip.json` (Experience inserts) and `map.json` (POI adds).
+4. After confirmation, applies edits + re-validates.
 
-Links verified via WebFetch before inclusion.
+POIs include source slug, geocoded lat/lng, kind, picture URL when available.
 
 ---
 
 ## `checklist`
 
-Manage prep timeline. Reads the "Prep Checklist" section, parses items by period, compares against today.
+Status of prep vs today — flag overdue and critical items.
 
-Output:
+Reads `trip.checklist[]` filtered to `type === "checklist"`. Computes period windows relative to `trip.startDate`. Surfaces:
 
-```
-## Prep Status (today: 4 Apr 2026)
+- 🔴 **Overdue:** items in past periods still pending
+- 🟡 **Current:** items in the current window
+- 🟢 **Upcoming:** future periods
 
-🔴 Overdue (March):
-- [ ] Item that should be done
-
-🟡 Current period (April):
-- [ ] ⚠️ Critical item pending
-- [x] Already done
-
-🟢 Upcoming (May+):
-- 12 items pending
-```
-
-To update, edit the .md, then run `sync` to update `journey.html`.
+Critical items (`critical: true`) get prominent badges. To mark items done, say "mark X as done" — the skill applies via Edit tool to `trip.json`.
 
 ---
 
 ## `budget`
 
-Cost analysis. Reads the "Budget Breakdown" section. Output:
+Cost analysis with breakdown and conversion.
 
-- Total planned (in trip currency + home currency from profile)
-- Breakdown by category with percentages
+Reads `trip.budget[]`. Verifies:
+
+- All 10 enum categories used appropriately
+- `unplanned` item exists (every trip needs one)
+- `pct` fields sum to 100 (warns on drift)
+
+Outputs:
+
+- Total in trip currency + user's home currency (Frankfurter API)
+- Breakdown by category with status (paid / confirmed / estimated / reserve)
 - Daily average per person
-- Comparison with traveler profile reference ranges
+- Comparison vs `user-preferences.md` ranges if defined
 
-For specific cost questions, researches current prices via WebSearch.
-
-Every trip needs a `unplanned` budget slug (catch-all for unexpected spending). The export step auto-injects it if missing.
+For specific cost questions, researches official sources only (per `guideline.md`).
 
 ---
 
 ## `weather`
 
-Forecast for trip locations. Uses Google Maps Weather (primary) or OpenWeatherMap (fallback) MCP. Without either, falls back to WebSearch for a rough forecast.
+Forecast for trip locations.
 
-```
-/travel-planner weather Cortina
-/travel-planner weather Tromsø next 3 days
-```
+Default: **Open-Meteo API** (`open-meteo.com`, no key, daily up to 16 days, hourly up to 384h). Google Maps MCP `mcp__google-maps__maps_weather` if installed.
 
-For trekking days, adds specific alerts:
+For trips >15 days out, switches to monthly average via WebSearch.
 
-- ⚠️ Thunderstorm likely (temp drop + humidity + wind shift after 12h)
-- ⚠️ High wind (>30 km/h at altitude — dangerous for via ferratas)
-- ❄️ Snow possible (temp <2°C above 2500m)
-
-If trip dates >10 days away, warns that forecasts are unreliable.
+Outputs a daily table with trekking alerts (thunderstorm probability, high wind, snow above altitude bands).
 
 ---
 
 ## `validate-routes`
 
-Audit driving segments against Google Maps. Requires the Google Maps Platform MCP.
+Audit driving times against Google Maps. **Requires the Google Maps MCP** — without it, this mode is unavailable.
 
-Reads driving segments from `journey-plan.md` (Route Overview + Day-by-Day). For each, calls `mcp__google-maps__maps_directions`. Compares Google's distance + duration against your `.md`. Applies the drive-margin rule from `traveler-profile.md` (default +30% on mountain/scenic roads).
+Reads `trip.json.days[].schedule[]`, extracts `Transfer` items with `model: "drive"`, calls `maps_directions` for each, compares to stored values + applies +30% margin (per `guideline.md`).
 
-Output is a validation table. If you confirm, the skill updates the `.md` and shows a diff for the matching `<Placemark>` in `journey-map.kml` — paste it manually, then run `x8-travel map <slug>` to regenerate `map.json`.
-
----
-
-## `sync`
-
-Synchronize checklist & packing list between `.md` and `journey.html`.
-
-The `.md` is **always** the source of truth — the skill updates HTML to match, never the reverse. ID conventions:
-
-- Checklist: `c-` prefix + short slug (`c-flights`, `c-trecime-toll`)
-- Packing: `p-` prefix + short slug (`p-passaporte`, `p-camera`)
-
-**Preserve existing IDs** whenever possible — `localStorage` persists checkbox state keyed by IDs.
-
----
-
-## `export`
-
-Synthesize `trip.json` from `journey-plan.md`. The CLI's `build` command then combines it with `map.json` into `publish.json`.
-
-The skill validates against `TripSchema` (vendored at `cli/lib/schema.ts`). Required top-level fields:
-
-- `slug`, `title`, `destination`, `startDate` (ISO date)
-- `status` ∈ `draft | planned | active | completed`
-- `currency` (3-letter ISO)
-- `days[]`, `checklist[]`, `packing[]`, `bookings[]`, `budget[]`
-
-**Do not include** `endDate` or `days[].isoDate` / `days[].date` — derived at runtime from `startDate + index`.
-
-**Budget IDs are stable across publishes.** Re-export reuses prior IDs from `<slug>/trip.json` (matched by category). Once an item has an id, that id never changes — even if the display name does.
+If the user confirms, updates Transfer `duration`/`distance` and the matching `MapRoute.coordinates` if the path differs.
 
 ---
 
 ## `map`
 
-Manage POIs and routes (advisory — never auto-edits XML).
+Manage POIs and routes (advisory) — operates directly on `map.json`. No KML in v2.
 
-### `validate`
+Sub-actions:
 
-Run `x8-travel validate <slug>`. Report counts, kinds, warnings.
+- **`validate`** — runs `x8-travel validate <slug>`. Reports POI/route counts and warnings.
+- **`add-poi <name>`** — geocodes via Google Maps MCP, picks `(category, kind)` from the taxonomy, picks `source` from the TravelSource enum, looks for a stable picture URL, generates a kebab-case id. Shows the JSON object diff before applying.
+- **`update-route <day>`** — refreshes a route's `coordinates[]` from Google Maps after `validate-routes` flagged drift.
 
-### `add-poi <name>`
+Every mutation sets `updatedBy: "skill"`.
 
-1. Geocode the name via Google Maps to get lat/lng
-2. Pick `(category, kind)` — `attraction/lake`, `stay/camp`, `food/restaurant`, etc.
-3. Show the `<Placemark>` block ready to paste into the `<Folder>` whose `<name>` contains "Pontos de Interesse" (or "POI"):
+---
 
-   ```xml
-   <Placemark>
-     <name>Lake Bled</name>
-     <description>[Lake] Jun 12 — short walk + photo stop</description>
-     <styleUrl>#lake</styleUrl>
-     <Point><coordinates>14.0938,46.3636,0</coordinates></Point>
-   </Placemark>
-   ```
+## Mode removals (v2)
 
-4. After paste, run `x8-travel map <slug>`. The id is auto-generated from the name (kebab-case + numeric suffix on collision).
-
-### `update-route <day>`
-
-Refresh a route's name after `validate-routes` finds drift. Compute the canonical name (`<Header>: <Body>` format) and show the diff for the `<name>` line.
-
-### `regen`
-
-Just run `x8-travel map <slug>`. Report counts.
-
-See [`format-conventions.md`](format-conventions.md) for the full POI taxonomy (5 categories × ~25 kinds), KML conventions, and route name format.
+| Removed | Replacement |
+| ------- | ----------- |
+| `build-site` | The static viewer in `viewer/` renders any trip in `trips/<slug>/`. No per-trip HTML generation. |
+| `sync` | Nothing to sync — `trip.json` is the only source of truth. |
+| `export` | `new-trip` writes `trip.json` directly during planning. The CLI `validate` command can re-validate at any time. |

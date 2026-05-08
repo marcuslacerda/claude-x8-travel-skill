@@ -16,7 +16,10 @@ import { log } from "../lib/log.ts";
 export function build(slug: string): void {
   const paths = resolveTripPaths(slug);
   assertDirExists(paths);
-  assertFileExists(paths.tripJson, "run /travel-planner export in Claude Code first");
+  assertFileExists(
+    paths.tripJson,
+    "run /travel-planner new-trip in Claude Code first to generate trip.json",
+  );
 
   const tripRaw = JSON.parse(readFileSync(paths.tripJson, "utf-8"));
 

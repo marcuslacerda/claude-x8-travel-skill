@@ -1,0 +1,697 @@
+/* viewer/styles.css — design system shared by index.html and trip.html */
+
+:root {
+  --bg: #fafaf7;
+  --bg-card: #ffffff;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --ink-muted: #888;
+  --accent: #c97e3f;
+  --accent-soft: #f3e8d8;
+  --border: #e6e2d8;
+  --green: #4a7c59;
+  --amber: #c98c3f;
+  --red: #c84e4e;
+  --blue: #4a6fa5;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.04);
+  --radius: 8px;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Layout */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+}
+
+.hero {
+  padding: 2.5rem 0 2rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero .destination {
+  color: var(--ink-soft);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero .meta {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  flex-wrap: wrap;
+}
+
+.hero .meta span strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* Trip cards (index page) */
+.trips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.trip-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  text-decoration: none;
+  color: var(--ink);
+  display: block;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+}
+
+.trip-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+}
+
+.trip-card .title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.trip-card .destination {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.trip-card .meta {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.status-draft {
+  background: #ececea;
+  color: var(--ink-muted);
+}
+.status-planned {
+  background: #e6f0e8;
+  color: var(--green);
+}
+.status-active {
+  background: #e6eef7;
+  color: var(--blue);
+}
+.status-completed {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+}
+
+.tab {
+  background: none;
+  border: none;
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  color: var(--ink);
+}
+
+.tab.active {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+  font-weight: 500;
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+/* Itinerary — day cards */
+.day-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.day-card .day-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.day-card .day-num {
+  background: var(--accent);
+  color: white;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.day-card .day-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.day-card .day-date {
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+}
+
+.day-card .day-cost {
+  margin-left: auto;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+.day-card .day-desc {
+  color: var(--ink-soft);
+  margin-bottom: 1rem;
+}
+
+.schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* Shared schedule-item layout: [icon] [time] [body] [trailing] columns.
+ * Every Experience / Transfer / Insight starts with these two fixed-width
+ * columns so things line up vertically across the day. */
+.schedule-experience,
+.schedule-transfer,
+.schedule-insight {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 4px;
+}
+
+.schedule-icon {
+  flex-shrink: 0;
+  width: 1.6rem;
+  text-align: center;
+  font-size: 1.15rem;
+  line-height: 1.4;
+  align-self: flex-start;
+  margin-top: 0.1rem;
+}
+
+.schedule-experience .time,
+.schedule-transfer .time,
+.schedule-insight .time {
+  flex-shrink: 0;
+  width: 3.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 500;
+  line-height: 1.4;
+  align-self: flex-start;
+  margin-top: 0.1rem;
+}
+
+.schedule-transfer .time {
+  color: var(--ink-muted);
+}
+
+.schedule-experience .body,
+.schedule-transfer .body,
+.schedule-insight .body {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Schedule item — Experience */
+.schedule-experience {
+  background: var(--bg);
+  border-left: 3px solid var(--accent);
+}
+
+.schedule-experience .name {
+  font-weight: 500;
+  margin-bottom: 0.15rem;
+}
+
+.schedule-experience .desc {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.schedule-experience .notes {
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.schedule-experience .meta {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  flex-wrap: wrap;
+}
+
+.schedule-experience .picture {
+  width: 90px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.kind-icon {
+  display: inline-block;
+  padding: 0.05rem 0.4rem;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* Schedule item — Transfer */
+.schedule-transfer {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  border-left: 3px solid var(--blue);
+  background: #f5f8fb;
+}
+
+.schedule-transfer .from-to .name {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.schedule-transfer .legs {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  align-self: flex-start;
+  margin-top: 0.1rem;
+}
+
+/* Day-level "Depart from" / "Stay at" banners — derived from schedule */
+.day-card .depart-from,
+.day-card .stay-at {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin: 0.85rem 0;
+  flex-wrap: wrap;
+}
+
+.day-card .depart-from {
+  background: #faf3e8;
+  border-left: 3px solid var(--accent);
+}
+
+.day-card .stay-at {
+  background: #f0eee8;
+  border-left: 3px solid #6b5b4a;
+  margin-top: 1rem;
+}
+
+.day-card .banner-icon {
+  font-size: 1.1rem;
+}
+
+.day-card .banner-label {
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-muted);
+  font-weight: 600;
+}
+
+.day-card .banner-desc {
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+}
+
+/* Schedule item — Insight (skill-generated highlights + warnings).
+ * No time column — body fills the slot where time would be. The icon column
+ * width matches Experience/Transfer so insights still line up. */
+.schedule-insight {
+  background: #fdf6e6;
+  border-left: 3px solid #e0a93f;
+}
+
+.schedule-insight .schedule-icon {
+  /* Icon image is sized to match the kind-emoji of Experience rows visually. */
+  font-size: 1.4rem;
+}
+
+.schedule-insight .insight-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.schedule-insight .insight-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.schedule-insight .insight-list li {
+  padding: 0.1rem 0;
+  font-size: 0.9rem;
+}
+
+.schedule-insight .insight-highlight::before {
+  content: "✨ ";
+  margin-right: 0.25rem;
+}
+
+.schedule-insight .insight-warning::before {
+  content: "⚠️ ";
+  margin-right: 0.25rem;
+}
+
+.schedule-insight .insight-warning {
+  color: var(--ink-soft);
+}
+
+.day-card .planb {
+  margin-top: 0.85rem;
+  padding: 0.6rem 0.75rem;
+  background: #f5f8fb;
+  border-left: 3px solid var(--blue);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+/* Bookings */
+.bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.bookings-table th {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 2px solid var(--border);
+  font-weight: 600;
+}
+
+.bookings-table td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.booking-status {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.status-confirmed {
+  background: #e6f0e8;
+  color: var(--green);
+}
+
+.status-pending {
+  background: #fef5e9;
+  color: var(--amber);
+}
+
+.critical-badge {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  border-radius: 99px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: #fde7e7;
+  color: var(--red);
+  margin-left: 0.4rem;
+}
+
+/* Budget */
+.budget-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.budget-table th {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 2px solid var(--border);
+  font-weight: 600;
+}
+
+.budget-table td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.budget-table .amount {
+  text-align: right;
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.budget-bar {
+  height: 4px;
+  background: var(--accent-soft);
+  border-radius: 4px;
+  margin-top: 0.25rem;
+  overflow: hidden;
+}
+
+.budget-bar-fill {
+  height: 100%;
+  background: var(--accent);
+}
+
+/* Checklist / Packing */
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0.5rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-title + .checklist-group,
+.section-title:first-child {
+  margin-top: 0;
+}
+
+.section-title:not(:first-child) {
+  margin-top: 2rem;
+}
+
+.checklist-group {
+  margin-bottom: 1.25rem;
+}
+
+.checklist-group h3 {
+  font-size: 1rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.checklist-item:last-child {
+  border-bottom: none;
+}
+
+.checklist-item input[type="checkbox"] {
+  margin-top: 0.2rem;
+  cursor: pointer;
+  accent-color: var(--accent);
+}
+
+.checklist-item label {
+  flex: 1;
+  cursor: pointer;
+}
+
+.checklist-item.done label {
+  color: var(--ink-muted);
+  text-decoration: line-through;
+}
+
+/* Map */
+.map-container {
+  position: relative;
+  height: 70vh;
+  min-height: 500px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.map-filters {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: var(--bg-card);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  font-size: 0.85rem;
+  z-index: 10;
+  max-width: 200px;
+}
+
+.map-filters label {
+  display: block;
+  margin-top: 0.4rem;
+}
+
+.maplibregl-popup-content {
+  font-family: var(--font-body);
+  padding: 0.75rem;
+}
+
+.poi-popup .poi-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+}
+
+.poi-popup .poi-desc {
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.poi-popup .poi-source a {
+  font-size: 0.85rem;
+}
+
+/* Empty / loading states */
+.loading,
+.empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+}
+
+.error {
+  background: #fde7e7;
+  border: 1px solid var(--red);
+  color: var(--red);
+  padding: 1rem;
+  border-radius: var(--radius);
+  margin: 1rem 0;
+}

@@ -2,8 +2,11 @@
  * `x8-travel init <slug>` — scaffold a new trip directory from the bundled
  * template at `templates/trip-skeleton/`.
  *
- * Creates `<slug>/` (default: cwd-relative) with the skeleton files. Refuses
- * to overwrite an existing non-empty directory.
+ * Creates `trips/<slug>/` (cwd-relative) with the skeleton files. Refuses to
+ * overwrite an existing non-empty directory.
+ *
+ * In v2 the skeleton is just `trip-params.md`. The skill's new-trip wizard
+ * fills it in and writes `trip.json` + `map.json` next to it.
  */
 
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync, statSync } from "fs";
@@ -38,7 +41,7 @@ export function init(slug: string): void {
     );
   }
 
-  const targetDir = resolve(process.cwd(), slug);
+  const targetDir = resolve(process.cwd(), "trips", slug);
   if (existsSync(targetDir)) {
     const entries = readdirSync(targetDir).filter((f) => !f.startsWith("."));
     if (entries.length > 0) {
@@ -53,15 +56,14 @@ export function init(slug: string): void {
   log.info(`Scaffolding trip "${slug}" at ${targetDir}`);
   copyDir(TEMPLATE_DIR, targetDir, { "{{SLUG}}": slug });
 
-  log.success(`Created ${slug}/ with skeleton:`);
+  log.success(`Created trips/${slug}/ with skeleton:`);
   for (const f of readdirSync(targetDir)) {
     log.step(f);
   }
   console.log("");
   log.info("Next steps:");
-  log.step("1. Open in Claude Code and run: /travel-planner use " + slug);
-  log.step("2. Use skill modes (research, weather, budget, ...) to fill in journey-plan.md");
-  log.step("3. When ready: /travel-planner export → writes trip.json");
-  log.step("4. Then run: x8-travel map " + slug + " (KML → map.json)");
-  log.step("5. Then run: x8-travel build " + slug + " (combine → publish.json)");
+  log.step("1. In Claude Code: /travel-planner new-trip " + slug);
+  log.step("   The wizard asks 8 questions, fills trip-params.md, then generates trip.json + map.json.");
+  log.step("2. Visualize: serve viewer/ and open viewer/trip.html?slug=" + slug);
+  log.step("3. Optional publish: x8-travel publish " + slug);
 }

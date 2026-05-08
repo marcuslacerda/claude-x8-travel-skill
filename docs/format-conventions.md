@@ -1,208 +1,212 @@
-# Format conventions
+# Format conventions (v2)
 
-This doc consolidates the Markdown, KML, and HTML conventions the skill operates on. The skill expects (and produces) these structures — deviating breaks the parsers.
+`trip.json` and `map.json` are the only canonical artefacts in v2. This doc walks through the shapes the skill emits and the viewer/explor8 consume. The Zod schema in [`cli/lib/schema.ts`](../cli/lib/schema.ts) is the source of truth — this doc summarizes.
 
-## journey-plan.md
+---
 
-The source of truth. Long-form Markdown with a 14-section structure:
-
-```
-# <Slug> — <Trip Title>
-> metadata (status, dates, duration, currency, travelers)
-
-## 1. Flights
-## 2. Transport (Car / Motorhome / etc.)
-## 3. Route Overview
-## 4. Accommodations
-## 5. Day-by-Day Itinerary
-## 6. Budget Breakdown
-## 7. Key Features & Highlights
-## 8. Risks & Contingencies
-## 9. Distances & Driving Times
-## 10. Apps & Links
-## 11. Do's & Don'ts — <Region>
-## 12. Prep Checklist
-## 13. Packing List
-## 14. References & Sources
-```
-
-The skill's `export` mode parses this to produce `trip.json`. Section headings can be in any language but the order should be stable (the skill identifies sections by position, not by exact heading text).
-
-### Day-by-Day format
-
-Each day is a `### Day N — YYYY-MM-DD — <Title>` heading followed by:
-
-- **Highlight:** one main thing
-- Time-blocked schedule (`07:00 — activity`)
-- Driving info (`origin → destination, distance, time`)
-- Camp / Stay (name + booking)
-- Plan B (rain/closure alternative)
-
-### Checklist format
-
-Periods as `### Period Title` headings. Items as `- [ ]` (pending), `- [x]` (done), with `⚠️` prefix marking critical items.
-
-```markdown
-### 2 months before
-
-- [x] ✅ Book flights — booking ref [REDACTED]
-- [ ] ⚠️ Reserve toll-road tickets (sells out fast)
-- [ ] Schedule pet sitter
-```
-
-### Packing list format
-
-Categories as `**Emoji Category Name:**` or `### Emoji Category` headings. Items as `- [ ]`. Short items only (the HTML viewer truncates long ones).
-
-### Budget table format
-
-Markdown table with a `Slug` column. Slugs are kebab-case and stable across publishes:
-
-```markdown
-| Slug      | Category         | Amount | %   | Status    | Notes       |
-| --------- | ---------------- | ------ | --- | --------- | ----------- |
-| flights   | Flights          | €4,200 | 35  | confirmed | 2 pax       |
-| unplanned | Emergency buffer | €450   | 5   | reserve   | 5% of total |
-```
-
-`unplanned` is reserved — every trip must have it.
-
-## journey-map.kml
-
-KML format. Two `<Folder>`s:
-
-- `<Folder><name>...Pontos de Interesse...</name>` (or `...POI...`) → POIs
-- `<Folder><name>...Rotas...</name>` (or `...Routes...`) → routes
-
-### POI taxonomy — `(category, kind)`
-
-5 categories × ~25 kinds. `kind` is globally unique, so the KML `<styleUrl>` is single-token (e.g. `#lake`):
-
-| category     | kinds                                                                                                             |
-| ------------ | ----------------------------------------------------------------------------------------------------------------- |
-| `attraction` | nature, lake, castle, trek, scenic, viewpoint, waterfall, cave, city, vila, unesco, memorial, wellness, adventure |
-| `stay`       | hotel, camp, apartment                                                                                            |
-| `food`       | restaurant, coffee, bar                                                                                           |
-| `shopping`   | shop, market                                                                                                      |
-| `transport`  | headline, destination, ferry, parking, station                                                                    |
-
-**`headline` vs `destination`:** `headline` = where the trip starts. `destination` = where it ends. For a roundtrip with the same airport, two POIs share lat/lng but have different ids/descriptions; the parser auto-flips the second occurrence (or anything labeled "Return") to `destination`.
-
-### POI Placemark
-
-```xml
-<Placemark>
-  <name>Lake Bled</name>
-  <description>[Lake] Jun 12 — Pletna boat, wishing bell, 99 steps</description>
-  <styleUrl>#lake</styleUrl>
-  <Point><coordinates>14.0938,46.3636,0</coordinates></Point>
-</Placemark>
-```
-
-KML coordinates are `lng,lat,alt` (alt usually `0`). The parser flips to `lat,lng` internally.
-
-### Route Placemark
-
-```xml
-<Placemark>
-  <name>Jun 9 (Tue): MXP → Venezia (A4 east, 308km ~3h19 base / ~4h19 +30%)</name>
-  <styleUrl>#route-orange</styleUrl>
-  <LineString>
-    <coordinates>8.7603,45.6197,0 8.7700,45.6300,0 ...</coordinates>
-  </LineString>
-</Placemark>
-```
-
-Route styles defined once in the document head:
-
-```xml
-<Style id="route-orange">
-  <LineStyle>
-    <color>ff0078ff</color>             <!-- aaBBGGRR (KML byte order) → #FF7800 -->
-    <width>4</width>
-  </LineStyle>
-</Style>
-```
-
-The parser converts `aaBBGGRR` → `#RRGGBB`. Routes without a matching `route-*` style render gray (`#888888`).
-
-### Route name format
-
-Route popups split `route.name` on the **first `:`** and render `head` (bold) + `body` (regular):
+## Folder layout
 
 ```
-<Header>: <Body>
+trips/                            # gitignored — personal data
+  user-preferences.md             # shared across every trip
+  <slug>/                         # one folder per trip
+    trip-params.md                # wizard answers — readable by humans
+    trip.json                     # canonical itinerary
+    map.json                      # canonical map data
+    publish.json                  # output of `x8-travel build` (when publishing)
 ```
 
-**Recommended:**
+Examples in `examples/<slug>/` follow the same structure (without `publish.json`).
 
-- Header: `Jun 11 (Thu)` or `Day 7` (parsed for dayNum)
-- Body: `Cortina → Postojna (Tarvisio pass, 295km ~3h45 base / ~4h52 +30%)`
+---
 
-Two parseable header formats:
+## `trip.json`
 
-- `Mon DD (Day): ...` — date + day-of-week, resolved against `trip.startDate`
-- `Day N: ...` — explicit dayNum
+```ts
+{
+  slug: string,                    // kebab-case, unique per owner
+  title: string,                   // "Highlands & Skye Winter Loop"
+  destination: {
+    startLocation: string,         // origin city
+    headlineTo: string,            // primary destination
+    headlineFrom: string,          // return point (often = startLocation)
+  },
+  startDate?: string,              // "YYYY-MM-DD" or "YYYY-MM" (month-only)
+  status: "draft" | "planned" | "active" | "completed",
+  currency: string,                // ISO 4217 (EUR / GBP / USD / BRL ...)
+  timezone?: string,               // IANA (Europe/London ...)
+  coverImage?: string,
+  ogImage?: string,
+  isPublic?: boolean,
+  days: TripDay[],
+  checklist?: ChecklistGroup[],
+  bookings?: Booking[],
+  budget?: BudgetItem[],
+}
+```
 
-Routes without a parseable prefix get `dayNum: undefined` (trip-wide overview).
+`endDate` is **derived** at runtime (`startDate + days.length - 1`), not stored.
+
+### `TripDay`
+
+```ts
+{
+  num: string,                     // "1", "2", ...
+  title: string,                   // "Edinburgh → Stirling → Cairngorms"
+  cls: string,                     // CSS hint ("drive-day", "trek-day", "rest-day")
+  desc?: string,
+  schedule?: ScheduleItem[],       // array of Experience | Transfer
+  warnings?: string[],
+  dayCost?: string,                // free-form display string ("£190")
+  stay?: Experience,               // overnight, same shape as Experience with category="stay"
+  planB?: string,                  // contingency notes
+}
+```
+
+### `ScheduleItem` — discriminated union
+
+```ts
+type ScheduleItem = Experience | Transfer
+```
+
+The viewer and explor8 dispatch rendering on the `type` field.
+
+#### `Experience`
+
+```ts
+{
+  type: "experience",
+  time: string,                    // "09:00" or "2h" or "afternoon"
+  name: string,
+  desc?: string,
+  notes?: string,                  // tips, instructions — often user-edited
+  cost?: number,                   // in trip currency; omit if unknown
+  category: "attraction" | "stay" | "food" | "shopping" | "transport" | "custom",
+  kind?: ExperienceKind,           // 27 kinds — see schema.ts
+  source?: TravelSource,           // 26 sources — see sources-travel-experience.md
+  picture?: string,                // public URL
+  links?: { type: string, url: string }[],
+}
+```
+
+#### `Transfer`
+
+```ts
+{
+  type: "transfer",
+  time?: string,
+  from: { name: string, lat: number, lng: number },
+  to:   { name: string, lat: number, lng: number },
+  model: "drive" | "walk" | "ferry" | "flight" | "train",
+  duration: number,                // minutes
+  distance?: number,               // km
+  cost?: number,
+  notes?: string,
+}
+```
+
+### `Booking`
+
+```ts
+{
+  date: string,                    // ISO date
+  item: string,                    // "British Airways · GRU→EDI · round-trip"
+  status: "confirmed" | "pending",
+  critical: boolean,               // true = must secure early (sold-out / price-spike risk)
+  link?: string,                   // viewer label depends on status: "Open" if confirmed, "Booking" otherwise
+}
+```
+
+### `BudgetItem`
+
+```ts
+{
+  id: string,                      // kebab-case (regex /^[a-z0-9][a-z0-9-]*$/)
+  category: "flights" | "accommodations" | "fuel" | "insurance" | "food" |
+            "attractions" | "shopping" | "transportation" | "entertainment" | "unplanned",
+  amount: number,
+  pct: number,                     // % of total
+  status: "paid" | "confirmed" | "estimated" | "reserve",
+  notes?: string,
+  links?: { type: string, url: string }[],
+}
+```
+
+Every trip must have a `BudgetItem` with `id: "unplanned"` (5–10% reserve).
+
+### `ChecklistGroup` (merged with packing)
+
+```ts
+{
+  title: string,                   // "2 months before" or "Documents"
+  type: "checklist" | "packing",   // checklist groups have time-based titles; packing groups have category titles
+  items: {
+    id: string,                    // kebab-case
+    text: string,
+    status: "done" | "pending",
+    critical?: boolean,
+  }[],
+}
+```
+
+The viewer renders checklist + packing on separate tabs but reads from the same `trip.checklist[]` array.
+
+---
+
+## `map.json`
+
+```ts
+{
+  pois: MapPOI[],
+  routes: MapRoute[],
+}
+```
+
+### `MapPOI`
+
+```ts
+{
+  id: string,                      // kebab-case, immutable
+  lat: number,
+  lng: number,
+  name: string,
+  description?: string,
+  category: ExperienceCategory,
+  kind?: ExperienceKind,
+  source?: TravelSource,           // travel platform — used for infowindow link
+  updatedBy: "skill" | "chat" | "webui",  // provenance
+  dayNum?: number,                 // omit = trip-wide; set = day-specific
+}
+```
+
+### `MapRoute`
+
+```ts
+{
+  id: string,                      // kebab-case
+  name?: string,                   // popup label
+  color: string,                   // hex
+  kind: "driving" | "walking" | "ferry" | "transit" | "flight" | "train",
+  dayNum?: number,
+  coordinates: { lat: number, lng: number }[],
+  updatedBy: "skill" | "chat" | "webui",
+}
+```
+
+### Day binding
+
+- **Routes:** `dayNum` ties a polyline to a specific day. Omit for trip-wide overview.
+- **POIs:** `dayNum` filters to a specific day; trip-wide POIs (no `dayNum`) appear in the overview map.
 
 ### Stable IDs
 
-The parser auto-generates POI/route ids from the name (kebab-case + numeric suffix on collision: `lago-di-garda`, `lago-di-garda-2`). Once an id lives in `map.json`, treat it as immutable — renaming or moving the POI is fine, but don't change the id. The future chat tool will reference POIs by id.
+Every POI and route has a kebab-case `id`. Generate from the name (with numeric suffix on collision: `lago-di-garda`, `lago-di-garda-2`). Once an id is in the JSON, **don't change it** — the explor8 chat tool and external references depend on it.
 
-### Source provenance
+---
 
-Every POI/route has `source: 'advisor' | 'chat' | 'ui'` (defaults to `advisor` from KML). Currently advisor-only; the field is reserved for future chat-driven mutations.
+## Reference
 
-### Legacy KML compatibility
-
-Existing KMLs with old single-token style ids (`#lago`, `#castelo`, `#basecamp`, `#start-end`, etc.) keep working — the parser maps them to the new `(category, kind)` automatically (see `cli/lib/map-taxonomy.ts`'s `LEGACY_TO_NEW`). New POIs should use the new kind names.
-
-## journey.html
-
-Self-contained HTML viewer generated by the skill's `build-site` mode from `journey-plan.md`. Key conventions:
-
-- Design system via CSS variables in `:root` (customize palette per trip)
-- Typography: Playfair Display (headings) + Inter (body)
-- Three top-level data arrays:
-
-```js
-const days = [
-  {
-    num: 1,
-    title: "Pickup → Bolzano",
-    tags: ["start", "drive"],
-    cls: "drive-day",
-    schedule: [{ t: "09:00", a: "MXP pickup" }],
-    experiences: [{ name, desc, category, time, cost, links: [] }],
-    driving: "MXP → Bolzano (A4 east, 308km ~3h19)",
-    restaurant: { name, meal, desc, url },
-    warnings: ["..."],
-    dayCost: "€80",
-    camp: "Camping XYZ",
-  },
-  // ...
-];
-
-const checklistGroups = [
-  { title: "2 months before", items: [{ id: "c-flights", text: "Book flights", done: true }] },
-];
-
-const packingGroups = [
-  { title: "🎒 Documents", items: [{ id: "p-passport", text: "Passport — valid 6+ mo" }] },
-];
-```
-
-**Day-level dates (`isoDate`, `date`) are derived at render time from `trip.startDate + index`** — don't bake them into the static `const`.
-
-The viewer persists checkbox state in `localStorage` keyed by item `id`. Changing an id resets state — preserve ids across edits.
-
-## Sensitive data
-
-Treat `journey-plan.md` as private; treat HTML/JSON as semi-public:
-
-- ✅ Stays in `.md` only: booking confirmation codes, passenger document numbers, personal IDs, emergency contacts, frequent-flyer numbers, financial-personal context (e.g. "X% of monthly income")
-- ✅ OK in HTML/JSON: flight numbers, schedules, hotel addresses, business phone numbers, public booking links
-- ✅ OK in KML: GPS coordinates of named landmarks, public business names
-
-When sanitizing for public release: see [`../CONTRIBUTING.md`](../CONTRIBUTING.md) and the grep gate.
+- Zod schemas: [`cli/lib/schema.ts`](../cli/lib/schema.ts)
+- Sources catalog: [`skill/sources-travel-experience.md`](../skill/sources-travel-experience.md)
+- Planning rules: [`skill/guideline.md`](../skill/guideline.md)
+- 27 kinds × 5 categories taxonomy: [`skill/SKILL.md`](../skill/SKILL.md#map-data-contract-v2)
