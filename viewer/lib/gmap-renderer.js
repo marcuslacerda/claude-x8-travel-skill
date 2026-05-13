@@ -126,6 +126,7 @@ export async function renderGoogleMap(container, mapData, config) {
       position: { lat: poi.lat, lng: poi.lng },
       content: el,
       title: poi.name,
+      gmpClickable: true,
     });
     const info = new google.maps.InfoWindow({ content: renderPoiPopup(poi) });
     // AdvancedMarkerElement uses `gmp-click` per the new event model
@@ -156,6 +157,14 @@ export async function renderGoogleMap(container, mapData, config) {
       map,
     });
 
+    if (route.kind !== "flight") {
+      polyline.addListener("mouseover", () =>
+        polyline.setOptions({ strokeWeight: 7, strokeOpacity: 1 }),
+      );
+      polyline.addListener("mouseout", () =>
+        polyline.setOptions({ strokeWeight: 4, strokeOpacity: 0.85 }),
+      );
+    }
     if (route.name) {
       polyline.addListener("click", (e) => {
         const info = new google.maps.InfoWindow({
@@ -191,6 +200,8 @@ function computeBounds(mapData) {
 function createMarkerEl(poi) {
   const el = document.createElement("div");
   const icon = poi.kind ? KIND_ICONS[poi.kind] || "📍" : "📍";
+  // AdvancedMarkerElement positions its own wrapper, not the content element,
+  // so setting transform on el is safe — no conflict with Google's positioning.
   el.style.cssText = `
     width: 32px; height: 32px;
     background: #fff;
@@ -202,8 +213,17 @@ function createMarkerEl(poi) {
     font-size: 16px;
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
   `;
   el.textContent = icon;
+  el.addEventListener("mouseenter", () => {
+    el.style.transform = "scale(1.35)";
+    el.style.boxShadow = "0 4px 10px rgba(0,0,0,0.35)";
+  });
+  el.addEventListener("mouseleave", () => {
+    el.style.transform = "";
+    el.style.boxShadow = "0 2px 4px rgba(0,0,0,0.2)";
+  });
   return el;
 }
 

@@ -106,6 +106,17 @@ export function renderMap(container, mapData, opts = {}) {
         },
       });
 
+      const baseWidth = route.kind === "flight" ? 2 : 4;
+      map.on("mouseenter", layerId, () => {
+        map.setPaintProperty(layerId, "line-width", baseWidth + 3);
+        map.setPaintProperty(layerId, "line-opacity", 1);
+        map.getCanvas().style.cursor = "pointer";
+      });
+      map.on("mouseleave", layerId, () => {
+        map.setPaintProperty(layerId, "line-width", baseWidth);
+        map.setPaintProperty(layerId, "line-opacity", 0.85);
+        map.getCanvas().style.cursor = "";
+      });
       if (route.name) {
         map.on("click", layerId, (e) => {
           new maplibregl.Popup({ closeButton: true })
@@ -113,8 +124,6 @@ export function renderMap(container, mapData, opts = {}) {
             .setHTML(`<div class="poi-popup"><div class="poi-name">${escape(route.name)}</div></div>`)
             .addTo(map);
         });
-        map.on("mouseenter", layerId, () => (map.getCanvas().style.cursor = "pointer"));
-        map.on("mouseleave", layerId, () => (map.getCanvas().style.cursor = ""));
       }
     });
 
@@ -137,21 +146,28 @@ export function renderMap(container, mapData, opts = {}) {
   });
 
   function setDayFilter(dayNum) {
-    // Show only POIs/routes for this day, plus trip-wide (no dayNum)
+    // Show only POIs/routes for this day, plus trip-wide (no dayNum).
+    // dayNum on the item can be undefined (trip-wide), a number (single day),
+    // or an array (multi-day stay or multi-day route leg).
     markers.forEach(({ marker, poi }) => {
-      const visible = dayNum === null || poi.dayNum === undefined || poi.dayNum === dayNum;
-      marker.getElement().style.display = visible ? "" : "none";
+      marker.getElement().style.display = matchesDay(poi.dayNum, dayNum) ? "" : "none";
     });
     mapData.routes.forEach((route) => {
       const layerId = `route-layer-${route.id}`;
-      const visible = dayNum === null || route.dayNum === undefined || route.dayNum === dayNum;
       if (map.getLayer(layerId)) {
+        const visible = matchesDay(route.dayNum, dayNum);
         map.setLayoutProperty(layerId, "visibility", visible ? "visible" : "none");
       }
     });
   }
 
   return { map, setDayFilter };
+}
+
+function matchesDay(itemDayNum, selected) {
+  if (selected === null || itemDayNum === undefined) return true;
+  if (Array.isArray(itemDayNum)) return itemDayNum.includes(selected);
+  return itemDayNum === selected;
 }
 
 function computeBounds(mapData) {
@@ -168,9 +184,15 @@ function computeBounds(mapData) {
 }
 
 function createMarkerEl(poi) {
-  const el = document.createElement("div");
+  // MapLibre sets transform: translate(X,Y) on the element passed to Marker({ element }).
+  // We give it a thin container so its positioning transform stays untouched, and apply
+  // the hover scale only on the inner visual element.
+  const container = document.createElement("div");
+  container.style.cssText = "width: 32px; height: 32px;";
+
   const icon = poi.kind ? KIND_ICONS[poi.kind] || "📍" : "📍";
-  el.style.cssText = `
+  const inner = document.createElement("div");
+  inner.style.cssText = `
     width: 32px; height: 32px;
     background: #fff;
     border: 2px solid #c97e3f;
@@ -181,9 +203,19 @@ function createMarkerEl(poi) {
     font-size: 16px;
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
   `;
-  el.textContent = icon;
-  return el;
+  inner.textContent = icon;
+  inner.addEventListener("mouseenter", () => {
+    inner.style.transform = "scale(1.35)";
+    inner.style.boxShadow = "0 4px 10px rgba(0,0,0,0.35)";
+  });
+  inner.addEventListener("mouseleave", () => {
+    inner.style.transform = "";
+    inner.style.boxShadow = "0 2px 4px rgba(0,0,0,0.2)";
+  });
+  container.appendChild(inner);
+  return container;
 }
 
 function renderPoiPopup(poi) {

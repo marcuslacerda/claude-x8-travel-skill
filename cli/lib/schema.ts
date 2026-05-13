@@ -410,6 +410,10 @@ export const TripSchema = z.object({
   status: TripStatusSchema,
   /** ISO 4217 currency of the destination (EUR, GBP, USD, BRL, ...). */
   currency: z.string(),
+  /** Traveler's home/preferred display currency (ISO 4217). When set, the viewer and budget mode
+   *  show costs converted to this currency alongside the destination currency. Useful when the
+   *  traveler's base currency differs from the destination's (e.g. BRL traveler visiting Italy). */
+  homeCurrency: z.string().optional(),
   /** IANA timezone for the destination (e.g. "Europe/Rome"). Drives todayISO() in viewer/explor8. */
   timezone: z.string().optional(),
   coverImage: z.string().optional(),

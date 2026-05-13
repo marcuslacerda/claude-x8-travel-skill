@@ -25,6 +25,19 @@ Skill-only/user-only fields exist to keep edits round-trip safe: skill regenerat
 
 ---
 
+## Multi-day stays — `dayNum` as an array
+
+When suggesting a `stay`-category POI (hotel, camp, apartment) that the traveler occupies for more than one day, set `MapPOI.dayNum` to the full **array** of day numbers — not a scalar.
+
+- Single-day visit (attractions, restaurants): `"dayNum": 10`
+- Multi-night stay: `"dayNum": [10, 11, 12, 13]`
+
+Include every day the marker should be relevant on the day-detail map: arrival day, every full night, and the departure morning if the traveler still leaves from there. Skipping intermediate days hides the lodging from the map filter on those days.
+
+The schema accepts both shapes (`number | number[]`) — see `cli/lib/schema.ts` `MapPOISchema.dayNum`. The same convention applies to `MapRoute.dayNum` for routes that span multiple days (e.g. a road-trip leg the traveler stops on mid-way).
+
+---
+
 ## Generic vs specific Experience
 
 A **specific Experience** refers to a real, geocoded place (e.g. "Edinburgh Castle", "Café Glenfinnan").
@@ -75,7 +88,18 @@ Concretely:
 
 ## Pictures — image scraping strategy
 
-Skill should populate `picture` (URL) for every specific Experience and POI when possible.
+### Where `picture` lives — field ownership
+
+`picture` is defined **only on `Experience`** in `trip.json` (`ExperienceSchema.picture`). **`MapPOI` has no `picture` field** — any `picture` key added to `map.json` is silently ignored by the viewer and stripped on validation. Do not confuse the two.
+
+Correct workflow for a specific Experience:
+1. Fetch and validate the image URL (steps below).
+2. Set `experience.picture` in `trip.json.days[N].schedule[]`.
+3. Do NOT copy the URL to the matching `map.json` POI — it has no effect.
+
+Picture fetching is **mandatory during `new-trip` generation**, not optional. Empty is better than broken, but never skip the attempt — fetch for every specific Experience that has a `poiId`.
+
+Skill should populate `picture` (URL) for every specific Experience when possible.
 
 **Recommended order** (preferring the most reliably-cached URL first):
 
@@ -137,7 +161,32 @@ For POIs that have a Wikipedia entry, populate `popularity` (0–10 decimal) der
 
 Routes in `map.json.routes[]` should follow real roads, not draw straight lines between POIs.
 
-1. **Google Maps MCP if available**: `mcp__google-maps__maps_directions` returns `routes[0].overview_polyline.points` (encoded polyline). Decode to `[{lat, lng}]` array (the polyline algorithm is short — ~30 lines — and a helper can be added to the skill if you need it). Yields 100+ waypoints per route.
+1. **Google Maps MCP if available**: `mcp__google-maps__maps_directions` returns `routes[0].overview_polyline.points` (encoded polyline). **NEVER store this raw string** — decode it first into `[{lat, lng}]`. Yields 200–1500 waypoints per highway leg.
+
+   **Decoder (run via Bash/Python — write to a `.py` file with the Write tool to avoid shell escaping issues with backticks and backslashes in polyline strings):**
+
+   ```python
+   def decode_polyline(encoded):
+       coords = []
+       index = lat = lng = 0
+       while index < len(encoded):
+           b, result, shift = 0, 0, 0
+           while True:
+               b = ord(encoded[index]) - 63; index += 1
+               result |= (b & 0x1f) << shift; shift += 5
+               if b < 32: break
+           lat += (~(result >> 1) if result & 1 else result >> 1)
+           b, result, shift = 0, 0, 0
+           while True:
+               b = ord(encoded[index]) - 63; index += 1
+               result |= (b & 0x1f) << shift; shift += 5
+               if b < 32: break
+           lng += (~(result >> 1) if result & 1 else result >> 1)
+           coords.append({"lat": round(lat/1e5, 6), "lng": round(lng/1e5, 6)})
+       return coords
+   ```
+
+   **Quality gate:** a properly decoded highway route produces **≥ 200 waypoints**. Fewer than 50 = wrong field used or truncated — re-fetch or fall back to OSRM.
 
 2. **OSRM public fallback** when MCP is unavailable: `https://router.project-osrm.org/route/v1/<profile>/<lng>,<lat>;<lng>,<lat>?overview=full&geometries=geojson`. Returns `routes[0].geometry.coordinates` directly as `[lng, lat]` pairs (just swap to `{lat, lng}`). Profiles: `driving`, `walking`. No API key, ~1 req/s rate limit.
 

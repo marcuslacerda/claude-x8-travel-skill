@@ -21,6 +21,7 @@
 - **Duration:** _N days_
 - **Start date:** _YYYY-MM-DD if known, else YYYY-MM (month-only) or "flexible"_
 - **Currency:** _trip currency at destination — EUR / GBP / USD / BRL / etc._
+- **Home currency:** _preferred display currency for budget/costs — BRL / USD / GBP / etc. (omit if same as Currency)_
 - **Timezone:** _IANA — e.g. "Europe/London" (optional, helps the viewer compute "today")_
 
 ## Transport & style

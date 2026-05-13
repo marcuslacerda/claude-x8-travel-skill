@@ -148,8 +148,8 @@ If the user provides a clear request, skip the help and go straight to the match
    - **Data ou mês** — start date (`YYYY-MM-DD` if known, else `YYYY-MM` for month-only, or "flexível, qualquer mês")
    - **Modo de transporte primário** — car / motorhome / flights+train / ferry / mixed
    - **Tipo da viagem** — city break / road trip / trekking / off-grid / mix
-   - **Constraints especiais** — pet, child, mobility, dietary, drone, none
-7. **Open question (free text):** "Tem algo a mais que devo considerar pra essa viagem?"
+   - **Moeda de exibição** — the traveler's home/preferred currency for viewing costs and budget (e.g. BRL, USD, GBP). Offer 3–4 options derived from `user-preferences.md` home currency + "Same as destination" as a fallback. When the traveler's home currency differs from the destination's, this is what the viewer and budget mode use for conversions. → `trip.homeCurrency` (omit field if same as `currency`).
+7. **Open question (free text):** "Tem algo a mais que devo considerar pra essa viagem? (constraints especiais, pets, crianças, mobilidade, drone, dieta, etc.)"
 8. **Persist answers** to `trips/<slug>/trip-params.md` (the template has the right shape — fill in the placeholders).
 9. **Research** using WebSearch + Google Maps MCP (if available) + Open-Meteo for weather + Frankfurter for currency, following `skill/guideline.md`. Specifically:
    - **Flights:** suggest cheapest + shortest-duration round-trip ida=day1, volta=last-day. Use Skyscanner or `google-maps`. If headline-to has no airport, suggest nearest + Transfer to it.
@@ -161,7 +161,8 @@ If the user provides a clear request, skip the help and go straight to the match
 10. **Generate `trips/<slug>/trip.json`** following `TripSchema` (v2.1):
     - `destination: { startLocation, headlineTo, headlineFrom }` — from wizard
     - `startDate`: ISO or `YYYY-MM` (or omit if flexible)
-    - `currency`: from destination defaults
+    - `currency`: destination currency (EUR for Italy, GBP for UK, etc.)
+    - `homeCurrency`: traveler's home/display currency from wizard — omit if same as `currency`
     - `days[]`: full itinerary with `schedule[]` as discriminated `Experience | Transfer | Insight` items.
       - **Specific Experiences** (real places): set `kind`, `source`, `picture`, and `poiId` (matching the POI id in map.json). MUST also create a corresponding POI.
       - **Generic Experiences** (time blocks like "Lunch break"): no `kind`, no `poiId`, no POI. `category: "custom"` or specific category without `kind`.
