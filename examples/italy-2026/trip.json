@@ -1706,8 +1706,7 @@
         },
         {
           "time": "16:00",
-          "placeId": "indie-campers-mxp-pickup-return",
-          "notes": "Pickup e devolução do motorhome Indie Campers no aeroporto MXP de Milão Malpensa."
+          "placeId": "indie-campers-mxp-pickup-return"
         },
         {
           "time": "16:15",
@@ -1752,8 +1751,7 @@
         },
         {
           "time": "20:00",
-          "placeId": "camp-fusina-venezia",
-          "notes": "Camping Fusina — frente à laguna de Veneza, vaporetto direto para San Marco. Aceita motorhomes."
+          "placeId": "camp-fusina-venezia"
         }
       ],
       "dayCost": "~€350 (motorhome pickup + supermercado D1)"
@@ -1781,7 +1779,6 @@
           "time": "09:45",
           "placeId": "basilica-san-marco",
           "cost": 3,
-          "notes": "Catedral bizantina do séc. XI, conhecida pelos mosaicos dourados que cobrem cúpulas e abóbadas. Ingresso online obrigatório (timed-entry) desde 2025.",
           "insights": [
             {
               "highlights": [
@@ -1798,7 +1795,6 @@
           "time": "10:45",
           "placeId": "campanile-san-marco",
           "cost": 15,
-          "notes": "Campanário de 98m da Basílica de São Marco, com elevador para o topo e vista 360° sobre Veneza, a laguna e os Alpes em dias claros.",
           "insights": [
             {
               "highlights": [
@@ -1811,7 +1807,6 @@
           "time": "11:30",
           "placeId": "palazzo-ducale-itinerari-segreti",
           "cost": 40,
-          "notes": "Palácio gótico-veneziano sede do Doge da Sereníssima por 700+ anos. O tour 'Itinerari Segreti' visita prisões, salas secretas e a passagem de Casanova pela Ponte dei Sospiri.",
           "insights": [
             {
               "highlights": [
@@ -1833,19 +1828,16 @@
         {
           "time": "13:15",
           "placeId": "basilica-santi-giovanni-paolo",
-          "cost": 3.5,
-          "notes": "Maior igreja gótica de Veneza, panteão de 25 doges. Vitrais do séc. XV e teto de Veronese."
+          "cost": 3.5
         },
         {
           "time": "14:00",
           "placeId": "chiesa-gesuiti",
-          "cost": 0,
-          "notes": "Igreja barroca dos jesuítas (1729) com teto pintado por Tiepolo e mármore esculpido imitando damasco."
+          "cost": 0
         },
         {
           "time": "14:45",
           "placeId": "bacari-do-rialto",
-          "notes": "Bares tradicionais venezianos próximos ao mercado de Rialto. Cantina Do Mori (desde 1462) é o mais antigo. Servem cicchetti (petiscos) com ombra (vinho local).",
           "insights": [
             {
               "highlights": [
@@ -1857,7 +1849,6 @@
         {
           "time": "15:30",
           "placeId": "ponte-di-rialto",
-          "notes": "Ponte de pedra do séc. XVI sobre o Grand Canal — a mais antiga das quatro pontes que cruzam o canal e o ponto mais fotografado de Veneza.",
           "insights": [
             {
               "highlights": [
@@ -1870,7 +1861,6 @@
           "time": "16:00",
           "placeId": "basilica-dei-frari",
           "cost": 5,
-          "notes": "Basílica franciscana gótica do séc. XIV. Abriga obras de Tiziano (incluindo a 'Assunção da Virgem') e Bellini, e o túmulo de Cláudio Monteverdi.",
           "insights": [
             {
               "highlights": [
@@ -1882,8 +1872,7 @@
         {
           "time": "17:00",
           "placeId": "santa-maria-della-salute",
-          "cost": 0,
-          "notes": "Basílica barroca octogonal (1631–1687) na entrada do Grand Canal, construída como agradecimento pela peste que matou ⅓ dos venezianos. Cúpula icônica."
+          "cost": 0
         },
         {
           "time": "18:30",
@@ -1894,7 +1883,6 @@
           "time": "20:30",
           "placeId": "concerto-vivaldi-i-musici-veneziani",
           "cost": 65,
-          "notes": "Concerto interpretando 'As Quatro Estações' de Vivaldi pela orquestra I Musici Veneziani na Scuola Grande di San Teodoro, com músicos em figurinos barrocos do séc. XVIII.",
           "insights": [
             {
               "highlights": [
@@ -1918,8 +1906,7 @@
         },
         {
           "time": "20:00",
-          "placeId": "camp-fusina-venezia",
-          "notes": "Camping Fusina — frente à laguna de Veneza, vaporetto direto para San Marco. Aceita motorhomes."
+          "placeId": "camp-fusina-venezia"
         }
       ],
       "dayCost": "~€215 (vaporetto €32 + basílica €24 + campanile €30 + palazzo €80 + frari €10 + concerto €130 + refeições)"
@@ -1954,7 +1941,6 @@
           "time": "09:45",
           "placeId": "postojna-cave",
           "cost": 47,
-          "notes": "Sistema de cavernas cársticas de 24 km no sudoeste da Eslovênia. Tour de 1h30 com trem subterrâneo elétrico de 3,7 km. Habitat do Proteus anguinus ('peixe-humano').",
           "insights": [
             {
               "highlights": [
@@ -1974,7 +1960,6 @@
           "time": "11:15",
           "placeId": "predjama-castle",
           "cost": 0,
-          "notes": "Castelo medieval do séc. XII construído dentro de um paredão de 123m de calcário. O maior castelo em caverna do mundo.",
           "insights": [
             {
               "highlights": [
@@ -2014,8 +1999,7 @@
         },
         {
           "time": "20:00",
-          "placeId": "camp-bled",
-          "notes": "Camping Bled — categoria 4 estrelas à beira do Lago Bled, com piscina, restaurantes e acesso direto ao circuito do lago."
+          "placeId": "camp-bled"
         }
       ],
       "dayCost": "~€110 (combo €94 + vinheta €16)"
@@ -2036,7 +2020,6 @@
           "time": "08:00",
           "placeId": "vintgar-gorge",
           "cost": 15,
-          "notes": "Desfiladeiro de 1,6 km com passarelas de madeira sobre o rio Radovna em águas verde-esmeralda. Termina na Cascata Šum (16m).",
           "insights": [
             {
               "highlights": [
@@ -2067,7 +2050,6 @@
           "time": "10:00",
           "placeId": "lago-bled",
           "cost": 20,
-          "notes": "Lago glacial de 2 km com a única ilha natural da Eslovênia, onde fica a Igreja da Assunção (séc. XVII) com 99 degraus e um sino dos desejos.",
           "insights": [
             {
               "highlights": [
@@ -2084,13 +2066,11 @@
         {
           "time": "12:00",
           "placeId": "bled-castle",
-          "cost": 19,
-          "notes": "Castelo medieval mais antigo da Eslovênia (séc. XI), no penhasco de 130m sobre o Lago Bled. Museu, capela gótica e gráfica funcional onde se imprime certificados."
+          "cost": 19
         },
         {
           "time": "13:30",
           "placeId": "confeitaria-park-bled",
-          "notes": "Confeitaria histórica em Bled (1937) que serve a Kremšnita — bolo de creme com camadas de massa folhada, criado pelo confeiteiro Ištvan Lukačević. Receita nacional protegida.",
           "insights": [
             {
               "highlights": [
@@ -2116,8 +2096,7 @@
         },
         {
           "time": "20:00",
-          "placeId": "camp-bled",
-          "notes": "Camping Bled — categoria 4 estrelas à beira do Lago Bled, com piscina, restaurantes e acesso direto ao circuito do lago."
+          "placeId": "camp-bled"
         }
       ],
       "dayCost": "~€105 (gorge €30 + boat €40 + castle €38 + kremšnita)"
@@ -2138,7 +2117,6 @@
           "time": "09:00",
           "placeId": "vogel-cable-car",
           "cost": 33,
-          "notes": "Teleférico que sobe 1.000m até a estação Vogel a 1.535m, com vista panorâmica do Triglav (2.864m, ponto mais alto da Eslovênia) e dos Alpes Julianos. Trilhas leves no planalto.",
           "insights": [
             {
               "highlights": [
@@ -2164,7 +2142,6 @@
         {
           "time": "14:00",
           "placeId": "lago-bohinj",
-          "notes": "Maior lago glacial da Eslovênia (4,2 km × 1 km), parte do Parque Nacional Triglav. Mais selvagem e tranquilo que Bled. Igreja de São João Batista do séc. XV na ponta leste.",
           "insights": [
             {
               "highlights": [
@@ -2175,14 +2152,12 @@
         },
         {
           "time": "14:30",
-          "placeId": "st-john-baptist-bohinj",
-          "notes": "Igreja católica medieval na margem leste do Lago Bohinj, com afrescos do séc. XV."
+          "placeId": "st-john-baptist-bohinj"
         },
         {
           "time": "15:30",
           "placeId": "savica-waterfall",
-          "cost": 3,
-          "notes": "Cachoeira de 78m em dois estágios, na nascente do rio Sava Bohinjka. Caminhada curta (~20 min) a partir do estacionamento."
+          "cost": 3
         },
         {
           "time": "17:00",
@@ -2200,8 +2175,7 @@
         },
         {
           "time": "20:00",
-          "placeId": "camp-bled",
-          "notes": "Camping Bled — categoria 4 estrelas à beira do Lago Bled, com piscina, restaurantes e acesso direto ao circuito do lago."
+          "placeId": "camp-bled"
         }
       ],
       "dayCost": "~€72 (cable car €66 + Savica €6)"
@@ -2231,8 +2205,7 @@
         },
         {
           "time": "11:30",
-          "placeId": "pokljuka-plateau",
-          "notes": "Planalto karst a 1.300m no Parque Nacional Triglav, coberto por floresta de abetos. Centro de biatlo durante o inverno; trilhas suaves no verão."
+          "placeId": "pokljuka-plateau"
         },
         {
           "time": "12:30",
@@ -2251,7 +2224,6 @@
         {
           "time": "14:00",
           "placeId": "pericnik-waterfall",
-          "notes": "Cachoeira de 52m no vale Vrata, com passagem atrás da cortina d'água. Acessível por trilha de 15 minutos.",
           "insights": [
             {
               "highlights": [
@@ -2272,7 +2244,6 @@
         {
           "time": "15:00",
           "placeId": "zelenci-nature-reserve",
-          "notes": "Reserva natural com nascentes do rio Sava Dolinka, em águas esmeralda a 6°C constante o ano todo. Passarela de madeira de 20 minutos.",
           "insights": [
             {
               "highlights": [
@@ -2287,8 +2258,7 @@
         },
         {
           "time": "16:00",
-          "placeId": "kranjska-gora",
-          "notes": "Vila alpina no extremo noroeste da Eslovênia, na fronteira com Itália e Áustria. Estação de esqui no inverno; base para o Vršič Pass no verão."
+          "placeId": "kranjska-gora"
         },
         {
           "time": "17:00",
@@ -2302,8 +2272,7 @@
         },
         {
           "time": "20:00",
-          "placeId": "free-parking-kranjska-gora",
-          "notes": "Estacionamento livre em Kranjska Gora — ponto estratégico para sair cedo ao Vršič Pass (8 minutos da entrada do passo)."
+          "placeId": "free-parking-kranjska-gora"
         }
       ],
       "dayCost": "~€10 (tudo grátis, só café)"
@@ -2331,8 +2300,7 @@
         },
         {
           "time": "07:45",
-          "placeId": "jasna-lake",
-          "notes": "Lago artificial duplo a 818m de altitude, na entrada sul do vale do Trenta. Reflexo do Triglav e estátua do Zlatorog (cabra-de-cristal mítica eslovena)."
+          "placeId": "jasna-lake"
         },
         {
           "time": "09:45",
@@ -2345,8 +2313,7 @@
         },
         {
           "time": "10:15",
-          "placeId": "russian-chapel",
-          "notes": "Capela ortodoxa de madeira na curva 8 do Vršič, memorial dos prisioneiros russos da 1ª Guerra mortos em uma avalanche em 1916 enquanto construíam a estrada."
+          "placeId": "russian-chapel"
         },
         {
           "time": "10:45",
@@ -2356,7 +2323,6 @@
         {
           "time": "11:15",
           "placeId": "vrsic-pass",
-          "notes": "Estrada de montanha mais alta da Eslovênia (1.611m), com 50 curvas em ferradura conectando Kranjska Gora ao vale do Trenta. Construída pelos prisioneiros russos da 1ª Guerra.",
           "insights": [
             {
               "highlights": [
@@ -2390,13 +2356,11 @@
         },
         {
           "time": "15:00",
-          "placeId": "great-soca-gorge",
-          "notes": "Velika Korita Soče — gargantas estreitas escavadas pelo rio Soča em águas verde-esmeralda. Passarelas e pontes pênseis. Trilha curta (~30 min)."
+          "placeId": "great-soca-gorge"
         },
         {
           "time": "16:00",
-          "placeId": "bovec",
-          "notes": "Capital de aventura da Eslovênia, no alto vale do Soča. Base para rafting, kayak, canyoning e zipline. Cercada pelos Alpes Julianos."
+          "placeId": "bovec"
         },
         {
           "time": "19:00",
@@ -2405,8 +2369,7 @@
         },
         {
           "time": "20:00",
-          "placeId": "camp-liza-bovec",
-          "notes": "Camp Liza — camping à beira do Rio Soča em Bovec, com acesso direto às atividades aquáticas e trilhas dos Alpes Julianos."
+          "placeId": "camp-liza-bovec"
         }
       ],
       "dayCost": "~€10 (grátis, só lanches)"
@@ -2427,7 +2390,6 @@
           "time": "09:00",
           "placeId": "slap-kozjak",
           "cost": 0,
-          "notes": "Cachoeira de 15m em gruta semicircular esculpida pela água, formando uma piscina natural esmeralda. Trilha curta e fácil (~30 min ida).",
           "insights": [
             {
               "highlights": [
@@ -2454,7 +2416,6 @@
           "time": "14:00",
           "placeId": "rafting-rio-soca",
           "cost": 70,
-          "notes": "Rafting comercial no Rio Soča com SportMix, em corredeiras Classe II–III por 2-3h. Wetsuit incluído, fotos grátis no fim do tour.",
           "insights": [
             {
               "highlights": [
@@ -2475,8 +2436,7 @@
         },
         {
           "time": "20:00",
-          "placeId": "camp-liza-bovec",
-          "notes": "Camp Liza — camping à beira do Rio Soča em Bovec, com acesso direto às atividades aquáticas e trilhas dos Alpes Julianos."
+          "placeId": "camp-liza-bovec"
         }
       ],
       "dayCost": "~€150 (rafting €140 + almoço)"
@@ -2500,8 +2460,7 @@
         },
         {
           "time": "08:30",
-          "placeId": "lago-del-predil",
-          "notes": "Lago alpino de 1 km a 959m de altitude na fronteira IT/SI. Cercado pelos Alpes Julianos, águas esmeralda. Passeio circular ~1h."
+          "placeId": "lago-del-predil"
         },
         {
           "time": "09:30",
@@ -2515,7 +2474,6 @@
         {
           "time": "09:50",
           "placeId": "lago-di-fusine",
-          "notes": "Pares de lagos glaciais (Superiore + Inferiore) em parque natural italiano na fronteira com Eslovênia. Reflexo do Monte Mangart (2.677m) em águas turquesa.",
           "insights": [
             {
               "highlights": [
@@ -2556,7 +2514,6 @@
         {
           "time": "16:00",
           "placeId": "cortina-d-ampezzo",
-          "notes": "Vila resort em altitude (1.224m) no coração das Dolomitas, conhecida como 'Rainha das Dolomitas'. Sede dos Jogos Olímpicos de Inverno 1956 e 2026 (com Milão).",
           "insights": [
             {
               "highlights": [
@@ -2572,8 +2529,7 @@
         },
         {
           "time": "20:00",
-          "placeId": "camp-dolomiti-cortina",
-          "notes": "Camping Dolomiti em Cortina — base para Tre Cime, Sorapis, Lago di Braies. Categoria A com lavanderia, restaurante e wellness."
+          "placeId": "camp-dolomiti-cortina"
         }
       ],
       "dayCost": "~€15 (lagos grátis, só lanches)"
@@ -2595,7 +2551,6 @@
           "time": "08:30",
           "placeId": "tre-cime-di-lavaredo",
           "cost": 60,
-          "notes": "Três torres de calcário (2.999m / 2.973m / 2.857m) no coração das Dolomitas. Trilha circular de 10 km ao redor delas é a caminhada mais icônica do parque.",
           "insights": [
             {
               "highlights": [
@@ -2610,13 +2565,11 @@
         },
         {
           "time": "10:30",
-          "placeId": "rifugio-locatelli",
-          "notes": "Rifúgio Locatelli/Dreizinnenhütte (2.405m) no ponto mais fotografado das Tre Cime — vista frontal das três torres."
+          "placeId": "rifugio-locatelli"
         },
         {
           "time": "12:30",
           "placeId": "rifugio-auronzo",
-          "notes": "Rifúgio a 2.320m no início da trilha das Tre Cime. Estacionamento, café e ponto de partida do circuito clássico.",
           "insights": [
             {
               "warnings": [
@@ -2647,8 +2600,7 @@
         },
         {
           "time": "20:00",
-          "placeId": "camp-dolomiti-cortina",
-          "notes": "Camping Dolomiti em Cortina — base para Tre Cime, Sorapis, Lago di Braies. Categoria A com lavanderia, restaurante e wellness."
+          "placeId": "camp-dolomiti-cortina"
         }
       ],
       "dayCost": "~€75 (toll €60 motorhome + rifúgio)"
@@ -2668,7 +2620,6 @@
         {
           "time": "07:00",
           "placeId": "passo-tre-croci",
-          "notes": "Passo a 1.809m a leste de Cortina, trailhead para o Lago di Sorapis. Estacionamento limitado — chegar antes das 7h no verão.",
           "insights": [
             {
               "warnings": [
@@ -2682,7 +2633,6 @@
         {
           "time": "07:30",
           "placeId": "lago-di-sorapis",
-          "notes": "Lago turquesa leitoso a 1.925m, alimentado pelo derretimento da geleira do Sorapis. Trilha de 11,5 km (5–6h) com trechos equipados com cabos de aço.",
           "insights": [
             {
               "highlights": [
@@ -2722,8 +2672,7 @@
         },
         {
           "time": "20:00",
-          "placeId": "camp-dolomiti-cortina",
-          "notes": "Camping Dolomiti em Cortina — base para Tre Cime, Sorapis, Lago di Braies. Categoria A com lavanderia, restaurante e wellness."
+          "placeId": "camp-dolomiti-cortina"
         }
       ],
       "dayCost": "~€15 (rifúgio)"
@@ -2749,7 +2698,6 @@
           "time": "09:45",
           "placeId": "lago-di-braies",
           "cost": 18,
-          "notes": "Lago alpino de 31 hectares a 1.496m, conhecido como 'Pérola dos Lagos Dolomíticos'. Águas turquesa com reflexo do Croda del Becco. Barcos a remo de madeira disponíveis.",
           "insights": [
             {
               "highlights": [
@@ -2794,8 +2742,7 @@
         },
         {
           "time": "15:00",
-          "placeId": "dobbiaco-san-candido",
-          "notes": "Vilas tirolesas no Alto Adige (Dobbiaco/Toblach + San Candido/Innichen) — arquitetura germânica, ciclovia plana de 14 km entre as duas, gelaterias."
+          "placeId": "dobbiaco-san-candido"
         },
         {
           "time": "19:00",
@@ -2805,7 +2752,6 @@
         {
           "time": "20:00",
           "placeId": "camp-olympia-dobbiaco",
-          "notes": "Camping Olympia ★★★★ em Dobbiaco — Categoria A. Wellness completo (sauna finlandesa, banho turco, infravermelhos, piscinas). Self-service laundry. Incluso na diária.",
           "insights": [
             {
               "highlights": [
@@ -2854,7 +2800,6 @@
         {
           "time": "20:00",
           "placeId": "camp-olympia-dobbiaco",
-          "notes": "Camping Olympia ★★★★ em Dobbiaco — Categoria A. Wellness completo (sauna finlandesa, banho turco, infravermelhos, piscinas). Self-service laundry. Incluso na diária.",
           "insights": [
             {
               "highlights": [
@@ -2885,8 +2830,7 @@
         },
         {
           "time": "09:00",
-          "placeId": "bressanone-brixen",
-          "notes": "Cidade episcopal do Tirol do Sul, fundada em 901. Catedral barroca, claustros românicos, centro pedonal medieval."
+          "placeId": "bressanone-brixen"
         },
         {
           "time": "09:30",
@@ -2899,13 +2843,11 @@
         },
         {
           "time": "09:45",
-          "placeId": "chiusa-klausen",
-          "notes": "Vila medieval (Klausen em alemão) no Vale Eisack, fundada na Idade Média como ponto de pedágio. Albrecht Dürer pintou a vista em 1494."
+          "placeId": "chiusa-klausen"
         },
         {
           "time": "10:30",
-          "placeId": "monastero-di-sabiona",
-          "notes": "Mosteiro beneditino feminino fundado no séc. X sobre o penhasco acima de Chiusa. Vista panorâmica do Vale Eisack. Caminhada íngreme ~1h."
+          "placeId": "monastero-di-sabiona"
         },
         {
           "time": "11:00",
@@ -2928,8 +2870,7 @@
         },
         {
           "time": "14:00",
-          "placeId": "ortisei-st-ulrich",
-          "notes": "Capital de Val Gardena (St. Ulrich em alemão, Urtijëi em ladino). Tradição secular de escultura em madeira. Centro pedonal com gelaterias e artesanato."
+          "placeId": "ortisei-st-ulrich"
         },
         {
           "time": "19:00",
@@ -2938,8 +2879,7 @@
         },
         {
           "time": "20:00",
-          "placeId": "camp-seiser-alm-val-gardena",
-          "notes": "Camping em Val Gardena — base para Seceda, Alpe di Siusi, Sassolungo. Vista das Odle/Geisler."
+          "placeId": "camp-seiser-alm-val-gardena"
         }
       ],
       "dayCost": "~€5"
@@ -2955,7 +2895,6 @@
           "time": "09:00",
           "placeId": "seceda-ridgeline",
           "cost": 74,
-          "notes": "Crista a 2.519m em Val Gardena com a vista das Odle/Geisler — uma das paisagens mais fotografadas das Dolomitas. Cable car de Ortisei + circuito de 10 km.",
           "insights": [
             {
               "highlights": [
@@ -2977,8 +2916,7 @@
         },
         {
           "time": "13:00",
-          "placeId": "rifugio-firenze",
-          "notes": "Rifugio Firenze (Regensburger Hütte, 2.040m) abaixo das Odle/Geisler. Cozinha tradicional sul-tirolesa, terraço com vista da crista do Seceda."
+          "placeId": "rifugio-firenze"
         },
         {
           "time": "15:00",
@@ -2987,13 +2925,11 @@
         },
         {
           "time": "19:00",
-          "placeId": "ortisei-jantar-tiroles",
-          "notes": "Restaurantes tradicionais sul-tiroleses em Ortisei — Tubladel (cozinha gourmet ladina), Concordia (familiar) ou Hotel Nives (Michelin-recognized)."
+          "placeId": "ortisei-jantar-tiroles"
         },
         {
           "time": "20:00",
-          "placeId": "camp-seiser-alm-val-gardena",
-          "notes": "Camping em Val Gardena — base para Seceda, Alpe di Siusi, Sassolungo. Vista das Odle/Geisler."
+          "placeId": "camp-seiser-alm-val-gardena"
         }
       ],
       "dayCost": "~€195 (cable car €148 RT + rifúgio + jantar)"
@@ -3009,7 +2945,6 @@
           "time": "08:45",
           "placeId": "alpe-di-siusi-compatsch",
           "cost": 60,
-          "notes": "Maior prado alpino contínuo da Europa (56 km² a 1.700–2.300m). Vista panorâmica do Sassolungo, Sella e Catinaccio. Pico de florescimento em junho.",
           "insights": [
             {
               "highlights": [
@@ -3031,8 +2966,7 @@
         },
         {
           "time": "14:00",
-          "placeId": "castelrotto",
-          "notes": "Vila tirolesa medieval (Kastelruth em alemão), uma das mais charmosas do Alto Adige. Centro pedonal, igreja com torre barroca, Spitzbuam (banda folk famosa)."
+          "placeId": "castelrotto"
         },
         {
           "time": "19:00",
@@ -3041,8 +2975,7 @@
         },
         {
           "time": "20:00",
-          "placeId": "camp-seiser-alm-val-gardena",
-          "notes": "Camping em Val Gardena — base para Seceda, Alpe di Siusi, Sassolungo. Vista das Odle/Geisler."
+          "placeId": "camp-seiser-alm-val-gardena"
         }
       ],
       "dayCost": "~€75 (cable car €60 RT + snack)"
@@ -3067,7 +3000,6 @@
         {
           "time": "09:45",
           "placeId": "lago-di-carezza",
-          "notes": "Pequeno lago alpino a 1.520m com reflexo perfeito do Latemar e Catinaccio. Cores entre turquesa e verde-esmeralda. Caminhada circular de 30 min.",
           "insights": [
             {
               "highlights": [
@@ -3093,8 +3025,7 @@
         },
         {
           "time": "13:15",
-          "placeId": "desenzano-del-garda",
-          "notes": "Cidade medieval na margem sul do Lago di Garda, com castelo do séc. X, porto histórico e ruínas romanas. 15 min de Sirmione."
+          "placeId": "desenzano-del-garda"
         },
         {
           "time": "15:00",
@@ -3102,8 +3033,7 @@
         },
         {
           "time": "15:00",
-          "placeId": "sirmione",
-          "notes": "Península termal no Lago di Garda, com fortaleza scaligera do séc. XIII e ruínas da villa romana de Catulo. Centro storico pedonal com gelaterias."
+          "placeId": "sirmione"
         },
         {
           "time": "19:00",
@@ -3116,8 +3046,7 @@
         },
         {
           "time": "20:00",
-          "placeId": "free-parking-desenzano",
-          "notes": "Estacionamento livre em Via Michelangelo 9, Desenzano del Garda. 5 min do centro a pé. Permite pernoite. Park4Night verificado."
+          "placeId": "free-parking-desenzano"
         }
       ],
       "dayCost": "~€10 (estacionamento + snack)"
@@ -3135,7 +3064,6 @@
           "time": "09:30",
           "placeId": "castello-scaligero-sirmione",
           "cost": 8,
-          "notes": "Fortaleza naval do séc. XIII construída pela família Scaligera de Verona. Único castelo italiano com darsena (porto fortificado interno) ainda intacto. Subida na torre com vista do lago.",
           "insights": [
             {
               "highlights": [
@@ -3147,13 +3075,11 @@
         {
           "time": "11:00",
           "placeId": "grotte-di-catullo",
-          "cost": 10,
-          "notes": "Ruínas de villa romana do séc. I a.C. na ponta da península de Sirmione, atribuída ao poeta Catulo. Vista panorâmica do Lago di Garda do alto das ruínas."
+          "cost": 10
         },
         {
           "time": "12:30",
-          "placeId": "farewell-lunch-garda",
-          "notes": "Almoço de despedida na península de Sirmione — pedir peixe do Garda (lavarello, luccioperca) acompanhado de Lugana DOC, vinho branco local DOC."
+          "placeId": "farewell-lunch-garda"
         },
         {
           "time": "14:30",
@@ -3187,7 +3113,6 @@
         {
           "time": "20:00",
           "placeId": "indie-campers-mxp-pickup-return",
-          "notes": "Pickup e devolução do motorhome Indie Campers no aeroporto MXP de Milão Malpensa.",
           "insights": [
             {
               "warnings": [
@@ -3214,8 +3139,7 @@
         },
         {
           "time": "08:00",
-          "placeId": "indie-campers-mxp-pickup-return",
-          "notes": "Pickup e devolução do motorhome Indie Campers no aeroporto MXP de Milão Malpensa."
+          "placeId": "indie-campers-mxp-pickup-return"
         },
         {
           "time": "09:00",

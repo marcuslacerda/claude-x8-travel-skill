@@ -20,7 +20,7 @@ Critical rule: certain fields are skill-only, others are user-only. Mixing them 
 | `ScheduleItem.time/placeId/routeId` | ✓             | ✓           |
 | `ScheduleItem.name/category`        | ✓             | ✓           |
 | `ScheduleItem.cost/duration`        | ✓             | ✓           |
-| `ScheduleItem.notes`                | ✓             | ✓           |
+| `ScheduleItem.notes`                | ✗             | ✓ (only)    |
 | `ScheduleItem.insights[]`           | ✓ (only)      | ✗           |
 | `Day.title/cls/dayCost`             | ✓             | ✓           |
 | `Day.planB`                         | ✓             | ✓           |
@@ -31,7 +31,9 @@ Skill-only Insights and computed fields (picture/popularity/googlePlaceId/polyli
 
 **Picture/popularity/googlePlaceId** are computed via fetchers (cascades documented below). The skill writes them automatically during `new-trip` and `research`. The user doesn't edit them by hand — if a picture URL goes stale or a popularity drifts, the fix is to re-run `/travel-planner research <place>`.
 
-**`notes` (on ScheduleItem)** is free-form per-occurrence context. Both skill and user can write here — it's NOT a user-only sanctuary like v2's `Experience.notes` was. For skill observations that warn or highlight, use **Insights** instead (so the viewer renders them as a yellow callout).
+**`ScheduleItem.notes` is user-only.** The skill **never** writes here during `new-trip`, `research`, or any other mode. This field stays empty after planning and is reserved for the traveler to add personal annotations later (typically while reviewing the published trip in explor8 — e.g. "Bruna lembrar de levar passaporte aqui", "Reservei para 19h em vez de 20h"). All skill-emitted per-occurrence observations go into **Insights** (`scheduleItem.insights[]`) instead, so the viewer renders them as a yellow callout distinct from user-added context.
+
+Reason: duplication. v3 originally allowed both skill+user to write `notes`. Result was skill-generated notes restating what was already in `insights[]` or `place.description`. Restoring user-only ownership keeps `notes` as a clean per-occurrence diary the traveler controls.
 
 ---
 
@@ -84,7 +86,7 @@ A **place reference** points to a real, geocoded Place in `trip.json.places[]`:
 
 - Skill ensures a corresponding Place exists in `places[]` with a kebab-case `id`.
 - The viewer hydrates: emoji from `place.kind`, name from `place.name`, description from `place.description`, picture from `place.picture`, popularity from `place.popularity`.
-- Per-occurrence overrides: `cost` (real for budget), `duration` (how long), `notes` (this-trip context), `insights[]` (yellow callout).
+- Per-occurrence overrides the skill writes: `cost` (real for budget), `duration` (how long), `insights[]` (yellow callout). Skill **never** writes `notes` — that's user-only (see "Field ownership" + "Skill never writes scheduleItem.notes" below).
 
 A **generic block** is a time-block placeholder without a specific location:
 
@@ -159,9 +161,15 @@ For each Place referenced in `schedule[]`, consider emitting an item-level insig
 
 At least one of `highlights[]` / `warnings[]` must be non-empty. Empty insights are filtered out by validation.
 
-### Skill never writes to user-edited free text
+### Skill never writes `scheduleItem.notes`
 
-Notes on schedule items are mixed (both skill and user may write). For purely skill-emitted observations that should render as a callout, always use `insights[]` — not `notes`.
+`notes` is user-only — reserved for the traveler's manual annotations (later, while reviewing the published trip). Skill **always** routes per-occurrence observations to `insights[]` instead:
+
+- Timing / etiquette / dietary / logistics / photo tip → `scheduleItem.insights[]` (item-level callout)
+- Weather / jet lag / whole-day rule → `day.insights[]` (day-level callout)
+- Place's own description (durable, multi-trip facts) → `place.description`
+
+If you're tempted to add a `notes` entry while generating, ask: "Could this be an insight?" Yes, always → put it there. The viewer renders insights as yellow callouts that visually distinguish them from user notes.
 
 ---
 

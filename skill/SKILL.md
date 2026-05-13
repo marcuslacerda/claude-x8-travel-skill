@@ -112,6 +112,9 @@ Parse user intent → match to mode below. If ambiguous, show the help menu:
 - /travel-planner checklist
 - /travel-planner weather Edinburgh
 - /travel-planner budget
+- /travel-planner map add-route day 5: Verona -> Bolzano DRIVE
+- /travel-planner map add-place Refugio Auronzo no dia 8  && add-route no dia 8 de Cortina d'Ampezzo até Refugio Auronzo de carro com tag scenic
+Obs: use dry-run to check diff only before applying the changes
 ```
 
 If the user provides a clear request, skip the help and go straight to the matching mode.
@@ -169,6 +172,7 @@ If the user provides a clear request, skip the help and go straight to the match
     - `routes[]` — Route catalog (one entry per leg with a polyline). See "Route catalog" below. `mode` is uppercase (DRIVE/WALK/BICYCLE/TRANSIT/TRAIN/FLIGHT/FERRY); `polyline` is encoded; `duration` is ISO 8601.
     - `days[]` — array index = day number (Day 1 = `days[0]`). Each day has `title`, `schedule[]`, optional `cls`/`planB`/`dayCost`/`insights[]`.
     - **Insights placement (default item-level):** For each Place referenced in `schedule[]`, consider 1+ item-level insights (`scheduleItem.insights[]`) when there's an actionable observation — timing, ticket strategy, etiquette, dietary hazard, photo angle, weather contingency. Day-level (`day.insights[]`) only for genuinely whole-day context (weather forecast, jet lag, transit-wide policies). See `guideline.md` "Insights vs notes" decision rule. **When in doubt: item-level.**
+    - **Never write `scheduleItem.notes`** — that's user-only. The traveler adds personal annotations there later (while reviewing in explor8). All skill-emitted per-occurrence content goes into `insights[]`.
     - `bookings[]` — critical reservations, status `pending` initially. Optional `placeId` references a Place from the catalog (viewer hydrates the row with the place's thumbnail).
     - `budget[]` — enum categories; must include one item with `id: "unplanned"` (5–10% reserve).
     - `checklist[]` — groups with `type: "checklist"` (period titles) + `type: "packing"` (category titles).
@@ -206,7 +210,8 @@ If the user provides a clear request, skip the help and go straight to the match
 | `Route.name/mode/polyline/duration` | ✓             | ✗ (regen)   |
 | `Route.notes/tags`                  | ✓             | ✓           |
 | `ScheduleItem.time/placeId/routeId` | ✓             | ✓           |
-| `ScheduleItem.cost/notes`           | ✓             | ✓           |
+| `ScheduleItem.cost`                 | ✓             | ✓           |
+| `ScheduleItem.notes`                | ✗             | ✓ (only)    |
 | `ScheduleItem.insights[]`           | ✓ (only)      | ✗           |
 | `Day.insights[]`                    | ✓ (only)      | ✗           |
 | `Day.planB`                         | ✓             | ✓           |
