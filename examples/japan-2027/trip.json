@@ -1,0 +1,2103 @@
+{
+  "schemaVersion": 3,
+  "slug": "japan-2027",
+  "title": "Japão 2027 — Loop cultural e natureza (20 dias)",
+  "destination": {
+    "startLocation": "São Paulo (GRU)",
+    "headlineTo": "Tóquio → Hakone → Kyoto → Osaka → Hiroshima → Kanazawa → Takayama → Tóquio",
+    "headlineFrom": "Tóquio (NRT)"
+  },
+  "startDate": "2027-09-15",
+  "status": "draft",
+  "currency": "JPY",
+  "homeCurrency": "BRL",
+  "timezone": "Asia/Tokyo",
+  "places": [
+    {
+      "id": "gru-airport",
+      "name": "Aeroporto de Guarulhos (GRU)",
+      "geo": {
+        "lat": -23.4356,
+        "lng": -46.4731
+      },
+      "category": "transport",
+      "kind": "headline",
+      "description": "Aeroporto internacional de São Paulo — voos LATAM/JAL via Doha ou ANA via Houston para Tóquio Narita."
+    },
+    {
+      "id": "narita-airport",
+      "name": "Aeroporto de Narita (NRT)",
+      "geo": {
+        "lat": 35.7647,
+        "lng": 140.3863
+      },
+      "category": "transport",
+      "kind": "destination",
+      "source": "official",
+      "description": "Principal aeroporto internacional de Tóquio. Use o Narita Express (N'EX) ou Skyliner para o centro (~60min, ~JPY 3000)."
+    },
+    {
+      "id": "tokyo-station",
+      "name": "Tokyo Station",
+      "geo": {
+        "lat": 35.6812,
+        "lng": 139.7671
+      },
+      "category": "transport",
+      "kind": "station",
+      "popularity": 5.5,
+      "source": "official",
+      "description": "Hub central de shinkansen + JR. Estação histórica de 1914 com marquise de tijolo restaurada."
+    },
+    {
+      "id": "hotel-tokyo",
+      "name": "Hotel mid-range em Shinjuku (Tokyo)",
+      "geo": {
+        "lat": 35.6938,
+        "lng": 139.7036
+      },
+      "category": "stay",
+      "kind": "hotel",
+      "source": "booking",
+      "description": "Hotel 3★ no centro de Shinjuku, próximo da estação JR. Quartos compactos (~14m²) típicos do Japão.",
+      "priceHint": 20000
+    },
+    {
+      "id": "asakusa-senso-ji",
+      "name": "Sensō-ji Temple (Asakusa)",
+      "geo": {
+        "lat": 35.7148,
+        "lng": 139.7967
+      },
+      "category": "attraction",
+      "kind": "memorial",
+      "popularity": 6.2,
+      "source": "wikivoyage",
+      "description": "Templo budista mais antigo de Tóquio (645 d.C.). Portão Kaminarimon com a lanterna vermelha gigante, rua Nakamise com 250 lojinhas tradicionais, pagode de 5 andares.",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Sensoji_2023.jpg/330px-Sensoji_2023.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "links": [
+        {
+          "type": "official",
+          "url": "https://www.senso-ji.jp/"
+        }
+      ]
+    },
+    {
+      "id": "shibuya-crossing",
+      "name": "Shibuya Scramble Crossing",
+      "geo": {
+        "lat": 35.6595,
+        "lng": 139.7005
+      },
+      "category": "attraction",
+      "kind": "city",
+      "popularity": 6.3,
+      "source": "wikivoyage",
+      "description": "Cruzamento de pedestres mais movimentado do mundo (~3000 pessoas por sinal verde). Vista panorâmica do Shibuya Sky ou do Starbucks Tsutaya.",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Shibuya_Crossing%2C_Aerial.jpg/330px-Shibuya_Crossing%2C_Aerial.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      }
+    },
+    {
+      "id": "meiji-jingu",
+      "name": "Meiji Jingu (Harajuku)",
+      "geo": {
+        "lat": 35.6764,
+        "lng": 139.6993
+      },
+      "category": "attraction",
+      "kind": "memorial",
+      "popularity": 5.9,
+      "source": "official",
+      "description": "Santuário xintoísta dedicado ao Imperador Meiji e à Imperatriz Shōken (1920). Floresta de 100k árvores plantadas pela população.",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Meiji_Jingu_2023-3.jpg/330px-Meiji_Jingu_2023-3.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      }
+    },
+    {
+      "id": "tokyo-tower",
+      "name": "Tokyo Tower",
+      "geo": {
+        "lat": 35.6586,
+        "lng": 139.7454
+      },
+      "category": "attraction",
+      "kind": "viewpoint",
+      "popularity": 6.4,
+      "source": "official",
+      "description": "Torre de comunicações vermelha-branca de 333m (1958). Vista 360° de Tóquio. Iluminação alaranjada à noite (`Landmark Light`).",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Tokyo_Tower_2023.jpg/330px-Tokyo_Tower_2023.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "links": [
+        {
+          "type": "tickets",
+          "url": "https://www.tokyotower.co.jp/en/"
+        }
+      ],
+      "priceHint": 1200
+    },
+    {
+      "id": "tsukiji-outer-market",
+      "name": "Tsukiji Outer Market",
+      "geo": {
+        "lat": 35.6655,
+        "lng": 139.7708
+      },
+      "category": "food",
+      "kind": "market",
+      "popularity": 5.4,
+      "source": "tripadvisor",
+      "description": "Mercado externo (a parte 'interna' migrou para Toyosu em 2018). Café da manhã com sushi fresco, tamagoyaki, dashi. Chegar antes das 9h evita filas.",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/2018_Tsukiji_fish_market.jpg/330px-2018_Tsukiji_fish_market.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      }
+    },
+    {
+      "id": "akihabara",
+      "name": "Akihabara (Electric Town)",
+      "geo": {
+        "lat": 35.7022,
+        "lng": 139.7745
+      },
+      "category": "shopping",
+      "kind": "shop",
+      "popularity": 5.6,
+      "source": "wikivoyage",
+      "description": "Bairro de eletrônica, mangá, anime, gaming. Lojas multi-andar de games (Super Potato), Yodobashi-Akiba (8 andares de eletrônicos), Don Quijote (variedades)."
+    },
+    {
+      "id": "hakone-yumoto",
+      "name": "Hakone-Yumoto Station",
+      "geo": {
+        "lat": 35.2329,
+        "lng": 139.106
+      },
+      "category": "transport",
+      "kind": "station",
+      "description": "Estação de entrada de Hakone via Odakyu Romancecar. Loop de ônibus + funicular + barco pirata começa aqui."
+    },
+    {
+      "id": "ryokan-hakone",
+      "name": "Ryokan tradicional em Hakone-Yumoto",
+      "geo": {
+        "lat": 35.2335,
+        "lng": 139.105
+      },
+      "category": "stay",
+      "kind": "hotel",
+      "source": "booking",
+      "description": "Ryokan tradicional com onsen privativo (uchiyu), kaiseki dinner, tatami. Yukata fornecida. Sem wasabi sob pedido para Júlia.",
+      "priceHint": 28000
+    },
+    {
+      "id": "lake-ashi",
+      "name": "Lake Ashi (Ashinoko)",
+      "geo": {
+        "lat": 35.2003,
+        "lng": 139.0234
+      },
+      "category": "attraction",
+      "kind": "lake",
+      "popularity": 5.5,
+      "source": "wikivoyage",
+      "description": "Lago vulcânico (3000 anos) com vista do Monte Fuji em dias claros. Barco pirata Hakone Sightseeing Cruise atravessa em 30min. Torii vermelho do Hakone Shrine na margem.",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/260505_Moto-Hakone_Hakone_Japan01s3.jpg/330px-260505_Moto-Hakone_Hakone_Japan01s3.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      }
+    },
+    {
+      "id": "hakone-open-air",
+      "name": "Hakone Open-Air Museum",
+      "geo": {
+        "lat": 35.2453,
+        "lng": 139.0518
+      },
+      "category": "attraction",
+      "kind": "memorial",
+      "popularity": 5.2,
+      "source": "official",
+      "description": "Museu de esculturas ao ar livre (1969) com obras de Henry Moore, Rodin, Picasso (pavilhão dedicado). 70k m² de jardim com onsen para os pés gratuito.",
+      "links": [
+        {
+          "type": "tickets",
+          "url": "https://www.hakone-oam.or.jp/en/"
+        }
+      ],
+      "priceHint": 2000
+    },
+    {
+      "id": "kyoto-station",
+      "name": "Kyoto Station",
+      "geo": {
+        "lat": 34.985,
+        "lng": 135.7587
+      },
+      "category": "transport",
+      "kind": "station",
+      "description": "Estação futurista de aço-vidro de Hiroshi Hara (1997). Vista do rooftop SKY GARDEN. Shinkansen Tokaido + Sanyo."
+    },
+    {
+      "id": "hotel-kyoto",
+      "name": "Hotel mid-range em Gion/Higashiyama",
+      "geo": {
+        "lat": 35.0036,
+        "lng": 135.7782
+      },
+      "category": "stay",
+      "kind": "hotel",
+      "source": "booking",
+      "description": "Hotel 3★ em Higashiyama, andar de pé pelo bairro histórico de Gion.",
+      "priceHint": 22000
+    },
+    {
+      "id": "fushimi-inari",
+      "name": "Fushimi Inari Taisha",
+      "geo": {
+        "lat": 34.9671,
+        "lng": 135.7727
+      },
+      "category": "attraction",
+      "kind": "memorial",
+      "popularity": 6.5,
+      "source": "wikivoyage",
+      "description": "Santuário xintoísta com 10.000 torii vermelhos formando túneis subindo o Monte Inari (233m, 2h ida-volta). Mais visitado de Kyoto. Chegar 7h evita a maioria dos turistas.",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine%2C_Kyoto%2C_Japan.jpg/330px-Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine%2C_Kyoto%2C_Japan.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      }
+    },
+    {
+      "id": "kinkaku-ji",
+      "name": "Kinkaku-ji (Golden Pavilion)",
+      "geo": {
+        "lat": 35.0394,
+        "lng": 135.7292
+      },
+      "category": "attraction",
+      "kind": "unesco",
+      "popularity": 6.4,
+      "source": "official",
+      "description": "Templo zen do Pavilhão Dourado (1397). Dois andares superiores cobertos com folhas de ouro puro refletindo no lago Kyōko-chi. Patrimônio UNESCO.",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Golden_Pavilion_Kinkaku-ji_water_mirror_2024.jpg/330px-Golden_Pavilion_Kinkaku-ji_water_mirror_2024.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "priceHint": 500
+    },
+    {
+      "id": "arashiyama-bamboo",
+      "name": "Arashiyama Bamboo Grove",
+      "geo": {
+        "lat": 35.0173,
+        "lng": 135.6716
+      },
+      "category": "attraction",
+      "kind": "nature",
+      "popularity": 6,
+      "source": "wikivoyage",
+      "description": "Floresta de bambus de Sagano. Caminhada de 500m através de bambus de 20m. Mais mágico ao amanhecer ou ao entardecer.",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Arashiyama_013.jpg/330px-Arashiyama_013.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      }
+    },
+    {
+      "id": "gion-district",
+      "name": "Gion (geisha district)",
+      "geo": {
+        "lat": 35.0036,
+        "lng": 135.7782
+      },
+      "category": "attraction",
+      "kind": "town",
+      "popularity": 5.7,
+      "description": "Bairro de teahouses e gueixas. Rua Hanamikoji com arquitetura machiya de madeira. Por volta de 17h, pode-se ver geikos/maikos indo trabalhar — fotografá-las é proibido."
+    },
+    {
+      "id": "nara-todai-ji",
+      "name": "Tōdai-ji (Nara)",
+      "geo": {
+        "lat": 34.689,
+        "lng": 135.84
+      },
+      "category": "attraction",
+      "kind": "unesco",
+      "popularity": 6.1,
+      "source": "official",
+      "description": "Templo budista de 752 d.C. com a maior estátua de bronze de Buda do mundo (Daibutsu, 15m). Veados de Nara (sika deer) circulam livres no parque adjacente.",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/T%C5%8Ddai-ji_Kon-d%C5%8D.jpg/330px-T%C5%8Ddai-ji_Kon-d%C5%8D.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "priceHint": 600
+    },
+    {
+      "id": "osaka-station",
+      "name": "Shin-Osaka Station",
+      "geo": {
+        "lat": 34.7333,
+        "lng": 135.5006
+      },
+      "category": "transport",
+      "kind": "station",
+      "description": "Hub de shinkansen de Osaka. JR Line Loop conecta com Osaka Station (centro)."
+    },
+    {
+      "id": "hotel-osaka",
+      "name": "Hotel mid-range em Namba/Shinsaibashi",
+      "geo": {
+        "lat": 34.6688,
+        "lng": 135.5015
+      },
+      "category": "stay",
+      "kind": "hotel",
+      "source": "booking",
+      "description": "Hotel 3★ próximo de Dotonbori, andar de pé para a vida noturna.",
+      "priceHint": 18000
+    },
+    {
+      "id": "osaka-castle",
+      "name": "Osaka Castle",
+      "geo": {
+        "lat": 34.6873,
+        "lng": 135.5259
+      },
+      "category": "attraction",
+      "kind": "castle",
+      "popularity": 6.2,
+      "source": "official",
+      "description": "Castelo de 1583 do shogun Toyotomi Hideyoshi. Torre principal de 8 andares com museu + observatório. Jardins externos com 600 cerejeiras (não floresce em setembro).",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Osaka_Castle_02bs3200.jpg/330px-Osaka_Castle_02bs3200.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "priceHint": 600
+    },
+    {
+      "id": "dotonbori",
+      "name": "Dōtonbori",
+      "geo": {
+        "lat": 34.6688,
+        "lng": 135.5022
+      },
+      "category": "food",
+      "kind": "restaurant",
+      "popularity": 6,
+      "source": "tripadvisor",
+      "description": "Rua icônica de Osaka — Glico Running Man neon, takoyaki (Wanaka), okonomiyaki, kushikatsu. Júlia: muitos pratos têm wasabi como acompanhamento; sushi bars têm versão sem. Pedro: sashimi/sushi de peixe (não crustáceos) OK."
+    },
+    {
+      "id": "hiroshima-station",
+      "name": "Hiroshima Station",
+      "geo": {
+        "lat": 34.398,
+        "lng": 132.475
+      },
+      "category": "transport",
+      "kind": "station",
+      "description": "Estação de shinkansen de Hiroshima — terminus oeste do Sanyo Shinkansen."
+    },
+    {
+      "id": "hotel-hiroshima",
+      "name": "Hotel mid-range em Hiroshima centro",
+      "geo": {
+        "lat": 34.394,
+        "lng": 132.4596
+      },
+      "category": "stay",
+      "kind": "hotel",
+      "source": "booking",
+      "description": "Hotel 3★ a 10min andando do Peace Memorial Park.",
+      "priceHint": 16000
+    },
+    {
+      "id": "peace-memorial",
+      "name": "Hiroshima Peace Memorial Park",
+      "geo": {
+        "lat": 34.3955,
+        "lng": 132.4536
+      },
+      "category": "attraction",
+      "kind": "memorial",
+      "popularity": 6.4,
+      "source": "official",
+      "description": "Parque memorial dedicado à bomba atômica de 6 agosto 1945. A-Bomb Dome (UNESCO, edifício parcialmente preservado no epicentro), Children's Peace Monument, Memorial Cenotaph. Museu profundo emocional — ~3h.",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/20181111_Hiroshima_Memorial_Cenotaph-1.jpg/330px-20181111_Hiroshima_Memorial_Cenotaph-1.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "priceHint": 200
+    },
+    {
+      "id": "miyajima-itsukushima",
+      "name": "Itsukushima Shrine (Miyajima)",
+      "geo": {
+        "lat": 34.2961,
+        "lng": 132.32
+      },
+      "category": "attraction",
+      "kind": "unesco",
+      "popularity": 6.3,
+      "source": "wikivoyage",
+      "description": "Santuário xintoísta com o icônico torii vermelho na água (maré alta). Ferry JR de 10min do Miyajima-guchi. Ilha sagrada com deer e Mount Misen (529m, ropeway + trilha 1h).",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/330px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "priceHint": 300
+    },
+    {
+      "id": "kanazawa-station",
+      "name": "Kanazawa Station",
+      "geo": {
+        "lat": 36.5772,
+        "lng": 136.6478
+      },
+      "category": "transport",
+      "kind": "station",
+      "description": "Estação com o icônico Tsuzumi Gate (portal de madeira inspirado em tambores tradicionais). Shinkansen Hokuriku desde Tokyo (2h30)."
+    },
+    {
+      "id": "hotel-kanazawa",
+      "name": "Hotel mid-range em Kanazawa centro",
+      "geo": {
+        "lat": 36.564,
+        "lng": 136.6562
+      },
+      "category": "stay",
+      "kind": "hotel",
+      "source": "booking",
+      "description": "Hotel 3★ entre Kenroku-en e Higashi Chaya. Bicicletas alugáveis na recepção.",
+      "priceHint": 17000
+    },
+    {
+      "id": "kenroku-en",
+      "name": "Kenroku-en Garden",
+      "geo": {
+        "lat": 36.5621,
+        "lng": 136.6622
+      },
+      "category": "attraction",
+      "kind": "nature",
+      "popularity": 5.8,
+      "source": "official",
+      "description": "Um dos 3 maiores jardins do Japão (período Edo). 11ha de lagos, pontes, lanternas de pedra, chá-house Yūgao-tei. Castelo de Kanazawa adjacente.",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Stone_lantern_Kenrokuen.jpg/330px-Stone_lantern_Kenrokuen.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "priceHint": 320
+    },
+    {
+      "id": "higashi-chaya",
+      "name": "Higashi Chaya District",
+      "geo": {
+        "lat": 36.572,
+        "lng": 136.6664
+      },
+      "category": "attraction",
+      "kind": "town",
+      "popularity": 5.4,
+      "source": "wikivoyage",
+      "description": "Bairro histórico de teahouses (séc. XIX). Casas com paredes de madeira pintadas em vermelho-tijolo. Folhas de ouro (gold leaf) tradicional de Kanazawa."
+    },
+    {
+      "id": "takayama-station",
+      "name": "Takayama Station",
+      "geo": {
+        "lat": 36.144,
+        "lng": 137.2519
+      },
+      "category": "transport",
+      "kind": "station",
+      "description": "Estação JR Takayama Line. Hub para Shirakawa-go via Nohi bus."
+    },
+    {
+      "id": "hotel-takayama",
+      "name": "Hotel mid-range em Takayama (Sannomachi)",
+      "geo": {
+        "lat": 36.142,
+        "lng": 137.2581
+      },
+      "category": "stay",
+      "kind": "hotel",
+      "source": "booking",
+      "description": "Hotel 3★ no centro histórico, andar de pé para a Old Town.",
+      "priceHint": 19000
+    },
+    {
+      "id": "takayama-old-town",
+      "name": "Takayama Old Town (Sannomachi)",
+      "geo": {
+        "lat": 36.142,
+        "lng": 137.258
+      },
+      "category": "attraction",
+      "kind": "town",
+      "popularity": 5.6,
+      "source": "wikivoyage",
+      "description": "Centro histórico mercantil do período Edo. Ruas de madeira de Sannomachi com sake breweries (sugitama — bola de cedro pendurada = sake novo). Festival de Takayama (out + abr) — não acontece em setembro.",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Takayama%27s_Early_Winter_Welcome_%28NE%29.jpg/330px-Takayama%27s_Early_Winter_Welcome_%28NE%29.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      }
+    },
+    {
+      "id": "shirakawa-go",
+      "name": "Shirakawa-go (Ogimachi)",
+      "geo": {
+        "lat": 36.2576,
+        "lng": 136.9067
+      },
+      "category": "attraction",
+      "kind": "unesco",
+      "popularity": 6,
+      "source": "official",
+      "description": "Vilarejo histórico (UNESCO 1995) com casas gasshō-zukuri (telhados de palha em ângulo de 60° para suportar neve). Mirante Shiroyama no caminho. Dia de mais 30°C improvável em setembro.",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg/330px-Ogi_Shirakawa-g%C5%8D%2C_Gifu%2C_Japan.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "id": "gru-to-nrt",
+      "name": "GRU → NRT (LATAM direct via DOH or AMS)",
+      "mode": "FLIGHT",
+      "polyline": "ng`nCzwszG{pihJg~nsb@",
+      "duration": "PT24H",
+      "distance": 18500000,
+      "tags": [
+        "highlight"
+      ],
+      "notes": "Voo internacional ~24h com 1 escala. Reserve assento corredor pra esticar pernas."
+    },
+    {
+      "id": "nrt-to-gru",
+      "name": "NRT → GRU (return)",
+      "mode": "FLIGHT",
+      "polyline": "khhyEkezwYzpihJf~nsb@",
+      "duration": "PT26H",
+      "distance": 18500000,
+      "notes": "Volta com 1 escala. Chegada GRU madrugada. Considere voo direto LATAM se preço diferença <USD 200."
+    },
+    {
+      "id": "nrt-to-tokyo",
+      "name": "Narita → Tokyo Station (N'EX)",
+      "mode": "TRAIN",
+      "polyline": "ohhyEqezwY{A`Am@Wi@YWq@AMSK[`AQ^_B{@k@_@OWEQc@eAQS{P~K}I|FYVyBtAMJgAyC_GdDePpJQBuCrBqNpL{EbE{CxCcCrCwBzCaAbB_AjBs@dBeA~C{@fDo@lDc@pDYjEI|D@hDJpDZ~Ed@xEv@rF~@jFpA|FrCfKbB`GhAbEhAtF^`C\\hDT|DFtDAxBMnEy@vKFXIhCAdCHzBL|AHn@^~Ab@jAp@bAh@n@bAt@`GzClEhCDJ@L`F|ClD`CnEnDzElEbCdC~DtEhDnEjCvDnDxFlGvK`JzOfC`ElC|DlCnDlD`EbE`ElD|CdE~CjDzBdBdAjCvA~FnChHtCzPtGnInDvE|BtF|CzEvCdH~ErFlEzEfEfEdEpDxDpFvG|ErGjGlJbNdTrF~HpDvEtEjF~E~EdFrE~E~DlH`FdFxCfHlDlF~BfDnAvJ`DjXhItIvC`HnCzCrAhFlC~ChB|EfDjEjDlEdErD`ElEtFxCpEpDjGlClFvBfFbBrEjB~FdBpGhBxHdDfPfE`TbBpHzBrIzBfHpBrFhDbIpCzFdD~F`DfFnJlN~FdJdDzFzAtCvA~CdAfCfBbF~@|CzA|FnAjG`@dCr@zFj@`Gd@xIb@dPd@pQ^lIh@`Ih@nFx@xGvAzIlGv\\dB|KfAhJdA~Kt@pL`@|JJ`ENtK@zMKdOU|K_@fM_@pIo@vJwAjQoBzUs@pK]xHS~IGbI@bFJ|IJrDd@~Jp@rJtA~N`CvVx@fKb@nHX|IPzKVn^R~JXrHf@pIx@`Jx@`H~@~FpAlG~A~FjBxFvBlFrBjEjDpGhJdPtCtFpBlElBbFnAzD~AbGpAhGt@rEv@jGbArKn@bGn@jF|@hFp@|Cn@xBv@xBpA~CrAbChBlCdBpBzFjGbBzBhApBx@jBp@|Bn@tCVlBVhDXbETdCLdAl@nChAfD`AnBvAzBfBjBhBtAjBbAj@TlH~BbCdAtBhAjChBtBlBjBtBv@`AlAjBdAhBhCtF~DhJ~BpEzBjD`N|QpBdCfg@tp@rAtBfAvBh@rAn@tBh@`C^rCP|CDlCG|CUjCWlBk@pCs@~Bg@pAqA~B_B|BuJ`LuCzDmBxCeCnEqAjCeAlCm@pBa@lBk@tDk@xFqCvY}@vHmAxHq@xDgBdIoBlH{BbHcAtC{CxHcFpKuIbQeCrFwBrFkBpFkAdEo@jCeAhFk@lDkAdJgA`J_AjFiAvEkArFy@`D_BxEyB|EwA|DsBzEkDbHyn@hnA}AfCqAdBmBrByBfB_B`AcCjA}CfAaGhBuBz@aB|@}B`BuAjAyAdBkA`BsA|B}ApDwS`k@sAjE_AxDcBtJyf@lvCy@zFa@dEO`DCnDDdDRdDf@pEb@bCt@zC`AtCtAdDfBxD`U|b@zZrl@zCpFdBrCfEfGlFzGx@~@n@|@jFjGhGvHzDxEr@v@l^fc@xEzElf@`d@xCxCzCjDdS~V`GnHrQhUnsAhdBpBvChApB|@rBp@pB`AnD^tB`@hDTdDDfCAlCCpASdDa@bDc@dCgAnEkBdHi@tBeInZsDdNgYpfAq@`D_@|B]fDUvDu@pZ{@l]?d@eAbc@_@vP?jDLzEzAp[lCrm@P~Cl@vORXHz@r@rN\\~Cl@fDH\\@P^~Ad@lBRvADbAEjAWbAa@t@m@r@s@ZeATyDd@G?uI|@ch@~DsAPgA\\gAl@}ApAoJhJmDbDaAp@aCfAwCrAgCrAcDjBkA`@oAVyDVgCFoRS_AFiAZeC|@q@J{@BqAKkC]i@?g@Fw@Xi@f@e@t@Sx@y@jH_AbKmAbNo@nEe@rCMh@c@fA]d@k@f@w@^{A\\}Cn@}@\\m@d@g@n@e@bAcE~Ls@rBgEhN_@x@c@p@y@z@{@l@kBrAu@t@a@p@Qj@K~@?t@Lz@t@~B~@nCBZ`AjCT`AHx@Ax@Mx@]x@u@dA_AfAmAvAaAx@gAj@}A`@mDn@u@Xg@`@SVU\\oAxCQt@En@DlA@Pv@lITvDAdBGnAuA|LU~@[j@]\\m@\\{E`BeAl@mEtDu@z@c@p@cAlCq@xBWzAO|@BZ}@jJ@b@B^pOdCpBj@nOvCxIlBvBf@dBuMUE\\iCg@KwAr@K?]MCGHi@BK?QJaABC",
+      "duration": "PT1H16M",
+      "distance": 74124,
+      "notes": "Narita Express (JR Pass válido). ~JPY 3070 sem pass."
+    },
+    {
+      "id": "tokyo-to-nrt",
+      "name": "Tokyo Station → Narita (N'EX)",
+      "mode": "TRAIN",
+      "polyline": "q}wxEw}`tYCBK`A?PCJIh@BF\\LJ?vAs@f@J]hCTDeBtMwBg@yImBoOwCqBk@qOeCC_@Ac@|@kJC[N}@V{Ap@yBbAmCb@q@t@{@lEuDdAm@zEaBl@]\\]Zk@T_AtA}LFoA@eBUwDw@mIAQEmADo@Pu@nAyCT]RWf@a@t@YlDo@|Aa@fAk@`Ay@lAwA~@gAt@eA\\y@Ly@@y@Iy@UaAaAkCC[_AoCu@_CM{@?u@J_APk@`@q@t@u@jBsAz@m@x@{@b@q@^y@fEiNr@sBbE_Md@cAf@o@l@e@|@]|Co@zA]v@_@j@g@\\e@b@gALi@d@sCn@oElAcN~@cKx@kHRy@d@u@h@g@v@Yf@Gh@?jC\\pAJz@Cp@KdC}@hA[~@GnRRfCGxDWnAWjAa@bDkBfCsAvCsA`CgA`Aq@lDcDnJiJ|AqAfAm@fA]rAQbh@_EtI}@F?xDe@dAUr@[l@s@`@u@VcADkAEcASwAe@mB_@_BAQI]m@gD]_Ds@sNI{@SYm@wOQ_DmCsm@{Aq[M{E?kD^wPdAcc@?e@z@m]t@qZTwD\\gD^}Bp@aDfYqfArDeNdIoZh@uBjBeHfAoEb@eC`@cDReDBqA@mCEgCUeDa@iD_@uBaAoDq@qB}@sBiAqBqBwCosAidBsQiUaGoHeS_W{CkDyCyCmf@ad@yE{Em^gc@s@w@{DyEiGwHkFkGo@}@y@_AmF{GgEgGeBsC{CqF{Zsl@aU}b@gByDuAeDaAuCu@{Cc@cCg@qESeDEeDBoDNaD`@eEx@{Fxf@mvCbBuJ~@yDrAkEvSak@|AqDrA}BjAaBxAeBtAkA|BaB`B}@tB{@`GiB|CgAbCkA~AaAxBgBlBsBpAeB|AgCxn@inAjDcHrB{EvA}DxB}E~AyEx@aDjAsFhAwE~@kFfAaJjAeJj@mDdAiFn@kCjAeEjBqFvBsFdCsFtIcQbFqKzCyHbAuCzBcHnBmHfBeIp@yDlAyH|@wHpCwYj@yFj@uD`@mBl@qBdAmCpAkCdCoElByCtC{DtJaL~A}BpA_Cf@qAr@_Cj@qCVmBTkCF}CEmCQ}C_@sCi@aCo@uBi@sAgAwBsAuBgg@up@qBeCaN}Q{BkD_CqE_EiJiCuFeAiBmAkBw@aAkBuBuBmBkCiBuBiAcCeAmH_Ck@UkBcAiBuAgBkBwA{BaAoBiAgDm@oCMeAUeCYcEWiDWmBo@uCq@}By@kBiAqBcB{B{FkGeBqBiBmCsAcCqA_Dw@yBo@yBq@}C}@iFo@kFo@cGcAsKw@kGu@sEqAiG_BcGoA{DmBcFqBmEuCuFiJePkDqGsBkEwBmFkByF_B_GqAmG_A_Gy@aHy@aJg@qIYsHS_KWo^Q{KY}Ic@oHy@gKaCwVuA_Oq@sJe@_KKsDK}IAcFFcIR_J\\yHr@qKnB{UvAkQn@wJ^qI^gMT}KJeOA{MOuKKaEa@}Ju@qLeA_LgAiJeB}KmGw\\wA{Iy@yGi@oFi@aI_@mIe@qQc@ePe@yIk@aGs@{Fa@eCoAkG{A}F_A}CgBcFeAgCwA_D{AuCeD{F_GeJoJmNaDgFeD_GqC{FiDcIqBsF{BgH{BsIcBqHgEaTeDgPiByHeBqGkB_GcBsEwBgFmCmFqDkGyCqEmEuFsDaEmEeEkEkD}EgD_DiBiFmC{CsAaHoCuIwCkXiIwJaDgDoAmF_CgHmDeFyCmHaF_F_EeFsE_F_FuEkFqDwEsF_IcNeTkGmJ}EsGqFwGqDyDgEeE{EgEsFmEeH_F{EwCuF}CwE}BoIoD{PuGiHuC_GoCkCwAeBeAkD{BeE_DmD}CcEaEmDaEmCoDmC}DgCaEaJ{OmGwKoDyFkCwDiDoE_EuEcCeC{EmEoEoDmDaCaF}CAMEKmEiCaG{CcAu@i@o@q@cAc@kA_@_BIo@M}AI{B@eCHiCGYx@wKLoE@yBGuDU}D]iD_@aCiAuFiAcEcBaGsCgKqA}F_AkFw@sFe@yE[_FKqDAiDH}DXkEb@qDn@mDz@gDdA_Dr@eB~@kB`AcBvB{CbCsCzCyCzEcEpNqLtCsBPCdPqJ~FeDfAxCLKxBuAXW|I}FzP_LPRb@dADPNVj@^~Az@P_@ZaARJ@LVp@h@Xl@VzAaA",
+      "duration": "PT1H16M",
+      "distance": 74124
+    },
+    {
+      "id": "tokyo-to-hakone",
+      "name": "Tokyo → Hakone-Yumoto (Odakyu Romancecar)",
+      "mode": "TRAIN",
+      "polyline": "m}wxE{}`tYXFVRBRCZBRFFf@Gj@Hc@~CTDeBtMx`@pJ~@`@^`@NPYXcAnBk@`BuApEEZwB|GiBjFsAhEKt@At@NbAdA~EXnB@VNL`@dCJHT`A\\TZPDLrE|B~HlEDZvE|Ej@z@NXd@~ARP^`FXbB^fAj@z@fJ|J`CxBhFrEJXfC`CxA|BnCtEnAfCJP`KnVhB~EdDhJnDdJhBbHfCrKb@vCb@lENhDf@xQfEjaAf@nXPpDRbBp@~ChBlHlD`PX`BdAbIVfA`@bA\\h@|@~@|BhBx@|@r@lAZ|@f@pBhCtM`DnNh@fBhAxCFDjDfIvCzGhDdIhEzJzHnQfHvO`BzCl@|AxAvEh@jAv@fArAnAxBfBtb@hYvAlAr@x@xArBxH~LzGhNfCnF`@fA\\vAhEzWb@zBxLrg@`BzFnGjSbIhUb@nBPjAJzA?zAI~AQnAo@lCcJvZu@xCq@dDe@zDk@bHKdBsEnu@a@zHGrD@jCPjDZ|CZhB|@|DfAjDjBbFt@~Bx@hDd@pCx@|Gf@jEj@bDn@jCt@dC~@zBvApCfBnCvAbBxAzAhBzAdBhAxFbDrGtDtCpBhCpBbDxCbCdCvDtEdEbGxGzJpBlCfDzD`D~ClDvCrDhC|EtCbHnDbQlI|EjChElClEfDfE|DlDxDrDpEtH|JxDbE\\\\pEvFvB`CnBlC~@bAhEvDpDrCtE~CrFbDfGzCxGnChFdBfFtAfGnAfDl@pEj@rGh@rVtAbHl@nFt@tE`AxDbAzCdAtD|A`ErBnDzBtDlCnC~BzDzDtDlEjMtPlDdEvCxCvDdDhE|ClFfD|StL~FvD~ErD~EpEdFjFpNtOxEzErE~DnF`EpPfLxEtDjDbD`DjDpClD|BdDpBjDbCvEbC|FlBrF`BvFjBbIzCbOzDvR|B`KzBnI~BvHrBvFzBpFjCtFfCvExCdFjDdFfDnEpH~IxG`I~C`EvCjEzBtDvBdEfB|DxBbGjBdGjF|R|A~EvArDzAbD`BrCtApBjC~C`C~BjCzBhFxDhL~HlEhDzDnDhFrFvJ|KjDnDxDjDpEjDrDbCnEdChErBxGjCfNhFpEnBjBbAjDxB|BdBzCrClCxC~B~ClBzCdCtEjCzFxCpHtHjS`CzFzCrGrClFdDrF~DzFzCxDlE`FbShSpD~DnDpEdDtEzCzElDhG~JfRtDlGtCjEfEvFvDlE~E`FjEzDlDlCtDjCrFhDtNpIhGbEjDhCrAfAlEbElDvDlCbD|ChE`CtD~BfE|BpEvEfKrK`WxClGpCnFpCvExBfDpDxEvCfDzCzClBdBzD`DjFtDpQnLbGjEjDrCjDbD|CbDfCzCpCtDfEpGnDvGxCjGbA~B|AzDnBzFbA`D|A`GjAfFvArHjAbIx@pHj@lHVhEVrHJjI?xJGpE[|KaAfSe@rH?~@g@jJIhCD`BNx@Vh@^\\h@ZRH|A\\Tf@jFbAjATl@V|@p@`@j@\\~@pBbJ\\dCLrB?bBIfBQhB]`DEfBAl@HvBNzAb@zBp@nBp@xAfAbB~AdB~BpBrFtDdZdSxC~BzBzB|AlBhBrC|BhEfR|`@|ApC`BrBlAdAfAt@vAp@rBn@|B\\bEVz^|AjFb@lDf@jE~@d\\~I|l@rP`ExAlCnAtBpA~BjBtBxBvAlBzAbChA~BbAhClA`ElAbFpHp_@p@xCbAhD`AdChA~B~@tAbBvBpBnBxDbDbz@bp@nIhG|E|C~GvDtFlCnFzBrGzBnGjB~EjAbEv@lF|@bFn@~It@tU~AnEb@bKtAdCNzA\\dBl@ZZNPrBhArEpBtEbC~ClBpEzCxC~BpBhBjBrBpBnCrArB~A|CpAxCpBxFvBpGtArD~@xBx@`BbBvClBjCv@z@~F`G~AnBjAfB|@dBn@xApAnDhAtDtAnFvBzIxAbFbAxCdBtDhBdDfF~HnCxEtAzCfAvCl@jBhAdE~AfIdC~N|@bElClOrCnR`@vDzAjKLlANzBJ~FP`ENzAj@hC`@pAhAtC`F`Kb@lAb@~ATvAN`BHlB@tF@hFRfH^jFl@zFj@bE~AvJlBjJfChKrBlHjBbGbD`JjBlExAxCrAxBbCbD`B|A|DdDhIhF|ApA~@bAv@hA`AfBv@~AzO|^vCfHdFpNnAzDlA|DrAtDvDzJ~@`D^vBNlAFpBEjCWjDo@hGMnCAtCRnO@~GGtG[rKa@rMMlHCpHB`DNlDT`C\\xBb@tBx@lCjB`Fz@vBlAbCdE`LlEjL`AhCrApEj@jBpArFx@~DbA|Gt@|FfB~QdBvQh@~Dh@pCj@pBt@pBh@fAfAdBbApAlAhAtB|AvBdAnBl@rBf@jFz@nKzAjFv@rBP|ABxJUjDIzAFrAP|Ab@jAj@~M|IpEdDfCxBlBpBfB|BzA`CpAjC`B~DxBvGrDfLrAjD|A`D`A`BdBvBtAtAhBnA|Av@fBj@tBb@zAVjOfDvZjGzBh@hBXvAFnBEfAQvCw@HCH?dAOr@Fn@Vb@`@Zj@Jd@?d@Q`@u@|@Od@GvAEJPlFBpAF~@Lt@b@zA`@|@lBxC\\`@tBxDr@vAdAjCf@pAZj@xAhBt@n@hAr@|BvApB|Ap@n@zEnF|B`DV`@HTfCbFrC~Fn@lB`@dBVpBh@hE\\fBt@zBfBhE?Hx@pCf@fCn@nFDrAA~AIv@Mp@_@`BUrB?r@d@~JJz@Nx@rDoBJa@Hi@",
+      "duration": "PT1H43M",
+      "distance": 85562,
+      "notes": "Odakyu Romancecar (NÃO coberto pelo JR Pass — JPY 2330). Alternativa coberta: JR Tokaido até Odawara + Hakone Tozan."
+    },
+    {
+      "id": "hakone-to-kyoto",
+      "name": "Hakone → Kyoto (via Odawara, Shinkansen Hikari)",
+      "mode": "TRAIN",
+      "polyline": "mk`vEoc`pYOoGHqAPw@x@kBa@Sc@Fu@R_@AqA_@k@YTyABsAC_BOwAi@aEe@yBKE{CaI]y@IKF[PGPBPHF?nE~ClG~Dn@l@RZr@|ARn@Nv@XtFLr@Vv@p@pAz@dBhAnBpBhCdAtAb@~@Rj@V`B|A`KzAnLvBtQp@hFh@nC~A~Ht@|DX|@^l@XTp@XtDj@v@\\TZPh@B`@IvCUpFBj@DXVr@dBpCb@fAzExPFZBx@MpCGnBB|@VfBvA~HlBbIvHtZ~@~Dl@rB\\r@b@d@l@X|EnAp@`@l@l@Xh@rDdLXj@\\\\r@XfA`@b@b@Rh@Hx@JrBLj@Xb@XTd@Hl@AvAI`@F`@RTXVv@`@pBfDjJp@lAr@|@~@x@`CpAfFlC\\XXl@Hj@Ad@Sh@QT[Ng@FuCHeANgIzAw@@{@IsEiBc@E[JWVIb@?b@L^RT^JlBBtBDbAPz@ZzH|Dr@Nz@D`AKz@]tCsBVEVHNVF^CXITUNsElAaA^UTK\\AZJ^RTXFZEjB{@b@Eb@DZNd@j@x@jAh@^n@RrBP|@VnCdBbA`@bD`AjAn@z@p@xFvG~@r@nAl@xPdEbFxBx@Rz@J|Hb@d@Nf@XxBrBrAdBrCbExB|En@~@dGrF\\j@Tv@F~@I|CFt@Rv@\\j@j@b@vGzCl@f@f@l@\\t@VbA^nERbCPj@b@r@x@dATj@Jn@HbCNr@l@pAz@hB\\fARjALbB\\bKJz@ZnAd@`AbF~H`@fARjAjAxJT|@Zj@f@`@nE|Bb@d@Xh@Px@Bt@Gz@Qp@iBvDu@dAeAbAsAhAa@n@Sl@Kv@DjA~DpZBl@Cr@Qv@s@xBIlABv@Pz@\\bAd@zALr@CXFx@EnBEr@Fj@Nb@X^n@XvCZtF^vCVjEXv@@HGr@Kt@_@h@m@zBqDh@i@j@]x@Mt@Dl@Rl@d@h@r@`AzAd@^p@VhDdAb@\\Vb@Lj@Bh@Gl@]pBCb@Fp@ZtB?f@Ib@S^mApASh@ET?VFb@HRLN`@R`@B`BEl@DXFXL`@^`@n@VbAb@nDLf@V\\VNZB`@ITOFKNe@Bw@SwEN}QLq@Tc@VS`@Kd@Bb@RtCzC`@h@\\`AxA~GTp@`@n@r@r@hCtB~BzC^Tn@R~@Tb@^T`@~@nDRtADlAOxHHp@Rd@VV\\Pj@F`BA\\Ib@W~@q@n@U`@En@Fj@Vb@d@`@x@bBhE`@j@vAnA`@n@Tp@Lt@Dr@GlCFj@L^`@^|@f@nCrA^^P\\Tj@b@xCNf@`@f@bClAx@t@X^n@nAPf@Lr@nBvL\\bB`@pAd@bA|@nAhAbAf@ZnAf@zAZhABvBC~@D`Dl@`ABf@EtCq@|AKpEBjCLn@Rh@\\V\\Zt@Lt@AfAMx@Sh@_@h@_@Xg@Rm@Hs@CoBi@a@Ey@?_AR_Ah@a@b@e@t@Wv@k@nDCX[hBY`CGfABf@Ln@Nd@\\b@`@Zn@Pf@@j@Gl@Yl@q@nBkCz@s@x@_@~@SbAKpAKjDe@bCWzAc@h@[nAy@l@Ov@Cf@Hh@V`@`@Vh@Rz@Bp@Cj@Ij@Wp@[b@a@Xm@Ti@Be@Eg@OoAe@m@Kg@Ai@Ji@Z]d@[t@Mx@?j@Fl@Pn@\\l@t@n@rCnBrChBv@r@p@`AvJfQ\\d@^Xx@b@dBf@d@Pn@d@l@t@^|@Nl@LvAA~@K`A[nBCbAH|@Rh@Xb@l@h@v@`@jCx@|@`@j@^v@v@n@~@d@fAdA~Cj@dAt@z@jCdBl@l@b@v@j@jBf@bBd@|@|AvBjCfD^n@Xp@Lh@HfA@v@KjAcA~EKhAAt@Dj@Nt@Vt@\\p@h@l@xBjB`@t@Rz@Fr@CbAMx@Wn@c@n@_@Xe@Rq@Jo@A{AYq@Ki@?e@Fe@Vc@`@S^Qj@Ip@Ap@Lx@Rh@l@x@pAtAb@v@Rv@Hr@?|@Mx@[~@}@tBUx@ChA@l@Lt@Xz@v@|@\\TlCbAh@Xf@d@h@x@~GtNDBlDxGl@~APh@VrAJtAF|DPtAVbA\\t@l@v@HFyBzA}BtAUZUt@QnAQ\\YRyDbBkBbA_DlB_A`@K?}CxAyCbAsD|@mIrAuC`@gCb@gG`AcFnAiGtBaDzAiBfAiDbCsBfBsB~BwC~DkBzC{A|CaA~BmAlDkAdEy@`Ek@vDa@bEWnEKdE?jELlG^bIh@vGz@nHxCdTt@hH^zEXdGN~FDhJHjOZ|UAnCIfEMjCIj@UpC[fCWvAkBhHcAhCiA~BcBrCoCzD_DhEkAnB_A~Bo@bCe@tDKbC?lBFfBT~BV`B`AfDjAfCpBlEhDxFbG|KRPpCrEvAjB|A~AjAhATb@Jh@?l@Kf@Yb@c@VgCn@_Af@k@j@U^AN}@lAmCdDsBtBu@r@yArBaDlFqC`EiC|COVuBlC_@p@[|@Q|@OrAAhADz@V`BxGfV|@tDh@tCAVz@dEpAzHTzADNd@lDx@bILvA^rF^jJNxHBjGEnGGnDQlFUhFk@zHu@jHyAdLqChS{@zHe@lG_@rG_@zJEbH@rEF|FVfIXpFr@lJr@vIpA|O\\pGRnENdIB|HIxISpJa@nLi@~K]tGy@rMw@lKkA~Mc@tEy@jHcF`a@oChQ}DzTiBnKeA`HyAlLcDrZw@bGiAxHiApGsAtGyBjJkCvJiEhMaBdEaDrHeCjFwAfC_AnB}CpFsErHcIpL_GjKyElJyD~I_C`GiFlNoCfHyBbFmDnHsD~GgEdHiC~D{FrIyBzCmNrSwH|LkCnEyEzIqEfJyDvI_DxHcBjEeCdHwC`JiFlQsGhV{EvRoF~UsDlQ}CdPsBjLaBrKgBvMuA`M}ApPs@vJ}@zOk@bO_@|OQrS?rLJrLRnKRxFb@dIn@dIb@hEv@nGzApJb@fClAbGnApF~BtIxEtO|FjQnG~Q|Z~`ArIxWzBhGlB~EvDvI~A`DpEpIfCfExGxJ|GjJ~CpDhCjChIpHnF`F~TfS~A`B|FdH|DpF`D~EjBxC|ElJzCtGdCrGlCjIl@rBz@dDfBpHvAlHpArHnApI~A|Mtg@~oEjBzNhAzHhChOnAxGlBnJfC|K`DfMnC~JbDjKfCvHbCnGzCxG~DxHhCjEjDfFjDnEbDvDjCtC`ExDdFfEzDtChItFrQlLzDpC`HrFnGxFbFhFnFhGnDxEdE`GfDpFhFlJ|FtL~DhIdIdOp@jArDhF|HlKbNbPdHrHxBvBhAbAvB|A~B|AnBtAzBxAlCbBdFpC~Ax@hNlGrHzCvDtAtDfAfDfAnCt@bEpAhEhA`H~BlJnDhLjFrMjH~GnEpGpExDrC`H`GbHzGlQhQlGzFlI|GtHpFzNjJzJrGlFzDbClBpD~CvCvCrE`FzFnHbAzAvA`C~DrF`BrChCvEtDrHfDrH|C~H~B`HbBtFhBtGxBhJdE|QhDdNhCfJ`CzHlBrFxA|DzE|LnDdI|DpIlClFjC~ErDtG|GbMzAhC`CrEnEdJdEnJjAtCnDdKtAhEjCdJ~AjGjBnIjBxJnAfI|@lH|@jJf@nIVbHN`J@pOA`LB`HJzFVlHd@rHf@~Fx@nHbA`HfBlJxAnGzBbInClIpC|G`CrFnD|GpCrExCpEjExF~DtErFtF~NfNdHdHjCnCbFfGvC`EnCdE|CjF`EzHbCpFfF`MfF~MtEtMnD~KtCtJ`AzCfFpRbEfQfDrO|CnOnFdUdDnL`DzJxEnLt@~A~A|CpCzFbCnE~HfMfEbGT^r@`A~FxG~D`EbHrGpMvJxBzAxGdE|JvFhFlCpVnLvH`DtDxAdGpBnGhBzEjAlGnAjJxAvNfB~b@bF`LzAzHrAjGrAhGbB~J~CtRnH|rAlh@~LtEhLzDhIfCdFxAdGlBdVzHrP~FhGbCpD|AtHjDvHnE~FzDlFzDvExDlGzFzFfGnFhGrEdGjItL|CvEnApBjBvClFtIvEzG~CfErDnElJ`Kj_@~^~D|DdAjAfAjArEjFvDxEfEvFvBdDdHfLbC~DlB`DrArB~B|E|AdEpDxIpEpLpFrOhGdR`BrFlAhEtB~HzBjLfBpHnBnHhAdGzArIfAfIhHze@zDtU|DpW`BvJrDtRfDpOnDnO~I~\\xDzMjBhHvB|IpBfHx@dC~HdZ|@pDtB~Gz@dCrIxVr@fB^~@~LvWbBtD~BpE|Rl^tGtMlC|FzDrJxEhMfCzHlC|I|BfIxB~IlLzg@|DpOvBlHLZvAtE`FbNhEvLdCvHlBnGxBvIhBpIdAxFbAfGdAzHt@vGz@dJl@jJ^xJR`KFhJEdJQxIYxH}Ah\\WhIKfGIhKDpJL~H`@jKbGbmApAzV`ApPtA`RrA~NbB|ObBnNvEd]~@fI\\lDb@|Fj@xKZjOB~EGxMUrJW~G_@fG{@xIw@xIyA`LuBbNmCbQi@~DeArJk@`Gq@tJa@tJUpMCjK?|CNnJ`@xJ^lFb@tEjAzJtA`IdAxFxAhGtAlFtItYrChKlBpGzBjJtCrMzGz^|EnXzGj^vCrNtCdMlE~PlKr`@dF|RjAnEb@pBnDfNtBnJfBfJjA~GhBjMbAvIt@zHr@lJd@dI^`LV~LDdHDpGM~NQlHe@lMg@~Iy@lKo@pG{@pHkBnMeAnGiA`G{DlQiFvUcBdJcAxGaAbIg@pFe@bIWxGM`IAbHBvDR`IXbHb@nGv@~Hz@zGbCrObD~RdAbHZbClApLd@pGb@dIZtKDzKAfHKpH[tIw@fLy@zIu@hGiA~HqAbHwAzGsBfIuBzHoEjOoC|JaB`HmAhGeAnGk@zDs@fGq@bIe@hHkBj\\uCzg@q@|JcAbLu@dHyBpOoAzHwB|KiCfM_C|LyApJ}@hHs@fHy@lK]`H[hIO|KAnJHtJVpJTtF~@fOpArRx@rM\\xIJjGDdHGlIO|F[pGo@rIu@xHkApIyExXc[`gB_Kdk@[zA_ErUq@nD{ExXoBzKkQhcAuQxcAsClNwBpJqBdIeC`JgD~K_DjJ}BlGgCxGuD~IiEhJqEbJcExH{EfIwCxEmF~HkHzJoF|G}G~HqFxFyNrNmW|VyAtAqGtG_DlD_D|DkEhG}EtHyCrFaC`FeCdGsCzHoCbJcBnGyA|GwA|HuCzQ_BzKo@vEwChQ{@`EkAfFoBlHkBdGqApD{BlFgB|DsB`E_EfHgE~GuItMwHzK_F|G}InLmEdGiDbFe@n@cC~Du@lA_D~FyCrGaC|FuAtDaDrKcC|JcC`LyBnLgBxK}AjLuA|LcS|uB{Dr`@_BrQeAxIsAzJuCfQ_CvLqAzF_CfJ{BrIcBnHiBfJsAlImAnJgAbLqBxVmAbO{AdSmBxU[zFi@tNUjOCtGD`HNxIPtFn@hLp@dJ~@jJfAnIzAvJjBxJjBfIbBpGpE`OhChHvEvL~CxInBpG|BrI|AzGpD~QrBtLnAfJrAnL`AhKr@jJzD`\\pArMt@hGlB~I~DfOzA`FnC`IdCvGxA`ErA|CrChFhFdKdFbIpEpG`ElFbCrCbApApEzGzEfG~EvG~KxNt@dA|BnCrH|K~G|KhBhDvKdT^z@bEhLxEbPlApEzId^vAjLZhDlD~V|AhMfBjO|BvTtG~|@BrDXrL|@hVp@`VX|IBnAQhRMfG{@tU}@rMsBbV_A`J]hC}S~fAyCvLgAzD}B`K{G`YeCrJ_GfWkFtTwGtZgCbMuFbUuBrI}Mhj@uLpf@oB|H{EfS{GnXsChKwB`HkCfIwUzo@eS|i@sC|GiDjHiDnG{BzD_EnGoHrKeGdIeGpH}EnFaNbN_KhJeGbFmJlHyGtEkI|EgExB{KfFeH|CcLzEsLrEoIvCwNvE_G`BuHnBgDl@cEl@oGv@uOvAuKd@iJn@oGx@kHhA}DbAmDhAmBb@qIpCwFtBmFzB{IfE_FpC{ClBuOzLsUrS}EdEoDvCsFbE_HvEiI`FyItEgHdDoGfCiFlBqH`CiHnBuIlBeJ`BqPlC_I`BwHjBwK~CyH|BqElA}FpAsJlBaFr@eI`AuJx@mH`@oMn@}Gh@qFp@yEx@kE~@}DbAqEtAcFlBgEhBcEtBsEjCsGjEkFfE_CtBaDdDeDtDiErFgEbGwDfGm@lAk@bAsD|HkApCkAxCwCvIyBxHiBvHmAbG}@xFq@tE}@`Ig@lH[rG[zK?tI@vEVvJTpFf@dH|@~Ir@`G~@rGnCxOrAzGt@rDv@`ErC|L`A|D`BpFvBhG~@~BpBxErC~F|ApCjC~DpFpHhFdGtDrDvFbFfGlFbA~@LFzA|A|AfBbDfEnBzC|AhCvFtJnDlGbDdGpE`IxGbMvCjGjDzIjNra@hA~D`AnE|@jFlA`Il@~CdHxe@`A`H`AzI`@dEn@|Ih@bLXhLDfF@tEJhIRzD\\lD`@nCd@zB`AnDt@xBbBvDvCjFhF|I`@t@dA~B~A|E`@xAZjBXzBRvCDpECtAM`CStBw@jEy@~CcAzCw@vBmApC[|@eLvX{B|FsBbFqBdFwDlJgAfCyHpRuB~E{CjGsFxIeAtB}HfMiDjFg`@nn@qCnE}^tl@sHfMe@r@uHvLkB|CiPxWuBtDqAnCkAzC_AzCgAdEs@jE]vCa@tFGdBCxGHzL?lEIzDIhBe@pEc@|Cs@`D}@`DqAlD{DfJsAbEg@xBa@~BY`DIxC?lCHhCRfCZtBj@rCb@xAdApCn@nArA|BdAzAtEdGbB`C~BlErAhDl@lBn@dCl@bDd@fD`@nEZxFJhFAdDG|DWhFm@xGq@lEkAjG_Pvv@[rBUjA[rCSzD?nDNtD`@tEdA`Ir@pFTzBZhFFhDCxD_@bHuBnSSbDKlDE~DA|QGdVYxRg@hQQxCs@zGo@nEy@dE}@jDqA`EyEnMiChImApEoAdGm@tEQpBKfCIjE@jDH~CRtC^lDp@bEdDvOrLtj@l@rDj@bGF~CE`DQ`Di@`Ei@vCiQfz@}L|k@eB`J}@xFk@dF_@nE[nGOzF}@fs@c@z\\SpEOjBg@rEoEn^sApKWpBa@zDQnCGnC@bFP|G^|JjAnXjD~z@dA~VxB~g@PtGBd@LpGHlFFdV?dh@GdUAlI@PEtFSjt@@jIAv@B|MK|NBr@CbKCpDDhMFlJJ`[JbJNxD^`F\\|CpBtN|@vHz@`K`Cd]fCt_@jGl_ArBfZf@zE|@jFbAxDlAlDzAhDzTdd@hAhCxA`EnBtG|Vd~@nBpH`DdLhI`ZjGlU|DtN~Ptn@dJp\\l@tBLl@dGlTlApEpHhXtFvStAvFhAvFx@jFj@|EZrEPnE@~DIvDQhC]dDo@zDs@|CaAbDeAjCqArCyD`H}N`VeD~FuBhE{BrFoBzF{@vC{ApGmAhHg@~DYlFGzDFzCNtBXdC^lBn@dCx@`CtAtCtCtF|@tBz@jCj@lCTlAXhCNtCDrGExHOtIUnGYhD]|Bk@bCy@jCeAbCoAvBuAjBcBdBgBtAaGlDcK`GmBzA_B`BuAhBcAbBiAdCm@hBm@xBm@rDi@hFw@vLUrD[fDw@pGiAbHIVk@tCgAhEcBfFgBlEw@lB{@fBuCjFiIxMaOhUmDvFoDjGmCbG_BdEmB~FoA|EcAxEw@nEo@zEi@zFa@|GKrDI`H@tHR|Nn@~ZVpJl@`Ph@lJt@lJhA`LdAhIv@`G~CzPdC~K`CrJ|BfJ`D~KrGbUtDvNdBjHzBfKr@bCjBnK~AhK~AzLz@jH@XhBrPZfDlPj~AdBxNlCvR~B~NjC|NnBzJ|C~NfB|HdDxM`Mld@`Uhy@zGrUpD~KlD`JlArC|BzE`FrJ~CjFfFfIbFrGnEfFfDjDdI|HjM`K|B`BrHtEvDtBlFfCzFdCxEjB`D`ArJ`ChB^`KnAlP|AliArIjGj@nM|Az]lFbHnA~EbAjInBpI~BrHzBxFnBzIhDnJfEnEzBzGpDzEvCjEvC`GlElDnCtGbGzBtBjHtHxCbDzLpNdGjH`DjD|HzJxaBrvB`ItK|EhHtEpHvEjIpDdHbD~GnDlI|BhGr@pBpDjLhBdGnDpNbBpHtA~GjC|NBZzAnJzB`QdAbKb@~FR|CVvGBl@FHFpGBlB?rNSlc@]rpAApK}@nuAQtIeA~`A{@vx@EbODjLPjNb@bSd@hPn@dQn@bNd@zNVdPJ`N?~NIpLYhP[lKo@bPcA`QeAnNuAtNaB~NeBjMgBlLcBvJwDtRkBrIwAbG}FxT{B~HaCjJaAdEqBhJaCpM}ArJgBpMmAxKyApPg@lHc@pIe@zKUlIErLFtKTtI^hIr@|Jz@hIt@tFfAbHvAnHrB|ItBxHhC`IhC|GjChG~DdI`GrKrI~NzDtHbDhH`BhEbBzEtBdH`BnGtAlGxAlI|@nGr@tGn@~Hd@pId@~Nl@pSh@tL|@~MjArMfCtVp@xHh@tIZ~IHbJCtHK|FUbHe@`Ie@pFy@pHaA~GqAlI_CnM}BbL_DfNqDpN}CpKuDrLoCbIgClHqC`JiBtG{AdGuAlGgBjJkBlLwA~KaAzJu@zJ_AzPw@hRg@jP]hPUrSIxR@hSFdGDfK?nBBxAAbIKhKSpIo@xJOzDo@nIu@tIYtEO|AWpBe@vE_BxK{@fFeAvH_@tCWbBk@vCk@lEi@~EGx@E`BoA~MiA`Ou@nMg@tJcAlPo@xI_BxQoAhMyCnV{CrScCrNyA|Ho@tCUxAqCvMuA`G{BpIcCxHeBtEyDtIiDxGqBhD_D|EgDjEuDnEyIhJgJ`ImOdM}GdGoFnFgFvFcCtCaFvG}D|FcDfFuEnIeGvLg@fA}B~FmBjFyB`HqBdHsBjIwB`KkAxGoArIaA`ImA`N_@fFa@zHQbHGrG@hLFxDn@vM^xEn@`Gz@rFjAfGzAjGvA`Fv@zBdB~DdBtDh@|AXjAVnBJdBB`BIpBO~ASjAe@bBo@|A{@zAiArAuAlA{HjGoBlBgBvB_BbCuAfCoBnEaFfMaBjD_A`BmBrCaArAe@l@}BtB{BvA_Bx@gCz@kCf@sBNuADoDKgBSuCq@oHaCmAY{AUeCQmBA}ADgC\\_ATcBj@OFiBdAmB|AkBlByAfBiBpC{@dBg@pA]pAMz@KzAArAH~AV`B`@tAbAxBxDlH@^hf@xz@jBzDrAlD|@hDf@hCfArHbLh{@pDpXx@|Gb@dFRvED|EE`GwBtk@eFrtA}@vU_@pEi@lEy@lEiAnE_AvCeAnCeBrDsA~BsBzC_CtCkBhBiCxBuBxAyDvBoB|@_DdAcBd@sw@pQkDfAgC`A}DpB_DlBaChBqBfBiClCgBxByB~CyBvDgAxByBnFqMh]_@jAWhAWxAMzAEhB?dANlCJz@lFh[bAhExDnLvC`HbCjEnJvOv@|An@bBn@~B|@hFtGxa@p@xCZpAxBvGnCfHxAzCx@tAtAhB~A`BxAjAtCjBhB|@dFnCvjAbm@bC~AxBlBlBtBfBfCjArBpAvC`dAbwC`A~Cv@jDd@vC^|CRbDJzDJxz@JjwA@lHDpPJ|~@JxERdDb@|DLp@JFtBpIn@xBl@jAl@l@t@`@hBl@f@j@Td@z@pDb@|APHpAvA^XVBLKBQAQy@_@q@k@e@{@yBsG_@g@c@WqBs@g@a@]k@sEkPI[cBCcLa@uGY_EUYFoMy@qAK}I_@iBK}FWyHQyQMeFi@cBKqFIyJGqIGyEEOKmPK_FBy@CSJwABOFASJqFEwE@mFFa@^uAD]@y@UAMIAU?a@",
+      "duration": "PT4H52M",
+      "distance": 380765,
+      "tags": [
+        "highlight"
+      ],
+      "notes": "Hakone-Yumoto → Odawara (15min) → Shinkansen Hikari → Kyoto (2h)."
+    },
+    {
+      "id": "kyoto-to-nara",
+      "name": "Kyoto → Nara (JR Nara Line)",
+      "mode": "TRAIN",
+      "polyline": "qzotEokr{XBg@IuAE_@O_@FGLCR?C[GOk@wExEC|JBpCCtDAr@AjDc@t@UxA{@z@Wx@IhKRnL??wCCS?}D@[NAj@Lv@\\DPvFvEpAt@`BlA~@z@r@n@hAlAVRPXfBtAjAn@nBjBf@r@Xl@X~@RlAFjACxAWlHAlAF~@NfAPr@^x@p@~@vAvA`Ap@j@TnAPhOn@zFHPAfVhAhHVzPLjNLzf@dAvf@hApDL^EpKHvSTjDHvETfIl@hPv@|ShA|L`@zKNhm@\\tCAnCBp@Fdj@\\xQNxHDfh@Zv@AlFFn\\Pda@ZhCJfBV`B^jBp@zAx@bBlAfE~Drg@dg@vXjXrB~AhB`AlBt@tBf@bCVzJ`@dWz@rBL|AVpBh@vAj@bB~@xAhAtArAjFpG|HtJPFJHfDtDtBlB|A`A`CjAtBx@pAx@zAjAx@^r@Lr@Ab@Kp@]RQh@{@LUv@}BT_AJQb@oC^sDX_FL}DByDEeEQmFa@mGm@aGy@wFuAkHmEeS{AqHcAiG_AeH_AkJi@}H_@gKUeKSgIGqI?kCIuCKuAi@_Em@aDCYBo@R}@Ve@b@a@h@Qh@Gt@Hh@PpA~@xA~AvAfBp@t@~BnBrApAV`@HT`NxQjDnElC|C|BrBhCbBdCnAzBfAtDtBdDfBdMdG`A`@zAh@tBf@|AT|ALrBB~AIlBYfBg@bHoClCy@`B]zC]bCGlCBxF^~Ij@xENlD@~FK|DSxFk@vF{@|Bc@fGaBhFgB|CqAvGqDpIeFnEkCzCwA`C}@xCw@tDu@~BYjDU`Po@tDU|Ca@vB_@jD}@fDkAdBs@hDmB`DwB~BgBv@s@hCoC~AqBfBiCtA}BxAuCnEeKzCiHfBuDvAeCvAoBdBoBhBaBbBoAhBeAlCkArC{@vCi@bBUpEW`GKtC?xA@hBEp@M|@OxFQlBAjEs@~D_A`DeApEeBvMwFnDoA~EsAlFcAxEm@tE]|JWdIShF[dFi@pEq@jDs@jFuAhEyA`E_BvFsCnC}AfD{BvEuDlEyDrMyLdEoDtGwEhEoCrDuBlFmCnDaBzMiFbJqDnFiCdDkBvCoBpEeDbCuBbBiBpBiC~AiCzA{C|CyHfAaDvBmHjGyUfAqDjDcK~BsEVe@vAmBb@g@Vc@`AaAdBgBbA{Ax@eBlIsRBOfBiEhAuC`JuSr@_Bj@iBTyAFwACqAmCmW_@wElDi@RDPPHXA`@St@Cd@Db@Pl@jFgDx@[jAQhC?lA?fAOfA[|EuBXQjD{AzA{@jA_Af@e@jGcHpAcBzFmIfCgD~@{@p@e@xAo@fEcAdH_BNAvGwAhAKr@ArQbBz@Px@b@j@j@^p@Rh@b@dBZ`@z@^r@P~C^nMN|HC?{AYaIe@yL?oE",
+      "duration": "PT49M",
+      "distance": 42851,
+      "notes": "Day trip — leve apenas mochila do dia."
+    },
+    {
+      "id": "nara-to-kyoto",
+      "name": "Nara → Kyoto (return)",
+      "mode": "TRAIN",
+      "polyline": "aivrE_gb|X?nEd@xLX`I?zA}HBoMO_D_@s@Q{@_@[a@c@eBSi@_@q@k@k@y@c@{@QsQcBs@@iAJwGvAO@eH~AgEbAyAn@q@d@_Az@gCfD{FlIqAbBkGbHg@d@kA~@{Az@kDzAYP}EtBgAZgANmA?iC?kAPy@ZkFfDQm@Ec@Be@Ru@@a@IYQQSEmDh@^vElClWBpAGvAUxAk@hBs@~AaJtSiAtCgBhECNmIrRy@dBcAzAeBfBaA`AWb@c@f@wAlBWd@_CrEkDbKgApDkGxUwBlHgA`D}CxH{AzC_BhCqBhCcBhBcCtBqEdDwCnBeDjBoFhCcJpD{MhFoD`BmFlCsDtBiEnCuGvEeEnDsMxLmExDwEtDgDzBoC|AwFrCaE~AiExAkFtAkDr@qEp@eFh@iFZeIR}JVuE\\yEl@mFbA_FrAoDnAwMvFqEdBaDdA_E~@kEr@mB@yFP}@Nq@LiBDyAAuC?aGJqEVcBTwCh@sCz@mCjAiBdAcBnAiB`BeBnBwAnBwAdCgBtD{ChHoEdKyAtCuA|BgBhC_BpBiCnCw@r@_CfBaDvBiDlBeBr@gDjAkD|@wB^}C`@uDTaPn@kDT_CXuDt@yCv@aC|@{CvAoEjCqIdFwGpD}CpAiFfBgG`B}Bb@wFz@yFj@}DR_GJmDAyEO_Jk@yF_@mCCcCF{C\\aB\\mCx@cHnCgBf@mBX_BHsBC}AM}AUuBg@{Ai@aAa@eMeGeDgBuDuB{BgAeCoAiCcB}BsBmC}CkDoEaNyQIUWa@sAqA_CoBq@u@wAgByA_BqA_Ai@Qu@Ii@Fi@Pc@`@Wd@S|@Cn@BXl@`Dh@~DJtAHtC?jCFpIRfITdK^fKh@|H~@jJ~@dHbAhGzApHlEdStAjHx@vFl@`G`@lGPlFDdECxDM|DY~E_@rDc@nCKPU~@w@|BMTi@z@SPq@\\c@Js@@s@My@_@{AkAqAy@uBy@aCkA}AaAuBmBgDuDKIQG}HuJkFqGuAsAyAiAcB_AwAk@qBi@}AWsBMeW{@{Ja@cCWuBg@mBu@iBaAsB_BwXkXsg@eg@gE_EcBmA{Ay@kBq@aB_@gBWiCKea@[o\\QmFGw@@gh@[yHEyQOej@]q@GoCCuC@im@]{KO}La@}SiAiPw@gIm@wEUkDIwSUqKI_@DqDMwf@iA{f@eAkNM{PMiHWgViAQ@{FIiOo@oAQk@UaAq@wAwAq@_A_@y@Qs@OgAG_A@mAVmHByAGkASmAY_AYm@g@s@oBkBkAo@gBuAQYWSiAmAs@o@_A{@aBmAqAu@wFwEEQw@]k@MO@AZ?|DBR?vCoL?iKSy@H{@VyAz@u@TkDb@s@@uD@qCB}JCyEBj@vEFNBZS?MBGFN^D^HtACf@",
+      "duration": "PT49M",
+      "distance": 42851
+    },
+    {
+      "id": "kyoto-to-osaka",
+      "name": "Kyoto → Shin-Osaka (Shinkansen Nozomi)",
+      "mode": "TRAIN",
+      "polyline": "qzotEokr{XBg@IuAE_@O_@FGLCzVBdDBT?`@`a@LjYF`PFnBHNH`ANLJTpPVjTJty@p@xFDzh@b@pB@FElEBJKl@YTWF_@Ee@ES@Ws@wCKk@KY]i@YMY?UNQZGd@@Xn@|C~@bEz@~CARrEjPrBpH~^lsAfBnFp@fBfBfEpB|D`BrCvBdD|BzCvBhC~DbEnD|C|CxB|DbCfDbB`DtA~EbBlFvAdIvBpGpBr^|J~nAl]`GdBjBn@TLbEbBhDhBnBrAvBhBjBlB|AnBpApBjBtDrAjD~@dDt@fD`PnaAnAtHf@~BXbAh@vB|AjEvBlEb@nApJ|StPt\\pNzYbArB~IxQzBvDhBhCxBdCjDfDvC`ChE~CzEvChG`DnVvLdNjGtJfFtd@pX|RtL~BjBlBjBhBtBxAvBfAfBfBpDhAtCf@zANXdBbIr@hEf@pEZrEN`F@|DE~DQdE]vEk@nEu@jEcAjE}@xCgB|EuEfLeBrF{@lDs@rDYhB_@pDStCOzDExEDvCNzDFdAj@zFh@jDz@bEr@nCxArEdDrJzG|QbLr[|Ufp@rXbv@dCfGdD`HbCtEnBbDxD|F~CbEpwAfhBpEnFlCrCrDnDxD`DbAz@vB|AxH~EfF|CtEtCxj@f]l_@jUpTxMvDdCbKbGpCxAdAP|G|BL?fEpAd@D`@IZYPc@De@Ec@Oc@Ya@cAc@cB_@eF_CO?w@Wa@A_@Ha@TWb@Or@C\\ADDtE?fDF|ABZXlJXbLJ`EDrCJxCf@xKHdCDdFI|GO~HGdOBhENtGZvEd@tEhBrLXhCVnDH`D@nCGdFWtGyDrs@s@tMIhCApCD^@vDb@jLTzEJl@NnBJl@^hAdAfBVZ~CpEj@j@l@\\z@T|@Dj@?F@`CWpB_@pBm@pHqCXAf@Ih_@qNxBo@~A_@~B_@hDYlCIxHHbu@bAdCLhD\\lBZrE`AtIhC|Bf@|B\\zCTbCDvCIdEa@xBc@|Ac@`Cy@fCcAvBq@pBa@lS_CvAGvCFtVv@dHNhJ^lRp@tDBhEEhBGRG`Hk@bBUpGi@`]kDfFo@xBMp[IrH@VKzD]vDGND~BAXIHO?YCMQ[kAmF?C",
+      "duration": "PT52M",
+      "distance": 45829,
+      "notes": "Nozomi NÃO é coberto pelo JR Pass (sobretaxa). Use Hikari ou Kodama no JR Pass — +5min."
+    },
+    {
+      "id": "osaka-to-hiroshima",
+      "name": "Shin-Osaka → Hiroshima (Shinkansen Sanyo)",
+      "mode": "TRAIN",
+      "polyline": "ux~rE_~_zXB[NUZQd@An@Ln@\\n@b@NDfAbAb@ThG`En@r@@zA}DRkMF{@IKGcLBeD@iDCc@BiXEaENiMlAaWfCMDABkOxAgEVQGyDDmDE}EQmM]{EMmGWgGWqUs@kA?iBLcPjByBb@{Br@aFnBqBl@cCh@}BX_CP{BDeEKoCYeDm@aMmDmE}@mDa@yDU}y@gAaDDmDP_D^gDn@mD~@wJpDwNrFm@PyB|@eDfBeDlAuBj@kCb@_CTaCTy@Tm@Zk@`@KTgArA]r@U`AIdABdDLvHGV^`Lp@bPNfCVlE`@dFf@nEn@bE`AzEbAzDxAtElCbHjK~WvA`EtApE\\vAx@~Dd@`DXpCXxG?~BGdEU`Eu@rG}AxJa@tD[zFa@vJE`EJ|FJlALjBr@bIX`FPtFFtFCfFErBCz@DZ?fAJlATfAVl@^d@nAbAVZ\\v@Jn@@n@M`Aa@~@KNi@f@sBrA{@j@sBrBa@f@a@x@}AtEgAfCcBtCiCtDSXI@yH`Jw@z@yDhDaFpFWFkCxDsA`CsAxCkAdDm@~Bm@vCm@xDc@jE_@lFe@`Km@zPc@bRO~KMlR@lVHxMR|Nd@tT`@pLb@jKbApQ`@tFn@|Ff@rDx@bEdAjEhBxFpHpS|AfF~@tDv@bEZ|BZ|DFfBBxAC~DGnBQ`C_@`Da@~Bw@fDaAzCwAlDgBpDmArBiC~DqQdVyNjR{DtFuA~BuApCqAbDqA~Do@|Bi@`Cc@fCqAdLe@nG]`Ig@hQ_@nHWjDOxAa@xEw@pG}@jFe@vByDzMqB`F{@hCmAzDw@`D[fB]xCGz@MhD@pCLpFTxD`AhLf@tFRxCDdC@|BKrDS`C]hCm@|CsApEqDbJwApD_A~Cm@rCWpBU|CUfFGfBQdBg@|CaAfEmAhDeClFqAvCa@dAk@pBc@vBQlASjCGdCDhKG~COjCWxBa@bCs@lCqAxDuAxDy@zCc@|B]dCQtBOtCQ`HSpDSdBQjAYpAu@zBa@fAsApCyA`CkAdBQ\\kAjB{AlC}@`BqAzCwAzDuAtFeA|FaAzGs@nG]tEQ|EEhEFfFNjEx@pLrB~UNhBBjBA`AO`Bc@nBg@rA}@jBiBbDq@vAw@tBq@dCa@xB]dCQlCEnB@lFF|GEbEUxDS|BcB~Ma@~ESlEEtFFxHV~LFtHAfBSvGUpDa@xDe@nDo@jDi@`CAPu@jCkAjDiAlCmBrD_BhCcBxBu@x@uBpBmCvBqCjBmEbCq@\\OZcAp@yEtCyAfAwAlAyBpC}@vAs@bBc@xA]jBU|BSdGIbGAvHFhDI^d@bF\\pCv@rDz@xCjAfD~BvFjCtFbDbGhChEdDbFpAdBtEzGfBfCfE`H~BnEl@~ArBpFnB|FdFvPzB`GhAjCvB|DzBjDjB`ChClCjCzBjEdDtHjFrDvCzD`E~BtCbBdCl@`Ar@rAn@tAx@xB|@|C^jBb@pCV`DJxB@dEEjBIbBe@hEa@zBq@vCa@tAuA~DiItRy@vBeAzCcAlDmApF{@hFe@xDW|CWrEMdF?bCDrDVpEFp@r@~EP`Ax@nDx@jC~@dCpCdGfB~CdAdBx@hA|C|DbDdDtLrKfCfCjBzB~@nAtBpDtAtCjA|CfA`Ex@|Df@xDZfDPjEBdEE`DO|Ci@bGcBpMs@nFi@xFWxGClCFnGHhBXfEd@lEpB~Nl@tEd@rETzDNxE@lBAdDSxG]hGuAbRSrDMrDEnGJzFTlEd@`Gh@`EpAvHzA~Hx@hF^|CXxDLlDBbCAhDg@`OC`CBpDRlEZbD`@nCp@bDn@`CbAvClBtEdDxGhDbGvD|FjCnDxDvEbHvHtHzHrDfDrE|DXLlC|BnG~EpKhIrEzDxFxFxCdDnA|AlCxD`AhBpAvCbAtC|@lDp@dDl@xEV`EHbDAxDO|D]lEe@hEeAxHoCfOiAlFcCpLiA`GiAxG{AnLmB`QaAdH}AxIeBjHy@|C{ClJe@nAyBbFkB~DiBfDgNjTcLzPoA`CoBbEwChH_CpG_HnQsBzEyNf[qEpKiB|EeAdDs@fC_@hBa@hC_@vDOhEAvDB`BJlBXpCZ`Ch@nCp@dCp@rB|ArDtDzH|@tBjAvDl@zB^tBZbCPxCD~A@nCYhN@~CJrDZdEpAfNXrENzEBdA?`GMnFWxEYtE_@hIChDH|EThDT|Bl@hE^nBfBpH`EzNdC~HpD`KpCfHvCxGfD|GzD~GxHrMrAjCv@lBbA`Dh@tBj@fD\\lDJlBDdEK`EYjDm@zDq@tCcAbDkGbPaChHeItXcC~GmApCmCtF}BfEoHbNqCrF{D|HwBpEgDtHuEpLwCxIeC~Ii@jCuA`Ji@|Ec@zFWlGOtIQpOSnFa@nGo@xFu@|Es@xDkA~EgB`G}CvIqEdL}D~IgEtIoBnD{BhDeBzBeBfB}BnBmCdB_G~C_ErBoAr@{@l@QHaChBeBbBiBxBcArAyAbCuAxCiAtC_AbDk@nC[fB]pCUrCOfFExEF`LDbFCvFSdFSbCUtBu@~EaApEkCnKeApFk@rDcAdIgAdJo@`DiAjEcAzCcAbCgAxBoFtIgBnBsAnA_CjBqBpAkDrBwDnCaB~A}AfB}A~BsAhCqApDm@zBe@|B[vB]bEIhE@nCJnDPnC\\zCb@lCb@tBxAbF~CjJvAfFz@zDt@vEj@|Eb@bFJbBHlEn@xZ@x]InDShC_@jDo@tDi@zBqCdJcAjDo@bDa@dDO`CIlD@dCFtANzBTzBb@jCbBxHn@nD\\jDL~BFvCCxDSxD_@fDk@dDw@xCcAtCqAxCaCzEuKvSuB|EwA|Dm@tBs@`Dk@nD[~CWlEEvDD~CRbEd@pEp@pEbBrKhDp[p@~J^zIZrLLfDVrDb@`Dp@bD|@zCx@tBdD`I|@dCt@vCj@zCTpBVtDFlCCnEQpCg@rEaBpMwAnNgAzMs@xJkAfNy@|HiApKu@lHo@nEo@bDmAlEMh@uBvF_BxCg@z@qErGkLlO_DvEqBjD}@fB_AtBqAlDkAbEcBzGq@~BmBxE{[ly@gFlMcIdToVbs@_FjPq@dCeA`GaAdHaAtIgBnRs@pIuJ~qAiCz^k@xIeAbO[pHeAjSCvAhAxy@PdR@x@D~BFd]BzNJ~ETvDV`Cl@jD`@bB~@~CnAzC|AvCfBbC`BhBdBzAdAz@~DfCvG|DlCnBnBdBvBzBxBtCjBxClA~BjAlCvA|D|@jDt@vD\\lC\\~DNrD@`FOtGUvIGdDBrFLnEZnE^|C\\tB`ApEt@fCpBzFbEhK`A~Cn@lCd@bCRrA^pDRdEDbEEbQFjDLrD\\vEt@vGzC`Q|CzN`CvJrChKtDzLjXvx@pDpLrDnMzAlGzA~H|ClQbAtHd@dFJ|BJhF?zBGrCQxD{A`UWpGGhFFnFLhD\\fFd@hEx@|El@nC~@hDr@rB`BrDh@fAn@vAvDlHvBvE|A|DpAdEnAnFlA`HlBxL`@tBt@|C|@vC`AfC|@tBrC|FjCxElDtF`DrEpDpEdCrCzE~ExLdLjDrDrBlCvA|Bx@xApAlCpAhDl@nBbA~Dx@hEhB~LhFj_@~@bHxQrrAb@hDxAzJxDpV|DbU`EdTpC|Mt@hCbAlCdAzBtAxBhAxArAxApAdAjBtAzDtBpGxC`G`CvHlC|L`EvDzApDfBbC|AfCtBvB|BrAfB`BlCtAtCfAxCt@hCn@pCb@jC\\xCh@pHl@vJd@lEl@tD~@zD`A|CnA|C`B~CbBfCdBxBxAvAzBlBzDhClH~DpH|DvDbCdClBlCfClBzBzB|CdAbBhBnD`BvDpApDp@xBjFjZh@bHRnDPzEPdP@fFDVLzK^pKh@xI\\bEj@~Ej@rD|@rEfAvEhAhEv@|BfAvCjAjCvArCjC|DzAjBzAxAlBxA|A~@bCfAjDhAvDhAtBx@|BhAbBlAlBdBdBlBzAxBjA|Bp@zAhDbNjBdI~B~ObDbVh@jDf@vC^xCVzBz@pGlAzHnAbK`A~J^hG\\`JHxGBbFAzDC`CSzFW`E]hDe@hDa@zBkAjF}E~Q_AbEo@lDq@zFUfDm@hOSfD]~CWdBi@zBq@tBy@jBaAfBeB`CmChD{@xAw@`By@|Bg@vB_@tBUvBOzCAtCLfDTpCh@tDjAbGdAlEfAxF`@hC`@tDV|DJxE@~AEtEQdF_@hGc@xE}@|Gm@tDiDlRcAvGa@hDQxBYrEQpEEfFBpHHbH^xItAzQl@rHZxGD|C?pEIlD]bFa@hDuAzJe@`EYlFElDDtGJlKC`DK|B[zDa@`DqA`H}BvKk@nDc@jD[fDYbFIjDAjGPxKR~JDjHIvHSnMAhFJfGPrDX|Df@tEr@`FfA|F|@`ElAdF|CdLlE`PtA~Fv@tDt@bF^jDTjDLhCDlCCxCOpGMrEE|C@jDJ`Ev@dPHfEChEQzF]`Fm@~F_A~GuAlIcAtFU`Bm@rC}@nCuC`KuBnGeCvGsB|EoBzDwAhCwB~CwBfCkCfCwC|B_GzDoEnCuFlEmDzCuAxAwBxCcAdBuB`EmBhE_AdCy@pCiAtEu@fEm@rE_@nEWtFWfG]xEw@jH{@bHe@bFWrEGnE?dCF~CNxDThD\\zCt@jEnBzI|@fEj@pD~AtMj@nDr@bDdAxDtAvDvCpHz@nCt@zCj@~C`BbLp@bDl@~Bx@bC|AvD~EpKrBtFtAzEfAzEz@lFh@fFVjDPhFFhFCbFInEYpIW|EoBtZQzFEfD@tBB`D^hJTnCt@bFdAtEp@rBfAvClAlCzAxCz@jB|ArCrAtBr@bAvArBnBjDxCrFhBbEtBnF`BnFf@~AnAnFx@~DtF|[zA~Gz@tDnGrS~AtElDrKtJvYdAfDlAxFhAxI\\vEL`CLzEIdGGrB_@nFWbCg@xDyBvMi@hEQ~BQtDEtC?dEJfD\\vEr@|Fp@jDz@lDdBpFhG`Q|AdF`AxDp@rD\\fCVbCVbEL`F?lGAfNHnFTdF`@bEd@dD|@xEZvAfApD|A`EdCpF~CnFrBbDrGhIhHxHxJzJhDvD|BzC|BlDjAtBvDdI`@jAzA|G\\bBjCbRtBrNzBhL`CfK~@lDxA`EtB~ElBzDnCzEvAzB`CdDpDjErJzKvEzFxCbEpChErC|EpCpFlD~HvCrHrChIfCtI`BlG~A`HhBjJpAzHdA~Hx@pHv@fJr@lLZzHJhGCtHMjFi@xOUlJFhLJhDd@zGr@tFxA|GjAdEvA~DhC~FvCpFbFbJrBdE~A|Dp@jBlBrGv@`DxAbIxArIp@bDhAfERr@fBvE`BtDdEpH~AdCdDvEbCfDxCjEZh@fAjBjC|EbBpD~BjG~@zCfAfEd@xBt@nEPtAj@`G^`GvAr_@dBrf@\\jHh@jHp@hHn@nFt@hFhAvG~A~HfBtHtBnHtBvG~Xjv@lCdIjAbElAdFhAvFz@hFt@zFj@lGp@fKbAlRp@tJd@lEj@vEdA`HnAxG`BpHtBbIdClIzBvG~CdIxC|GrCvFzApCzDhGfH`KnHbKvD|FnC~EtBlExBpFnBlGbAdEfAnFbBxK|ChUv@pE~@nEv@xCpAfEhAzC|AnD~BpEbCxDhE~FhGbItItL`DhFpBvDx@bBtA|CxBfGtBpHdBzH`AjGn@|Ff@nGZlHPnIFlMi@hd@?|GFlDR`Gd@|Gn@pGp@fFp@~DfAxEfAfDbBhE|A~CxBpDfCnDrB|BjDfDpCzBtClB`CxA~Av@~B`AdBh@fCp@jDl@dD\\`EN`ECdHU`J_@vEErDHlDXhDf@pD|@vDnAzDfB`LjGtDrB~DlB~DzA`EjAzDx@xDh@rE^hFRjSb@xFXpGh@pFt@~FzAfFxAxGbCnF`CvDtBrBpAfE~CdCvBxB~BtCnDpB~CvBzDnAnC`BjEnAbErAzFxAvH`C`OxBnOnBdOz@~Hd@~FVlFFhECdFG`CWfFq@rH_CzR_AvJUxEI|D?dDFbFThFdArN|@~Gv@nFhB~JbRh`AzAzHx@~CbBlFhA~CtDdHbEbGjA|AjBvBtCxCdPdNjDhDnCfD`GvHvJ`OvIjNvAdClBvDdAfCjA~CfA|Dt@lDd@fDXvCR|DDrEEfDUlHg@pLKdFA`DHzDVbFZzC`@dCv@zD`AnD`AtC`BfEbBrDtFzKtCfF~CdFxBnDrBvClDhEfEfEdDlCrBvAxDxBtQpIzEtCbFrDfEzD`CjCzC`EdCxDhC~E`BtDjBdFnDdLhEjN|@lC~B~FhCtFfCvEbDlFfDtExEzFzPhRjDhEtCzDjDnFxBxDfCnFjEnJpBfFzB|GrArEpAhFfAxFr@vEh@pE^pENfCTbHBtF?~EQpGSzDYlDw@rHsDhWi@fEi@hGUtEGbCAvEDxCP|D`@nFf@vDx@vEpAfFpAbEdBdErBdEbCfEhDlF~DpFzIrK`ItJfB~BxD|FtC`FjE~IdExK~DvOj@hCjB~LtAvMzF`w@LjBp@zL\\|KPtKB~HCjLQxJYpNApEHtEH|AX|Cd@rDx@bEbAtDpApDnAnCxAjCxAxBlB|BrBrBdBvAvBxAhCzA~NnHzD|BzC|BtBjBbCdCdCxC|BbDrBfD~A`DfAhC|CzI~@xC|E`QbA`EpBvIpBxJlC~NpBlMbAxHdAfJp@`In@dK^~IJtDDpJAjEOrF]dGi@hGu@vFcAvFwAtGgGzUsAlGm@tDc@dD]fDYfEOrDCdAEzHFzHRxGP`EbBf[PjEPvHDxHCnFSxIQpEm@dJg@nFaAzHw@bFuApHyArGsAbFgBbGaInV}C`LcAtEaAxFa@vCi@lGYzFIfG@vELzEPjDh@bGl@~E`AxF|ApHfBhHdCrIbChHjCzGdAdC~CzGhDpG~ChFtGzJlH|KrCtElBhDbDpGrBtEzBhG~A~ExAnFlBpIlT|cA~AxG|AjFxAdEpB|EfBpDhBfDxD~FlIrLtClE~BbEvChG|BbGpA|DhAhEr@zCfA|Fv@xF^fDb@xFVnFJxF?`ISfPQrJc@pN]`Hc@`Fk@jEy@nE}AtGmElOcA|Dc@zBq@~Dm@bFSpCY|FQtIK~MAdNDvJLfGXjH^hGr@jHv@tGt@~EjAtGdDrOzBjKpAlH`@|Bt@~FZtCt@nLVdFLzG@zOElOFbHPbF\\rEh@zF~@nHt@pDpA~D~NhY|_@~p@nLjOnD|EjNfPzFhFhBzAdFrDjC~AvCzAlGnC~Bz@fHvBxKxCdCz@zEnBvC|ArBrAhAx@lBdBxB~BrBjCdCtDdBbDrClGnA`DlDtKnB|GbCzJrBbJhClMnAhH`AzGt@rGd@|Fp@fKb@pLRjMMtRi@hOyAjb@E`CEjIDpGNdGZtF`AnKt@nFbArFtAlGdAfErAlElBpFzBnFzAdDpEzI~EvIxR|[tEnIvFfLbDxHrClHdB`FtBzGbBnGlAzFj@pDj@pEd@nF^~HHnGCvEKhE]lG_@dEs@bGyAfJsA|GgBtHoBnHcAtFY~BSdCGjD?xCLdD\\hEr@fGp@vEnA`H\\lBhB`IvChKvA`FfAvEdAvFn@pEf@`FRbDJbE?|DEdCIrB[hEm@`FgA`H{BpLkBvIkEtQm@`Di@rDi@lFQxCIpD@~DHzCRzCjA|Jx@hEbDrOx@~Ef@pER`DHzB?~CKlD_@~FOxAm@rDo@lCaAbD_A`CqAlC}AfCiA~A{AhBgDjDcB~AcFfFgC~C{FdIaCzD_BdDqAjDc@rAu@vCo@nDi@nE_@rFk@lKYpD_@|Cg@tC}@lDq@xByAxD}@jBcG`LaBpDu@rBaA|C}@|Dw@lEc@pDa@zFo@vPWzIs@vVgAf]}@`YOvDE|EHbDJbB\\zCl@hDh@vB|@vCxA`E|BfG|@lCn@|Bz@zDd@bDVdDNlDBfECpFKbEWvEWpDo@~Fy@tFcAjFgBfH}DxNw@dDq@nD[|Ba@pEOrDEfDFxDNdC\\dDj@dD`@lBdA|Dv@rBrA~C~BnEzBrDjEfG`FfGtMrNfCzClD~EjAjBdAlBdBxDlAxC~AdFvC~LnClMlBjKdB~Kp@tFV~CNlDDnC?rCGnBIvA[pD[|Bc@`CaAzDkAlD}AtDaGhMgBrEy@nC{@zDe@zCi@bFgAvKy@vGo@dEmAfHk@tCW|@}AxGoBhHoBlGuChIyArEu@xCi@~Ca@tDSlECpA?hBH`DVvDXbCv@vD^xAbAxCfAhCfBhDvC|EfCnDpBjC|DnElIdIxMdM`IrHfCnCjAvA`BjCzA~C`@fAz@xCn@zCf@nDp@dHdInaAn@bGh@lDz@bE~@bDtAtDtAxCdAdBhAtA~FpF~CzBhEtDnBrBzAlBpBzCbAlBhArC|AzEvAjGtBnKt@zC~@xCdAfClBtDvAnBnBxBxChCdF|CfFlCtJzEtGrCpKhFlHnDtF`DfBz@fDpBlHrEnGlEjIlG|F~EtBtBxBfC`B|BpAvBzA~CXv@nEzKjAzCh@`CJjA?j@KnE[jGwA|QQhKD|FRnDZvCj@bDjC~LlBpIhAxFx@bFr@xFVtEHjE@~EErBOlDc@jFo@hFg@rCoArF_BxFuDtL_BrFc@rAwChKoAbE{ApFkAbFc@xBq@|Eg@rEi@nGGzBHdZVbMTzIJzL@xROlKkAzTw@nH{@nG{@lEg@~DuAlIc@hDe@fFOpCQdGCnEJpKL`OA`JQdIw@zSKnE?lEHjFXpFh@|FxBnQ`@tEXxEJxE?xDGtEO|C_@dFq@lFy@rEs@`D}HjW_AtD}@nEk@jD_@fD_@`FQpEEdEBvENxE^jFVfCx@nFbDtQl@jEXnDJhD?bDItCQxCc@zEiArK[~EOlEAlCBnEZtId@rLN|HAfHMpFa@dH_@lEu@`G}@nFcAvEuAlFaDfKmCfImAdEaBxGoAdGeArGo@`Fi@zFa@tFw@vQc@rEi@nDaAlEmC~Jg@zBi@tCo@rE{MhlAe@bFo@bJg@lKs@|XU`Fg@bHk@rFaA~GoA~GeBdIcBtGuArE{D`KuDzIeDdHgDlG}D~GyEtHoG|IqD|EcBfCcBbDmAxCiBxFqBzGgBlE{@lB{A|CmCbEyDpF{AfCe@|@gAjC_AvCeAnEwArHy@vFu@zGYzDM~D?fEJhDx@|MLtDAdDI`CSfCc@fDm@tCaAbDqBnFyH~RsDnKaDbKiD|LmBtHuCpM}AnI}@|Fw@vHa@`GSjFG`GBpGH|Cp@jMf@nFnA~J~BtOlAvHfCnNl@vC~DrRrEvRpLzd@zDhPnDlP|CdP|CzQvBtN|BfQbApJd@~GTlFFjFEbFQtEa@rEi@bEk@|Cs@xCgArDoAlD}AhDuAfCmB|CcCfDeCzC_@j@w@x@{L`L_C`CyBhC}D~FmBlDoCrGwAjEiAfEe@xBm@hDi@vDy@|JQfKJrH|@hLt@nFdAlFfAnEdBhGZnApApGp@pEb@xE\\`Gf@hPTrD^`Dn@bDl@tBdAvCvArCzBrD`HhJnAxBbA|Bt@zBd@hBv@`Eb@dDRbDf@dLXjDl@|Dl@jCn@rBfAlCv@zAjBvCdBpBpBpBhCxBrFxEhDbDzBlCzB|CfChEfBpDzAxDfArDn@hCt@xEb@bEPxCJjDArCEbDHNKnDYdDUbBWlBGpAFfA^tB|@fDZp@v@rAv@v@x@j@LNxEpClAz@r@XjAXvAPlBDpAGjBUbF{@vBWn@En@ArADxALfBd@nBn@bAb@dAl@fBpAbBbBxFxGhKbNtKbObBtCjAdCzDnKzAvEr@bCh@rAr@jA~@`ArBzAtIlFfHpDhBpA~ErEjCnBfAp@hD`BnFpBlAp@`Av@dBlBbEzErBlCxDvFt@x@h@d@lAv@vAn@bB^nBPpMt@tB@tEUpB?r@D|@NdBn@jDtAtAX`Dd@fA^v@d@~@|@dAtAtDjFLPvDvFd@`An@rBRjAJrBAbBMrAObAg@vCKzA?nAHdAVfA^bAl@~@l@n@tB|AfEvCvBxAjAj@~Ab@vBP`CDnDG`CQ~BY`HoANKj@Ez@?fAPv@\\`JxFr@\\B?pChC`@VqH~WMp@eEdOs@zD_@~BYtCYzBYpC{AbN]vCY~@cB`E_AhBMHM^WtBs@hLKjBQpAQt@kA~Cs@`BIb@}AjDcAfCe@hA}@xB{C`HWf@t@TtGpB",
+      "duration": "PT4H12M",
+      "distance": 326326,
+      "tags": [
+        "highlight"
+      ]
+    },
+    {
+      "id": "miyajima-ferry",
+      "name": "Miyajimaguchi → Miyajima (JR Ferry)",
+      "mode": "FERRY",
+      "polyline": "c`lpE_nofXnqA_hB",
+      "duration": "PT15M",
+      "distance": 1500,
+      "notes": "Ferry JR coberto pelo JR Pass. Saídas 6:25–22:42, 10–15min frequência."
+    },
+    {
+      "id": "hiroshima-to-kanazawa",
+      "name": "Hiroshima → Kanazawa (via Shin-Osaka/Tsuruga/Kanazawa)",
+      "mode": "TRAIN",
+      "polyline": "im}pEwwpgXj@VbDfCh@l@p@`AtArBANPVp@Jd@Q^aAxC}GR]p@qA|@eAz@o@nAu@lAg@}AiFiCgLg@gC}CeOgC}Ma@}BKQfAcCv@mBPw@rC_WTwBHc@^qD\\{Bp@}CdE{NR]lHuWoB{@WSc@c@_HuD_C{AcAe@]UgAIuAFw@JgCd@iEh@_EX{BD}DKqAO}@UmAg@cAo@wDyCaFkDq@w@c@o@_@{@[iAOmAGuAFgBT}AXgBPsBBy@C}AEi@Y_Bg@wAi@gAk@{@mFsIcCeDaA_A{@i@{@YwCe@kEe@oAAcEZ}@AmAOcA]w@a@a@KmAa@g@McCUwLs@w@KsA[{Ao@uA_As@q@eAqAsCaEuCuDmFmGu@s@eAw@_Bw@kDkA{CwAeC{AwBaBqBiB{BoBoA{@kHuDiAq@{CqBuCiBcBsAo@s@y@qAq@gBcByFwBiGmBaFiA_CyAeC{AuBwKeMgDoEiDiEaBkBiDeDsCsB}A{@mB{@uBk@}AUiBMkBAwBFkGv@yBJ{BKsASgBe@w@[wFiD_@a@_C_BcAgAYUcF{FYk@K_@Ck@Bk@Lg@Xk@`AuA\\u@XkA`@sCViCXiF@_AJOEkDK_D_@iEg@qDk@wC}@kDy@iCqAaDsAqCkBcDkAgB}AwByCeDsCmCqJgIwC}CgAsAyA{Bs@sAkAsCw@eCq@qCe@yCWgCQ_D]wI[}DU_Bg@wCu@aDcA{CgA}BqAyBiHuJmBaDqAmCy@yB{@}Cc@yB_@oC]cE_@_JYuHYeEi@aFi@kDmAkGeEiO}@mDeAyF[{B_@kDa@mFOaINsJ\\}Eh@uFn@{DfAqGhBaGdD{ItBeElAwBxDiF~CuDtKcJvDkDj@a@zCgDhB_CnB}CnBwDjAqCzAoElAyEn@cDl@mE`@yEPmEFgEEyEOmEc@eH{@{IuAcLcC{PgDmSkCwNmCqMeD}NsDaO{Ja`@iE}QkFgWgCqNiAeHcA{GsAiJgAaJc@oFm@eMK{H@}FHqFXoG\\cFv@mHf@cDvBmL~AuHjBwGvEcOdDiJtLyZ`DkI|@sCl@qCd@wCVsCNeD@kCIoDg@mIYwEG{C?oDJuD\\{Er@cGl@kEhAoGz@gEx@yClAgDlAiCrH}MjC{FjE{JvE_MtA{CjBsDhCiE`J_NpBgDxDkGfEuHhCgFvEcKxDgJnBcFtBoGhBsGxAaGjAaG|@cGt@{Gd@iGV}Fr@uX`@eJf@wHh@cGtGql@rEka@p@oEn@cDnAgFjBeHl@kCj@}D\\mDz@qRf@gHVgCXiCj@iEbAaGzAiH`AyD|BwHnFyPjAcEfAqEp@mDp@gEh@gEd@eFZ}ENcFF_HGkHWwHk@uNIkF?{CJkEJwBd@uFrAmMZ}EHmD?aCKeDY}Dk@cEgD}Qu@kFc@aEYyEKkDCwEFiFNuDVsDb@_Ep@sE|@kEpA}EvFuQjAoEr@mDn@_Eb@uDZgEPgEHyECwEO}E]cFk@kFoBgPa@sEUwEKyE?qELcGt@sSNyGBaIImNMgK?{FLmGT_Ed@kF~A_PXeD`@gDhAsOzAsRRcCZuLAyWU_M?kHQeLOeUBuD\\}GRaC\\gCj@wDx@mDfAcExDkMfF{NxCeJfCuI|A}Gd@iCt@kF`@uDHyAPyE@eGCgDMmDWgDsA{Io@eD{FoXYcBq@qFSkCM{CIoGDmNDcC@_RC}Em@}FWoBsA}GaBoFyA_DgAmBaBaC}BqCcEaEiGeF{GaF{HgF}GcEaB_A}@a@uEmCsDmBcKcFkDaBqEkBiGyCaAg@aD}AiIuEkAu@yBiBmCwCgC{D{A{CcAmCaAoDu@eDuBkKsAuFaA}C}@{BgCoEaBcCmAwAcCcC}DeDoBsA}GmGs@{@aAwA}@gBgAiCaAmCm@uBg@yBaAyFe@eEwAqP}F{r@k@{Fk@kEo@aD{@sCiAuCmA_CyA{BoB}B}FwFcJqIaPmOuDaEqEyFqCgE{EsIk@qAgA_Dy@gDq@gDe@oEMoCGaDB}DVcE\\sCl@kDn@mCrAgElDyJbCaIpB{HbAqEBU~@mE|AuJ|@wGf@wE~@cKb@cDl@gDt@}Cr@wB`@kA|AqD~EmKzBqFz@mCp@qCv@gE\\}CTyDFcC@kCIwDYmEg@yEuAiJkBsKsAeHeD}NgB}GeBeFuAkDqAmCkBaDaCiDoCkD}FsGwHoIkEmF}B_D}AaCkBaDuB_EkAoCaAmC{@cDs@gDc@oCYyCQqDAiEFaDRsD`@{Dt@qErA_GvDkN|AiGx@cEt@sEh@oEh@{F\\_HLcH?}FEkCU_E_@aDo@kDy@cD_AyCgFoNo@qBeAeEw@wE[_DQeCImEAmHP}IbAc^RuKv@oTXkGTmDdAcNt@oH`@gD~@oFz@mD^sAbA{ClAqCzDyH|CwFVg@bB{E|@{Cn@wCh@kDb@sEZoFf@gJb@sEf@oDp@}CpAsEtAsD`CgEvFiIpDyE|@eApCuCdEaE~CeDjB_C~AeC|A{CpAaDjAaEt@mD^eCV}CXwEDeDGaEOwCe@qEs@qEeAmFaCiLg@kCy@}GIi@YwEKkEBgFVgFd@{Et@iFhAuFxDwOxBkKrAgHrAkIj@aFTwCP}EBeECoCSeEQcCWeCc@sCkAqFqAwEcE_MaCiJ_AiEo@iDyA}Jy@gHY}DKwC?wEJsDTiCLeAhAoGl@iCrAyEnBwIrA_Hv@}Ev@sFb@cE\\yEV_GHoEA}EIaFc@yHc@{E_AyG}@qEiA{EgBgG}B_HmBiF}C{HmCeGkGaM_GcK_P}W}EsIqDgHcCmFeCiGcB_FeBgGeB{HaA_FiAqH{@gI_@uE_@yHOyGCiIbA_a@d@yOb@c[AyF_@oOOaDm@mIg@kFcA_IiAgHoBqJ}BoJ{EgRuGcVqAiEuAsDyAcDuBqDyBwCkCuCsBkBwB_B}BuAwCuAmEeBaDaAgPsEqGsBqGkCcEuB}BsAyEgDuDsCcCyB{H{IqF}GyLuPs@aAka@cr@iNgXuAkCoAiEk@eDeBeTSsFI}IDuRCuKOqHe@{Jo@_JeAoJaAuG_B_JqEaU}AiJ_AeHm@aGe@_G_@{HSuGIoH?qNLuRPmIRmFXuD`@_El@{Dp@iDpAgF~E}PnAsFt@uEl@_Fb@aGPaEb@qNZoRH{KCsFMeG_@qG_@sEy@iG}@kFoA}FgAeEkByFiBsEyByEoBoDmE_HeH{JmDmFsCaF_CaFmAwCwA_EaAcDiBaHoNsp@gGsYoBaIaBuFiBiFuBiFaDyGyCqFkEeH}HoLoCcEwDeGyDaHcD}GeD}HuByFaBcFiAuDIS}B}IgBcI{AiJe@_Ec@aFSiEMiG?wEHyEZmGh@wF\\qC`A{FjAoFdBkGnBqGnHiUbB_G~AwGxAiHbAeG`AoHn@eG\\iE^kGVeILmI?qDIoISgHaAkRs@eMSqFOeIAkHJqHZcGf@oFv@sF`AqF~AyGdFaS`AkE`AoFn@yEl@_G^{FPmFDiDAeJMiHYaHi@wJu@sI_A_JiAsIcCwOgB}JsCgNyCoMuD{MaAiDwDaLmA_DcBkDmBiDcBeC{BqCwBcCgCaCwBeB}B_B}D}B}MyG{A{@eDyBiB{AwByB}AmBgBiCwAiC{AmDmAgDeAcEu@eE]iC[yDOaECmDF{F`@kSFkKC}LO{Jg@uO}@gOy@yJkFwl@{AeM_AsFoC_MsCqJgBoEoBwE{EqJuEgImEuGoEcGiK{M_EsFaDcFqCaFoBaEu@gBuA_EaAmDu@aDu@gEg@mEYoDO_DIcDAsEN}FXyEr@mHpAmJrBkNp@yFAM\\iD\\gGJiDB}A?_JKyFUiFe@}Fi@sEo@qEeAoFaA_E}AsFcCsHkBwEwCuGiEgJ}B}DoDqFcDkE{EyFoO{P{D{EoD_FcDoF_BwCqC}FqCaHkBwFgGiSsBiGmA_DwBqEcCoEgD_F_CwCoCsCsCkCkFwDcFwCcCmA{JqE}Ay@mEiCiEeDqAkAgDkDmDmE_DuEqD}FoBgDgBeDaEeImC{FoBaFiAqDs@}CaAkF_@aDMuBUaFCoDD}ETmHh@}MHyEA_DMuDUaDc@kDo@gD{@eDiAcDcA}BsBsD{EsHqCuEcDgFcIqLaJqL_DcDaFoE}IoH}BqBqFwGkEsGyCaGU]cA{CiBwGs@gDu@oEsTkiA{AeJy@kGcAyK_@yGS_H?uGDgCRoEl@mHnCoVh@_GTsDPeF@oFGoEWkFk@sGuAeMqAwJoBoNyAiJaBgJs@iDkAyEwAmEiBsEw@_BeB_DkCyDiCyCyCmCmB{AgCgBkDqB_EmB_Aa@cIkC_GiBsJeCaHkA{C]gFi@eIi@_SaA}Ec@mEq@gDw@wDiAyCiA{Aq@yDoBwMqH}DkBqDsAmDaAqDo@sDa@sDOuD?kGRgKd@eEDcDEsCQcDa@oDs@{Bo@qAc@wCoA_DcBkDcCqEsD}B}B_CoCuAkB}BsDy@yAeBwD_AyBw@kCsAsFe@gCm@aEs@mGk@uH]eGYgJGmF@sIHuLP{PI{GSmIa@oH[wEg@sEs@cFY_B}BqJ{@}CuBmGeAuCcBwDgBgDeDoF{Q_WyCqEiCmE_CuE{BoFwAaEoAiEqAoF_AiFoAqI}BuPmAsHiAoFy@aD_BeFmCeH}BuEwCeF_DyEuNgSgDcFcDqFyBiE_CaF}CoHyCeIcCwHeC_J{AiGuAwGoAeHgA}Hs@aHg@sGa@uGy@qPg@_Ha@aEk@eEu@iEcA}E}AaGgB{Fo^_dAqAcEcCuIoBqI{AoHgA}G}@qGq@}Fc@wEy@mLwCkt@QeGy@_RUoDk@kFa@oDgAcGuAoFo@uBeAyCsB}EuAqCqAwBaAeB[[oEaHg@o@UWo@_A{GkKcCoEoAqC}A_EmA}DgAiE_AkEaDcQkBmHwBoGsB{E}@kBuAiCoFkJiCaFcCcGsAaEyAcGm@}Dk@sEU{BMaCSgIDmI^uHr@kMRaGF{FAkDM_HOyDk@uJa@aGaAwJ{@gHcAeHgB}JiAoFaBcHeBsG{CwJsCcIuBgF}BgFmDeHyDwGwDuFoDuE{G_IqIwJ{CuDoC{DkCgE}AwCoBgEk@qAwA{DqByE}@oDiBsJuBkMcCcS_@iCo@wCu@{CqBwGiBgFQa@yAuC_BqCiBkCyCqDoCqCkDaDoK{JuAyAmDkEaCkD_CoE_C_F_AkCyA}EaAiEgAgHs@wGUkDMqECmGDoOGiESuE]yDg@qDw@{DaAkDeBcFsGiP{AqEcBgGe@eCg@oDSaCOmDEiBCsGJgEXkEZyCzAuJ|@gGn@yFR}CNmDDuB?}DQwE_@sFq@qG{@_FaA_EuCeJuK}[wDkLkC_JmAgEqAwF_AkFaDgU}@}EcAiEcAoDiDyJEOuEcKqEiImAuB}CwE}AmCsAqCkBeDoAiCiBmFk@mB_@}Ak@_Dc@iDg@yFIkCCuBDyFPwHDyAdAuLbAoLZaFXeHNuH@{ECkEUqG_@}Ee@{Du@kEoAsFqAoEkBiFyDkIuB{EaAsCs@gCu@sDiBcMq@mDy@{CiA_DeDoIeAeDw@_Dw@{DkA}Is@}F{@sEkAaFkAyEo@}Ci@qDQcBW}DOoEA{DFkEPeD^aE|A}Kj@_G`@qFx@iQ\\cFf@qEn@cEf@}B|@mDd@aB`AiCfAkCb@aAtDyGvDqElFeExDcCbIcEnC}A`C_BnCaCx@y@|BwCjBsChC{EjBcEzBuFxBiGfBuFhBuGXy@`AoDl@iDlC{OnAgJf@aFZkEPiFBiEEsDO{Dm@{LGmBC}D@eB`@cQ@wDI}CW_Fe@kE_@sCw@eEgAyE}ByIoFsRkBwHaAqEsAsHm@kEm@qGYyEKoDE}C?yE\\mT?eGMyIYqOAwFD{CLmDTuDZaDp@}Ef@sCdD_Ph@_Db@gELmBJwDA}FO{KD_FF_CFkALyAj@wEtAcK^kDVwEFoBBuBEiGIiBc@qH_BcSi@iJUsHGyGDiHHqDX}FXoDx@}GfAyGrCyOpAsIn@aG`@uFVoGF{FCyDMkDSyCQiBo@mEy@oEoB}I}@cFc@oDUgDEgCB_CNoCZuCXyAh@wBr@sBf@mArAeClAiBvBiCjAeB`AgBt@qBf@cBd@cC^cDXwEXaIXyFXgDl@sE`AcFbAkExEwQp@cDb@iCj@wETgDXcFLyEDeGA_FMaGWgGOqCs@aIeAqISoAi@aEkBcMq@uEqAyJkGac@iCqPaAuEe@oBq@yBm@_Bo@_BqAgCsAqBuBcCwBmBsBsAsBcA}CgAsGqB_C_AwAw@eBmAqBgBu@y@eB_C_B_CiAwByAeDuAqDkCsJy@oDy@}Eu@oFe@uEY_EOgCQeGMyIEkJCg@EkHOgHK{CUcEa@oFcCaPeCkO{@iEsAaE{AuDsAmCgAiBuB{CmByBaC_CaCiBeDwBiBcAuMcHaEgCaCkBiBgBcBoBaB_CaBuCuA}CiAeDaAuDo@iDg@wDc@qF{@yM_@{Di@gDi@cCy@uCuAqDqAiC}AeCkB}BiBkBwBeBoCeBeEoBwCiAmPsFgDmAeIcDkGyCmC}AyB{AuAkAk@k@mAwAkBuCuAsC}@aCw@sCiBgIaLoj@{AcI_CuNsAkJg@{DCe@gDaZaBwMwHej@SgAcD{U]gC?MqB_OgAcHs@wDo@iCiAyDiAyC}AaDwAgCgBgCyDqEuP_PgDmDyCkDcDcEeCoD_EsGwB{DgBqDuBwEqAoDqA}E_A_FoBgMaAeFiA}EwAuEkBsEaBmDmEqIeCqFeAoCoAmEa@kBq@}Dk@kE[yDWcFGoBAuDDoEHiD`@gHx@wK^kHH{DCiFIiCQaCs@{GaA{GaDuQsAqGmA{Es@eCsEkNoYg{@yDaMkD}LwDgO{CgNo@uCoAiHe@aD_@}C]sEQwDEiC?sHBsIE}DGaCWkDe@wD[kB{@wDkAqDiGsOqAaEYcAm@qCk@uDi@gEUeDGiAIkD?_ELsEv@gNFoDA_DKkD[}Dm@gEq@eD_AeDuAyDeAaCiAwBsBaDiB_CaBgBsCgC}BeB{FiDeEiCoA{@uAmAmBqBm@u@oAkB{AqCuAgD_AwCy@yD[uB]cDO{CGsCCgZMsLKaG]cLm@}c@c@w_@FeClAoSNuGnEyo@nA}PvLa`BpBsQn@_FhAyG~@wDpEsOzN_c@nIqU~FsOjHcQxJ{W|Pmc@p@iBbCcJx@aC`BeEbBkD~AqC`CuDvDiFbIoKjC_EtBuDpAoCbBcEhAqD|@wDx@yE^eCrByPISt@wJ?m@Ik@S[UO_@E]HYXKXEd@ARj@xCDv@Af@Ib@IZm@pBo@vAc@l@i@f@e@TSD_AJcF\\kCb@_Ch@y@Dm@Gk@Wc@_@_@q@W{@c@cDg@aEUq@EKAKeAqAmAeACOyBoAiAe@wA_@{Ce@wAIuA?kBL_CZiCp@qH|BgB`@{BX}BFeHMgBBmBRaC`@qMbDqC`@qD\\aCHcB?sCS}Ck@mBi@_DkAmc@aSse@kTmk@oWeFqBwE{AwF}AsEaAssCmg@kIgAyI}@}PkAc@AgBI{AKu@HiA@mAEmAKaASi@SwAMy_@kCyDg@uDw@yEuAyCoAoB_AGDUGe@Io@Am@NqBtAa@Lo@DgEO]K[GiBKqBYcA[a@W]g@Ok@Eg@Bk@No@Vc@f@_@jAq@^]Ta@P}@j@kGNM~@yOf@yKf@aPT{MJyL@eIG}QUyNa@uOk@qN]cJIuCE{GLwHR_FZqEf@iFz@iG`AeFhAcFv@wC`DqKrDsLvCeKjAsElCkLvBeKrBiLjAsH`B{L`DeXdAgHrAmH`BkHrAaFfCgIjBgFvJcVfBcFxAqF|@kEt@{Ef@wER}DDiCCwCKoBUaCg@}Cm@eC_AkCuAuCsE_IaA}Bs@sBu@{Ce@mCWaCMsBCwDHcCZ_D`@{Bp@aCx@_CpC_Hz@qCn@yCR_BVuCHyB@}CKoCUkCg@cDw@}Cs@qB{@iBq@mAiAaBiBwByE_FwAoBeAoB{@sBo@yBa@qB]kCOaCCsBBeCNeCTqBd@eCr@gClAeDfAaC`CiEvIwNfE{HtEoJ~DiJlDaJfCiHvCoJfCkJtAeGp@kDV_Bh@oEXkDV{EJiEBwDE}DSmFWqDq@sGcA{Gq@eDq@yCkAiEqAcE{A}D_BuDyHwOcB{DmAmD{@iDe@mC]kDKuC?aCHoCNsBXkC|@sFbAuErAcF`BgFhFsN|AcFrAqF`BeIp@}DbA_H`AmIn@gHj@cIVmFPyHHaH@aIIeHQmHe@uJo@kIm@cG{AyLuCqSs@iGg@mFYiEU{GGiDBsGJmEZcGXcDf@{E~@{GrAoHfBgIvBeInBsGxBkGjCqGzB}EzBgE~B}DnDmFhHiKtCuExB_E`BsDjAaD~@iDb@oB^sBh@sETqDFwD?eCOyHSuICwEHqDTqD`@oD`@eClAaGbBiIh@{Cd@yDTaDJeED}NJiDXyD^aDn@iDp@qC~AkFlDkKfA_Er@sDf@}DVqDJyD@gFWgS@yEL{DTqC\\qCl@uCz@{CdAmCzAuCvBcDtEqGzAgCbAsBt@yBb@aBd@kCTwBJmCBeCIaDY_FyAiPYyEGyCBiDLyCZgDj@kDr@_DhAaExAaEvBiFbBkDnC{EjC{D`CeDxBcCbIyHrHaHvD{DhC_DzBaDbBoCdCkFpAgDvAmEx@cD|ByKjAqEjAgDzAiDfAiBxE{GrAeC~@{B|@mCr@}C\\uB\\eDv@gLZaDr@iE|@yD`A{ChA{CfBmDtBmDzAyBpBgCnDmE|B_DdCeErAoCfAuCp@wBt@mDf@_DZeDJ_CB{BA_DOqDY_D[eCs@aEcAkEkA{DqAqDgC}F}E}JeE{I}AsDaB}Ey@}Cs@uDg@wDWqDKgDAyDJ}DX_E`@eDx@oEbDsNbAwFb@kDRwCH_CAaCKiC_@cDe@}Bm@yBq@oBsD{Jo@sBg@yB_@{BUqCKmEIcHKaCU_Cc@oCoB}Hc@eB]q@w@yE_@iCU{@a@{@k@o@i@]aAa@_HsBgCgAy@c@[YyDmBwBu@sBc@_Da@wEc@iCc@yBm@_DqAwEuBwBu@wCo@eCW{BIaB@}CT}ATgCj@iK|CeCl@kDp@qC\\yDPsC?{DMgAI{Ey@}@SyC_A{B}@kIcEuCyAqCoAgDmAoCy@eE}@uEq@yEe@qJe@eGO{FEcCA_GF}EN}E^oDl@iCn@eC|@aBx@_CrAuBbBkAdAsBfCsAtBkAzB_@t@gAvCaAvCkDlL}@|CkElNsAvDmBjEw@~AaC~DcCjDkDdE_DtCiBzAqDdC}KxGmChBqDxCuBxBeD|D{D~EsApAqAbA{Ax@sAh@yBb@_BLuB@cBKmB]wAe@iAi@aBgAsBiB_BgBoBiCiBwC}A{CsAeDeA_D_AoDeAwFqAqHm@uCaA_Ds@aBkAqBeAsAiAgAqAaA_B{@_Bm@{A_@iBWgBImCDwJd@wDD}CE_CMqCa@iF}@{EsA_DmAaDcB_C{A_GcEqBiAgBs@mA_@uGqAyAe@cBu@kBoAwBkB_FcEcCeBwCgBcEmBqEwAaCk@iC]aCEuBHeBVcDx@qFvA{BZmBDuBIeBU{Aa@yAm@yA}@uAkA_FeFuAgAiBeAeBm@{A]}Dk@aEk@yBg@cCy@sBaA{CkBuD_CwBeA_IsC_Bu@mAw@sAiAqA}Ay@uAw@mBe@iB[qBOoBC{CDqGC}COmBWcB[mAc@mAg@gAaA{AoAwA}AuA}CkCuA{AkEgGoAuAuAkA{@i@_Bq@aBe@eASmCY}F_@yFi@sEo@}GyAeF{AsCeA}BaA_EiBmNcI_Ag@oCiAeEoAiCi@}BYqBSsBGgDAkFLmKh@}HNwG@cHI}FW}Js@cIw@sPuBgGk@mESmCCoC?cCBqDLyE\\wGz@iEdA}Bx@{BdAmC`B_BpA}BzBuBfCgCzDcHhLu@jA{CjEqChD{D|D}CnC}DzCsE|CoElCoFlCeFxBmGzBeFxAaGrAkF~@oGv@{Fd@wEReGHuGE{GWqHg@aHu@wGaAeHsAoG}AgSwFeDq@}BY}BMeCB_CPwB`@wBn@oBz@iBhA{BhBkGbGuBdBmCdBmB`AcC`AeCr@kCh@cCToERwTd@w^p@cFRoF`@sFp@yFdA}ElAqEvAgE|AwEvB}ElCoD|ByDrCkDvCiDfD_BhBwE|FgClDkAtBw@nBm@pBi@jCe@pD]rEMdDC~DBtCLxCT~Cb@zCd@hCn@`CvBdH\\vAf@fDJ|ADlCCdBQxBc@xCa@bBi@|AiA~BaCvEw@nBq@zBi@rCYbCYlGQrC[lCa@vBg@fBs@jB{@hBcA~A{AhBuAnAcBlA{CfBaIfEyIbEiJ|DgKzDoKlD_L`DwJ`CuIfBmJ`BwFx@{Ft@oE^wDNcDAuCM{C[wB_@sCq@eDkAmCmAeDqBkCoBoBkBgAkAqBoCqAyBwA_DkAiDu@yCa@{Bc@iDWeDg@qKUgCYsBg@wBs@sBaAmBoAkBmAoA{AiA_DcBaCeAcCsAeBsAwAyAyAuBoDwGcA{AeAmAuAeAiBcAoA_@aBUcABeCMgIUwDYeC]eCq@}Am@kAk@wByAwDaDaE}DcEiFaCgDmCsE{BmE{@mBw@wBu@mCc@}BYaCy@eJg@gD[yAo@kB}@gBs@eAoAsA_BmAsBkAmGsCaCgAcBaAuAeAqAwAaA}AaAsBq@qBmBuGu@mBaAeBu@_Ay@w@wA_AgBu@}Bo@yHwAsBm@{Aq@oAy@{AqAcBsBoMkTiKuQcPoXuQg[yDiG_C}CcCsCgDeDkFkEmF}CmI_EgBk@qGoAgBUoBKuDAgEHuE`@mARuDbAgDjAqCrAgBhA_DzBkLfJcC~AuDvByExBkFjBiDbAcEz@yEn@uDTsEJyCGuEUkCYwGgAyF{A{Dy@mEk@}CSs@CgEBkHPkBBeBCwBUaCi@o@UmBaAsFcEoEoDsBwAcDmByD}AsA_@iBYcBGmBBaBPsAZwAj@mAp@cBpA_A|@iDjEiAtAeBbBaBbAaBr@{Af@cIrBkExA_Bp@kEvB_DfByDlC{JzHmCbBwAr@eC`A_D|@gCb@iCTuCFyD?iCKaD[_C]{Bk@aA]_B}@{@o@q@s@{@gAaAgBc@mA]mAc@}BeAgKa@aCk@wBm@aBqAcCm@{@iB{BkBgBgA_AsDiC}@e@eCcAmBm@qEcAiCi@aEgAsBw@wBkAsBwAmBiB{E_FiC{ByDkCmAw@oI{E_IaEkGiCcG}Bg@UoAa@sGsAeEw@uAa@cE{AaBu@{@i@gFsD_ByAoAuAcCcD{B}DaAuBs@sBa@oAqAiG]cC[yDMmDCkDHeEvAw]FqDCcCGyAQmBa@eCi@_Cc@uAcBuEiC_GsDeIsBoFgBmFeAaEi@mC[kCIaC@aCLeCRgBZaBb@}AfBaFhBkErCaG~E}J`B{DpAqDjA}D~@wDhAoGr@mF`@kFR}EFuD?aDG_COoB_@aCm@_Co@aB{@gB{BqDeEcGyB}Dw@cBoAaDc@}Ay@oDc@cCi@gEQgCm@aOKaBg@{Eu@kEy@oDoAeEwAwDsAqC{@yAaAsA}A_BsBaBu@i@}BiAcBk@yD{@oE{@{Ag@kAq@}AeAw@s@gByBmDiFmA{A{AyAwAaA_CsAuB}@mFkBuA_@}AkAuFeFiEuEwBuCcAcBSc@qAaEq@wCq@_FMcA_AsN[aDg@kDo@wC}@_DsAqDyA}C}CkF_DkFqAgCsAcDiAeD{@_Dw@}Dm@cEgBiOg@}Cw@_D{@gCs@eBuAgC}AyBuA_ByAqA}AiAoBgAcBs@gCy@mCe@kCUkM_@kCW}@O{Cw@uBy@cCsAyB}AwAqAqC{CwCmD{DgFcDaFaC_EgC}EsBoEeAqC_AeDq@mD]wCYaFYiFWkCSqA[uA_@kAi@wAe@cAk@aAgAyAu@y@_BsA_Ak@_Bs@_Be@sB]mBMiACsE?iaAl@}EC_EQkDYyEq@gDs@oDcA{CeAaEiBgDiBoAu@mEcDiD{CmBqBaBwBeA}A}@kBq@kBk@aC_@iC{@aG_@iBe@qBuAoEw@wBoBcEyDoH{A_DwByF{AuEk@aC]_COmBEmB@qBLqBVwBf@uCj@wCVoBFeB@}BIaCS_Cc@}BcBqG_CsHiBcFuAwCmAsBuAiBaBgBqFaFcDiDgE_F_EkFqDsFcGcKkEkGgDgE_EqE}B{BcBqA}Ay@{BcAoDoAiEkAaJsBGEmGuA_J_BqCc@_AUcBq@yA{@eAy@kAqAwC}DaAaAoA_AmDoBwDyBkCsBgCeCiHmI_IaJ}BwBkD_CoFcD{CqBmAeAeCmCkAcBkAaCaAsC}@_E[aCImBGgFQgUQeJyAu^qBi\\s@_I_@qBa@wAeCaGsAkCuA{BoBeCiBiBiBaBqDkC{CiBsDgBcE{AiLkD{CkAgCsAcC_B_CoByByB}AoBoAkBeAiBkByDiA_Dg@_B{@kDu@aEa@gDQ_CE_@OoECsCHwDP{Cb@yDvAyIvBkL|@_ExEyRzBsIL]|B_Jz@oD^_CF{@XsCNoBRgEBuCEqFOuEYqDk@{Em@eDa@gB_AgDkBcF_BsDaCoFoRic@gCsGaC{GcCcI}BoIqHa[aAcDgBuEqBmEoAmB_DgE{GmIsB{CcBaDsA{CmAqD{@cDq@mD_@gC_@cEQsDK{DB{CNiDTyD`@uDnQkrAfGec@n@wDbBkIxA}Fz@_D|@wC|DiL`CgGnC}F|A}CpG_Lxg@c{@zD{GzO_ZnC}ElAaCnAwCfA_Df@aBx@iDj@}C^kC`@yEZyG\\{HJiBXeDV}BnAiGz@eDpB_GbEsJ|AwCpBsDhAiC~@qCb@eBh@{Bv@_Ez@uHVeEJgE@sDOwFI}A_@eF_AqG{AaJmHab@_ByJ]gCa@mEQmCO}FAoEJ_FXkFf@eFlAaIvDeSl@yE\\mELiD?iDKiGOiCm@iEcA{F[uAiA_Eo@sB_CcH}DiLeCwHcJgXgAiDoC{HuCoGuBcEmBcDmDaFkBaCqAyA{EuEuEkEmByBwBwCeBwCsAoCmAaDuAoE{@uDi@cD[uCi@oIoAgVQ_C]_Du@cFc@}Bw@aD}@}Co@mBmByEgAyB_CaEqBoCyEwF{SaUiBoBmAmAgQeRqAsAo@{@kJeKgByBaBcCsAaCsAyC}@aCkA{Du@mDi@cD_@iDUoDKwCAyEFkGJkEl@_h@TcPH{HCkHM_FWoHm@cLu@eQUuKGeN?{HPiPXyJXgG\\gEd@kDt@sDrDuNr@iD`@iC\\wDNcDBcDEeDU{Da@kD_AuFsAmHcAwGk@{Ea@gFSmEKqHAiCNcSRkHb@yJb@oHt@cJr@yFP_AbAyHh@eDjAwFhBcHbDmKjEsNr@sCh@_DR}AXoDJwB@wDIqDYoDe@oDi@iCq@eCuAeEkCuGsDgIeDuGcB{CoD_GgBgCcBmBmBeBaCcBeCyAgKwF}J_F}KcFkGoC{JqEyAo@gPuFeKeDiEyAqAa@wMgEeC{@mCkAqCwAiCeBoCwBqBqBoA_B}CcEoBgDkA{BsAgDgA}CuAmFaAmEcByJ{A}Jo@uEaAuIs@oH{@iLcE{o@kC_d@i@_JeBcVSyEO{EI}EAaGBuBD}E\\kOx@cW^mODiHEmFWwHwEw|@s@}P[eNEePLyMF_D`@qH`@wEdByLvAkIlDkRn@aEf@qE^uETqFDgFEqEKcDScD]sDk@uDy@uDmAqE_DyIcBcEyDkI{CqFkCiEkCoD}CyD_BcBoEuD{DqCuC_BeCoA_EyAkEqAen@cQiGuAqDg@kE[qGWgEYyC]_Dm@yCy@gEcB_CmA}A_AyB}AqC_CcHkGsCwBoCcBwBcAaCy@kCq@uCg@qGs@uHy@{Dm@wD{@eDaAgDqAcD{AaCsAcFiDiEmDaFgEgAcA_FyDuDgCgE{BaHyC_HyByLaDqCu@mF}A}EaBuD{AsB_AcE{B_C}AiCsBkDcDoC}CaDqEkCsEmCoF_DcHqC_HgDkJoCsIoCwJmB_IuAyG_BuIuA_JsAcKqG_l@aEm_@w@gGm@qDw@cDmAuDqAcDaBaDyCuEoI_LoImKcKqLcFqFcIeIqIcJaEuDuIiHaEkD{DyDeDwDeCaDkC{DgCiEeCyEwB_F{BcGqBsGwAqFmBuIuA}Hy@uFiB{O[yD[cFk@iO[qEq@}FgDcToAuJ{@uG_@uEMsBa@{Em@kKc@wL_Ciw@oBgt@[{KSqJ?qDJaEVeETaCp@oEl@}C`BuFhAwC~A_DdAeBfBaCbBkBxBqBrGiFpD_DfCiCtCoDdAwAfByCn@iAdBqDhAuCpAyDlTkq@`AoDp@uCx@oE^_DZoDNaDD_ECyDOwDYmDc@qDk@cDs@{CiAuDaAkCiAeCuAgCgAeBmBgC_CgCaCsBuByAgCwA_DuAiCy@eDs@aR{CqKmBgGqA}C}@cCcAaCwAkBwAcBcBkCkDyAoCqCuF}@yAsBiEaCqE_@y@uAeCaByBaAsAw@eAq@s@}@}@o@u@cBmAyEyC}OoI}DgCeBwAiD_DyCsDoByCqAaCwA_Du@gBaAcCc@{Am@sCu@wC_@{@g@q@k@e@q@]gASoFq@yBi@o@SKMACg@GcCw@kNwFuGwBoCi@gDc@iDOmDAuDH{Kf@cFD_B?iDYoAQgB_@gC_AgCmA{CkBgDsBmB_AoC_AaDu@wFeAuA_@kBs@}A{@wAkAoAsA{@kAaDkG]_Ai@wB_@yBYkDEqCBkCRoFNoBJoDAeCOyCUwCs@eEg@yBk@aBm@qAeA_BoAqAcBuAuEyCaE}BcCeAyAc@{AYuAKyBA_HZkBAiBMiBYgCo@iEyA{@U]KoAQGCsCMsBDuALwBh@cBp@}Az@oEpCmB|@eBh@eB^iBRoBB_BE{B[wAYaDgAaCkAwCgBeCmBoCeCyB{BkDaDsCwBkBeAyBw@yA]}BYmBAsAHqBZkAZsB~@wA|@qB`BkBlBeEzE_DtDqBnBsAfA}A`AkBz@qA`@gB\\gALeAHqC@kKQmE?eFLwG^kBN_L~Ayd@vHmKxA_Hx@yKn@_EJwFCeFQwEc@uHmAiDy@iBi@gCcAqBgAeCyAeBsAcBcBeB{BeBwCaCiEiAcBmByBkCaCmFqEiEgEaEmEmCgDmBgCuCiE}CgFeDiGiCuFoCyGsi@cwAeD_IoC_GuCsFuBgDcB}ByAaByAqAaCaB{BoAaDcBwA_AsBaBu@y@k@}@y@cBk@iBa@mCQuBCuBLeEJmDAsBMeB]{Bi@mBg@mAgAkB_AmAcDqCwAmAwaCkwAiHoE}AgAgCwB}BaCgByBuB}CaBwCcAcCs@{Bc@qBYuBWgDIcFIoEOqB]aCe@qBw@uBy@aBiAaBsAuAqAcAoAq@kBq@eAWiCYsCGoDJiD\\yEv@qH|AwDh@aDTwCFeCGuDYeAO_E{@iDkAwBaA_CsAyCuBcCwB{BcCeB}B{BwDwAuCyCcHuCyG}A{C_BeCgBwBsBkBqBuAaCoAkCaAqCs@yCg@uC[{E[kEI}F@gFNeEXoGt@iF~@oEdAiEnAcGzByUvJyFvB}E`B_JfCsOfEm]~Kq[lK{CnA_CpAqCjB_G|EeFdE{B|AuD|BoB~@_FhBsBl@eCh@qC\\sCLoBAoCQeC_@eBc@kC_A{Au@_CyAyBkBoByBaCyCuNmTaD}E}AeCyFuI_D}EwCyD}@_A{AoAeCaBwBgAmC{@iCg@yBUaEQ}GUqDa@sEw@{e@mJeFeAoDw@sEw@aBO{EOoC?kDL{Ff@iGbAcKxB{OvDaHnAeH~@}E`@wG\\gSh@{Zr@_b@`AeNJqbAK_eBWgHG}HScIe@wJ_AwJuAcMyBcOuCaIoAsFi@mGY{GGmDDeFTgGf@uEp@iDj@}M|BoGx@sGd@oCDoFGgCMoD_@qE{@yCs@mGgBiMeEuJoDgHwCgD}AcEyB_HiEug@g\\}GuEqDwCoAiAgBkB_CwC{@oAeKuPmBmCaBqBkBqBgEwDqG}E}E_DiDsBaHoDoWaMqFyCaDoBqFyDiDwCeDgDqCcD}CiEqB}CiDaGuDsHaEcJwCmHyCkIcHeTsFsPgDiJsAcDaCoF_DiGqCyE}CqEeEmFuDaEaC}BsD}CwDsCmEsC{DwBcGuC}KuEsNiFejAwa@sPeGiC_AuLkEkVuIwOiFaLeDqJ}BwGqAgHiAuEo@}Hq@eDWaGUiCIyFCiKNaGPePt@oK^sHHyFGaHW_F]}Ei@{@QkFu@oXqFiIyAsG{@}Gm@gDSkGQkHE{GLgGV}Gh@qEl@eHfA_KrBi^pIiI`BiG~@uD`@wHb@eFHqDGoCM{CYwCc@_Do@qCw@uBu@eEgB_DeBeDwByBgBgD_DyDiEmHqJ{IwLkCcDaDkD}B}BiBwA{CoBqCyAsCkAyC_AwCq@iEo@aFe@uGY{Vq@qIe@sIs@aIaAgJyAeQmDuPiDsEy@sHeA{Fm@aG]}DKuE?{EPwE^sEp@oDt@_D|@kC`AiD|AmCxA_DtB_DfC}LdLuDxC{CnB{DrBgDtAcErAgCl@iF|@yI`AyGp@kD`@aFv@iGtAqQ|EaE~@}Ev@aFj@kEZuEL_FBmPCsEFkFXcGl@wEt@cE|@qElAsH`C}GxBaE`AcDf@qDRmC@aDMaEe@qGw@qCOaCAiDJuJt@iBFmCCcBIsBYaD{@aCaA_CoA{CyBcKuIoBwAaBaAmB{@sAe@yBi@cC]eCMuB?cCLkD`@uDp@_FjAeFxAkFlBwDrA_EhA{Ch@}BRqC@iBIiBUaI{AeBQiBEyADiBTiBh@mBz@iBjAuB`BsHxGcCfBwBjAiBv@sCz@oCh@kALeDPeCAaCMoBWcCg@sDiAuHmCqCy@aCe@iBSqBE{ADkBVoA^yAn@}AbAyAhAgEtDaCdB{Az@{Al@uBh@}ATiBJoB?wBSiB[}@YgBs@yA{@}AgAuAqAoAeBeAkBw@gBu@}Bi@}Bi@iDw@eH[aDu@eFs@cD_A}CgAqCuAoCeAcBgB}BuAwAsBeBiBmAmBcAeCaAcCo@qB[oBKwABqAN}A^oAj@wA~@gAhAgA~Aw@bBu@bCqAdFq@lBo@rAeA~AiArA{ArAyAz@aBn@cAXiBVoBHq@A_CMsB]cCm@_EuAsDaBaBy@mDuByCsBuDyCmCgCkBuBcB}BcAiBeA{B_AsCg@uBk@qDq@mEi@_Ci@aBs@_BgAgB}CgEaAgBu@kBm@uBeAkEo@oBaAoB_BcCeBqBsAmAmBuAqBgAeBu@mCw@iFqAuBw@kAk@_BgA}AwAwAgBqAqBmE_JeAeByAiBmAiA}AgA{Aw@eDqAmGyBiCoA{ByAmBeByA_B{AwBaBsCgFkKqBkDiBiCsByBuBgBkBoAyBiAmBu@iCq@eC_@uCWeBAiCFoDTeLfAyBHsCA{CSwB[gCo@yAg@{CuA{ByAoAaAuBsBcBuBaBiCoAeCkAuC}@{Cq@oCiAgGyAqI}@kEiAiEqA{DmAyC}BcFwD_IwBiFkBoF}AkFkGeVyA_FyBiG{AuDsBqEwCyFuDqGsDuF}F_IcS_WwGaJcBaCyI{MeLaRmQgZwLmRoPaWqH}LyJoQgIsOwD}GwEyH{D{F_EoFwDwEwPsRcDaE_EyFmD}F{BcEwCeGuC}GsByFaBgF{BeIgCkKwEcS}BwIwAwEgCeHcCcGoBgEqEoIeE{G_DmE}EeG_DkDuHeHiByAaAy@aEmCqG{DaDcByEwBwGiCcDcA{GeBaFeAwL{B}JiB}GsAmFwAgGmBwEiBgGqCqC{AgF_D{CsBaF{DaHkGwN}NkGmGgIwHkHiGiIwGaQsMeKkIoJkIgJsI_TuS{O_OgLaKoM{KqGkFWQoNaLyPkMkMcJcK{GkRgLiKaHkOiL_F}DeEqD_F{EaEuEmEuFoFwHoNgTyFaIkG}HmGcHgCoCsHgHwG}FwRoPaIiH_HuG_}Au}AkM{LqI{HeI_IgEmEeCmC_IaJwHoJ_IqKaFyHwDqGkEiIkDoHcEuJcDyIwBoGiDgLgBcHaBmH_B}HiAmG_B{KkAmJeAyKuA}RoBqZ_AgLgAkKsAqK{AyJuBgLsBsJ_CqJgBoGiBiGkByFcCaHkEyKiEqJeEkImDqGqEsHsFmImEaGM@_BaBcBmAeBcBkAqAwAuBkCwCsBkBQSiAkACKcBkB{GcHkF{Fm@q@WO{AmB_AcAoEuFaAuAe@q@I]wCaEsCqEgHaMeEaIiDcHiC}EaBqDy@mAcBuCgGoJcDkEkEcFqDwDeA_ASIyBgBkGwFmAiAu@q@QUtA{DhIuSfNe^jJqU\\cArCeHpAyD`FaMnGsOfCaGl@uAcFiDgGqE",
+      "duration": "PT7H16M",
+      "distance": 586726,
+      "tags": [
+        "scenic"
+      ],
+      "notes": "Conexão em Shin-Osaka. Hokuriku Shinkansen estendido até Tsuruga em 2024 — agora mais rápido. ~5h total."
+    },
+    {
+      "id": "kanazawa-to-takayama",
+      "name": "Kanazawa → Takayama (Nohi Bus)",
+      "mode": "TRANSIT",
+      "polyline": "o~f~Ey_`aYfE|CaFrMKPwAa@wBgAqCyAeE_C{IoFkBu@}F_B_M{As@@WJmBz@mXjMmHjDIHU?mAJu^x@mAcHeCoQ{BcQ{BeOiBwJsAeG{BeIqBkG{HsSmCuGuBuGm@sB}AeHiCwMEcA{@oGq@kFwAkK[uCIqBu@qKJSgAyOcAqS[_KM{JAcJFuJL{Gh@qMb@_HdAcMnAuKhBeMbCqPp@aG\\wEJqBLgF@cDQgR@oDJmDRqCVqBb@yBh@sBn@gBdAwBhC{EhAoCr@aCp@aD|BcOz@oElAuElAqDlCkGnBuDnFyIrAmCv@qBn@yBb@{BZwCNmCDeB?cEMgE[eEm@yHMwC?qCHyBT{Bb@_CjB_Hd@yBXsBP}BHkB?qCIyCSuDm@uIIcC?uDTyELeBXsCp@{Dx@sEf@yC^eFNgF?aEOcESiCm@{Ew@kEeBuIq@eEY}C_@aLMaBWsBi@cCiBsF{AoFa@_Ci@sEo@wGe@}Cq@}C_A}CgAqCWi@wBuDgEkGoA}Ba@}@}AuEm@cCa@sB]{CKqAM}D?sDHyCVaDjAoKPiCBqCGqCSgCYoBg@}Bq@uBcAaC{AmCuGqJeAqB{@oBw@kCi@kC_AcFi@mBo@_Bu@wA_BwB}BgCyF}FkBsBgBeC_A}AyBeEqAyCuAuDkFiP_BkEcBuDmBoDwBiDkAaBwCeD_JcImBsBeC_DqBaDwAoCcB{DeAuCmAgEoCgKmAoD_B{D_CqEsKqReBuDeBqEgAuDcAqEo@}De@qESaCOoG?{EJkGPmEZcHr@aK`AkKvAqL|F}b@jAkKp@wH^mGZ}IFqGC_FS_Ha@}Ge@cF_AeH_AiFuAiGqCmKcF{PkC{JuAsGu@eEm@iEe@}E]_GMqEAyGHwFPqFh@mKfAkPn@uHJiAEg@t@wKj@wFbAmI?s@Mi@Uc@WQ_@Kg@@]L[\\O`@Gb@?h@Jf@Xh@f@b@p@Xj@JnKpAtBPhGn@xFx@xJx@fJf@`XpA`M~@`K~@lLvArDj@vBd@jC~@dCnAnHpExBfAfBn@bCj@lDd@|S`C|WnCjHb@tGPfGExFOnHe@`JcAbLsAnKaAzJk@~LY`FC~F@xINpDJlFT~FJrC?xDQjEe@lIeAdDU|CIjG?tLThMb@vLp@lE^jFt@|FjAdGxAxDjAjGzBbDvAtE|BpF~CzF|DhEfD`FnErQpPnBbB`ExCbF~CtCxAzDbBhGrBvJpCnLlC`P`E|WtG~JtCrHfCfGbCzGxChFjCzWzNtPjJ`IjE~FrCzBhAlE~ArF~A`Dh@hEf@zDPlEH`DEdDQxEi@xCi@hCq@fFaBdEeB`CiAfQmJ~CaBlHaDjDgAnBc@jBUjGk@hFm@~CYbIQ~EDlBDzIf@`f@`Exc@nDnMfAjBLlCXxDn@|Br@hUfJhEfBrCdAtBt@`FjAvDn@nD`@dDVdFHjC?bFCdN_@hSu@bb@cAvNWxn@mAnCI|GG|Xo@fN]tTg@~CApQg@nH[|KkAzGiA~KaC`JyBdDk@bFiAtEs@lHw@jBIjEExGZtXnB|DZlCJrH~@rHnA`Gp@pLv@bEDlELfW\\|PXzGBfZ]dJOvEQ|DInF[tFOpCOvG}@nE{@~E_AjASvIgB`GeAfOyCbLuBzH_BtHsA|IkAhQcBzCQtDGpN]bI[~F_@zIaA|G}@zI}AxFoArEiAjCu@fC}@dEgBdDcBvEuCvAeA~EcElBkBzBgC`EiFvAwB|AkC~DgHpBgD|@oAxDuEvBoBvC{B`BgAbCuAvD_BbBg@dFkAnC_@`J}@xgAwJ`LqAvI{AtOaDzCe@hCSlCIzB@pBHrCXxB^z@R`Cp@jBr@nCrAbAj@fChBzCpCxBhCdB`ClGzJpBfCvBrBnAbAbAr@|C`BfCz@tBf@fCZfDTnB?VC`CInC]jCi@bAYlCeA`CsA`BgA~F_FvCaC~AgAtBkAvD}AbD_AbCg@~B]xAMnDGnDHnCTnDn@bCp@jDpAvH~C~DpAlCp@hBXfBZbG\\rDDpDKrDUpDg@jCk@nEmAnDqA`FcClF_EhCaCrDuDfByBnAkB|AiCzAyCbB{DpC_In@kBjAsEr@sDf@}Ch@eGf@_JxFupAzMkbD~EybAnAuXrAua@nAeWzCau@`AsXd@gI`AkK~@mH~BoMvBsJzCoKnAcEvB{FvCeH~B_FhDsGbDqFdEcGlEyFbEsErEsEfLwK~NwNtAaB`MiMrQkS`CeC~PuSrFiGdMmOxPeTvBkDnAmCzA_EdC{HnAgEv@sBhA}BrBiDjA_BhBwBrAsAnB_B`BiAxC{AlCeAjD_AvHcBdFaBpEkB`EsBlBaAvAo@vBqBpA{@bAeAzKwOpDsEbBsAxC_DxDeDvBeC~D_FpAyB`AkBfAsC`BiD~@uBfAyB`BcEpHmPv@qBhFkLlK_VbC}EtBgDfB{Bh@k@~CoCnEsClCiAdBm@~Bk@tDm@z@IrCGrDDtAH~Dl@fLnCdARlCX~CPvBG`Ge@hD[pDUpDGvGD|FZZFzI|@tEXpFHtEEhFYpEc@jFs@zDa@p@ShGo@zCa@x@A~@Fl@Pn@\\`A~@bAdAr@f@h@Pz@@j@Ob@Yj@w@Pe@Jy@?_AMs@Yu@g@k@e@]KMkFqBuBq@_@[uB}@yC{AoCgB_CkByAaBsAuBm@mAWo@s@{C]oCGgA@oDJuBVaCf@eCtAmFlBgHbAgFf@eDz@iLd@sIn@eNhAoRNqDb@sODwH@_ECiHe@mR]aJm@{L}AyVq@eJaAgKsKuvAgAaMg@mJS{GGcHD}JNcH^_JzCsg@hBu[ZgFHcCDg@PuID_JIeIYcJc@iKIyEBwDNaEb@aFf@yE~@eHP}A|@uKRiEBcBEoEKcDYsDg@uD_@qBe@qByA{EuAgDaBwC_BcCcRyUoC{DuDiGcE{Hy@iBmBiFiQgh@sCgH_D}GcE_IaDoFwQiZo]al@cGoJcCwDgByCiB_CsCeD}E_Fk@Ye@Ae@Nm@d@a@p@[v@{@bEGFS\\e@X_@Da@Gk@]_B_BwAiB]s@Gg@Bk@Lg@Z_@^Ob@A`@FlAZb@?\\Md@c@xAwBFAhBgDlIeO`CcFhBiEnBqFbAeDrAgGb@}CReCd@aIPqAd@cBh@qAnA}A`Aw@lAq@lA[~@IrA@j@DlCb@|@JXNjAFzBAtBWfASLK`KcBb@?nCe@@kCIa[?cDnDQtLg@`X_BvIe@pAI@g@",
+      "duration": "PT1H45M",
+      "distance": 116874,
+      "tags": [
+        "scenic"
+      ],
+      "notes": "Nohi Bus Hida Express (não JR — JPY 3500). Atravessa montanhas do Norte de Gifu — paisagens dos Alpes Japoneses."
+    },
+    {
+      "id": "takayama-to-shirakawa",
+      "name": "Takayama → Shirakawa-go (Nohi Bus)",
+      "mode": "TRANSIT",
+      "polyline": "yjr{Ek_vdYAf@{G`@mCLeZdBqJ`@oDPBfODnRAx@oCd@WLgKfBSEuB\\yANiB?kAGUBmGq@kA@mAPu@XgAl@qAfAm@x@Qf@e@jAc@dBShBk@`JY`C[lBs@fDkAzD_CtGuB`FuC`G{HfNqDhGAPgBfDY|@Gb@Bj@Lb@TX`@Nb@?^SPUHCn@cD^cCTi@^c@`@Wj@Id@Bl@Vh@f@pCdDvBxCxDxFpCxEbBfChFnIb`@to@bQnY|CpFzDrHdDxHrCpHxPdg@fBtE~CdG~CrFdCzDtBvChQtTbBbC~AzCvAhDxA|Eh@tB\\lBf@vDZrDJfDDpEQ`G]|Gg@nFyAdL]xC[pEMxCCjEHlFn@hORjJBjEGlJMpHYxFg@lGuAtSkAxScBnYYrHMjHCdJFjGRdHh@hJnAzM~KfyA|@lJlA~Qt@dNl@lLf@`OVfMB~EGzLQvHc@zMo@vKg@|Io@hNk@~Ig@tGg@hDiAtF}D~Ng@hC[pCIzBAhCN|BVlBf@tB\\`Av@|AnAfBvBzBbBtAzBvAnEtBpAh@R@xEbBvBl@`Bt@ZVXd@Vp@Jr@?z@Gr@Sn@_@n@i@b@q@Ro@FiASeCw@uB_@aBOcCCyEHQC_DRkFj@aFr@{D\\eFXkDD}GIoFY}C[gGw@mDWqDIiC?uENmDT_Gj@mCPwB@qCOaDa@gGwA}EkAuDg@{AGgEEsBHaBRoDn@qBj@kDrAq@ZsExCmC~BcBnBkA`BgBtCqCvFmM|YyCtG_AzBiH|O}A~DyAtCaBrDq@rAeAtCeB|Cw@jAkGpHw@v@{DjDkCpCuAbAqDtEiKdOoApAyA~@qBlBgD~AaFfCsElBcF|A{J|BeBd@gDrA_DdBwB~AwAlAgCrCoA~AqBdDkAzBw@jBqAdEoAdEgBlFkAtCyArCwA`CgBzByTrXcFdGkPtRiGxHqWlYgKfKoAvAsT`ToIbIuF~FwEzFeE|F}BpDuC`F}ChGeCpFsBdF_AdCgDjK}@`Dy@`DmBtIyBdMi@vDc@jEWlDy@fNcErfAcBz^gDry@qKbmCcF`nAaBfa@q@tNyDnu@w@lHe@lCk@tCs@lCeJ`WiEzGeAvA}ErFsApA_DfCaF`D{BfAaBr@oDlAiEdAqDn@}D\\qEPqC@kI_@uBY}Ck@yDcAaEyAoIkDyCaAsCm@qC_@c@CKFoB?eBPkA\\oBp@}@PQIKQW_FMi@U_@OMYEUBEB[B{A~@yCdBQDwBhAsHrEyCzAoFzBuDvAuCv@gBn@oAXa@Fu@@}CMeADmARuAZu@Bu@G}EqA{@]s@k@k@q@eA}Ac@a@_CqAg@e@c@o@_@cAScAE}@D{AR_E~HYfIk@zBE|PRfCPfI~AjB^z@@xDWxA[x@_@dAw@zBqBRa@JkAXyGNs@Vi@b@c@hH_FjAw@xAu@tBu@nA[`AQbAStCu@x@Ej@HtKrC\\kB",
+      "duration": "PT52M",
+      "distance": 49962,
+      "notes": "Day trip — ônibus de Takayama Nōhi Bus Center. ~JPY 2600 ida-volta."
+    },
+    {
+      "id": "shirakawa-to-takayama",
+      "name": "Shirakawa-go → Takayama (return)",
+      "mode": "TRANSIT",
+      "polyline": "kqh|EarrbY]jBuKsCk@Iy@DuCt@cARaAPoAZuBt@yAt@kAv@iH~Ec@b@Wh@Or@YxGKjAS`@{BpBeAv@y@^yAZyDV{@AkB_@gI_BgCQ}PS{BDgIj@_IXS~DEzAD|@RbA^bAb@n@f@d@~BpAb@`@dA|Aj@p@r@j@z@\\|EpAt@Ft@CtA[lASdAE|CLt@A`@GnAYfBo@tCw@tDwAnF{BxC{ArHsEvBiAPExCeBzA_AZCDCTCXDNLT^Lh@V~EJPPH|@QnBq@jA]dBQnB?JGb@BpC^rCl@xC`AnIjD`ExAxDbA|Cj@tBXjI^pCApEQ|D]pDo@hEeAnDmA`Bs@zBgA`FaD~CgCrAqA|EsFdAwAhE{GdJaWr@mCj@uCd@mCv@mHxDou@p@uN`Bga@bFanApKcmCfDsy@bB{^bEsfAx@gNVmDb@kEh@wDxBeMlBuIx@aD|@aDfDkK~@eCrBeFdCqF|CiGtCaF|BqDdE}FvE{FtF_GnIcIrTaTnAwAfKgKpWmYhGyHjPuRbFeGxTsXfB{BvAaCxAsCjAuCfBmFnAeEpAeEv@kBjA{BpBeDnA_BfCsCvAmAvB_B~CeBfDsAdBe@zJ}BbF}ArEmB`FgCfD_BpBmBxA_AnAqAhKeOpDuEtAcAjCqCzDkDv@w@jGqHv@kAdB}CdAuCp@sA`BsDxAuC|A_EhH}O~@{BxCuGlM}YpCwFfBuCjAaBbBoBlC_CrEyCp@[jDsApBk@nDo@`BSrBIfEDzAFtDf@|EjAfGvA`D`@pCNvBAlCQ~Fk@lDUtEOhC?pDHlDVfGv@|CZnFX|GHjDEdFYzD]`Fs@jFk@~CSPBxEIbCB`BNtB^dCv@hARn@Gp@Sh@c@^o@Ro@Fs@?{@Ks@Wq@Ye@[WaBu@wBm@yEcBSAqAi@oEuB{BwAcBuAwB{BoAgBw@}A]aAg@uBWmBO}B@iCH{BZqCf@iC|D_OhAuFf@iDf@uGj@_Jn@iNf@}In@wKb@{MPwHF{LC_FWgMg@aOm@mLu@eNmA_R}@mJ_LgyAoA{Mi@iJSeHGkGBeJLkHXsHbBoYjAyStAuSf@mGXyFLqHFmJCkESkJo@iOImFBkELyCZqE\\yCxAeLf@oF\\}GPaGEqEKgD[sDg@wD]mBi@uByA}EwAiD_B{CcBcCiQuTuBwCeC{D_DsF_DeGgBuEyPeg@sCqHeDyH{DsH}CqFcQoYc`@uo@iFoIcBgCqCyEyDyFwByCqCeDi@g@m@We@Ck@Ha@V_@b@Uh@_@bCo@bDIBQT_@Rc@?a@OUYMc@Ck@Fc@X}@fBgD@QpDiGzHgNtCaGtBaF~BuGjA{Dr@gDZmBXaCj@aJRiBb@eBd@kAPg@l@y@pAgAfAm@t@YlAQjAAlGp@TCjAFhB?xAOtB]RDfKgBVMnCe@@y@EoRCgOnDQpJa@dZeBlCMzGa@@g@",
+      "duration": "PT52M",
+      "distance": 49962
+    },
+    {
+      "id": "takayama-to-tokyo",
+      "name": "Takayama → Tokyo (Wide View Hida + Shinkansen)",
+      "mode": "TRAIN",
+      "polyline": "yjr{Ek_vdYAf@hFY?qCHsJ@qGEuCQqBS_BKSsCkOgD_SC_@J[p@u@fB{ADMAYwEoHyDuE[i@[iA}@qDs@uDWs@uAkCc@aBmBoIg@_A_GuJWm@Kc@CaABm@l@iGFwB?oAKoAWuAkDwKUoA]eEUy@mBoEi@eA{@iAwDiDe@m@Um@qE{SqAsDkAcFUqAAu@De@Nw@~A{CJe@Am@Kc@[a@mI{Fq@m@_@c@q@oA]mAW}Au@eOUyA_@kAqNa[kDoHcA{B[c@[Uk@Uy@CcJJwDHg@LcAr@oFpEq@\\u@PkA?y@SWGUMaIeCWMZyG@yBE}BKwBy@{H_BwNU}CEuAD_ENyCxB}SfCq[ZoEX{CH_B?kBkBwg@CgCEmNIuAM{@_A}DS_BcAqMk@kEEiABaRGcCUyBeB{Mk@mD{AqHq@eEkD{]g@aMYaCc@cC{DaQkAsGIcAB}FLkSIiBMaAo@eDIgABqAnAuWG}@}AkGUkBGwABsLNwAhBqIHw@?u@cAiKY_AmBqEOw@c@{KAsAJaA\\cCf@yFXqA`BeGJ{@@_DCsAIw@WgAsA{D_@}A_@eBYy@k@y@mA{Ae@}@Us@Q}@qAsJKoA?cBNkHPiD^eGBeAWgPMwAq@eFAaA|@yXLgARw@b@}@zEmHdHiJh@iANi@X{AHiAFcHLwAtBcJJcA?uAAoAHoARcAb@iAhC}FzAuEj@ZTNLGdBsC~A_DJg@VyBx@qE@e@I}@UiB?i@R_CNc@b@m@X_@Pw@^eCNa@`AiAt@yArAqDLw@?yB?gA^}D?gAGs@[qBCk@HgAJaAJy@\\{@J]Be@KuBOi@m@yAk@iBGW[k@k@m@o@Wo@Eq@?]ISYiBkEGa@HkEX}BN_@HMn@k@FS@SI[Q]UMS?k@T{@^UCOKk@gCeCmLWiBo@_CUc@WY]Sc@I}AO_AY{EcD[K_@@UTKZA`ABhCLn@L`@?XKHMD[cBwDePU}AKiBE_BM}@Si@W]o@i@s@a@]_@y@uAa@iAg@cBSY[Sg@Iq@E[OW[_AkCc@u@_@Wc@I_BOaA[k@]o@o@wAoBm@s@Wm@}@qDA{@RgAz@sDBc@Co@U{AY}AAe@D]b@kAx@oB\\k@~@eAvAoA|AoBx@uAdAsB\\]~@a@X]L_@Bg@Kk@Q_@]Wc@E[DYRqBrCk@\\i@PqEp@e@A[KWYOg@Ek@D]JYZa@x@]vCg@f@SVWP]Hi@Cg@}@qDScBGgBDiBRgB`@cBZ{@~@cBtB{D\\y@Hk@EgCHoATaA`@mAToB^aE\\yGDuCKaCq@kESoDMaEBkAPoAjD_Qb@oA`@w@n@{@z@u@pBiA`B{@|BsAfAw@fCwBrEwCtIoFhEyCn@o@Ti@Hi@?s@Kk@[s@qFcIi@c@YIa@Da@R_@`@a@hAm@nB]l@i@`@m@Rk@Bm@Ie@UiAeAm@w@Wm@Kq@@q@Jk@Ra@^_@d@Sj@GnEN`@IVSN_@Dg@Ec@O_@[[}BwAoAeAqA{A{@sAkBqD_AkAkAaAmAo@sBw@w@k@g@q@Ye@wAoE[e@]Sg@Ee@H]VU\\Oj@e@tBQb@UPa@Le@@YGYU[g@q@gB_B}Ea@iBY{BIqAqF{xBiAyj@UiNKyAQq@c@_Ao@y@s@c@oDiBi@i@]o@iBwEIq@@o@J}AGk@O][Y[K_@?u@TcDbBg@Nm@?a@IYYO[Ee@D_@N[VMXAr@Bf@Er@MjBA`Ce@d@?`@Lb@^`@z@~@bCf@v@bBdB|@r@ZJ`@B\\G`@]Tg@Hk@Au@aAiNg@gPMoAOo@m@qAq@s@u@a@qA]{Eo@kACe@@KBQeAQ]_@[wCu@kCyAk@e@i@k@eJcIwEsEuBkCsAuB}@sB}@kCg@yB_@cCO}BGcC?qCfAk`ARcQ@}EOcIUoE[oDc@wDs@gE_AqE{@_DwAsEoK}X{HgSeEgLw@sBs@sBwLw[c@mAuA_DMa@i@gAqAeBeAiAi@_@aAc@mCi@cF{@YCQEm@M_@WiAsAm@u@YQa@CkA@eAIyASc@Uc@_@e@o@]s@q@cCGc@B_@Tu@ZHFJVz@PXz@l@r@Vh@Bp@ItBg@z@AnAJ\\N|@n@`@^jAfB^Px@TV?v@Yr@_@^e@Rk@jB}Ih@iBv@gBbAeBjA}ArGgH`@u@VaARqAXw@Xa@bAeApKwJ`DaD|@mAd@iA`@wAJu@FgBDaGJ_BrAmJ|@iFd@cBd@oAh@cAbAuA|A{A|@k@tAm@pA_@nAOvAApCRhHbAv@?x@MdB{@fCoAx@Up@]xCkCzC_C^Ud@KvB?fAAlC]pAWdA[xAw@lFkDR]f@kBXc@dAu@~@a@|Bc@dBg@h@YnAeAr@{@d@w@h@yA|CqKbEmOt@kCp@iBXo@hBuChHaMZ]~@c@jFeBnAk@pBsAzAsArBaB~@aAh@gAZgAJi@JeBBgB]{EAaBHgAxCkN^kAf@}@f@i@t@c@p@Sx@IdADjD\\pAAzB[r@[h@c@`@k@l@wAtB{FzAgDZqAf@cEJ{A?sBKkBWiBm@aDAi@FwBC_@Ke@[o@eBgCWs@oAiFEm@LgEOoBOuBBuAPiAnCoHrAmDz@qA`CgBl@w@hAgB~BaHrA_GpGaO^k@`Ay@hFyD`@g@j@wAt@uAb@i@zD_DrAsAdCuCpJeLzA}Ar@e@dAc@xDgAl@Y\\e@|M{\\bAmC\\uANc@j@q@xAu@r@c@d@s@HWvAgL^eBXs@b@q@|a@oi@f@c@fAi@dCcAjAg@h@a@d@q@j@mAHe@Ak@W}A@W|@{BfA{EzFsPZwAJoADqD@{L?iHL{B`@wB|AqG~BcLRw@n@wA^e@^Od@AnBd@dA?hAM~@]|@k@n@u@d@_Ar@}AX}@PcABg@@uAg@iG]wDBSHIvAY\\SjAmA~@m@HWCWKOUKq@Ck@Fa@Vc@Vq@N{@FyBQeBKoJmAcASWY}C_GIwAg@kNMgAOw@_@}@y@kAaAgAgAgBa@iAKk@EeAH{CA_@OgAKe@Si@g@u@gAmAUa@s@oBm@aAaAwB_@s@m@k@O_@Is@?WBs@Mc@SWg@Mg@UgAw@QWC_@IeBOgBWsASk@e@u@a@_@g@IWGk@W}AQuAI[Oq@_AYg@]Wo@{@Ka@QA[@WMUWUOYq@MQGYMmAOY]Se@Gk@@aBm@wC[[OOYIaBO_CI[OUk@c@MSWk@SWcAq@c@We@S]a@Ua@gAqAu@gAm@gA_BwA{As@y@m@i@Ms@EqB?y@GeBa@aAk@O[Qy@WyAw@gEU_Ag@oCM[]][Kc@@kAR[CSKiAcAo@mAiA}B}CoEqAwBkAyCi@u@aAmBa@YuDoBoAs@_@c@eJuSSU]IaAHOAMEW]aA_DCyAOe@c@i@eAy@UUSe@c@qBu@gBe@gBe@sA?e@Bo@Ek@Oq@[i@cB{Bc@cAk@yB}@s@Sg@U}@S[o@e@u@e@yCsCcA{AeBiCYSeCcAUWI]?k@FuAAs@Mq@Ue@{@}@cAaASe@IyAOkDc@{EMy@Se@SUs@McDa@c@OOWK_@Kg@WU]MWDyBxAYJ_@Bc@G[OQUM]Ia@s@cAOs@MSiBsBMGwBo@mCYoBSmAo@cAi@cAY{@Ko@AqDRgAG_@Eg@Sk@[o@i@k@_ASc@c@wASiAGcAI_@Ua@cEyE{B{BqA_BuCsEO_@e@iBW}BAq@p@oEh@{CPgBT}@bCcI~@kDz@oCb@qALu@DmBDoAScCk@mFQw@Yo@aBuBc@{@YiAaByJMaAKmBAeC`@_MAaBIgAYsAu@eByB}DoF_IkAoBQq@[mBEgA@sAI{@w@gDo@{By@uDSy@Qs@q@qAmAqBcBsBoAyAk@iAKk@?s@\\{DDeC?{@My@[{@g@eAuCkKkEePsCyLoCeJYwAsBsNSy@s@yAsCcF{@kB}@oC]uAuBsLcBsGw@{DqBsKyAaGmRcaAo@oFc@sEe@_BwDwKg@uBaByIyAwEkEyPcA}GkA_I_EuV{AmHoCyQ_AuGk@aDUoBcD_Ui@iC}@cDiMc\\gM}[aBcD}@wAuAeBuGyHe@{@a@sAOmAK_CQgKCUgAkEg@eBq@uAk@{@cGeIcFoIe@qAwDoMYu@o@iAsCgEe@}@YeAKm@mA}Oa@oBeFyQe@{BM[gDqWyCmXoAkQW_Ca@uBy@mDi@aBuDmJg@oB]aBk@wF{@cJQg@Gq@SgAUa@k@[yAa@mAOcAIYEGKoCMY?{@RMHk@r@Qh@C^Df@R^TT\\Nb@DdBCvBGLLlCGjDBlDTrBTxCh@hCn@lBl@|CrAzBhA`DvBlMhK~ErD|DfCdGbDbDvAbE~AhErAnCr@xDx@xCf@~Dh@jE^|FVxFDdDIfDSzCe@jCo@rCeAvCyAhCeB|HcGtCkB`DaBhCgArFmBnHwBrG{AhGkA`HaAbHw@`Hm@lG{@dDo@rBc@p~@gVfDaA~CiAhD_BjBiArB}ApBoBhAsA~AwBbAeBrAmClAwCjAaDvAsEtDoM`CgJxBsJ|CoOhDkS|@mEt@}CbA{ClAkChAqBvAoBbAkApAmA~AoAtA{@zBaAlBq@lCk@tDe@xI]pPc@nGWnM]xFExFJtEVzGl@z`@~DpCNnCFhDQzAQzCo@dCy@`CiAjBkAlByAhDaDhLsLtEmE`FaE|DuCnD}BpQmKbgAkn@hXsOvUaNdEqCtGyEdGaFtE_ExK}Jvc@w`@`DeD`CuClBwCbAoBlAsC`AsCt@yCr@qDx@qFh@{Ej@cGV}ETmHFsGA_FI_FUaH[{Ee@eGo@gH{AoRAeGFaEZwFx@{F~@oEZqAxAuE`DwGjCoDdAaBtB{B|@{@|CyBzBqAjCkAvBu@rD{@~Ds@~Em@fGc@pEM`D@rDR|Dd@pDp@zDdA~FlBhDhArH|BdInB`Gt@pLJlGYbCYlCa@jCm@pC{@tB_AhCaBnB{AxByBvDiE|M{PXk@jAsArEmG|@}A|@_Ch@{BrAkGp@yB`@iA~AeDhBqCzAmBj@e@tB_ChC_CnFiEpG_FhC}BpJgLhIwMvCgEbCqCbC}BjCqBpBoA`DeBdKcFpDuBvCwBrBgBrByB`C{C`A}AjBkDdCuFdIgTrBwEnByDzBoDpBoCzBmC`DaD|CeCvDgC~DuBbJ}EjDwBxGqFtBuBbBqBrCyDvFiIzBuClBsBtBkBtDiCdDuBnEmCfAu@vAgAvCiCbDmD~B{CbCyDjAyBnAkCpAaD`AuCjAgEp@{Cb@_D\\eE^mGVoCd@}C^gBr@gC~@_C|D}IlAuDt@_D`@cC\\yDLkD?aDK}CW_De@mDaBkIwBwJ}@mFc@sEQgDIoDA}FHkHTmFVmDj@}Eb@gCf@_Cz@gDxAeEtA_DhBkDhBoC~CyDtAuAxCcCbEoClLgHvCuBjB}AhBeBfCmCpCgDjFaHlDcF|EwHlDeGtBgEhBeE~AoE~AkFlAkFn@aDn@gEn@_Gb@aGNqDJwEDcG?mSH{GTqG\\sEh@{Et@sE~@iEv@oCv@uBjA{BtAqB~AgBzAkAbBcAnBw@jBi@pAUhDUjGE`CI`D_@hCa@lA]bBu@dBgAxAoAvAaBdA_BjA}Bt@uB`AuD|CoNz@}Cz@{BzA_DrAwBz@eAtAwA~@{@`GqE`G_ElCwBfDcD~BkCd@i@|HyKzB}CjCeDpCwCzBuBlEiDtEsClGaD`OyGfHyD`G}DlCwBzEiE`RoQfEsDnEiDrFqDzHqE|JyFxEyClBqAbG}E~DwDtDaEpDuEtB{CbDkFfCyEnCeGrCoH|BkH|AcGnA_G~@kF|@kGt@iHd@kGh@mK|@oT\\qGl@kHz@mHZqBz@oEv@mCz@gCpAwCxAmCxA{BbG{HjAeBtBsDzBqFpCiHp@}Aj@oA|@_B~AwBnAsAfCqBpBmAfAg@rE}ApBe@|CWxEKxEGnCOjC_@dCm@dA[jBy@`B_AhBsApBoBxAkBz@qAtAkChAuClEuMnBwE~AyCdAaBhDsEjEuFv@eAzBmDjA}BtA{ChAwC|@oC|A}FzB_K`DkO`BuGfBwFrAsDrByEzCaGrH_NpCyF|AqDvAaElAqEjAuFnB_LhAkFr@aCt@sBhAiC~AiCfB}BjAmAjB}A|AaAjB_AdBq@tHgCzCqA~A{@|BaBdC{B`DcD`C{Bp@i@bD{B~BmA`J{D~CcB`CcBpCiCfCyCjB{CtAoCfAoCb@qA~@}CjAaF~AqI~C_SnA_H|@yDdAyDjAgDlAqCx@aB`BmCbB_ClBwBdFuErCmCdBsBdBeCzAkCvCqFjBqCxA_BtAoAfBkArCwA~DiBbB_AlB{AzAyAjAyA`AyAfA{Br@gBp@}B|@cExAsIl@mCz@qCfAkCfC}EpBwDfAcC|@gCt@yCh@{CX_CRkDH_E?uFGqKBmCL{CVuCd@aDn@sC|@uCjAqC`B}CxEkIvAsCvAgDlAmDrA}En@gDn@kE^wDTgDLoEBmFKqLBuGJqDR_D\\qDZ_Ct@eEv@iDxA{E`BeEjAeC`BwCzBcD`CuC~JgKpDiE~BsD~BoEjCwFbByCzB{CnAqAjCwBhAs@fAi@xAq@rBm@jCe@pBSdDGzIZdB@|BMdBWtBi@xB}@vGkDdBs@lBg@jBYbAGzBArBJrBXdE~@nFtAnCh@hBPvBJzBCvCSdDi@tD}@hFcBlFkBfDeAfDu@`BYrC[fBInDEtDHtEZvQdBhFT~C@nCIpC[`Cg@hDiAdB}@rBuApBcBdBoBjAaBhBgDfAmCr@}Bd@uB`@aC\\gDTwEViIV_DZiBj@wBn@_B`A}Ap@}@v@s@|AeA|@a@rH{BbA_@dAk@rAcAx@aAf@y@f@mAj@mBZaB\\{Cr@gJd@oDp@eDX}@xAgElAiCjAmBhB{BbBaBbBqArBmAzBaApC{@dCe@dDa@bF_@jJg@zAMdDi@`Ck@~Bw@bCiA~BwAlByAzAuAtBaCzAuBlFqI~BsDdB}BjBsBdCuBfCcBpDkBxF}BhI}CfD}AzCcBjDcC|BmBnBmBnFaGxEoFjBkBbCsBfD_CzDuBlEkBbMmElE{AfEcBlDgBnDyBrAaAdDuCbCcCpJkK`D}CxCcCxB}AzA}@bAe@rA{@lAm@`Cy@~@[dJyD`EwB~BwAtDiCtCsB`AaAvAeBzDmEpCyD`KmOrCuDlB{BlCiCtCyB|BuA|Ay@bCeA|Bs@rCq@fB[nH_AzBe@`Cs@lCmAtBsAz@m@pBkBlB}BvByCpFeIdB{BpBwBfCwB`C}AfCqAhC_AdFuArG{AfDaAbCaA~C_BdBeAnDmChAeAnAwAhCmDlD{Fzn@wgAfDcGnEaH~CkEtDsEnE}E~FuFZ]tEyDPMvJmIbE}DnEaFpEyFjD_FpBcDjDoGv@yAfDqH|DaK~GuQ|BcG~CkHjDcH~CsFtBcD|DyF~EiG~CoDtGcH~HgI~GoGpIuH~HmGlFwDbDsB|GyDvHwDlGiCnFgBdFsAhFeAfDi@|Eg@xF[dGO|J@vNLpHG`GWrEc@tEm@vDo@tEiAfCu@xDyA|BgAxDyBjDgCvCeC~DwDdF_FpCeCxDyCzCoBjDeBtBy@vDkAbE{@rDe@vD[dGUbTWrEShD]lCc@pBg@fDmAxC}A~B_BtBgBnBwBrBuCbBsCp@{AhAsCt@_Ct@}Cn@mD`@qDTaDP_FHaGJ_[AqP?oKCyNFgHPkE^{Eb@oD~@cFnAaF|@qCxAuDtBoEvB{DvH_MdEcHfC_F`ByDtAyDlAmEdAaFp@yEd@yEXiEJ{G?gCEmCQkE_@uEk@_FeA_GuAoG{AqFsA_EsBiFcBqDoDuGiEcH_CoD_@i@{Zae@c@q@kKaPuNgTsZud@yL}Q}JiOuGkK{EgI}EcJoE}I_C_FiFyLqCcHaBoEkCaIeCeIsC{KaBoHqAuGiBuKgAkIu@mH_@}EWyFSqGEoGBcHT_I\\aHdBgVZwGL}EB}FIsGUiG]gFo@oGw@sFy@oEkAgFqCuJ_DkKwBmIy@kEw@aFc@cEg@iGg@_N[cIa@{G]sDs@eFm@}CcAgE{AwEeAoCaAsBsByDaA{AgBeC}CyDsGyHs@_A_A_BqBwCkAaCiAmC_AuCy@eD}@cF]mDSsDKgGA{J?kIG_ESyEUwCe@uDu@gEaA{DkAqDeBgE}@iBuBoDcEaHgBqD{@}Bm@sBc@yBc@yCSgCIsC?cCNiDr@mIHeBDsDBoFLmCRsB`@eCn@cCrBaGtBmFnD_IjByDj@cAjAaB~EiGx@oA`AqBv@sBf@mBZkBXgC`@yIRkBZmBj@{Bx@uBfAsBrAeBpBoBlDyCxA{AhA{ATc@|AgC|@cBp@gBp@_C|BmK|@_D~@}BzAqC`FsHhDyDrDsDnl@il@~_@{_@f^i\\bVgWhHgHvGwG~EiF`DwDjEmFlAoBlBqDxAkDdAyClAkEf@{Bt@oE`@kDXqDR}ED}DEoDa@{PAyEFeDLgC\\qD|AuKV{CHyCC_DSyCu@gHMiDA{CJeDR}F?oDIiC{@wMK{E@_ELeEZ_Ep@wFn@}EXaDLaEF}EHcDVkDd@kDhB{IXsBNaC@eCI{Cy@_MKmD@kCJ_DXmDf@gDfB}Jb@cDXyD^_LXwD`@mCl@sC|@yCbAmClDwHrBkFjB_G`AwDz@qEj@_Eb@mEVqEJwE@uDGoDQeEYqDq@_Gk@mDcDyO{@mFs@mHq@{Ik@kFu@kFkA}FaEgQ{@}Ee@wDSyCIuB?yDJmCT{Cd@eDl@mClAmE`CoHz@cDh@qC\\kCNoBNiDB}CIqEScDYmCi@oDs@cDgAqDoAeDcByDiEaIsD{GsA{Cu@wBo@iCi@_Dk@cFy@}Ii@sDk@gCs@wB{@gB_AsAkAoAm@g@iAs@qB}@gCw@sEaAmD{@{C}@oBeAyDmCuBgBiBuBsBuBwC{EyAsCy@mBeAgCy@cCgAkE}@mEi@qD_@qDUqDOaG@sEJmDX{E\\kDt@}EvG}UBG`BqG|AsHjAwG~@qGd@eE`@eFNyEBgEGsDSmDYuCe@iD_A{E{C{Ms@yDg@{DWmCWsEQyIMiG[eG_@eE]oCw@uEcBgIiCoL_AiFk@uEU_DIoC@iDL_DPoBb@mCt@wC|@iChAgCxAiCnCaEjX}^rCgErC}ErAiCjAsCnAeDv@qCt@gDV}Af@aEPkCLmD@aEI}CMyB_@eDu@}Ea@_CsDaO{Pgp@{H{ZiCyK}@eDcBiFoBaFqBoE}FwJwBuCcEoEgFgFaAu@sE{CyA}@_RsJaEeCcBoAaCuBsB}B{AmBuBmD_AqBk@uAs@_Cq@kC[_BUsB[{EGgCCeENqMDqC?qCIeGUeFq@kLKoDAcBBiCL{CRiCr@iFjAkHVyCJoC?cDEkAc@_HWyDGeC@wCF{ARyClCuXVoEDaB?iDKqDQgCg@yDk@_DiAuFk@cDc@sDOcCKoD@qDLqDXoDb@aD~@{EjAmEbA{CnBaFlGeMpBcD`@k@rEeHbC{C~P}SfBeCpBcD|@cB`A{Bj@}AhBiGv@aEl@wEVwCLiEDkHIiFUqFi@iIcB}SQuC]_MBcGRgF^oE`@yCf@iCxAsGb@kCRqBHsAH_DJ}GPuENqBNiAX{Ab@{At@aBv@oAdAkApD}Cz@_Ar@eAh@oAVcA^aCl@_Hh@sDpAwGX{BH}BCeCIyBc@sIEoCFmCTiCLeAxBgMZoCN{BD{BEeCKmBSmBW}Am@gCq@kBoAmCcA_B_BgBwAqAwOmL}AqAqAwAaA}A_AsBm@oBa@sBUuBG}AAaCJwBTuBf@sCnIoc@jAuEp@qBz@{BzCeHbA{Cn@gCVoAPkAXiCLsBL_D@_DIwDQwCYqCa@wBe@_B_@}@eAgBoA}AoE{E{AmBuA{Bw@gBoAuDgBwF}@oCmAoC_AcBi@}@yAiBuBsB{BaBaBy@cDmAkBa@eKgBcDw@mC_AuAm@yC}AmByAmBeBoAoAoAaBeAeB_CcEo@sAuAaEaEiMuCaL{CeNo@wCcBuK}@_HWaCeA_NcCeTQeDAyCTcM?sBM}Ca@uIC}BDaDVsDZyCh@oENsBBgCIcCOkBo@{Eq@sEMuB?kDNuEHiDCuCEsBg@wJGoCBkDHeBTkCj@eGLcC@cBGoCOcCo@_Fi@wDUaDGcCGoGM{BYyBc@oBs@uB{@aBk@_Am@s@yAqAuBuAyAq@aBe@sAUqBM}C@wGTgC?cBK{B[}Bm@cCaA_CmA{CqBaCoB}BcCwAiB{AaCsAgC{AuDuAeEgAgEkAuFiEmUmAqF_B{FwAcE_ByDaCuEyCaFoIsMaCeEiB{D{A{D_AqCaAuDw@_EgAiHcCgQ{@{Eu@oDmAsEiBuFaBkEiCiFmCuEqDmFcLoOsDqFyBuDkCgFeBcE}AiE{AgFcAcEkAoGw@qFk@qGUmDKuDGeF@aFFsEX_I~@qRZaJL{H@aHKoKk@wZAsHFeIVoHh@}J^yEViCj@yDxCeWlAwLd@sGXaGLcG?_FIwEQiDa@qEq@}Eo@gDqAeFyAsE_CmGuGoPuB_GaBqFeAgEy@oEc@mDSsBOsBO{ECoDDuCNyD^yEr@mFv@_EnAiFjBkGzI{WrAsE|@uD~@_Fv@yEp@{Fp@iHf@aIVaFTcHNeIDwIEuIKgHQ}F]gGi@yGm@yEy@{Ey@yDgBaHsEePwA_G{@qEm@eE_@gESwEGmD@uCJyDVyD\\eDl@yD|@iE|@_DpAuD|AoDvBaEtCuEvDeFnGwHxKkMtE}FpC{DxC}EfB_DtBoE~AcE~A{EzAqFlA{Fz@mFx@sGp@{Hh@sIh@mLhAc[d@yIh@qHv@yHv@_G~AoJdGc[tAwIx@cHb@uFTuEPiHF}J?ak@AeLLqLNaF\\eGh@}Fn@gF~@sFpA}FnBoHhEiOfAwE|@wEl@cEh@sFZcGL_GH_KCsGKiHUuF_@wFm@cFq@wDy@iDoA}DgCsG}HuPmCmGyBcGoAcE}AeGmAcGiAcHk@oEc@}Em@aKUwFW_POkNOoMWiHW}Dc@iFi@gEw@cFqAsGqAaF}AaFuAsDiCaGqDgH{KiSmCmFaBsD_C{FiBcEc@wAUkA{@qFqAaHk@oDs@wFm@eHe@wH[cJ_Aqb@]_Je@uHo@kH{@kH{@kFs@yCy@mCmAuCaAiB_B_CaIoJ}@kAsAyBy@wBc@cB[iBOoBCyBDcBT_C`@gCpBsJfCsKz@}Df@_Cp@sBvBuEf@wAPw@bBsHz@oCzDwJfA}B~@}AhB{BrD}DfDeDfCyC~DoFn@oA`@mARcAPyAxC}_@`@eGTaBhIg^XuBHuB?aCScIYwEmAeQ[kBiBqHo@kBqDuHg@}AS}@]sCcAaL[wHUkBc@kBqBoHi@qCgEuW_CcM{CoOkCmNyHg`@aBsG{EuVq@iCyCkI{AyEmAwEi@wAaBcDgB_DeG_LeEgHUq@Iu@?q@Lo@Vm@X]\\[v@g@lP_Kb@_@Xe@Rk@Fu@C_Ac@cEU_A]w@sBsDUo@UiAImADaATsAp@sBfBgEN{@Bm@q@sI{@gKQy@}A_DW_AKoAWyOD_Ar@{GrAiRpC_]j@{JNaC@m@CkCOkBUmAg@aBaCeHqBgGaAwCSgAI}BPsEHwAZoBRiAv@yB~A}CfAmAd@_@t@YzBi@j@[^a@Vo@PkAViE?aBSyCa@sFAy@LqANmAF{@AgAoB{RmAoLGaBHuAPsA\\_BCYf@kB\\w@p@_ApAqAnGoFj@YPGPL`ABp@N`Bt@|DtBRCfAl@xDkMqIaFaPeJOM]Q\\mArEgNdE}M?]TeAXkA?_@_@SmQmEWGfAgIf@sDqMwCUE\\iCg@KwAr@K?]MCGHi@BK?QJaABC",
+      "duration": "PT4H54M",
+      "distance": 305769,
+      "tags": [
+        "scenic"
+      ],
+      "notes": "JR Hida Wide View até Nagoya (2h) + Shinkansen Hikari Nagoya → Tokyo (1h40)."
+    }
+  ],
+  "days": [
+    {
+      "title": "Embarque GRU → Tóquio (voo overnight)",
+      "cls": "active-day",
+      "schedule": [
+        {
+          "time": "18:00",
+          "placeId": "gru-airport"
+        },
+        {
+          "time": "22:30",
+          "routeId": "gru-to-nrt",
+          "cost": 8500
+        }
+      ],
+      "insights": [
+        {
+          "highlights": [
+            "Setembro evita peak: Golden Week (mai), Obon (mei-ago) e tufões mais intensos (jul–início set)."
+          ],
+          "warnings": [
+            "Sets finais ainda podem ter tufão tardio — monitorar Japan Meteorological Agency 5 dias antes do voo."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Tokyo Day 1 — Chegada e Asakusa",
+      "cls": "active-day",
+      "schedule": [
+        {
+          "time": "16:00",
+          "placeId": "narita-airport"
+        },
+        {
+          "time": "17:30",
+          "routeId": "nrt-to-tokyo",
+          "cost": 0
+        },
+        {
+          "time": "19:00",
+          "placeId": "hotel-tokyo",
+          "cost": 20000
+        },
+        {
+          "time": "20:30",
+          "placeId": "asakusa-senso-ji",
+          "duration": "PT1H30M",
+          "insights": [
+            {
+              "highlights": [
+                "Iluminação noturna até 22h — multidão muito menor pós-19h. Rua Nakamise fecha 21h mas o templo principal fica acessível."
+              ]
+            }
+          ]
+        }
+      ],
+      "insights": [
+        {
+          "highlights": [
+            "Jet lag SP→Tóquio: 12h de diferença. Forçar acordar até 22h local ajuda o ciclo do dia 2 a normalizar."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Tokyo Day 2 — Shibuya, Harajuku, Meiji",
+      "cls": "active-day",
+      "schedule": [
+        {
+          "time": "08:00",
+          "name": "Café da manhã no hotel (estilo japonês)",
+          "category": "food",
+          "cost": 0
+        },
+        {
+          "time": "10:00",
+          "placeId": "shibuya-crossing",
+          "duration": "PT1H30M",
+          "insights": [
+            {
+              "highlights": [
+                "Shibuya Sky JPY 2500 — reservar online o slot 17:30 = sunset golden hour, vista 360° do Fuji em dias limpos.",
+                "Starbucks Tsutaya (esquina) tem vista grátis do crossing — peça café e suba pro 2º andar."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "12:30",
+          "name": "Almoço no MIYASHITA Park (Shibuya)",
+          "category": "food",
+          "cost": 2000
+        },
+        {
+          "time": "14:30",
+          "placeId": "meiji-jingu",
+          "duration": "PT1H30M"
+        },
+        {
+          "time": "16:30",
+          "placeId": "akihabara",
+          "cost": 3000,
+          "duration": "PT2H"
+        },
+        {
+          "time": "19:30",
+          "name": "Izakaya em Shinjuku Omoide Yokocho",
+          "category": "food",
+          "cost": 4500
+        }
+      ]
+    },
+    {
+      "title": "Tokyo Day 3 — Tsukiji + Tokyo Tower",
+      "cls": "active-day",
+      "schedule": [
+        {
+          "time": "07:00",
+          "placeId": "tsukiji-outer-market",
+          "cost": 3000,
+          "duration": "PT2H",
+          "insights": [
+            {
+              "highlights": [
+                "Tamagoyaki em Yamacho (esquina nordeste do mercado) JPY 200 — clássico veneziano.",
+                "Pedir 'sabi nuki' (sem wasabi) em qualquer sushi bar — comum, sem estranhamento."
+              ],
+              "warnings": [
+                "Pedro (alergia frutos do mar): sushi de salmão/atum/peixe-branco OK. Evitar uni (ouriço), ikura (ovas de salmão), ebi (camarão), kani (caranguejo), tako-as-sushi.",
+                "Chegar antes das 9h evita 80% das filas."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "09:30",
+          "name": "Caminhada Ginza",
+          "category": "shopping",
+          "cost": 0,
+          "duration": "PT2H"
+        },
+        {
+          "time": "12:30",
+          "name": "Almoço sushi em Ginza (Sushi Sora ou alternativa kaiten)",
+          "category": "food",
+          "cost": 5000
+        },
+        {
+          "time": "15:00",
+          "placeId": "tokyo-tower",
+          "cost": 1200,
+          "duration": "PT1H30M",
+          "insights": [
+            {
+              "highlights": [
+                "Roppongi Hills Sky Deck (item [4] às 17:30) é alternativa — tem vista do Fuji em dias claros."
+              ],
+              "warnings": [
+                "Escolher um dos dois para não duplicar viewpoint no mesmo dia."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "17:30",
+          "name": "Sunset em Roppongi Hills Sky Deck",
+          "category": "attraction",
+          "cost": 2300,
+          "duration": "PT1H30M"
+        },
+        {
+          "time": "20:00",
+          "name": "Jantar em Ebisu (yakiniku)",
+          "category": "food",
+          "cost": 6000
+        }
+      ],
+      "insights": [
+        {
+          "warnings": [
+            "Setembro em Tóquio: 28°C max, alta umidade. Beba água — vending machines em cada esquina."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Tokyo → Hakone (onsen)",
+      "cls": "active-day",
+      "schedule": [
+        {
+          "time": "09:00",
+          "routeId": "tokyo-to-hakone",
+          "cost": 2330
+        },
+        {
+          "time": "11:00",
+          "placeId": "hakone-yumoto"
+        },
+        {
+          "time": "12:30",
+          "name": "Almoço em Hakone-Yumoto (soba, tofu)",
+          "category": "food",
+          "cost": 1800
+        },
+        {
+          "time": "14:00",
+          "placeId": "hakone-open-air",
+          "cost": 2000,
+          "duration": "PT2H"
+        },
+        {
+          "time": "16:30",
+          "placeId": "ryokan-hakone",
+          "cost": 28000,
+          "insights": [
+            {
+              "highlights": [
+                "Hakone é o primeiro contato com onsen para Pedro e Júlia. Etiqueta: lavar antes, sem toalha na água, tatuagens cobertas."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "19:00",
+          "name": "Kaiseki dinner no ryokan",
+          "category": "food",
+          "cost": 0
+        }
+      ]
+    },
+    {
+      "title": "Hakone — Lake Ashi loop",
+      "cls": "active-day",
+      "schedule": [
+        {
+          "time": "08:00",
+          "name": "Café da manhã no ryokan",
+          "category": "food",
+          "cost": 0
+        },
+        {
+          "time": "09:30",
+          "placeId": "lake-ashi",
+          "cost": 2000,
+          "duration": "PT3H",
+          "insights": [
+            {
+              "highlights": [
+                "Hakone Sightseeing Cruise (barco pirata) Hakone-machi → Togendai (30min, JPY 2000). Manhã = melhor luz pra fotos do Fuji.",
+                "Mt. Fuji visível ~30% dos dias em setembro — checar Hakone Navi (camera ao vivo) antes."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "13:00",
+          "name": "Almoço em Togendai (lakeside)",
+          "category": "food",
+          "cost": 2500
+        },
+        {
+          "time": "14:30",
+          "name": "Owakudani Valley (sulfur black eggs)",
+          "category": "attraction",
+          "cost": 500,
+          "duration": "PT1H30M",
+          "insights": [
+            {
+              "highlights": [
+                "Owakudani só vai sob bom tempo + sem atividade vulcânica elevada (verificar JR Hakone status)."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "17:00",
+          "placeId": "ryokan-hakone"
+        },
+        {
+          "time": "19:00",
+          "name": "Kaiseki dinner",
+          "category": "food",
+          "cost": 0
+        }
+      ],
+      "planB": "Tempo ruim/tufão: museu Hakone Open-Air + Pola Museum + 3h extras de onsen."
+    },
+    {
+      "title": "Hakone → Kyoto",
+      "cls": "active-day",
+      "schedule": [
+        {
+          "time": "08:00",
+          "name": "Café da manhã no ryokan + check-out",
+          "category": "food",
+          "cost": 0
+        },
+        {
+          "time": "10:00",
+          "routeId": "hakone-to-kyoto",
+          "cost": 0
+        },
+        {
+          "time": "13:00",
+          "placeId": "hotel-kyoto",
+          "cost": 22000
+        },
+        {
+          "time": "14:30",
+          "name": "Caminhada introdutória Higashiyama",
+          "category": "attraction",
+          "duration": "PT2H30M"
+        },
+        {
+          "time": "18:00",
+          "placeId": "gion-district",
+          "duration": "PT1H",
+          "insights": [
+            {
+              "warnings": [
+                "Fotografar geikos/maikos é proibido na rua Hanamikoji — multa JPY 10.000.",
+                "Sunset entre 17h-18h é quando elas vão pra appointments. Caminhar até Shimbashi (vielas paralelas, sem turistas) pra atmosfera autêntica."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "19:30",
+          "name": "Jantar tradicional em Pontocho",
+          "category": "food",
+          "cost": 6000
+        }
+      ]
+    },
+    {
+      "title": "Kyoto Day 2 — Fushimi Inari + tea ceremony",
+      "cls": "active-day",
+      "schedule": [
+        {
+          "time": "06:30",
+          "placeId": "fushimi-inari",
+          "duration": "PT2H30M",
+          "insights": [
+            {
+              "highlights": [
+                "Antes das 8h: túneis de torii vazios. Subir até Mount Inari (1h ida, 233m) = experiência completa.",
+                "Multidão concentrada nos primeiros 500m de torii. Acima de Yotsutsuji ~30min = solidão."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "10:00",
+          "name": "Café em Fushimi (tofu vegetariano)",
+          "category": "food",
+          "cost": 1500
+        },
+        {
+          "time": "12:30",
+          "name": "Almoço sob a árvore em Kyoto Imperial Palace Park",
+          "category": "food",
+          "cost": 0
+        },
+        {
+          "time": "14:00",
+          "name": "Tea ceremony formal em Ryū-mon (Gion)",
+          "category": "attraction",
+          "cost": 4500,
+          "duration": "PT1H30M",
+          "insights": [
+            {
+              "highlights": [
+                "Doces wagashi tradicionais NÃO contêm wasabi (segurança para Júlia). Matcha 100% vegetal."
+              ],
+              "warnings": [
+                "Reserva obrigatória 1 semana antes — Ryū-mon agenda quase fechada em alta temporada."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "16:00",
+          "name": "Compras em Nishiki Market",
+          "category": "shopping",
+          "cost": 2000,
+          "duration": "PT1H30M"
+        },
+        {
+          "time": "19:00",
+          "placeId": "gion-district",
+          "duration": "PT1H30M"
+        }
+      ]
+    },
+    {
+      "title": "Kyoto Day 3 — Kinkaku-ji + Arashiyama",
+      "cls": "active-day",
+      "schedule": [
+        {
+          "time": "08:00",
+          "name": "Café da manhã no hotel",
+          "category": "food",
+          "cost": 0
+        },
+        {
+          "time": "09:30",
+          "placeId": "kinkaku-ji",
+          "cost": 500,
+          "duration": "PT1H30M",
+          "insights": [
+            {
+              "highlights": [
+                "Chegar antes das 10h evita 80% dos ônibus turísticos. Sol da manhã = melhor reflexão dourada no lago Kyōko-chi."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "12:00",
+          "name": "Almoço soba em Kitano Tenmangu area",
+          "category": "food",
+          "cost": 1500
+        },
+        {
+          "time": "14:00",
+          "placeId": "arashiyama-bamboo",
+          "duration": "PT1H30M",
+          "insights": [
+            {
+              "highlights": [
+                "Caminhada de 500m através de bambus de 20m. Manhã ou final de tarde = melhor luz e menos turistas.",
+                "Combinar com Tenryū-ji Temple (UNESCO, jardim zen) adjacente — entrada JPY 500."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "16:00",
+          "name": "Sagano Romantic Train",
+          "category": "attraction",
+          "cost": 880,
+          "duration": "PT1H"
+        },
+        {
+          "time": "18:30",
+          "name": "Caminhada de volta a Gion + jantar yatai (food stall)",
+          "category": "food",
+          "cost": 2500
+        }
+      ],
+      "insights": [
+        {
+          "highlights": [
+            "Setembro em Arashiyama = floresta verde-escuro. Outubro+ = começo da folhagem de outono."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Kyoto Day 4 — Nara day trip",
+      "cls": "active-day",
+      "schedule": [
+        {
+          "time": "08:30",
+          "routeId": "kyoto-to-nara",
+          "cost": 0
+        },
+        {
+          "time": "09:30",
+          "placeId": "nara-todai-ji",
+          "cost": 600,
+          "duration": "PT2H30M",
+          "insights": [
+            {
+              "highlights": [
+                "Veados sika circulam livres — shika senbei JPY 200/pacote. Eles se curvam pra pedir biscoito.",
+                "Daibutsu (Buda bronze 15m) dentro do salão Daibutsuden — maior estátua de Buda de bronze do mundo."
+              ],
+              "warnings": [
+                "Veados podem morder mochilas se sentirem comida — guardar bem fechado."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "12:30",
+          "name": "Almoço em Naramachi (mercado antigo)",
+          "category": "food",
+          "cost": 2000
+        },
+        {
+          "time": "14:00",
+          "name": "Kasuga Taisha shrine + lanternas de pedra",
+          "category": "attraction",
+          "cost": 500,
+          "duration": "PT1H30M"
+        },
+        {
+          "time": "17:00",
+          "routeId": "nara-to-kyoto",
+          "cost": 0
+        },
+        {
+          "time": "19:00",
+          "name": "Jantar despedida de Kyoto em Pontocho",
+          "category": "food",
+          "cost": 7000
+        }
+      ]
+    },
+    {
+      "title": "Kyoto → Osaka",
+      "cls": "active-day",
+      "schedule": [
+        {
+          "time": "09:00",
+          "name": "Check-out do hotel Kyoto",
+          "category": "custom",
+          "cost": 0
+        },
+        {
+          "time": "10:30",
+          "routeId": "kyoto-to-osaka",
+          "cost": 0
+        },
+        {
+          "time": "11:30",
+          "placeId": "hotel-osaka",
+          "cost": 18000
+        },
+        {
+          "time": "14:00",
+          "placeId": "osaka-castle",
+          "cost": 600,
+          "duration": "PT2H",
+          "insights": [
+            {
+              "highlights": [
+                "Subir torre principal (8 andares) — museu sobre Toyotomi Hideyoshi + observatório no topo.",
+                "Jardins externos gratuitos. 600 cerejeiras (não floresce em setembro — paisagem verde)."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "17:00",
+          "placeId": "dotonbori",
+          "cost": 4000,
+          "duration": "PT2H",
+          "insights": [
+            {
+              "highlights": [
+                "Glico Running Man neon = foto obrigatória.",
+                "Wanaka (filial original 1955) tem takoyaki tradicional — polvo (não-crustáceo, ✓ Pedro)."
+              ],
+              "warnings": [
+                "Pedro: muitas barracas têm camarão/lula — perguntar 'ebi/ika nashi?' (sem camarão/lula?) antes."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "20:00",
+          "name": "Okonomiyaki em Mizuno",
+          "category": "food",
+          "cost": 2500,
+          "insights": [
+            {
+              "warnings": [
+                "Mizuno: pedir okonomiyaki só de porco + repolho — pular versão mariscos (mixed seafood).",
+                "Cooked-at-table: Júlia pedir sem o picolinho final (algumas casas adicionam mostarda picante)."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Osaka Day 2 — Shinsekai + Kuromon Market",
+      "cls": "active-day",
+      "schedule": [
+        {
+          "time": "09:30",
+          "name": "Kuromon Market",
+          "category": "food",
+          "cost": 3000,
+          "duration": "PT2H"
+        },
+        {
+          "time": "12:30",
+          "name": "Almoço kushikatsu em Shinsekai",
+          "category": "food",
+          "cost": 2500
+        },
+        {
+          "time": "14:30",
+          "name": "Tsutenkaku Tower (Shinsekai)",
+          "category": "attraction",
+          "cost": 1000,
+          "duration": "PT1H"
+        },
+        {
+          "time": "16:00",
+          "name": "Den-Den Town (Osaka Akiba)",
+          "category": "shopping",
+          "cost": 0,
+          "duration": "PT1H30M"
+        },
+        {
+          "time": "18:30",
+          "name": "Sunset Umeda Sky Building",
+          "category": "attraction",
+          "cost": 1500,
+          "duration": "PT1H30M"
+        },
+        {
+          "time": "21:00",
+          "name": "Last drinks em Dotonbori",
+          "category": "food",
+          "cost": 3000
+        }
+      ]
+    },
+    {
+      "title": "Osaka → Hiroshima + Peace Memorial",
+      "cls": "active-day",
+      "schedule": [
+        {
+          "time": "09:00",
+          "routeId": "osaka-to-hiroshima",
+          "cost": 0
+        },
+        {
+          "time": "10:45",
+          "placeId": "hotel-hiroshima",
+          "cost": 16000
+        },
+        {
+          "time": "13:00",
+          "placeId": "peace-memorial",
+          "cost": 200,
+          "duration": "PT3H",
+          "insights": [
+            {
+              "warnings": [
+                "Peace Memorial Museum: conteúdo emocional pesado. Reserve metade do dia, não tente combinar com Miyajima no mesmo dia."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "17:00",
+          "name": "Hondori shopping arcade",
+          "category": "shopping",
+          "cost": 0,
+          "duration": "PT1H"
+        },
+        {
+          "time": "19:00",
+          "name": "Jantar Hiroshima-style okonomiyaki em Okonomimura",
+          "category": "food",
+          "cost": 1800
+        }
+      ]
+    },
+    {
+      "title": "Miyajima — Itsukushima + Mount Misen",
+      "cls": "active-day",
+      "schedule": [
+        {
+          "time": "07:30",
+          "name": "Trem Hiroshima → Miyajimaguchi",
+          "category": "transport",
+          "cost": 0,
+          "duration": "PT30M"
+        },
+        {
+          "time": "08:00",
+          "routeId": "miyajima-ferry",
+          "cost": 0
+        },
+        {
+          "time": "08:30",
+          "placeId": "miyajima-itsukushima",
+          "cost": 300,
+          "duration": "PT2H",
+          "insights": [
+            {
+              "highlights": [
+                "Maré alta (consultar tide table de Hiroshima City) = torii flutuante. Maré baixa = caminhar até o torii.",
+                "Combinar com Mount Misen (item [3]) à tarde — luz lateral nas torres."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "10:30",
+          "name": "Mount Misen (Daisho-in path)",
+          "category": "attraction",
+          "cost": 0,
+          "duration": "PT3H30M"
+        },
+        {
+          "time": "14:00",
+          "name": "Almoço Miyajima — anago meshi",
+          "category": "food",
+          "cost": 2500
+        },
+        {
+          "time": "16:00",
+          "name": "Compras em Omotesando (momiji manju)",
+          "category": "shopping",
+          "cost": 1500
+        },
+        {
+          "time": "18:30",
+          "placeId": "hotel-hiroshima"
+        }
+      ]
+    },
+    {
+      "title": "Hiroshima → Kanazawa (longo dia de trem)",
+      "cls": "drive-day",
+      "schedule": [
+        {
+          "time": "08:00",
+          "name": "Check-out hotel Hiroshima",
+          "category": "custom",
+          "cost": 0
+        },
+        {
+          "time": "09:00",
+          "routeId": "hiroshima-to-kanazawa",
+          "cost": 0
+        },
+        {
+          "time": "14:30",
+          "placeId": "hotel-kanazawa",
+          "cost": 17000
+        },
+        {
+          "time": "16:30",
+          "placeId": "higashi-chaya",
+          "cost": 1500,
+          "duration": "PT2H",
+          "insights": [
+            {
+              "highlights": [
+                "Gold leaf ice cream em Hakuza JPY 900 — Kanazawa especialidade (cidade produz 99% do gold leaf do Japão).",
+                "Shima museum (casa de chá histórica preservada do séc. XIX) JPY 500."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "19:30",
+          "name": "Jantar — Omicho Market izakaya",
+          "category": "food",
+          "cost": 5000
+        }
+      ],
+      "insights": [
+        {
+          "warnings": [
+            "Dia de trem longo (~5h). Levar lanches conbini, água, e descontar de orçamento de atividades."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Kanazawa — Kenroku-en + Nagamachi Samurai",
+      "cls": "active-day",
+      "schedule": [
+        {
+          "time": "08:30",
+          "placeId": "kenroku-en",
+          "cost": 320,
+          "duration": "PT2H",
+          "insights": [
+            {
+              "highlights": [
+                "Kotoji-tōrō (lanterna de 2 pernas, ícone do jardim) = melhor foto pela manhã antes das 10h.",
+                "Tea house Shigure-tei: matcha cerimonial + wagashi JPY 730 — break agradável no meio da visita."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "11:00",
+          "name": "Kanazawa Castle Park (adjacente)",
+          "category": "attraction",
+          "cost": 0,
+          "duration": "PT1H"
+        },
+        {
+          "time": "12:30",
+          "name": "Almoço — Omicho Market sashimi bowl",
+          "category": "food",
+          "cost": 2500
+        },
+        {
+          "time": "14:30",
+          "name": "Nagamachi samurai district",
+          "category": "attraction",
+          "cost": 700,
+          "duration": "PT1H30M"
+        },
+        {
+          "time": "16:30",
+          "name": "DT Suzuki Museum (zen, modernista)",
+          "category": "attraction",
+          "cost": 310,
+          "duration": "PT1H"
+        },
+        {
+          "time": "19:00",
+          "name": "Jantar — Kanazawa kaiseki at Yamanao",
+          "category": "food",
+          "cost": 8000
+        }
+      ]
+    },
+    {
+      "title": "Kanazawa → Takayama (Nohi Bus pelos Alpes)",
+      "cls": "drive-day",
+      "schedule": [
+        {
+          "time": "09:00",
+          "name": "Check-out hotel Kanazawa",
+          "category": "custom",
+          "cost": 0
+        },
+        {
+          "time": "10:30",
+          "routeId": "kanazawa-to-takayama",
+          "cost": 3500
+        },
+        {
+          "time": "12:45",
+          "placeId": "hotel-takayama",
+          "cost": 19000
+        },
+        {
+          "time": "14:30",
+          "placeId": "takayama-old-town",
+          "duration": "PT2H",
+          "insights": [
+            {
+              "highlights": [
+                "Sake breweries Funasaka + Niki: degustação JPY 200–500 por copo.",
+                "Sugitama (bola de cedro pendurada na entrada de cada sake brewery) — quando verde = sake novo recém-feito.",
+                "Hida-gyū skewers (wagyu local A5) nas ruas JPY 600."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "17:00",
+          "name": "Takayama Yatai Kaikan (festival floats museum)",
+          "category": "attraction",
+          "cost": 1000,
+          "duration": "PT1H"
+        },
+        {
+          "time": "19:00",
+          "name": "Jantar — Hida-gyū yakiniku",
+          "category": "food",
+          "cost": 6500
+        }
+      ]
+    },
+    {
+      "title": "Takayama → Shirakawa-go day trip",
+      "cls": "active-day",
+      "schedule": [
+        {
+          "time": "08:30",
+          "routeId": "takayama-to-shirakawa",
+          "cost": 2600
+        },
+        {
+          "time": "09:30",
+          "placeId": "shirakawa-go",
+          "cost": 0,
+          "duration": "PT5H30M",
+          "insights": [
+            {
+              "highlights": [
+                "Shirakawa-go em setembro = jardins de arroz verdes próximos da colheita. Outubro = folhagem dourada."
+              ],
+              "warnings": [
+                "Casas gasshō-zukuri são propriedades privadas — caminhar nas ruas é OK, entrar precisa ticket de casa específica (Wada House JPY 400)."
+              ]
+            },
+            {
+              "highlights": [
+                "Mirante Shiroyama (15min walk subindo do centro) = vista clássica top-down do vilarejo.",
+                "Wada House (única casa gasshō-zukuri visitável) JPY 400 — interiores preservados."
+              ],
+              "warnings": [
+                "Casas gasshō-zukuri são propriedades privadas — caminhar nas ruas é OK, entrar precisa ticket específico."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "12:30",
+          "name": "Almoço — Hida soba em casa gasshō-zukuri",
+          "category": "food",
+          "cost": 2200
+        },
+        {
+          "time": "15:30",
+          "routeId": "shirakawa-to-takayama",
+          "cost": 0
+        },
+        {
+          "time": "17:00",
+          "name": "Onsen day pass — Shōchikuyu (Takayama)",
+          "category": "attraction",
+          "cost": 500,
+          "duration": "PT1H30M"
+        },
+        {
+          "time": "20:00",
+          "name": "Jantar simple em Takayama (ramen)",
+          "category": "food",
+          "cost": 1200
+        }
+      ]
+    },
+    {
+      "title": "Takayama → Tokyo (último dia)",
+      "cls": "drive-day",
+      "schedule": [
+        {
+          "time": "09:00",
+          "name": "Café da manhã no hotel + check-out",
+          "category": "food",
+          "cost": 0
+        },
+        {
+          "time": "10:30",
+          "routeId": "takayama-to-tokyo",
+          "cost": 0
+        },
+        {
+          "time": "14:30",
+          "placeId": "hotel-tokyo",
+          "cost": 20000
+        },
+        {
+          "time": "16:00",
+          "name": "Shopping last-minute em Shinjuku — Don Quijote + Disney Store",
+          "category": "shopping",
+          "cost": 5000,
+          "duration": "PT2H"
+        },
+        {
+          "time": "19:00",
+          "name": "Jantar despedida — Sukiyaki em Imahan (Asakusa)",
+          "category": "food",
+          "cost": 9000
+        }
+      ]
+    },
+    {
+      "title": "Tokyo → Narita → São Paulo",
+      "cls": "active-day",
+      "schedule": [
+        {
+          "time": "08:00",
+          "name": "Última compra — KitKat sabores Tokyo Station",
+          "category": "shopping",
+          "cost": 3000,
+          "duration": "PT1H"
+        },
+        {
+          "time": "10:00",
+          "name": "Check-out hotel",
+          "category": "custom",
+          "cost": 0
+        },
+        {
+          "time": "11:30",
+          "routeId": "tokyo-to-nrt",
+          "cost": 0
+        },
+        {
+          "time": "12:45",
+          "placeId": "narita-airport"
+        },
+        {
+          "time": "15:30",
+          "routeId": "nrt-to-gru",
+          "cost": 8500
+        }
+      ],
+      "insights": [
+        {
+          "warnings": [
+            "JR Pass: válido por 21 dias contados desde ativação (não desde a compra). Se ativou dia 2, último dia válido = dia 22 = depois da volta."
+          ]
+        }
+      ]
+    }
+  ],
+  "checklist": [
+    {
+      "title": "3 months before",
+      "type": "checklist",
+      "items": [
+        {
+          "id": "book-flights",
+          "text": "Reservar voos GRU↔NRT",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "buy-jr-pass",
+          "text": "Comprar JR Pass 21-day online (delivery ~10 dias)",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "renew-passport",
+          "text": "Verificar passaporte (validade >6 meses do voo)",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "evisa",
+          "text": "Visto Japão: passaporte BR isento <90 dias (verificar)",
+          "status": "pending",
+          "critical": true
+        }
+      ]
+    },
+    {
+      "title": "2 months before",
+      "type": "checklist",
+      "items": [
+        {
+          "id": "book-ryokan",
+          "text": "Reservar ryokan Hakone (lota em alta temporada)",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "book-hotels",
+          "text": "Reservar todos hotéis (Booking ou direto)",
+          "status": "pending",
+          "critical": false
+        },
+        {
+          "id": "tea-ceremony",
+          "text": "Reserva tea ceremony Kyoto",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "international-insurance",
+          "text": "Contratar seguro viagem",
+          "status": "pending",
+          "critical": false
+        }
+      ]
+    },
+    {
+      "title": "1 week before",
+      "type": "checklist",
+      "items": [
+        {
+          "id": "online-checkin",
+          "text": "Online check-in voo internacional",
+          "status": "pending"
+        },
+        {
+          "id": "google-translate-offline",
+          "text": "Baixar Google Translate JA offline",
+          "status": "pending"
+        },
+        {
+          "id": "google-maps-offline",
+          "text": "Baixar mapas offline (Tokyo, Kyoto, Osaka, Kanazawa, Takayama)",
+          "status": "pending"
+        },
+        {
+          "id": "alert-bank",
+          "text": "Avisar banco/cartão sobre uso internacional",
+          "status": "pending"
+        },
+        {
+          "id": "yen-cash",
+          "text": "Sacar JPY 30k em dinheiro antes do voo (alguns lugares small são cash-only)",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "title": "Documents",
+      "type": "packing",
+      "items": [
+        {
+          "id": "p-passport",
+          "text": "Passaporte (>6 meses validade)",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "p-jr-pass",
+          "text": "JR Pass voucher + JR Pass after exchange (D2)",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "p-flight",
+          "text": "Bilhetes de voo (impressos backup)",
+          "status": "pending"
+        },
+        {
+          "id": "p-hotel-confirmations",
+          "text": "Confirmações de hotel impressas",
+          "status": "pending"
+        },
+        {
+          "id": "p-insurance",
+          "text": "Cartão do seguro viagem",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "title": "Clothing (Setembro Japão: 22–30°C, umidade)",
+      "type": "packing",
+      "items": [
+        {
+          "id": "p-light-rain",
+          "text": "Capa de chuva leve / guarda-chuva compacto",
+          "status": "pending"
+        },
+        {
+          "id": "p-sneakers",
+          "text": "Tênis confortáveis (vão andar 15–20km/dia)",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "p-hiking-shoes",
+          "text": "Calçado para trilha leve (Mount Misen, Fushimi Inari)",
+          "status": "pending"
+        },
+        {
+          "id": "p-light-jacket",
+          "text": "Casaco leve (noites em Hakone +10°C lower)",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "title": "Tech",
+      "type": "packing",
+      "items": [
+        {
+          "id": "p-adapter",
+          "text": "Adaptador tipo A (Japão 100V) — alguns hotéis fornecem",
+          "status": "pending"
+        },
+        {
+          "id": "p-wifi-pocket",
+          "text": "Pocket WiFi ou eSIM Japão (Mobal, Sakura) — JPY 5k/14 dias",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "p-power-bank",
+          "text": "Power bank 10000mAh",
+          "status": "pending"
+        },
+        {
+          "id": "p-charger",
+          "text": "Carregadores celulares + adaptador EU/US-JP",
+          "status": "pending"
+        }
+      ]
+    }
+  ],
+  "bookings": [
+    {
+      "date": "2027-09-15",
+      "item": "Voos GRU↔NRT — 2 pax roundtrip (LATAM ou JAL via DOH/AMS)",
+      "status": "pending",
+      "critical": true,
+      "link": "https://www.skyscanner.com.br/rotas/gru/nrt/"
+    },
+    {
+      "date": "2027-09-15",
+      "item": "JR Pass 21-day Green (2 pax) — comprar online + receber voucher por correio",
+      "status": "pending",
+      "critical": true,
+      "link": "https://www.jrpass.com/"
+    },
+    {
+      "date": "2027-09-16",
+      "item": "Hotel Shinjuku — 3 nights (D2–D4) + 1 night (D19)",
+      "status": "pending",
+      "critical": false,
+      "placeId": "hotel-tokyo"
+    },
+    {
+      "date": "2027-09-19",
+      "item": "Ryokan Hakone (com kaiseki + onsen) — 2 nights",
+      "status": "pending",
+      "critical": true,
+      "placeId": "ryokan-hakone"
+    },
+    {
+      "date": "2027-09-21",
+      "item": "Hotel Kyoto Higashiyama — 4 nights",
+      "status": "pending",
+      "critical": false,
+      "placeId": "hotel-kyoto"
+    },
+    {
+      "date": "2027-09-25",
+      "item": "Hotel Osaka Namba — 2 nights",
+      "status": "pending",
+      "critical": false,
+      "placeId": "hotel-osaka"
+    },
+    {
+      "date": "2027-09-27",
+      "item": "Hotel Hiroshima — 2 nights",
+      "status": "pending",
+      "critical": false,
+      "placeId": "hotel-hiroshima"
+    },
+    {
+      "date": "2027-09-29",
+      "item": "Hotel Kanazawa — 2 nights",
+      "status": "pending",
+      "critical": false,
+      "placeId": "hotel-kanazawa"
+    },
+    {
+      "date": "2027-10-01",
+      "item": "Hotel Takayama — 2 nights",
+      "status": "pending",
+      "critical": false,
+      "placeId": "hotel-takayama"
+    },
+    {
+      "date": "2027-09-22",
+      "item": "Tea ceremony Ryū-mon (Gion) — reserva 1 semana antes",
+      "status": "pending",
+      "critical": true,
+      "link": "https://www.tea-kyoto.com/"
+    },
+    {
+      "date": "2027-09-28",
+      "item": "Miyajima ferry pass (incluso JR Pass se houver)",
+      "status": "pending",
+      "critical": false
+    },
+    {
+      "date": "2027-10-02",
+      "item": "Nohi Bus Takayama ↔ Shirakawa-go (reserva online)",
+      "status": "pending",
+      "critical": false,
+      "link": "https://www.nouhibus.co.jp/"
+    }
+  ],
+  "budget": [
+    {
+      "id": "flights",
+      "category": "flights",
+      "amount": 2550000,
+      "pct": 28,
+      "status": "estimated",
+      "notes": "GRU↔NRT 2 pax — varia ±25% mês a mês. Reservar 4–6 meses antes."
+    },
+    {
+      "id": "accommodations",
+      "category": "accommodations",
+      "amount": 380000,
+      "pct": 26,
+      "status": "estimated",
+      "notes": "Hotéis 3★ + ryokan kaiseki + capsule hotel optativo. JPY 18-28k/noite × 18 noites."
+    },
+    {
+      "id": "transportation",
+      "category": "transportation",
+      "amount": 220000,
+      "pct": 15,
+      "status": "estimated",
+      "notes": "JR Pass Green 21-day (2 pax) ~JPY 160k + Nohi Bus + N'EX + metro IC card recarregas."
+    },
+    {
+      "id": "food",
+      "category": "food",
+      "amount": 200000,
+      "pct": 14,
+      "status": "estimated",
+      "notes": "JPY 5k/dia/pessoa × 20 dias × 2 = JPY 200k. Misturando conbini, ramen, izakaya, kaiseki."
+    },
+    {
+      "id": "attractions",
+      "category": "attractions",
+      "amount": 60000,
+      "pct": 4,
+      "status": "estimated",
+      "notes": "Tickets templos/museus JPY 200-2000 cada. Tea ceremony + Shibuya Sky maiores."
+    },
+    {
+      "id": "shopping",
+      "category": "shopping",
+      "amount": 80000,
+      "pct": 5,
+      "status": "estimated",
+      "notes": "Eletronics + souvenirs + roupas. Tax-free para turistas."
+    },
+    {
+      "id": "fuel",
+      "category": "fuel",
+      "amount": 0,
+      "pct": 0,
+      "status": "estimated",
+      "notes": "Não há combustível — viagem 100% transporte público."
+    },
+    {
+      "id": "insurance",
+      "category": "insurance",
+      "amount": 18000,
+      "pct": 1,
+      "status": "estimated",
+      "notes": "Seguro viagem internacional 21 dias. JPY 9k/pax."
+    },
+    {
+      "id": "entertainment",
+      "category": "entertainment",
+      "amount": 30000,
+      "pct": 2,
+      "status": "estimated",
+      "notes": "Onsen day passes, karaoke, gaming arcades, izakaya rounds."
+    },
+    {
+      "id": "unplanned",
+      "category": "unplanned",
+      "amount": 75000,
+      "pct": 5,
+      "status": "reserve",
+      "notes": "Reserva 5% emergência: tufão impromptu hotel, troca de plano, medical."
+    }
+  ]
+}
