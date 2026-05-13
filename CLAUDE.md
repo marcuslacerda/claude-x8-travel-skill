@@ -83,6 +83,19 @@ python3 -m http.server 8000
 # → http://localhost:8000/viewer/index.html
 ```
 
+## Local skill install (this machine)
+
+On this machine, `~/.claude/skills/travel-planner/` is **symlinked** to `skill/` in this repo — not copied. Edits to `skill/SKILL.md`, `skill/guideline.md`, or `skill/sources-travel-experience.md` are picked up by Claude Code on the next skill invocation. **Do not `cp` the files into `~/.claude/skills/travel-planner/`** — that would replace the symlink with a stale copy.
+
+To verify:
+
+```bash
+ls -la ~/.claude/skills/travel-planner/
+# all three .md entries should show as `name -> /Users/.../skill/name`
+```
+
+The README's `cp ...` install instructions are for new users without symlinks set up. They do not apply to this checkout.
+
 ## Style
 
 - TypeScript strict mode

@@ -168,6 +168,7 @@ If the user provides a clear request, skip the help and go straight to the match
     - `places[]` — Place catalog (one entry per real, geocoded location referenced in the trip). Every Place referenced from `schedule[].placeId` MUST exist here. See "Place catalog" below for shape.
     - `routes[]` — Route catalog (one entry per leg with a polyline). See "Route catalog" below. `mode` is uppercase (DRIVE/WALK/BICYCLE/TRANSIT/TRAIN/FLIGHT/FERRY); `polyline` is encoded; `duration` is ISO 8601.
     - `days[]` — array index = day number (Day 1 = `days[0]`). Each day has `title`, `schedule[]`, optional `cls`/`planB`/`dayCost`/`insights[]`.
+    - **Insights placement (default item-level):** For each Place referenced in `schedule[]`, consider 1+ item-level insights (`scheduleItem.insights[]`) when there's an actionable observation — timing, ticket strategy, etiquette, dietary hazard, photo angle, weather contingency. Day-level (`day.insights[]`) only for genuinely whole-day context (weather forecast, jet lag, transit-wide policies). See `guideline.md` "Insights vs notes" decision rule. **When in doubt: item-level.**
     - `bookings[]` — critical reservations, status `pending` initially. Optional `placeId` references a Place from the catalog (viewer hydrates the row with the place's thumbnail).
     - `budget[]` — enum categories; must include one item with `id: "unplanned"` (5–10% reserve).
     - `checklist[]` — groups with `type: "checklist"` (period titles) + `type: "packing"` (category titles).

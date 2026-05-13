@@ -106,27 +106,54 @@ A **generic block** is a time-block placeholder without a specific location:
 
 **Insights are skill-generated, never user-edited.** They are observations the skill emits about an item or a day — the viewer renders them as a yellow callout with ✨ highlights and ⚠️ warnings.
 
-### Two placement options
+### Default to item-level
 
-1. **Item-level** (`ScheduleItem.insights[]`): inline below the schedule item it relates to. Use when the observation is about that specific activity.
-2. **Day-level** (`Day.insights[]`): callout at the top of the day's schedule. Use when the observation applies to the whole day (weather, lotação geral, transit strike).
+By default, **attach insights to a specific schedule item** (`ScheduleItem.insights[]`). Day-level (`Day.insights[]`) is sparingly used — only when the observation genuinely applies to the entire day uniformly.
+
+### Decision rule
+
+For each insight you want to emit:
+
+1. **Does it apply to ONE specific activity / place / route on the day?** → `scheduleItem.insights[]` (item-level). Default choice.
+2. **Does it apply to the entire day or affect multiple items uniformly?** → `day.insights[]` (day-level). Use sparingly.
+3. **When ambiguous → item-level.** Lower-scope is safer; future research can promote to day-level if needed.
 
 The v2 standalone "Insight" schedule item type is gone. There is no `{ "type": "insight", ... }` shape in v3 — insights always live inside another item or at day level.
 
-### When to emit an Insight
+### Examples — placement choice
 
-- Aggregating reviews from TripAdvisor / AllTrails / Park4Night → `highlights` (consensus positive) or `warnings` (consensus caution).
-- Weather analysis → "expect afternoon storms ~14h" (warning).
-- Local-knowledge logistics → "parking fills by 9am peak season" (warning).
-- Match with `user-preferences.md` → "matches your interest in dramatic landscapes" (highlight).
-- Best photo light, golden-hour timing, optimal direction of approach → highlight.
+| Observation | Placement | Why |
+|---|---|---|
+| "Fushimi Inari: chegar antes das 8h evita 80% dos turistas" | item-level on Fushimi place | Tied to one place's strategy |
+| "Pedro alérgico a frutos do mar — okonomiyaki só de porco em Mizuno" | item-level on Mizuno generic block | Per-occurrence dietary |
+| "Setembro em Tóquio: 28°C max, alta umidade — beba água" | day-level | Whole-day weather |
+| "Owakudani só vai sob bom tempo (verificar JR Hakone status)" | item-level on Owakudani | One place's contingency |
+| "Jet lag SP→Tóquio: 12h, force acordar até 22h" | day-level | Whole-day adaptation strategy |
+| "Peace Memorial Museum: conteúdo emocional pesado, reserve ~3h" | item-level on Peace Memorial | About the specific visit |
+| "JR Pass válido 21 dias desde ativação" | day-level (trip rule) | Multi-day policy |
+| "Castello combinado €18 vale a pena (3 sítios, válido 5 dias)" | item-level on Castello | Ticket strategy for one place |
+| "Hoje cancelados: trens Yamanote por obras programadas" | day-level | Whole-day transit disruption |
+
+### When to emit an item-level insight (density heuristic)
+
+For each Place referenced in `schedule[]`, consider emitting an item-level insight when there's a **specific actionable observation** about THAT visit:
+
+- **Timing / light:** golden hour, before crowds, "chegue 8h", "evite após 14h"
+- **Ticket strategy:** combinado vale a pena, reserva online obrigatória, slot horário
+- **Etiquette:** onsen rules, photo restrictions, dress code, "fotografar geikos é proibido"
+- **Dietary hazards:** specific allergens for this place, "pedir sabi nuki"
+- **Logistics:** parking fills by Xh, fechado segundas, "domingo fecha 13h45"
+- **Photo angle:** "muralha lado norte tem melhor enquadramento do lago"
+- **Weather contingency:** "verificar mountain-forecast véspera", "neve residual em junho"
+
+**If you can only restate the place's description, skip.** Don't bloat schedule items with insights that don't add actionable value. A trip with ~60 places and ~30 item-level insights (~50% coverage) is a healthy ratio.
 
 ### Insight shape
 
 ```jsonc
 {
   "highlights": ["Bilhete combinado €18 vale a pena", "Vista do alto melhor pela manhã"],
-  "warnings": ["Fechado segundas", "Fila de 45min em junho"],
+  "warnings": ["Fechado segundas", "Fila de 45min em junho"]
 }
 ```
 

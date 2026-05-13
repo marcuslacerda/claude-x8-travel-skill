@@ -1721,7 +1721,14 @@
         },
         {
           "time": "17:00",
-          "routeId": "route-day-1"
+          "routeId": "route-day-1",
+          "insights": [
+            {
+              "highlights": [
+                "🚗 MXP → Venezia | ~308km / ~3h19 base / ~4h19 com margem +30% | A4 leste"
+              ]
+            }
+          ]
         },
         {
           "time": "17:00",
@@ -1747,13 +1754,6 @@
           "time": "20:00",
           "placeId": "camp-fusina-venezia",
           "notes": "Camping Fusina — frente à laguna de Veneza, vaporetto direto para San Marco. Aceita motorhomes."
-        }
-      ],
-      "insights": [
-        {
-          "highlights": [
-            "🚗 MXP → Venezia | ~308km / ~3h19 base / ~4h19 com margem +30% | A4 leste"
-          ]
         }
       ],
       "dayCost": "~€350 (motorhome pickup + supermercado D1)"
@@ -1819,6 +1819,13 @@
               ],
               "warnings": [
                 "Reservar online com antecedência — vagas limitadas."
+              ]
+            },
+            {
+              "warnings": [
+                "Palazzo Ducale Itinerari Segreti: RESERVAR ONLINE com antecedência — grupos pequenos, esgota",
+                "Concerto Vivaldi I Musici Veneziani: comprar tickets antecipados",
+                "Basilica di San Marco: ingresso online OBRIGATÓRIO desde Jul/2025 (timed-entry)"
               ]
             }
           ]
@@ -1915,15 +1922,6 @@
           "notes": "Camping Fusina — frente à laguna de Veneza, vaporetto direto para San Marco. Aceita motorhomes."
         }
       ],
-      "insights": [
-        {
-          "warnings": [
-            "Palazzo Ducale Itinerari Segreti: RESERVAR ONLINE com antecedência — grupos pequenos, esgota",
-            "Concerto Vivaldi I Musici Veneziani: comprar tickets antecipados",
-            "Basilica di San Marco: ingresso online OBRIGATÓRIO desde Jul/2025 (timed-entry)"
-          ]
-        }
-      ],
       "dayCost": "~€215 (vaporetto €32 + basílica €24 + campanile €30 + palazzo €80 + frari €10 + concerto €130 + refeições)"
     },
     {
@@ -1941,7 +1939,16 @@
         },
         {
           "time": "07:30",
-          "routeId": "route-day-3"
+          "routeId": "route-day-3",
+          "insights": [
+            {
+              "warnings": [
+                "Comprar e-vinheta eslovena ONLINE antes da fronteira: evinjeta.dars.si (~€15)",
+                "Comprar combo Postojna + Predjama online — preço melhor",
+                "Cividale del Friuli é desvio +41 km / +45 min via Palmanova — opcional, depende do horário de saída"
+              ]
+            }
+          ]
         },
         {
           "time": "09:45",
@@ -2011,15 +2018,6 @@
           "notes": "Camping Bled — categoria 4 estrelas à beira do Lago Bled, com piscina, restaurantes e acesso direto ao circuito do lago."
         }
       ],
-      "insights": [
-        {
-          "warnings": [
-            "Comprar e-vinheta eslovena ONLINE antes da fronteira: evinjeta.dars.si (~€15)",
-            "Comprar combo Postojna + Predjama online — preço melhor",
-            "Cividale del Friuli é desvio +41 km / +45 min via Palmanova — opcional, depende do horário de saída"
-          ]
-        }
-      ],
       "dayCost": "~€110 (combo €94 + vinheta €16)"
     },
     {
@@ -2047,6 +2045,11 @@
               "warnings": [
                 "Ingresso online obrigatório, time slots esgotam no verão.",
                 "Trecho com cachoeira pode ter pedras escorregadias após chuva."
+              ]
+            },
+            {
+              "warnings": [
+                "Vintgar Gorge: INGRESSO ONLINE obrigatório, time slots esgotam"
               ]
             }
           ]
@@ -2115,13 +2118,6 @@
           "time": "20:00",
           "placeId": "camp-bled",
           "notes": "Camping Bled — categoria 4 estrelas à beira do Lago Bled, com piscina, restaurantes e acesso direto ao circuito do lago."
-        }
-      ],
-      "insights": [
-        {
-          "warnings": [
-            "Vintgar Gorge: INGRESSO ONLINE obrigatório, time slots esgotam"
-          ]
         }
       ],
       "dayCost": "~€105 (gorge €30 + boat €40 + castle €38 + kremšnita)"
@@ -2322,7 +2318,16 @@
         },
         {
           "time": "07:00",
-          "routeId": "route-day-7"
+          "routeId": "route-day-7",
+          "insights": [
+            {
+              "warnings": [
+                "⚠️ MOTORHOME NO VRŠIČ: 50 hairpins, cobblestones escorregadios, curvas sem linha divisória, gradiente >10%. Motorhome (2.7m alt × 6.3m) PASSA mas exige atenção máxima",
+                "Sair CEDO para evitar trânsito; usar marcha baixa na descida; buzinar nas curvas cegas",
+                "Se choveu na véspera: cobblestones ficam perigosos — considerar Predel Pass como alternativa"
+              ]
+            }
+          ]
         },
         {
           "time": "07:45",
@@ -2402,15 +2407,6 @@
           "time": "20:00",
           "placeId": "camp-liza-bovec",
           "notes": "Camp Liza — camping à beira do Rio Soča em Bovec, com acesso direto às atividades aquáticas e trilhas dos Alpes Julianos."
-        }
-      ],
-      "insights": [
-        {
-          "warnings": [
-            "⚠️ MOTORHOME NO VRŠIČ: 50 hairpins, cobblestones escorregadios, curvas sem linha divisória, gradiente >10%. Motorhome (2.7m alt × 6.3m) PASSA mas exige atenção máxima",
-            "Sair CEDO para evitar trânsito; usar marcha baixa na descida; buzinar nas curvas cegas",
-            "Se choveu na véspera: cobblestones ficam perigosos — considerar Predel Pass como alternativa"
-          ]
         }
       ],
       "dayCost": "~€10 (grátis, só lanches)"
@@ -2620,7 +2616,15 @@
         {
           "time": "12:30",
           "placeId": "rifugio-auronzo",
-          "notes": "Rifúgio a 2.320m no início da trilha das Tre Cime. Estacionamento, café e ponto de partida do circuito clássico."
+          "notes": "Rifúgio a 2.320m no início da trilha das Tre Cime. Estacionamento, café e ponto de partida do circuito clássico.",
+          "insights": [
+            {
+              "warnings": [
+                "RESERVA ONLINE OBRIGATÓRIA da estrada pedagiada — pass.auronzo.info, abre 30 dias antes",
+                "Pedágio motorhome €60. Sair às 7h para garantir vaga e evitar trânsito"
+              ]
+            }
+          ]
         },
         {
           "time": "14:00",
@@ -2647,14 +2651,6 @@
           "notes": "Camping Dolomiti em Cortina — base para Tre Cime, Sorapis, Lago di Braies. Categoria A com lavanderia, restaurante e wellness."
         }
       ],
-      "insights": [
-        {
-          "warnings": [
-            "RESERVA ONLINE OBRIGATÓRIA da estrada pedagiada — pass.auronzo.info, abre 30 dias antes",
-            "Pedágio motorhome €60. Sair às 7h para garantir vaga e evitar trânsito"
-          ]
-        }
-      ],
       "dayCost": "~€75 (toll €60 motorhome + rifúgio)"
     },
     {
@@ -2672,7 +2668,16 @@
         {
           "time": "07:00",
           "placeId": "passo-tre-croci",
-          "notes": "Passo a 1.809m a leste de Cortina, trailhead para o Lago di Sorapis. Estacionamento limitado — chegar antes das 7h no verão."
+          "notes": "Passo a 1.809m a leste de Cortina, trailhead para o Lago di Sorapis. Estacionamento limitado — chegar antes das 7h no verão.",
+          "insights": [
+            {
+              "warnings": [
+                "Sair ANTES das 7h — parking de Passo Tre Croci lota rápido",
+                "Cabos de aço em alguns trechos — levar luvas. NÃO fazer se choveu",
+                "Rifugio Vandelli: SOMENTE CASH"
+              ]
+            }
+          ]
         },
         {
           "time": "07:30",
@@ -2721,15 +2726,6 @@
           "notes": "Camping Dolomiti em Cortina — base para Tre Cime, Sorapis, Lago di Braies. Categoria A com lavanderia, restaurante e wellness."
         }
       ],
-      "insights": [
-        {
-          "warnings": [
-            "Sair ANTES das 7h — parking de Passo Tre Croci lota rápido",
-            "Cabos de aço em alguns trechos — levar luvas. NÃO fazer se choveu",
-            "Rifugio Vandelli: SOMENTE CASH"
-          ]
-        }
-      ],
       "dayCost": "~€15 (rifúgio)"
     },
     {
@@ -2762,6 +2758,12 @@
               "warnings": [
                 "Acesso restrito por reserva entre 10/Jul–10/Set — em junho ainda livre.",
                 "Estacionamento enche cedo no verão."
+              ]
+            },
+            {
+              "warnings": [
+                "Sair cedo (08:00) — estacionamento de Braies enche rápido no verão",
+                "Restrições de acesso a Braies: livre em junho, restrito após 10/Jul (sistema de reservas)"
               ]
             }
           ]
@@ -2810,14 +2812,6 @@
                 "Wellness completo incluso na diária — recuperação ideal após Tre Cime/Sorapis."
               ]
             }
-          ]
-        }
-      ],
-      "insights": [
-        {
-          "warnings": [
-            "Sair cedo (08:00) — estacionamento de Braies enche rápido no verão",
-            "Restrições de acesso a Braies: livre em junho, restrito após 10/Jul (sistema de reservas)"
           ]
         }
       ],
@@ -2971,6 +2965,13 @@
                 "Reserva online obrigatória em 2026 (seceda.it). Tickets pessoais e não-reembolsáveis.",
                 "Taxa €5/pp no torniquete (NOVO 2026). Proibido sair das trilhas."
               ]
+            },
+            {
+              "warnings": [
+                "RESERVA ONLINE OBRIGATÓRIA em 2026 — seceda.it. Não-reembolsável",
+                "€74/pp RT cable car. Verificar clima na manhã antes de comprar",
+                "Taxa de €5/pp no torniquete (NOVO 2026) — proibido sair das trilhas demarcadas"
+              ]
             }
           ]
         },
@@ -2993,15 +2994,6 @@
           "time": "20:00",
           "placeId": "camp-seiser-alm-val-gardena",
           "notes": "Camping em Val Gardena — base para Seceda, Alpe di Siusi, Sassolungo. Vista das Odle/Geisler."
-        }
-      ],
-      "insights": [
-        {
-          "warnings": [
-            "RESERVA ONLINE OBRIGATÓRIA em 2026 — seceda.it. Não-reembolsável",
-            "€74/pp RT cable car. Verificar clima na manhã antes de comprar",
-            "Taxa de €5/pp no torniquete (NOVO 2026) — proibido sair das trilhas demarcadas"
-          ]
         }
       ],
       "dayCost": "~€195 (cable car €148 RT + rifúgio + jantar)"
@@ -3195,13 +3187,13 @@
         {
           "time": "20:00",
           "placeId": "indie-campers-mxp-pickup-return",
-          "notes": "Pickup e devolução do motorhome Indie Campers no aeroporto MXP de Milão Malpensa."
-        }
-      ],
-      "insights": [
-        {
-          "warnings": [
-            "Perguntar à Indie Campers se pode pernoitar no pátio na véspera da devolução"
+          "notes": "Pickup e devolução do motorhome Indie Campers no aeroporto MXP de Milão Malpensa.",
+          "insights": [
+            {
+              "warnings": [
+                "Perguntar à Indie Campers se pode pernoitar no pátio na véspera da devolução"
+              ]
+            }
           ]
         }
       ],
