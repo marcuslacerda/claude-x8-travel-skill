@@ -1,10 +1,10 @@
 # Skill modes — full reference
 
-The `/travel-planner` skill has 8 modes (v2). This is the user-facing reference; the implementation Claude reads is in [`skill/SKILL.md`](../skill/SKILL.md).
+The `/travel-planner` skill has 8 modes (schema v3). This is the user-facing reference; the implementation Claude reads is in [`skill/SKILL.md`](../skill/SKILL.md).
 
 All modes (except `use`, `new-trip`) require a trip context. Set it once with `use <slug>`, or pass inline: `/travel-planner <mode> <slug>`.
 
-> **Migration note (v1 → v2):** the old `build-site`, `sync`, and `export` modes were removed. `journey-plan.md` is no longer a source of truth — `trip.json` + `map.json` are. The viewer in `viewer/` replaces per-trip `journey.html`.
+> **Schema v3 (current):** all modes produce or consume a single `trip.json` document with top-level `places[]` + `routes[]` catalogs referenced by `days[].schedule[]` items. Legacy v2 trips (`trip.json` + `map.json`) can be migrated via `tools/migrate-v2-to-v3.ts`.
 
 ---
 
@@ -22,7 +22,7 @@ Without arguments, shows current context and lists available trips (subdirectori
 
 ## `new-trip <slug>`
 
-**Plan a trip end-to-end** — wizard collects intent, then the skill researches and writes `trip.json` + `map.json`. Required parameter: a slug like `iceland-2028` (lowercase, hyphen-separated, `{destination}-{year}`).
+**Plan a trip end-to-end** — wizard collects intent, then the skill researches and writes a single v3 `trip.json`. Required parameter: a slug like `iceland-2028` (lowercase, hyphen-separated, `{destination}-{year}`).
 
 Workflow:
 
@@ -32,27 +32,29 @@ Workflow:
 4. Runs `x8-travel init <slug>` to scaffold `trips/<slug>/trip-params.md`.
 5. **Wizard — 2 batches of 4 questions** via Claude Code's `AskUserQuestion`:
    - Batch 1: origin, headline-to, headline-from, duration
-   - Batch 2: start date / month, primary transport, trip type, constraints
+   - Batch 2: start date / month, primary transport, trip type, display currency
 6. **Open-ended question:** "Anything else I should consider for this trip?"
 7. Persists answers to `trip-params.md`.
 8. Researches (WebSearch + Google Maps MCP if available + Open-Meteo + Frankfurter), following `guideline.md`.
-9. Generates `trips/<slug>/trip.json` and `trips/<slug>/map.json` — validated against Zod schemas before writing.
+9. Generates `trips/<slug>/trip.json` (v3) — places + routes catalogs at top level; schedule items reference them by id. Validated against `TripSchema` (including referential integrity).
 10. Auto-sets context. Returns a viewer URL.
 
 ---
 
 ## `research`
 
-**Dig into a specific destination, trail, campground, or restaurant** — fills gaps in a trip you've already planned. Each result is a structured POI with source-validated picture, geocoded lat/lng, and a popularity score.
+**Dig into a specific destination, trail, campground, or restaurant** — fills gaps in a trip you've already planned. Each new Place includes a validated picture (Wikipedia cascade), a popularity score (when applicable), and a `googlePlaceId` when the skill can confidently match Google's catalog.
 
 The skill:
 
 1. Researches via WebSearch + Google Maps MCP.
 2. Validates URLs via WebFetch.
-3. Proposes specific edits to `trip.json` (Experience inserts) and `map.json` (POI adds).
+3. Proposes specific edits to `trip.json`:
+   - New Places appended to `places[]`
+   - New Routes appended to `routes[]` (with encoded polylines)
+   - Schedule items inserted into the right `days[N].schedule[]`
+   - Item-level Insights attached to specific schedule items
 4. After confirmation, applies edits + re-validates.
-
-POIs include source slug, geocoded lat/lng, kind, picture URL when available.
 
 ---
 
@@ -95,11 +97,11 @@ For specific cost questions, researches official sources only (per `guideline.md
 
 **Forecast weather per stop** — daily table with trekking alerts (thunderstorm probability, high wind, snow above altitude bands).
 
-Default: **Open-Meteo API** (`open-meteo.com`, no key, daily up to 16 days, hourly up to 384h). Google Maps MCP `mcp__google-maps__maps_weather` if installed.
+Default: **Open-Meteo API** (`open-meteo.com`, no key, daily up to 16 days, hourly up to 384h). For known Places in the trip catalog, reads coords from `trip.places[<id>].geo` directly instead of geocoding.
 
 For trips >15 days out, switches to monthly average via WebSearch.
 
-Outputs a daily table with trekking alerts (thunderstorm probability, high wind, snow above altitude bands).
+Outputs a daily table with trekking alerts (thunderstorm probability ≥ 50% + temp drop > 5°C / sustained wind > 30 km/h / snow possible above 1500m).
 
 ---
 
@@ -107,30 +109,38 @@ Outputs a daily table with trekking alerts (thunderstorm probability, high wind,
 
 **Audit stored drive times against live Google Maps** — catches the cases where your itinerary says "2h" but the actual route is 3h with the road closure in winter. **Requires the Google Maps MCP** — without it, this mode is unavailable.
 
-Reads `trip.json.days[].schedule[]`, extracts `Transfer` items with `model: "drive"`, calls `maps_directions` for each, compares to stored values + applies +30% margin (per `guideline.md`).
+Reads `trip.routes[]`, focuses on `mode: "DRIVE"`. Calls `maps_directions` for each (or derives endpoints from the polyline's first/last vertex / adjacent schedule `placeId` items). Compares to stored values + applies +30% margin (per `guideline.md`).
 
-If the user confirms, updates Transfer `duration`/`distance` and the matching `MapRoute.coordinates` if the path differs.
+If the user confirms, updates the matching Route:
+
+- `polyline` (encoded — pass through Google's `overview_polyline.points` directly)
+- `duration` (ISO 8601, e.g. `PT3H12M`)
+- `distance` (meters)
 
 ---
 
 ## `map`
 
-**Edit POIs and route coordinates on `map.json`** — validate, add a new POI (with geocoding + picture sourcing + taxonomy), or refresh a route after `validate-routes` flagged drift. No KML in v2.
+**Edit places and routes** — the top-level catalogs in `trip.json`. No more separate `map.json` (gone in v3).
 
 Sub-actions:
 
-- **`validate`** — runs `x8-travel validate <slug>`. Reports POI/route counts and warnings.
-- **`add-poi <name>`** — geocodes via Google Maps MCP, picks `(category, kind)` from the taxonomy, picks `source` from the TravelSource enum, looks for a stable picture URL, generates a kebab-case id. Shows the JSON object diff before applying.
-- **`update-route <day>`** — refreshes a route's `coordinates[]` from Google Maps after `validate-routes` flagged drift.
-
-Every mutation sets `updatedBy: "skill"`.
+- **`validate`** — runs `pnpm exec tsx cli/index.ts validate <slug>`. Reports place + route counts and schema issues (orphan references, missing fields, malformed time/duration).
+- **`add-place <name>`** — geocodes via Google Maps MCP, picks `(category, kind)` from the taxonomy, picks `source` from the TravelSource enum, runs the picture cascade (Wikipedia → og:image → Unsplash), tries to resolve `googlePlaceId` (with Haversine proximity check < 100m), generates a kebab-case id. Shows the JSON object diff before applying.
+- **`add-route <day>`** — fetches a real polyline from Google Maps MCP (`mode: driving` for DRIVE/TRAIN/TRANSIT — Google's driving polyline approximates rail routes well), encodes it (already encoded by Google), sets mode + ISO 8601 duration + meters distance.
+- **`update-route <id>`** — refreshes a route's `polyline` (encoded), `duration`, and `distance` from Google Maps after `validate-routes` flagged drift.
 
 ---
 
-## Mode removals (v2)
+## What was removed in v3
 
-| Removed | Replacement |
-| ------- | ----------- |
-| `build-site` | The static viewer in `viewer/` renders any trip in `trips/<slug>/`. No per-trip HTML generation. |
-| `sync` | Nothing to sync — `trip.json` is the only source of truth. |
-| `export` | `new-trip` writes `trip.json` directly during planning. The CLI `validate` command can re-validate at any time. |
+| Removed in v3                                                  | Replacement                                                                           |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| Separate `map.json` file                                       | Top-level `places[]` + `routes[]` in `trip.json`                                      |
+| Standalone `Insight` schedule item type                        | Inline `scheduleItem.insights[]` or `day.insights[]`                                  |
+| `MapPOI.dayNum` array                                          | Derived from `days[N].schedule[].placeId`                                             |
+| `MapRoute.coordinates: [{lat,lng}]` arrays                     | `Route.polyline: string` (Google-encoded, precision 5)                                |
+| `TransferModel` (lowercase) + `MapRouteKind` (lowercase) split | Unified `TravelMode` (uppercase: DRIVE, WALK, BICYCLE, TRANSIT, TRAIN, FLIGHT, FERRY) |
+| `MapRoute.color`                                               | Derived in viewer from `route.mode` (`ROUTE_COLOR_BY_MODE`)                           |
+| `MapPOI.updatedBy`                                             | Implicit (skill writes everything by default)                                         |
+| `{ trip, mapData }` publish envelope                           | `{ trip }` (single key — places + routes inside trip)                                 |

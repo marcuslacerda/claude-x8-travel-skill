@@ -12,58 +12,58 @@ Catálogo das fontes que o skill usa para pesquisar pontos de interesse, rotas, 
 
 ## Tier 1 — Core (em toda viagem)
 
-| Slug          | URL                       | Quando usar                                                                 |
-| ------------- | ------------------------- | --------------------------------------------------------------------------- |
-| `google-maps` | google.com/maps           | Drive times, endereços, Street View, transit. Source-of-truth para "como chego lá". |
-| `booking`     | booking.com               | Inventário dominante de hotéis/apartamentos na Europa, incluindo propriedades pequenas que não listam em outro lugar. |
-| `skyscanner`  | skyscanner.com            | Agregador de voos. Imbatível em multi-city + datas flexíveis.               |
-| `rome2rio`    | rome2rio.com              | Comparador multi-modal. Decide "trem, ônibus, voo ou carro?" em uma tela.  |
-| `trainline`   | thetrainline.com          | Interface única para DB / SNCF / Trenitalia / Renfe / ÖBB. Evita malabarismo entre 5 sites nacionais. |
-| `wikivoyage`  | wikivoyage.org            | Overview, do/don't, etiqueta local. Primeira leitura para região nova.     |
-| `tripadvisor` | tripadvisor.com           | Reviews de atrações/restaurantes. Use com filtro crítico — ótimo para horários e "vale a pena ou skipo?". |
-| `wise`        | wise.com                  | Cartão multi-moeda com FX baixo. Bate spread de cartão de crédito no dia-a-dia. (Revolut equivalente.) |
-| `eu-reopen`   | re-open.europa.eu         | Regras de entrada por país, lógica Schengen.                               |
-| `etias`       | etias.com.au              | Status do rollout do ETIAS (autorização eletrônica para entrada na Schengen). |
+| Slug          | URL               | Quando usar                                                                                                           |
+| ------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `google-maps` | google.com/maps   | Drive times, endereços, Street View, transit. Source-of-truth para "como chego lá".                                   |
+| `booking`     | booking.com       | Inventário dominante de hotéis/apartamentos na Europa, incluindo propriedades pequenas que não listam em outro lugar. |
+| `skyscanner`  | skyscanner.com    | Agregador de voos. Imbatível em multi-city + datas flexíveis.                                                         |
+| `rome2rio`    | rome2rio.com      | Comparador multi-modal. Decide "trem, ônibus, voo ou carro?" em uma tela.                                             |
+| `trainline`   | thetrainline.com  | Interface única para DB / SNCF / Trenitalia / Renfe / ÖBB. Evita malabarismo entre 5 sites nacionais.                 |
+| `wikivoyage`  | wikivoyage.org    | Overview, do/don't, etiqueta local. Primeira leitura para região nova.                                                |
+| `tripadvisor` | tripadvisor.com   | Reviews de atrações/restaurantes. Use com filtro crítico — ótimo para horários e "vale a pena ou skipo?".             |
+| `wise`        | wise.com          | Cartão multi-moeda com FX baixo. Bate spread de cartão de crédito no dia-a-dia. (Revolut equivalente.)                |
+| `eu-reopen`   | re-open.europa.eu | Regras de entrada por país, lógica Schengen.                                                                          |
+| `etias`       | etias.com.au      | Status do rollout do ETIAS (autorização eletrônica para entrada na Schengen).                                         |
 
 ---
 
 ## Tier 2 — Long-form / motorhome / trekking
 
-| Slug                 | URL                       | Quando usar                                                                 |
-| -------------------- | ------------------------- | --------------------------------------------------------------------------- |
-| `alltrails`          | alltrails.com             | Trilhas com reviews, elevação, download de GPX. Default para escolher trekking. |
-| `komoot`             | komoot.com                | Planejamento multi-dia (ciclismo + hiking). Cobertura europeia melhor que AllTrails para rotas em etapas. |
-| `park4night`         | park4night.com            | Pernoites de motorhome com reviews e serviços (água, elétrica, banheiro). Obrigatório para van-life. |
-| `acsi-eurocampings`  | eurocampings.eu           | Campings formais pela Europa. Cartão ACSI vale desconto na baixa estação.   |
-| `camping-info`       | camping.info              | Segunda fonte de campings. Filtros melhores para amenidades (wellness, pet-friendly). |
-| `campercontact`      | campercontact.com         | Pontos de motorhome + info de serviços. Complementa Park4Night com dados verificados. |
-| `meteoblue`          | meteoblue.com             | Modelo multi-regional. Melhor que serviços globais em montanha (blenda Cosmo-D2 nos Alpes). |
-| `mountain-forecast`  | mountain-forecast.com     | Previsão por altitude. Crítico para via ferrata e treks altos (1500/2500/3000m). |
-| `refuges-info`       | refuges.info              | Diretório de rifúgios nos Alpes franco-italianos: datas de abertura, contatos, ocupação. |
-| `open-meteo`         | open-meteo.com            | API de clima programática, sem key, 16 dias diário / 384h horário. Útil em script. |
+| Slug                | URL                   | Quando usar                                                                                               |
+| ------------------- | --------------------- | --------------------------------------------------------------------------------------------------------- |
+| `alltrails`         | alltrails.com         | Trilhas com reviews, elevação, download de GPX. Default para escolher trekking.                           |
+| `komoot`            | komoot.com            | Planejamento multi-dia (ciclismo + hiking). Cobertura europeia melhor que AllTrails para rotas em etapas. |
+| `park4night`        | park4night.com        | Pernoites de motorhome com reviews e serviços (água, elétrica, banheiro). Obrigatório para van-life.      |
+| `acsi-eurocampings` | eurocampings.eu       | Campings formais pela Europa. Cartão ACSI vale desconto na baixa estação.                                 |
+| `camping-info`      | camping.info          | Segunda fonte de campings. Filtros melhores para amenidades (wellness, pet-friendly).                     |
+| `campercontact`     | campercontact.com     | Pontos de motorhome + info de serviços. Complementa Park4Night com dados verificados.                     |
+| `meteoblue`         | meteoblue.com         | Modelo multi-regional. Melhor que serviços globais em montanha (blenda Cosmo-D2 nos Alpes).               |
+| `mountain-forecast` | mountain-forecast.com | Previsão por altitude. Crítico para via ferrata e treks altos (1500/2500/3000m).                          |
+| `refuges-info`      | refuges.info          | Diretório de rifúgios nos Alpes franco-italianos: datas de abertura, contatos, ocupação.                  |
+| `open-meteo`        | open-meteo.com        | API de clima programática, sem key, 16 dias diário / 384h horário. Útil em script.                        |
 
 ---
 
 ## Tier 3 — Especializados
 
-| Slug          | URL                       | Quando usar                                                                 |
-| ------------- | ------------------------- | --------------------------------------------------------------------------- |
-| `getyourguide` | getyourguide.com         | Ingressos skip-the-line e pré-booking para atrações populares (Vaticano, Sagrada). |
-| `tiqets`      | tiqets.com                | Forte em NL/BE.                                                             |
-| `civitatis`   | civitatis.com             | Forte em ES e LATAM.                                                        |
-| `thefork`     | thefork.com               | Reservas de restaurante na Europa, especialmente FR/ES/IT. Costuma ter promos de 30%. |
-| `frankfurter` | frankfurter.dev           | API de conversão de moeda (taxas ECB), sem key. Para cálculo determinístico de budget. |
-| `reddit`      | reddit.com                | r/europetravel, r/<país>, r/Caravanning — local color, reports recentes, gut-check. |
+| Slug           | URL              | Quando usar                                                                            |
+| -------------- | ---------------- | -------------------------------------------------------------------------------------- |
+| `getyourguide` | getyourguide.com | Ingressos skip-the-line e pré-booking para atrações populares (Vaticano, Sagrada).     |
+| `tiqets`       | tiqets.com       | Forte em NL/BE.                                                                        |
+| `civitatis`    | civitatis.com    | Forte em ES e LATAM.                                                                   |
+| `thefork`      | thefork.com      | Reservas de restaurante na Europa, especialmente FR/ES/IT. Costuma ter promos de 30%.  |
+| `frankfurter`  | frankfurter.dev  | API de conversão de moeda (taxas ECB), sem key. Para cálculo determinístico de budget. |
+| `reddit`       | reddit.com       | r/europetravel, r/<país>, r/Caravanning — local color, reports recentes, gut-check.    |
 
 ---
 
 ## Catch-alls
 
-| Slug       | Quando usar                                                                  |
-| ---------- | ---------------------------------------------------------------------------- |
+| Slug       | Quando usar                                                                                                                         |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | `official` | Site oficial do POI (museum, parque nacional, cable car, restaurante chef). Use sempre que existir e o preço/horário for confiável. |
-| `website`  | Site genérico que não cai em nenhuma source acima e não é oficial mas é confiável. |
-| `custom`   | User adicionou manualmente no explor8 e a fonte não tem mapeamento conhecido. |
+| `website`  | Site genérico que não cai em nenhuma source acima e não é oficial mas é confiável.                                                  |
+| `custom`   | User adicionou manualmente no explor8 e a fonte não tem mapeamento conhecido.                                                       |
 
 ---
 

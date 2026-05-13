@@ -2,6 +2,9 @@
  * `x8-travel publish <slug>` — POST `<slug>/publish.json` to the configured
  * explor8 publish endpoint.
  *
+ * v3 payload shape: `{ trip }` (single key). The catalog of places + routes
+ * lives inside `trip` — there is no separate `mapData` envelope.
+ *
  * Configuration (env, optional `.env` in cwd is loaded by the runtime if
  * present):
  *   EXPLOR8_API_URL       — default https://www.explor8.ai
@@ -95,7 +98,9 @@ function printVerboseConfig(opts: {
   log.info("To compare with Vercel without exposing the value");
   log.step(`# In the explor8 server repo:`);
   log.step(`vercel env pull /tmp/.env.prod --environment=production`);
-  log.step(`printf "%s" "$(grep '^EXPLOR8_ADMIN_TOKEN' /tmp/.env.prod | cut -d'=' -f2 | tr -d '"')" \\`);
+  log.step(
+    `printf "%s" "$(grep '^EXPLOR8_ADMIN_TOKEN' /tmp/.env.prod | cut -d'=' -f2 | tr -d '"')" \\`,
+  );
   log.step(`  | shasum -a 256`);
   log.step(`# Match the sha256 above. If different → token desalinhado.`);
   console.log(sep);
@@ -129,10 +134,7 @@ function printVerboseResponse(res: Response, bodyText: string): void {
   }
 }
 
-export async function publish(
-  slug: string,
-  options: { verbose?: boolean } = {},
-): Promise<void> {
+export async function publish(slug: string, options: { verbose?: boolean } = {}): Promise<void> {
   const verbose = options.verbose ?? false;
   const paths = resolveTripPaths(slug);
   assertDirExists(paths);

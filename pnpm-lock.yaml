@@ -7,6 +7,9 @@ settings:
 importers:
   .:
     dependencies:
+      "@googlemaps/polyline-codec":
+        specifier: ^1.0.28
+        version: 1.0.28
       commander:
         specifier: ^14.0.0
         version: 14.0.3
@@ -345,6 +348,12 @@ packages:
         integrity: sha512-rZAP3aVgB9ds9KOeUSL+zZ21hPmo8dh6fnIFwRQj5EAZl9gzR7wxYbYXYysAM8CTqGmUGyp2S4kUdV17MnGuWQ==,
       }
     engines: { node: ^20.19.0 || ^22.13.0 || >=24 }
+
+  "@googlemaps/polyline-codec@1.0.28":
+    resolution:
+      {
+        integrity: sha512-m7rh8sbxlrHvebXEweBHX8r1uPtToPRYxWDD6p6k2YG8hyhBe0Wi6xRUVFpxpEseMNgF+OBotFQC5senj8K7TQ==,
+      }
 
   "@humanfs/core@0.19.2":
     resolution:
@@ -1718,6 +1727,8 @@ snapshots:
     dependencies:
       "@eslint/core": 1.2.1
       levn: 0.4.1
+
+  "@googlemaps/polyline-codec@1.0.28": {}
 
   "@humanfs/core@0.19.2":
     dependencies:

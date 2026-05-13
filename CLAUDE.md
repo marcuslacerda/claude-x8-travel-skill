@@ -49,15 +49,15 @@ claude-x8-travel-skill/
 
 ## Source of truth
 
-| Concern           | File                                                 |
-| ----------------- | ---------------------------------------------------- |
-| Skill behavior    | `skill/SKILL.md`                                     |
-| Trip schema       | `cli/lib/schema.ts` (vendored — see CONTRIBUTING.md) |
-| Travel sources    | `skill/sources-travel-experience.md`                 |
-| Planning rules    | `skill/guideline.md`                                 |
-| User-facing docs  | `README.md` + `docs/`                                |
-| Trip format       | `docs/format-conventions.md`                         |
-| Local viewer      | `viewer/`                                            |
+| Concern          | File                                                 |
+| ---------------- | ---------------------------------------------------- |
+| Skill behavior   | `skill/SKILL.md`                                     |
+| Trip schema      | `cli/lib/schema.ts` (vendored — see CONTRIBUTING.md) |
+| Travel sources   | `skill/sources-travel-experience.md`                 |
+| Planning rules   | `skill/guideline.md`                                 |
+| User-facing docs | `README.md` + `docs/`                                |
+| Trip format      | `docs/format-conventions.md`                         |
+| Local viewer     | `viewer/`                                            |
 
 Anywhere a fact lives in two places, **the file mentioned above is canonical**. Changes that cross both have to update both in lockstep.
 

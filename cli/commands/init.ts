@@ -5,8 +5,9 @@
  * Creates `trips/<slug>/` (cwd-relative) with the skeleton files. Refuses to
  * overwrite an existing non-empty directory.
  *
- * In v2 the skeleton is just `trip-params.md`. The skill's new-trip wizard
- * fills it in and writes `trip.json` + `map.json` next to it.
+ * The skeleton is just `trip-params.md`. The skill's new-trip wizard fills
+ * it in and writes a single `trip.json` (v3 doc with places + routes + days)
+ * next to it.
  */
 
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync, statSync } from "fs";
@@ -63,7 +64,7 @@ export function init(slug: string): void {
   console.log("");
   log.info("Next steps:");
   log.step("1. In Claude Code: /travel-planner new-trip " + slug);
-  log.step("   The wizard asks 8 questions, fills trip-params.md, then generates trip.json + map.json.");
+  log.step("   The wizard asks 8 questions, fills trip-params.md, then generates trip.json (v3).");
   log.step("2. Visualize: serve viewer/ and open viewer/trip.html?slug=" + slug);
   log.step("3. Optional publish: x8-travel publish " + slug);
 }

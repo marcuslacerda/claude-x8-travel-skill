@@ -1,218 +1,199 @@
-# Format conventions (v2)
+# Format conventions — `trip.json` (schema v3)
 
-`trip.json` and `map.json` are the only canonical artefacts in v2. This doc walks through the shapes the skill emits and the viewer/explor8 consume. The Zod schema in [`cli/lib/schema.ts`](../cli/lib/schema.ts) is the source of truth — this doc summarizes.
+`trip.json` is the only canonical artefact in schema v3 (a single document; the legacy `map.json` is gone). This doc summarises the conventions the skill follows when emitting it; the Zod schema in [`cli/lib/schema.ts`](../cli/lib/schema.ts) is the source of truth.
+
+```
+trips/<slug>/
+  trip-params.md                # wizard answers (markdown)
+  trip.json                     # single v3 document — places + routes + days
+  publish.json                  # output of `x8-travel build`, ready to POST (audit artifact)
+```
+
+For legacy v2 trips, run `tools/migrate-v2-to-v3.ts` to consolidate `trip.json` + `map.json` into a single v3 doc.
 
 ---
 
-## Folder layout
-
-```
-trips/                            # gitignored — personal data
-  user-preferences.md             # shared across every trip
-  <slug>/                         # one folder per trip
-    trip-params.md                # wizard answers — readable by humans
-    trip.json                     # canonical itinerary
-    map.json                      # canonical map data
-    publish.json                  # output of `x8-travel build` (when publishing)
-```
-
-Examples in `examples/<slug>/` follow the same structure (without `publish.json`).
-
----
-
-## `trip.json`
+## Top-level shape
 
 ```ts
 {
-  slug: string,                    // kebab-case, unique per owner
-  title: string,                   // "Highlands & Skye Winter Loop"
-  destination: {
-    startLocation: string,         // origin city
-    headlineTo: string,            // primary destination
-    headlineFrom: string,          // return point (often = startLocation)
-  },
-  startDate?: string,              // "YYYY-MM-DD" or "YYYY-MM" (month-only)
+  schemaVersion: 3,
+  slug: string,                  // kebab-case
+  title: string,
+  destination: { startLocation, headlineTo, headlineFrom },
+  startDate?: "YYYY-MM-DD" | "YYYY-MM",
   status: "draft" | "planned" | "active" | "completed",
-  currency: string,                // ISO 4217 (EUR / GBP / USD / BRL ...)
-  timezone?: string,               // IANA (Europe/London ...)
-  coverImage?: string,
-  ogImage?: string,
+  currency: string,              // ISO 4217 — destination
+  homeCurrency?: string,         // user's display currency
+  timezone?: string,             // IANA
   isPublic?: boolean,
-  days: TripDay[],
-  checklist?: ChecklistGroup[],
+  places: Place[],               // catalog
+  routes: Route[],               // catalog
+  days: Day[],                   // array index = day number (Day 1 = days[0])
   bookings?: Booking[],
   budget?: BudgetItem[],
+  checklist?: ChecklistGroup[],
 }
 ```
 
-`endDate` is **derived** at runtime (`startDate + days.length - 1`), not stored.
+**Referential integrity (enforced by Zod refine):** every `placeId`/`routeId` in `days[].schedule[]` and every `bookings[].placeId` must resolve to an actual entry in `places[]`/`routes[]`. Validation fails otherwise.
 
-### `TripDay`
+---
 
-```ts
-{
-  num: string,                     // "1", "2", ...
-  title: string,                   // "Edinburgh → Stirling → Cairngorms"
-  cls: string,                     // CSS hint ("drive-day", "trek-day", "rest-day")
-  desc?: string,
-  schedule?: ScheduleItem[],       // array of Experience | Transfer
-  warnings?: string[],
-  dayCost?: string,                // free-form display string ("£190")
-  stay?: Experience,               // overnight, same shape as Experience with category="stay"
-  planB?: string,                  // contingency notes
-}
-```
-
-### `ScheduleItem` — discriminated union
-
-```ts
-type ScheduleItem = Experience | Transfer;
-```
-
-The viewer and explor8 dispatch rendering on the `type` field.
-
-#### `Experience`
+## `places[]` — Place catalog
 
 ```ts
 {
-  type: "experience",
-  time: string,                    // "09:00" or "2h" or "afternoon"
+  id: string,                     // kebab-case, unique within trip
   name: string,
-  desc?: string,
-  notes?: string,                  // tips, instructions — often user-edited
-  cost?: number,                   // in trip currency; omit if unknown
+  geo: { lat: number, lng: number },
   category: "attraction" | "stay" | "food" | "shopping" | "transport" | "custom",
-  kind?: ExperienceKind,           // 27 kinds — see schema.ts
-  source?: TravelSource,           // 26 sources — see sources-travel-experience.md
-  picture?: string,                // public URL
-  links?: { type: string, url: string }[],
-}
-```
-
-#### `Transfer`
-
-```ts
-{
-  type: "transfer",
-  time?: string,
-  from: { name: string, lat: number, lng: number },
-  to:   { name: string, lat: number, lng: number },
-  model: "drive" | "walk" | "ferry" | "flight" | "train",
-  duration: number,                // minutes
-  distance?: number,               // km
-  cost?: number,
-  notes?: string,
-}
-```
-
-### `Booking`
-
-```ts
-{
-  date: string,                    // ISO date
-  item: string,                    // "British Airways · GRU→EDI · round-trip"
-  status: "confirmed" | "pending",
-  critical: boolean,               // true = must secure early (sold-out / price-spike risk)
-  link?: string,                   // viewer label depends on status: "Open" if confirmed, "Booking" otherwise
-}
-```
-
-### `BudgetItem`
-
-```ts
-{
-  id: string,                      // kebab-case (regex /^[a-z0-9][a-z0-9-]*$/)
-  category: "flights" | "accommodations" | "fuel" | "insurance" | "food" |
-            "attractions" | "shopping" | "transportation" | "entertainment" | "unplanned",
-  amount: number,
-  pct: number,                     // % of total
-  status: "paid" | "confirmed" | "estimated" | "reserve",
-  notes?: string,
-  links?: { type: string, url: string }[],
-}
-```
-
-Every trip must have a `BudgetItem` with `id: "unplanned"` (5–10% reserve).
-
-### `ChecklistGroup` (merged with packing)
-
-```ts
-{
-  title: string,                   // "2 months before" or "Documents"
-  type: "checklist" | "packing",   // checklist groups have time-based titles; packing groups have category titles
-  items: {
-    id: string,                    // kebab-case
-    text: string,
-    status: "done" | "pending",
-    critical?: boolean,
-  }[],
-}
-```
-
-The viewer renders checklist + packing on separate tabs but reads from the same `trip.checklist[]` array.
-
----
-
-## `map.json`
-
-```ts
-{
-  pois: MapPOI[],
-  routes: MapRoute[],
-}
-```
-
-### `MapPOI`
-
-```ts
-{
-  id: string,                      // kebab-case, immutable
-  lat: number,
-  lng: number,
-  name: string,
+  kind?: ExperienceKind,          // 28 values across categories
+  googlePlaceId?: "ChIJ...",       // Google Places ID when known
+  popularity?: number,             // 0–10 (log10 of Wikipedia annual pageviews)
+  source?: TravelSource,           // one of 26 platforms
   description?: string,
-  category: ExperienceCategory,
-  kind?: ExperienceKind,
-  source?: TravelSource,           // travel platform — used for infowindow link
-  updatedBy: "skill" | "chat" | "webui",  // provenance
-  dayNum?: number | number[],      // omit = trip-wide; number = single day; array = multi-day (e.g. [9,10,11] for a multi-night stay)
+  picture?: { url, credit?, source? },
+  links?: { type, url }[],
+  priceHint?: number,              // reference price for budget hints
 }
 ```
 
-### `MapRoute`
+### Conventions
 
-```ts
-{
-  id: string,                      // kebab-case
-  name?: string,                   // popup label
-  color: string,                   // hex
-  kind: "driving" | "walking" | "ferry" | "transit" | "flight" | "train",
-  dayNum?: number | number[],      // omit = trip-wide; number = single day; array = drawn on each listed day
-  coordinates: { lat: number, lng: number }[],
-  updatedBy: "skill" | "chat" | "webui",
-}
-```
-
-### Day binding
-
-`dayNum` has three shapes:
-
-- **Omit** → trip-wide (visible in the overview map and not removed by any day filter; also doesn't pull camera bounds when a day is selected).
-- **Number** (e.g. `10`) → single-day item.
-- **Array** (e.g. `[9, 10, 11]`) → multi-day item. Canonical use: a multi-night stay (arrival night, full days, departure morning) or any POI/route that's relevant on more than one day.
-
-- **Routes:** `dayNum` ties a polyline to one day or several. Omit for a trip-wide overview line.
-- **POIs:** `dayNum` filters a POI into a day's day-detail map; trip-wide POIs (no `dayNum`) appear in every view.
-
-### Stable IDs
-
-Every POI and route has a kebab-case `id`. Generate from the name (with numeric suffix on collision: `lago-di-garda`, `lago-di-garda-2`). Once an id is in the JSON, **don't change it** — the explor8 chat tool and external references depend on it.
+- **Stable ids.** `id` is kebab-case, immutable. Renaming a place is fine; changing its id breaks every `placeId` reference.
+- **`kind: "headline"`** = trip origin (e.g. home airport). The viewer filters these from the map (they'd drag bounds to a different continent). Use `kind: "destination"` for the trip's end airport (visible on map).
+- **Picture** is a structured object, not a string. Source enum is `wikipedia | google-places | official | unsplash | custom`. Always HEAD-validate before saving. See [`skill/guideline.md`](../skill/guideline.md) "Pictures".
+- **Popularity** is `min(log10(annual_pageviews), 10)` from Wikipedia. Skip silently when no article exists.
+- **`googlePlaceId`** unlocks deep links + future photos sync. Validate proximity (Haversine < 100m) before saving.
 
 ---
 
-## Reference
+## `routes[]` — Route catalog
 
-- Zod schemas: [`cli/lib/schema.ts`](../cli/lib/schema.ts)
-- Sources catalog: [`skill/sources-travel-experience.md`](../skill/sources-travel-experience.md)
-- Planning rules: [`skill/guideline.md`](../skill/guideline.md)
-- 27 kinds × 5 categories taxonomy: [`skill/SKILL.md`](../skill/SKILL.md#map-data-contract-v2)
+```ts
+{
+  id: string,                     // kebab-case
+  name?: string,
+  mode: "DRIVE" | "WALK" | "BICYCLE" | "TRANSIT" | "TRAIN" | "FLIGHT" | "FERRY",
+  polyline: string,               // Google-encoded (precision 5)
+  duration: string,               // ISO 8601 — "PT45M", "PT2H30M"
+  distance?: number,              // meters
+  tags?: string[],                // "scenic" | "highlight" | "panoramic"
+  notes?: string,
+}
+```
+
+### Conventions
+
+- **Always encoded polyline.** Never raw `[{lat,lng}]` arrays (~6× larger). Google MCP `maps_directions` returns the encoded string directly via `routes[0].polyline.encodedPolyline` — pass through.
+- **ISO 8601 duration.** `PT{h}H{m}M`, drop `H` or `M` when zero. Helper: `parseIsoDuration("PT2H30M") → 150` minutes.
+- **Mode is uppercase.** Single enum unifies what v2 called `TransferModel` (lowercase, in itinerary) and `MapRouteKind` (also lowercase, in map).
+- **Color is NOT in the data.** The viewer derives stroke color from `mode` via `ROUTE_COLOR_BY_MODE` (DRIVE blue, WALK green, TRAIN brown, FLIGHT orange dashed, FERRY light-blue dashed).
+- **Tags semantically modify the line.** `"highlight"` → weight 5, `"scenic"` → weight 4, default → weight 3.
+- **FLIGHT routes are hidden in the overview map.** Visible only in the day view (when the user selects Day N from the map's day-selector dropdown). FLIGHT's 2-vertex polyline is correct (real great-circle paths aren't from Directions API).
+
+---
+
+## `days[]` — Itinerary
+
+```ts
+{
+  title: string,                  // e.g. "Sirmione — Castello Scaligero"
+  cls?: string,                   // CSS hint: "active-day", "drive-day", "rest-day"
+  schedule: ScheduleItem[],
+  insights?: Insight[],           // day-wide observations
+  planB?: string,
+  dayCost?: string,
+}
+```
+
+### Conventions
+
+- **No `num` field.** Array index IS the day number (Day 1 = `days[0]`). Reorder = `array.splice`, no renumbering needed.
+- **Dates derive from `startDate + index`** (the viewer does this).
+
+---
+
+## `days[].schedule[]` — ScheduleItem
+
+Three shapes, discriminated by which key is present:
+
+```ts
+// Place reference
+{ time: "HH:MM", placeId: string, cost?, duration?, notes?, insights? }
+
+// Route reference
+{ time: "HH:MM", routeId: string, cost?, notes?, insights? }
+
+// Generic block (lunch, free time, coffee stop — no Place needed)
+{ time: "HH:MM", name: string, category?, cost?, duration?, notes?, insights? }
+```
+
+### Conventions
+
+- **Exactly one of** `placeId` / `routeId` / `name` must be set (schema refine).
+- **`cost` overrides `place.priceHint`** for that specific occurrence (budget reads `cost`).
+- **`insights[]`** is inline yellow callout rendering. Each entry has `highlights[]` and/or `warnings[]`. The standalone v2 `{ type: "insight" }` shape is gone — insights always live inside another item or at day level.
+- **`notes`** is per-occurrence free-form context. Both skill and user can write here (NOT user-only like v2's `Experience.notes`).
+
+---
+
+## Insights
+
+```ts
+{
+  highlights?: string[],          // "✨" — positive observations
+  warnings?: string[],            // "⚠️" — cautions
+}
+```
+
+At least one of `highlights`/`warnings` must be non-empty. Skill-only field (user never edits insights — for free-form notes use `scheduleItem.notes`).
+
+**Placement:**
+
+- `ScheduleItem.insights[]` — inline below the item it relates to (specific activity).
+- `Day.insights[]` — callout at the top of the day's schedule (whole-day observations: weather, transit strikes, lotação geral).
+
+---
+
+## `bookings[]`
+
+```ts
+{
+  date: string,                   // ISO date
+  item: string,                   // description
+  status: "confirmed" | "pending",
+  critical: boolean,              // sold-out / price-spike risk
+  link?: string,
+  placeId?: string,               // optional anchor to places[]
+}
+```
+
+When `placeId` is set, the viewer hydrates the booking row with the place's thumbnail + a clickable "📍 {name}" button that scrolls to the relevant day card.
+
+---
+
+## `budget[]` + `checklist[]`
+
+Unchanged from v2 — see [`cli/lib/schema.ts`](../cli/lib/schema.ts) `BudgetItemSchema` / `ChecklistGroupSchema`.
+
+Every trip MUST have a `BudgetItem` with `id: "unplanned"` (5–10% emergency reserve).
+
+---
+
+## Stable IDs across publishes
+
+`Place.id`, `Route.id`, `ChecklistItem.id`, `BudgetItem.id`, `Booking` date+item are stable across re-publishes. The explor8 server upserts on slug; per-user state (checklist checkboxes in `localStorage`, expense links) survives a re-publish as long as the ids don't change.
+
+---
+
+## Sensitive data
+
+`trips/` is gitignored — treat as private:
+
+- Booking confirmation codes, passenger document numbers, personal IDs → keep in `trip-params.md` notes only; **never** in `trip.json` (publishable).
+- Flight numbers, schedules, accommodation phone/address → OK in `trip.json` if the user wants them visible.
+- Photos of people → keep out of `picture.url`.
+
+The `examples/` directory has a CI grep gate (`marcus|bruna|nubank|mastercard|...`) — anything that hits causes CI failure. Sanitize names before moving a trip into `examples/`.

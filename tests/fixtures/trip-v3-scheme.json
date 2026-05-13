@@ -1,0 +1,429 @@
+{
+  "schemaVersion": 3,
+  "slug": "italy-2026-scheme",
+  "title": "Itália, Eslovênia & Dolomitas 2026 (Schema v3 reference)",
+  "destination": {
+    "startLocation": "São Paulo (GRU)",
+    "headlineTo": "Milão → Lago di Garda → Veneza → Eslovênia → Dolomitas",
+    "headlineFrom": "Milão (MXP)"
+  },
+  "startDate": "2026-06-06",
+  "currency": "EUR",
+  "timezone": "Europe/Rome",
+  "status": "draft",
+  "_doc": "Reference fixture for Schema v3 (Alt 1 — Catalog + thin schedule). Single document replaces trip.json + map.json. Polylines are illustrative truncated samples — real values come from Google Polyline encoder. NOTE: days[] order IS the day number — Day 1 = days[0], Day 2 = days[1]. This fixture shows 3 sample days from what would be a ~14-day trip (Sirmione/Veneza/Tre Cime); they appear here as Days 1/2/3 — the `title` field is the human label that matters.",
+
+  "places": [
+    {
+      "id": "camping-sirmione",
+      "name": "Camping Garda / Sirmione",
+      "geo": { "lat": 45.47, "lng": 10.605 },
+      "category": "stay",
+      "kind": "camp",
+      "source": "acsi-eurocampings",
+      "priceHint": 45,
+      "description": "Camping motorhome na margem sul do Lago di Garda. Boa infra para campers e acesso direto ao lago.",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/La_Rocca_di_Manerba_del_Garda_con_l%27isola_dei_Conigli.jpg/1280px-La_Rocca_di_Manerba_del_Garda_con_l%27isola_dei_Conigli.jpg",
+        "credit": "Wikimedia Commons / CC-BY-SA",
+        "source": "wikipedia"
+      },
+      "links": [{ "type": "official", "url": "https://www.camping-garda.it/" }]
+    },
+    {
+      "id": "castello-scaligero",
+      "name": "Castello Scaligero di Sirmione",
+      "geo": { "lat": 45.4924, "lng": 10.6086 },
+      "category": "attraction",
+      "kind": "castle",
+      "source": "official",
+      "googlePlaceId": "ChIJM7CKDIBNgUcRu9scQpDOpW8",
+      "popularity": 5.6,
+      "description": "Fortaleza medieval do séc. XIII dos Della Scala, único exemplo preservado de castelo portuário do norte da Itália. Torres com vistas 360° sobre o lago.",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Italy_-_Sirmione.jpg/1280px-Italy_-_Sirmione.jpg",
+        "credit": "Wikimedia Commons / CC-BY-SA",
+        "source": "wikipedia"
+      },
+      "priceHint": 8,
+      "links": [
+        {
+          "type": "official",
+          "url": "https://museilombardia.cultura.gov.it/musei/castello-scaligero-di-sirmione/"
+        },
+        { "type": "tickets", "url": "https://museidelgarda.ticka.it/" }
+      ]
+    },
+    {
+      "id": "grotte-catullo",
+      "name": "Grotte di Catullo",
+      "geo": { "lat": 45.505, "lng": 10.611 },
+      "category": "attraction",
+      "kind": "memorial",
+      "source": "official",
+      "googlePlaceId": "ChIJl7vEIVRDgUcR1n0Cy3SXX8E",
+      "popularity": 5.1,
+      "description": "Ruínas romanas no extremo norte da península de Sirmione. Jardim arqueológico com vista panorâmica do lago.",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Grotte_di_Catullo_Sirmione.jpg/1280px-Grotte_di_Catullo_Sirmione.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "priceHint": 6,
+      "links": [
+        {
+          "type": "official",
+          "url": "https://museilombardia.cultura.gov.it/musei/grotte-di-catullo/"
+        }
+      ]
+    },
+    {
+      "id": "camping-venezia",
+      "name": "Camping Fusina (Veneza)",
+      "geo": { "lat": 45.405, "lng": 12.265 },
+      "category": "stay",
+      "kind": "camp",
+      "source": "acsi-eurocampings",
+      "priceHint": 50,
+      "description": "Camping em Fusina com ferry direto para Zattere (30min). Único acesso motorhome-friendly à laguna de Veneza.",
+      "links": [{ "type": "official", "url": "https://www.camping-fusina.com/" }]
+    },
+    {
+      "id": "basilica-san-marco",
+      "name": "Basílica di San Marco",
+      "geo": { "lat": 45.4345, "lng": 12.3397 },
+      "category": "attraction",
+      "kind": "unesco",
+      "source": "official",
+      "googlePlaceId": "ChIJN7yL3WJEfkcRsLCikXqkE2k",
+      "popularity": 6.9,
+      "description": "Obra-prima do mosaico bizantino, séc. XI. Campanile com vista 360° sobre Veneza, a lagoa e os Alpes ao norte.",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Venezia_Basilica_di_San_Marco_Fassade_2.jpg/1280px-Venezia_Basilica_di_San_Marco_Fassade_2.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "priceHint": 10,
+      "links": [{ "type": "tickets", "url": "https://www.basilicasanmarco.it/" }]
+    },
+    {
+      "id": "ponte-rialto",
+      "name": "Ponte di Rialto",
+      "geo": { "lat": 45.4381, "lng": 12.3358 },
+      "category": "attraction",
+      "kind": "vila",
+      "source": "tripadvisor",
+      "googlePlaceId": "ChIJJ8R6IGVEfkcRfNVHRk6cKsg",
+      "popularity": 6.1,
+      "description": "Ponte mais famosa do Canal Grande. Mercado de Rialto ao lado (fecha ao meio-dia).",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Rialto_2025_4.jpg/1280px-Rialto_2025_4.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      }
+    },
+    {
+      "id": "rifugio-auronzo",
+      "name": "Rifugio Auronzo — Tre Cime parking",
+      "geo": { "lat": 46.6138, "lng": 12.3047 },
+      "category": "transport",
+      "kind": "parking",
+      "source": "official",
+      "description": "Trailhead do loop das Tre Cime di Lavaredo. Parking €60 para campervans, €30 carro. Reserva obrigatória.",
+      "priceHint": 60,
+      "links": [
+        { "type": "tickets", "url": "https://auronzo.info/en/parking-tre-cime-di-lavaredo/" }
+      ]
+    },
+    {
+      "id": "tre-cime-lavaredo",
+      "name": "Tre Cime di Lavaredo",
+      "geo": { "lat": 46.6187, "lng": 12.3028 },
+      "category": "attraction",
+      "kind": "trek",
+      "source": "alltrails",
+      "googlePlaceId": "ChIJxxx_tre_cime_placeholder",
+      "popularity": 5.8,
+      "description": "O ícone dos Alpes. Três torres rochosas de 2999m. Loop trail 101: 8.8km, 425m ganho, 2.5–5h, moderado.",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/2019_Tre_Cime.jpg/1280px-2019_Tre_Cime.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "links": [
+        {
+          "type": "alltrails",
+          "url": "https://www.alltrails.com/trail/italy/south-tyrol/rifugio-auronzo-tre-cime-di-lavaredo"
+        }
+      ]
+    },
+    {
+      "id": "trento-centro",
+      "name": "Trento — Centro Histórico",
+      "geo": { "lat": 46.0664, "lng": 11.1257 },
+      "category": "attraction",
+      "kind": "town",
+      "source": "wikivoyage",
+      "popularity": 5.0,
+      "description": "Cidade medieval no Trentino, Duomo, Castello del Buonconsiglio. Candidata para parada no caminho dos Dolomitas — ainda não agendada (idea).",
+      "_doc": "Este place existe no catálogo mas NÃO é referenciado em nenhum day.schedule[].placeId — render do mapa o trata como 'ideia' (pin tracejado, opacity reduzida)."
+    }
+  ],
+
+  "routes": [
+    {
+      "id": "castello-to-grotte",
+      "name": "Castello Scaligero → Grotte di Catullo (a pé)",
+      "mode": "WALK",
+      "polyline": "}f|jHsd_y@e@v@U`@oAvAcAhAm@n@oA`AaAj@",
+      "duration": "PT15M",
+      "distance": 1300,
+      "notes": "Caminhada plana pela rua principal da península, sombra parcial."
+    },
+    {
+      "id": "fusina-zattere",
+      "name": "Ferry Fusina → Zattere (Veneza)",
+      "mode": "FERRY",
+      "polyline": "ah}eHql{}@oCh@oFlAcGv@aDh@yEr@uFp@",
+      "duration": "PT30M",
+      "distance": 8500,
+      "notes": "Linha 17 ACTV. Bilhete €8/pax ida e volta. Saídas: 7:30, 9:30, 11:30..."
+    },
+    {
+      "id": "cortina-rifugio-auronzo",
+      "name": "Cortina → Rifugio Auronzo (SS51 + estrada pedágio)",
+      "mode": "DRIVE",
+      "polyline": "yi_lHwbtt@_DkAuFwEoGqJyEcLgEsMaCwM",
+      "duration": "PT45M",
+      "distance": 28000,
+      "tags": ["highlight"],
+      "notes": "SS51 → Misurina → estrada a pedágio para Rifugio Auronzo. Reserva via auronzo.info obrigatória. Chegada antes das 7h para vagas."
+    },
+    {
+      "id": "tre-cime-loop",
+      "name": "Loop Tre Cime di Lavaredo (trilha 101)",
+      "mode": "WALK",
+      "polyline": "_q`mH}~at@aB[oC?cDl@gDfAkCfBoB`CcA|CKfDz@`Dj@xBh@dB",
+      "duration": "PT4H",
+      "distance": 8800,
+      "tags": ["scenic", "highlight"],
+      "notes": "Rifugio Auronzo → face norte → Rifugio Locatelli → Forcella Lavaredo → retorno. 425m ganho."
+    }
+  ],
+
+  "days": [
+    {
+      "title": "Sirmione — Castello Scaligero",
+      "cls": "active-day",
+      "schedule": [
+        {
+          "time": "08:00",
+          "name": "Caminhada matinal pela península",
+          "category": "attraction",
+          "duration": "PT1H",
+          "cost": 0,
+          "notes": "Vielas medievais antes da multidão. Café no Bar Centrale."
+        },
+        {
+          "time": "09:00",
+          "placeId": "castello-scaligero",
+          "duration": "PT2H",
+          "cost": 8,
+          "insights": [
+            {
+              "highlights": [
+                "Bilhete combinado €18: Castello + Grotte di Catullo + Villa Romana (válido 5 dias). Vale a pena fazer os 3.",
+                "As vistas do alto das muralhas no lado norte têm enquadramento perfeito do lago com as montanhas ao fundo — melhor luz pela manhã."
+              ],
+              "warnings": [
+                "Entrada proibida para menores de 14 anos sem adulto. Trilhas internas com degraus irregulares.",
+                "Fechado segundas-feiras. Sábados e domingos com fila — chegue às 8h15 (abertura).",
+                "Domingo fecha às 13h45 — não deixe para a tarde."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "11:15",
+          "routeId": "castello-to-grotte"
+        },
+        {
+          "time": "11:30",
+          "placeId": "grotte-catullo",
+          "duration": "PT1H30M",
+          "cost": 6,
+          "notes": "Após o museu, descer ao mirante norte para foto do lago."
+        },
+        {
+          "time": "13:00",
+          "name": "Almoço na Piazza Giosuè Carducci",
+          "category": "food",
+          "cost": 30,
+          "notes": "Trattorias com vista para o porto. Evitar as 3 da praça central (turísticas)."
+        },
+        {
+          "time": "17:00",
+          "placeId": "camping-sirmione",
+          "cost": 45,
+          "notes": "Volta ao motorhome. Banho de lago possível em junho (~22°C)."
+        }
+      ],
+      "insights": [
+        {
+          "highlights": [
+            "Junho: nascer do sol ~05:30 — vale madrugar para a península vazia e luz dourada nas torres."
+          ]
+        }
+      ],
+      "planB": "Chuva: Museo Civico (coberto) + degustação Lugana na cantina local."
+    },
+    {
+      "title": "Veneza — Rialto, San Marco, Vivaldi",
+      "cls": "active-day",
+      "schedule": [
+        {
+          "time": "07:30",
+          "routeId": "fusina-zattere"
+        },
+        {
+          "time": "08:30",
+          "name": "Café da manhã em Dorsoduro",
+          "category": "food",
+          "cost": 12,
+          "notes": "Pasticceria Tonolo (Calle San Pantalon) — clássico veneziano, fila de locais."
+        },
+        {
+          "time": "10:00",
+          "placeId": "ponte-rialto",
+          "duration": "PT1H30M",
+          "cost": 0,
+          "notes": "Mercado de Rialto (peixe) fecha 12h — passe antes."
+        },
+        {
+          "time": "11:30",
+          "placeId": "basilica-san-marco",
+          "duration": "PT1H30M",
+          "cost": 10,
+          "insights": [
+            {
+              "highlights": [
+                "Entrar na Basílica de graça até às 17h (fachada + nártex). Interior com mosaico dourado: €3 a reserva de slot horário.",
+                "Campanile: €10, filas geralmente menores que a Basílica. Vista 360° inclui Canal Grande, lagoa e Alpes ao norte nos dias limpos."
+              ],
+              "warnings": [
+                "Piazza San Marco lotada o dia todo. Reserva online evita fila de 45min em junho.",
+                "Evite restaurantes na Piazza — preços 3x superiores ao normal de Veneza."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "13:30",
+          "name": "Almoço em Cannaregio (cicchetti)",
+          "category": "food",
+          "cost": 25,
+          "notes": "Bairro residencial, bares de bacaro. Ombra (copo de vinho) + cicchetti = €2–4 cada."
+        }
+      ],
+      "insights": [
+        {
+          "warnings": [
+            "Motorhomes proibidos na ilha de Veneza — deixe em Fusina e use ferry/vaporetto.",
+            "Veneza cobra taxa de entrada diária €5–10 para visitantes em horários de pico — verificar datas no acesso.veneziaunica.it."
+          ]
+        }
+      ],
+      "planB": "Chuva: Galleria dell'Accademia (Bellini/Tiziano/Tintoretto) + Museu Correr (Piazza San Marco)."
+    },
+    {
+      "title": "Tre Cime di Lavaredo — Must-Have",
+      "cls": "active-day",
+      "schedule": [
+        {
+          "time": "06:30",
+          "routeId": "cortina-rifugio-auronzo"
+        },
+        {
+          "time": "07:30",
+          "placeId": "rifugio-auronzo",
+          "cost": 60,
+          "notes": "Vistoria do parking, banheiros, último café antes do loop."
+        },
+        {
+          "time": "08:00",
+          "routeId": "tre-cime-loop"
+        },
+        {
+          "time": "08:00",
+          "placeId": "tre-cime-lavaredo",
+          "duration": "PT5H",
+          "cost": 0,
+          "insights": [
+            {
+              "highlights": [
+                "Face norte das Torres: o lado mais dramático. Paredes verticais de 900m com neve perpétua nas reentrâncias em junho.",
+                "Rifugio Lavaredo (na base da face norte, 2344m): parada obrigatória para café e croissant.",
+                "Forcella Lavaredo (2454m): cume do loop com 360° dos Dolomites de Sexten — a vista mais impressionante."
+              ],
+              "warnings": [
+                "Vento intenso na face norte (>30 km/h em junho). Levar corta-vento.",
+                "Trovoadas de tarde comuns em junho (>50% após 14h). Sair do cume antes das 13h.",
+                "Neve residual nas partes altas em início de junho — checar mountain-forecast.com véspera."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "13:00",
+          "name": "Almoço no Rifugio Auronzo",
+          "category": "food",
+          "cost": 22,
+          "notes": "Pasta al porcini, zuppa di farro, vista direta para as Torres."
+        }
+      ],
+      "insights": [
+        {
+          "warnings": [
+            "Reserva do parking OBRIGATÓRIA via auronzo.info — sem reserva = entrada bloqueada na cancela.",
+            "Estrada a pedágio abre ~final de maio; em 2026 verificar abertura após neve tardia."
+          ]
+        }
+      ],
+      "planB": "Clima ruim: adiar o loop e fazer Sorapis (trilha 215) que é mais baixa e menos exposta a vento."
+    }
+  ],
+
+  "bookings": [
+    {
+      "date": "2026-06-08",
+      "item": "Camping Garda — 3 noites (motorhome)",
+      "status": "pending",
+      "critical": true,
+      "placeId": "camping-sirmione",
+      "link": "https://www.camping-garda.it/"
+    },
+    {
+      "date": "2026-06-10",
+      "item": "Camping Fusina — 2 noites + ferry passes",
+      "status": "pending",
+      "critical": false,
+      "placeId": "camping-venezia",
+      "link": "https://www.camping-fusina.com/"
+    },
+    {
+      "date": "2026-06-14",
+      "item": "Rifugio Auronzo parking — campervan €60 (RESERVA OBRIGATÓRIA)",
+      "status": "pending",
+      "critical": true,
+      "placeId": "rifugio-auronzo",
+      "link": "https://auronzo.info/en/parking-tre-cime-di-lavaredo/"
+    },
+    {
+      "date": "2026-06-06",
+      "item": "Voos GRU ↔ MXP — 2 pax roundtrip",
+      "status": "pending",
+      "critical": true,
+      "link": "https://www.skyscanner.com.br/rotas/gru/mxp/"
+    }
+  ]
+}

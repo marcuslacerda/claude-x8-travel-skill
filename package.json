@@ -36,6 +36,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@googlemaps/polyline-codec": "^1.0.28",
     "commander": "^14.0.0",
     "nanoid": "^5.1.0",
     "zod": "^4.4.0"

@@ -1,14 +1,18 @@
 /**
- * `x8-travel validate <slug>` — validate `trip.json` and (if present)
- * `map.json` against their Zod schemas. Reports issues with file:line-style
- * paths so the user can fix them in the source markdown.
+ * `x8-travel validate <slug>` — validate `trip.json` against the v3
+ * TripSchema. Reports issues with structured paths so the user can fix them
+ * in the source markdown / skill output.
  *
  * Useful as a sanity gate before `build` / `publish`, or to debug schema
  * failures coming from the publish endpoint.
+ *
+ * v3 note: a single `trip.json` per trip — `map.json` no longer exists.
+ * Referential integrity (schedule/bookings → places/routes) is enforced by
+ * the schema's refines and surfaced here.
  */
 
-import { readFileSync, existsSync } from "fs";
-import { TripSchema, TripMapDataSchema } from "../lib/schema.ts";
+import { readFileSync } from "fs";
+import { TripSchema } from "../lib/schema.ts";
 import { resolveTripPaths, assertDirExists, assertFileExists } from "../lib/paths.ts";
 import { log } from "../lib/log.ts";
 import { z } from "zod/v4";
@@ -26,38 +30,19 @@ export function validate(slug: string): void {
   assertDirExists(paths);
   assertFileExists(paths.tripJson);
 
-  let allOk = true;
-
-  // Trip
   const tripRaw = JSON.parse(readFileSync(paths.tripJson, "utf-8"));
-  // Accept both flat and wrapped shapes — extract the trip if wrapped.
-  const tripCandidate =
+  // Accept both bare trip docs and wrapped { trip } shapes.
+  const candidate =
     tripRaw && typeof tripRaw === "object" && "trip" in tripRaw ? tripRaw.trip : tripRaw;
-  const tripResult = TripSchema.safeParse(tripCandidate);
-  if (tripResult.success) {
-    log.success(`trip.json: OK (${tripResult.data.days.length} days, ${tripResult.data.slug})`);
-  } else {
-    reportIssues("trip.json", tripResult.error);
-    allOk = false;
-  }
 
-  // Map (optional)
-  if (existsSync(paths.mapJson)) {
-    const mapRaw = JSON.parse(readFileSync(paths.mapJson, "utf-8"));
-    const mapResult = TripMapDataSchema.safeParse(mapRaw);
-    if (mapResult.success) {
-      log.success(
-        `map.json: OK (${mapResult.data.pois.length} POIs, ${mapResult.data.routes.length} routes)`,
-      );
-    } else {
-      reportIssues("map.json", mapResult.error);
-      allOk = false;
-    }
-  } else {
-    log.info("map.json: not present (optional)");
-  }
-
-  if (!allOk) {
+  const result = TripSchema.safeParse(candidate);
+  if (!result.success) {
+    reportIssues("trip.json", result.error);
     process.exit(1);
   }
+
+  const trip = result.data;
+  log.success(
+    `trip.json: OK (${trip.days.length} days, ${trip.places.length} places, ${trip.routes.length} routes, slug=${trip.slug})`,
+  );
 }

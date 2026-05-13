@@ -17,6 +17,6 @@
     "noEmit": true,
     "allowImportingTsExtensions": true
   },
-  "include": ["cli/**/*.ts", "tests/**/*.ts"],
-  "exclude": ["node_modules", "examples"]
+  "include": ["cli/**/*.ts", "tests/**/*.ts", "tools/**/*.ts"],
+  "exclude": ["node_modules", "examples", "trips"]
 }

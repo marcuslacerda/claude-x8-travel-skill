@@ -4,8 +4,8 @@
  *
  * Subcommands:
  *   init <slug>      Scaffold a new trip directory under trips/<slug>/
- *   build <slug>     Combine trip.json + map.json → publish.json
- *   validate <slug>  Validate trip.json and map.json against schemas
+ *   build <slug>     Validate trip.json (v3) → publish.json
+ *   validate <slug>  Validate trip.json against the v3 TripSchema
  *   publish <slug>   POST publish.json to the configured explor8 endpoint
  *
  * Global flags:
@@ -13,8 +13,8 @@
  *   -v, --version    Print version and exit
  *
  * The skill (in Claude Code) is responsible for the LLM-driven parts —
- * wizard, research, generating trip.json + map.json. The CLI handles the
- * deterministic-code parts (schema validation, HTTP).
+ * wizard, research, generating the single trip.json v3 document. The CLI
+ * handles the deterministic-code parts (schema validation, HTTP).
  */
 
 import { Command } from "commander";
@@ -44,21 +44,18 @@ program
 
 program
   .command("build <slug>")
-  .description("Combine trip.json + map.json → publish.json")
+  .description("Validate trip.json (v3) → publish.json")
   .action((slug: string) => withErrors(() => build(slug)));
 
 program
   .command("validate <slug>")
-  .description("Validate trip.json and map.json against their Zod schemas")
+  .description("Validate trip.json against the v3 TripSchema")
   .action((slug: string) => withErrors(() => validate(slug)));
 
 program
   .command("publish <slug>")
   .description("POST publish.json to the configured explor8 endpoint")
-  .option(
-    "--verbose",
-    "print env vars (masked) + request/response headers for debugging 401s",
-  )
+  .option("--verbose", "print env vars (masked) + request/response headers for debugging 401s")
   .action((slug: string, opts: { verbose?: boolean }) =>
     withErrors(async () => await publish(slug, opts)),
   );

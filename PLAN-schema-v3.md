@@ -57,10 +57,11 @@ Custo: legacy trips (`scotland_*`, `vegas_*`) somem da prod (nunca mais voltam a
 **Goal:** `cli/x8-travel build <slug>` lê `<slug>/trip.json` + `<slug>/map.json` (v2 legados) e produz `<slug>/publish.json` no formato `Trip` único.
 
 Refactor de `build.ts`:
+
 ```ts
 const tripV2 = readJSON(`${slug}/trip.json`);
 const mapV2 = readJSON(`${slug}/map.json`);
-const tripV3 = migrateV2toV3(tripV2, mapV2);  // helper compartilhado com migrate script
+const tripV3 = migrateV2toV3(tripV2, mapV2); // helper compartilhado com migrate script
 const result = TripSchema.safeParse(tripV3);
 if (!result.success) throw new Error(formatZodError(result.error));
 writeJSON(`${slug}/publish.json`, result.data);
@@ -75,23 +76,27 @@ writeJSON(`${slug}/publish.json`, result.data);
 Documentar no `skill/travel-planner/research.md`:
 
 **Picture** — cascade (parar no primeiro hit):
+
 1. Wikipedia REST `https://en.wikipedia.org/api/rest_v1/page/summary/{title}` → `thumbnail.source`. Source: `wikipedia`, credit: `"Wikimedia Commons"`.
 2. og:image do site oficial (fetch HTML do `links[type=official].url`, parse `<meta property="og:image">`). Source: `official`.
 3. Unsplash Source API `https://source.unsplash.com/featured/?{name}` (sem auth, gratuito). Source: `unsplash`.
 4. Skip se nenhum — UI fallback para emoji do `kind`.
 
 **Popularity** — cascade:
+
 1. Wikipedia Pageviews API `https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/all-agents/{title}/monthly/{from}/{to}` → soma 12 meses → `min(log10(views), 10)`.
 2. Se `googlePlaceId`: Places API `(rating-1)/4 * log10(userRatingCount) * 2`.
 3. Omitir.
 
 **Geo** — cascade:
+
 1. KML local (`<slug>/journey-map.kml`) — fonte de verdade para POIs manualmente posicionados no Google MyMaps.
 2. Google Places `places.get(googlePlaceId).location` — quando placeId conhecido.
 3. Google Geocoding `findPlaceFromText({input: name + city})` — $0.005/call.
 4. Nominatim `nominatim.openstreetmap.org/search?q={name}` — User-Agent obrigatório (email).
 
 **googlePlaceId** — match em modo research:
+
 - Tentar `findPlaceFromText` com `name + city` + `locationBias` (50km do POI esperado).
 - Validar: `Place.location` deve estar < 100m do `geo` (Haversine). Se não, descartar.
 - Salvar `ChIJ...` em `place.googlePlaceId`.
@@ -106,8 +111,8 @@ Documentar no `skill/travel-planner/research.md`:
 - Em `cli/x8-travel/map.ts` (KML parser):
   ```ts
   import { encode } from "@googlemaps/polyline-codec";
-  const coords = parseKMLCoordinates(placemark);  // [[lat,lng], ...]
-  route.polyline = encode(coords, 5);  // precision 5 = Google standard
+  const coords = parseKMLCoordinates(placemark); // [[lat,lng], ...]
+  route.polyline = encode(coords, 5); // precision 5 = Google standard
   ```
 - Remover qualquer escrita de `coordinates: [{lat,lng}]`.
 - Migrate script (`tools/migrate-v2-to-v3.ts`) faz o mesmo para rotas legadas: lê `coordinates`, encode, grava `polyline`.
@@ -121,33 +126,37 @@ Documentar no `skill/travel-planner/research.md`:
 ### 5.1 — Hydration
 
 No topo do script do viewer:
+
 ```js
-const trip = await fetch(`${slug}/publish.json`).then(r => r.json());
-const placesById = new Map(trip.places.map(p => [p.id, p]));
-const routesById = new Map(trip.routes.map(r => [r.id, r]));
+const trip = await fetch(`${slug}/publish.json`).then((r) => r.json());
+const placesById = new Map(trip.places.map((p) => [p.id, p]));
+const routesById = new Map(trip.routes.map((r) => [r.id, r]));
 ```
 
 Cada item do schedule passa por `hydrate(item)`:
+
 ```js
 function hydrate(item) {
-  if (item.placeId) return { ...placesById.get(item.placeId), ...item };  // override
+  if (item.placeId) return { ...placesById.get(item.placeId), ...item }; // override
   if (item.routeId) return { ...routesById.get(item.routeId), ...item };
-  return item;  // generic block
+  return item; // generic block
 }
 ```
 
 ### 5.2 — Card de schedule item com insights
 
 Cada item renderiza:
+
 - Linha principal: emoji do `kind` + `time` + `name` (vem do place via hydrate) + chips (category, cost, popularity).
 - Description: do place.
 - **Insights inline:** se `item.insights[]` existe, renderizar como callout amarelo abaixo do card (replica do screenshot da Categoria 7):
   ```html
   <div class="schedule-insight">
-    {#each item.insights as i}
-      {#each i.highlights as h}<p class="hl">✨ {h}</p>{/each}
-      {#each i.warnings as w}<p class="wn">⚠ {w}</p>{/each}
-    {/each}
+    {#each item.insights as i} {#each i.highlights as h}
+    <p class="hl">✨ {h}</p>
+    {/each} {#each i.warnings as w}
+    <p class="wn">⚠ {w}</p>
+    {/each} {/each}
   </div>
   ```
 
@@ -168,16 +177,19 @@ import { decode } from "https://cdn.jsdelivr.net/npm/@googlemaps/polyline-codec/
 
 // view.dayIndex is 0-based; URL/UI exposes Day N as 1-based (display = dayIndex + 1).
 function visibleRoutes(routes, view, days) {
-  if (view === "overview") return routes.filter(r => r.mode !== "WALK");
-  const dayIds = new Set(
-    days[view.dayIndex]?.schedule.flatMap(s => s.routeId ?? []) ?? []
-  );
-  return routes.filter(r => dayIds.has(r.id));
+  if (view === "overview") return routes.filter((r) => r.mode !== "WALK");
+  const dayIds = new Set(days[view.dayIndex]?.schedule.flatMap((s) => s.routeId ?? []) ?? []);
+  return routes.filter((r) => dayIds.has(r.id));
 }
 
 const ROUTE_COLOR = {
-  DRIVE: "#4477aa", WALK: "#228833", BICYCLE: "#88aa22",
-  TRANSIT: "#aa4488", TRAIN: "#aa6644", FLIGHT: "#cc4400", FERRY: "#44aaff",
+  DRIVE: "#4477aa",
+  WALK: "#228833",
+  BICYCLE: "#88aa22",
+  TRANSIT: "#aa4488",
+  TRAIN: "#aa6644",
+  FLIGHT: "#cc4400",
+  FERRY: "#44aaff",
 };
 
 function getRouteStyle(route) {
@@ -192,7 +204,7 @@ function getRouteStyle(route) {
   };
 }
 
-visibleRoutes(trip.routes, view, trip.days).forEach(r => {
+visibleRoutes(trip.routes, view, trip.days).forEach((r) => {
   const path = decode(r.polyline, 5).map(([lat, lng]) => ({ lat, lng }));
   new google.maps.Polyline({ path, ...getRouteStyle(r), map });
 });
@@ -222,6 +234,7 @@ Update commands `add-place`, `move-place`, `add-route` para mexer no arquivo ún
 ## Phase 7 — Migration script + fixture italy-2026
 
 `tools/migrate-v2-to-v3.ts`:
+
 ```ts
 function migrateV2toV3(tripV2: TripV2Legacy, mapV2: MapDataV2Legacy): Trip {
   // 1. places = mapV2.pois.map(poi => ({ id, name, geo: {lat:poi.lat, lng:poi.lng}, category, kind, source, popularity, picture: poi.picture ? { url: poi.picture, source: "wikipedia" } : undefined }))

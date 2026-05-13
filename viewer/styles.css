@@ -423,16 +423,15 @@ button {
   font-size: 0.85rem;
 }
 
-/* Schedule item — Insight (skill-generated highlights + warnings).
- * No time column — body fills the slot where time would be. The icon column
- * width matches Experience/Transfer so insights still line up. */
+/* Schedule item — Insight callout (v3: lives INSIDE a ScheduleItem or as a
+ * Day-level wrapper). The yellow callout body is reusable across both
+ * placements — the wrappers control margins / indent. */
 .schedule-insight {
   background: #fdf6e6;
   border-left: 3px solid #e0a93f;
 }
 
 .schedule-insight .schedule-icon {
-  /* Icon image is sized to match the kind-emoji of Experience rows visually. */
   font-size: 1.4rem;
 }
 
@@ -444,28 +443,54 @@ button {
   margin: 0 auto;
 }
 
-.schedule-insight .insight-list {
+/* Inline insight callout — rendered right below a ScheduleItem, indented to
+ * align with the item's body (past the icon + time columns). */
+.item-insights {
+  margin: 0.25rem 0 0.5rem;
+  /* icon (1.6) + gap (0.75) + time (3.4) + gap (0.75) ≈ 6.5rem */
+  margin-left: 6.5rem;
+  padding: 0.55rem 0.75rem;
+  background: #fdf6e6;
+  border-left: 3px solid #e0a93f;
+  border-radius: 4px;
+}
+
+/* Day-level insights — full-width callout at the top of the day's schedule. */
+.day-insights {
+  margin: 0.75rem 0 1rem;
+  padding: 0.6rem 0.85rem;
+  background: #fdf6e6;
+  border-left: 3px solid #e0a93f;
+  border-radius: 4px;
+}
+
+.insight-list,
+.insight-callout-list {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.schedule-insight .insight-list li {
+.insight-list li,
+.insight-callout-list li {
   padding: 0.1rem 0;
   font-size: 0.9rem;
 }
 
-.schedule-insight .insight-highlight::before {
+.insight-list .insight-highlight::before,
+.insight-callout-list .insight-highlight::before {
   content: "✨ ";
   margin-right: 0.25rem;
 }
 
-.schedule-insight .insight-warning::before {
+.insight-list .insight-warning::before,
+.insight-callout-list .insight-warning::before {
   content: "⚠️ ";
   margin-right: 0.25rem;
 }
 
-.schedule-insight .insight-warning {
+.insight-list .insight-warning,
+.insight-callout-list .insight-warning {
   color: var(--ink-soft);
 }
 
@@ -656,9 +681,87 @@ button {
   margin-top: 0.4rem;
 }
 
+/* Filter chips — category toggles at top-left of map */
+.map-chip-bar {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  z-index: 10;
+  max-width: calc(100% - 1.5rem);
+}
+
+.map-chip {
+  background: var(--bg-card);
+  color: var(--ink-soft);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition:
+    background 0.12s,
+    color 0.12s,
+    border-color 0.12s;
+}
+
+.map-chip:hover {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.map-chip.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+/* Day selector — dropdown at top-right of map (below the legacy filters) */
+.map-day-select {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: var(--bg-card);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.3rem 0.5rem;
+  font-size: 0.85rem;
+  font-family: var(--font-body);
+  box-shadow: var(--shadow);
+  z-index: 10;
+  cursor: pointer;
+}
+
 .maplibregl-popup-content {
   font-family: var(--font-body);
   padding: 0.75rem;
+}
+
+.poi-popup {
+  min-width: 240px;
+  max-width: 280px;
+}
+
+.poi-popup .popup-picture {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin: -0.25rem -0.25rem 0.5rem;
+  display: block;
+}
+
+.poi-popup .popup-kind {
+  color: var(--ink-muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.15rem;
 }
 
 .poi-popup .poi-name {
@@ -668,14 +771,129 @@ button {
   margin-bottom: 0.25rem;
 }
 
+.poi-popup .popup-popularity {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.poi-popup .popup-popularity .pop-score {
+  color: #c97e3f;
+}
+
+.poi-popup .popup-popularity .pop-suffix {
+  color: var(--ink-muted);
+  font-weight: 400;
+  font-size: 0.75rem;
+}
+
 .poi-popup .poi-desc {
   color: var(--ink-soft);
   font-size: 0.85rem;
   margin-bottom: 0.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.poi-popup .popup-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+}
+
+.poi-popup .popup-cta {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.poi-popup .popup-cta:hover {
+  background: #b56934;
+}
+
+.poi-popup .popup-credit {
+  color: #bbb;
+  font-size: 0.65rem;
+  margin-top: 0.5rem;
+  font-style: italic;
 }
 
 .poi-popup .poi-source a {
   font-size: 0.85rem;
+}
+
+/* Idea pin — for places in the catalog but not on any day's schedule.
+ * Visual: dashed border + reduced opacity + 💡 emoji (set inline by renderer). */
+.map-pin {
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.map-pin.idea-pin {
+  border-style: dashed;
+  opacity: 0.62;
+}
+
+.map-pin:hover {
+  transform: scale(1.35);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+/* Bookings — v3 places-linked row: thumbnail + place name button */
+.booking-thumb {
+  width: 38px;
+  height: 38px;
+  object-fit: cover;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+.booking-place-link {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 0.15rem;
+  font-size: 0.85rem;
+}
+
+.booking-place-link:hover {
+  text-decoration: underline;
+}
+
+/* Stay banner with hydrated picture (v3 places have pictures) */
+.day-card .stay-at .banner-thumb {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 4px;
 }
 
 /* Empty / loading states */

@@ -1,5 +1,5 @@
 /**
- * JSDoc shapes mirroring cli/lib/schema.ts (v2). Used for editor hints in the
+ * JSDoc shapes mirroring cli/lib/schema.ts (v3). Used for editor hints in the
  * viewer; no runtime validation (the viewer trusts the JSON the skill produced).
  *
  * Source of truth: /cli/lib/schema.ts
@@ -13,64 +13,75 @@
  */
 
 /**
- * @typedef {"experience"} ExperienceType
- *
- * @typedef {Object} Experience
- * @property {ExperienceType} type
- * @property {string} time
+ * @typedef {Object} Picture
+ * @property {string} url
+ * @property {string} [credit]
+ * @property {"wikipedia" | "google-places" | "official" | "unsplash" | "custom"} [source]
+ */
+
+/**
+ * @typedef {{type: string, url: string}} Link
+ */
+
+/**
+ * @typedef {Object} Place
+ * @property {string} id                — kebab-case
  * @property {string} name
- * @property {string} [desc]
- * @property {string} [notes]      - User-only field; skill never writes
- * @property {number} [cost]
- * @property {string} category     - attraction|stay|food|shopping|transport|custom
+ * @property {{lat: number, lng: number}} geo
+ * @property {string} category          — attraction|stay|food|shopping|transport|custom
  * @property {string} [kind]
+ * @property {string} [googlePlaceId]   — ChIJ... when known
+ * @property {number} [popularity]      — 0–10 (log10 of Wikipedia annual views)
  * @property {string} [source]
- * @property {string} [picture]
- * @property {{type: string, url: string}[]} [links]
- * @property {string} [poiId]      - Set when this is a specific experience linked to a MapPOI; absent for generic experiences
- * @property {number} [popularity] - 0–10 decimal, log10 of Wikipedia annual pageviews. Skill-set; absent for POIs without Wikipedia entries.
+ * @property {string} [description]
+ * @property {Picture} [picture]
+ * @property {Link[]} [links]
+ * @property {number} [priceHint]
+ */
+
+/**
+ * @typedef {"DRIVE" | "WALK" | "BICYCLE" | "TRANSIT" | "TRAIN" | "FLIGHT" | "FERRY"} TravelMode
+ */
+
+/**
+ * @typedef {Object} Route
+ * @property {string} id
+ * @property {string} [name]
+ * @property {TravelMode} mode
+ * @property {string} polyline    — Google encoded (precision 5)
+ * @property {string} duration    — ISO 8601 (e.g. "PT45M")
+ * @property {number} [distance]  — meters
+ * @property {string[]} [tags]    — e.g. ["scenic", "highlight"]
+ * @property {string} [notes]
  */
 
 /**
  * @typedef {Object} Insight
- * @property {"insight"} type
  * @property {string[]} [highlights]
  * @property {string[]} [warnings]
  */
 
 /**
- * @typedef {Object} TransferEndpoint
- * @property {string} name
- * @property {number} lat
- * @property {number} lng
- *
- * @typedef {"transfer"} TransferType
- *
- * @typedef {Object} Transfer
- * @property {TransferType} type
- * @property {string} [time]
- * @property {TransferEndpoint} from
- * @property {TransferEndpoint} to
- * @property {string} model       - drive|walk|ferry|flight|train
- * @property {number} duration    - minutes
- * @property {number} [distance]  - km
+ * @typedef {Object} ScheduleItem
+ * @property {string} time           — "HH:MM"
+ * @property {string} [placeId]      — references Trip.places[].id
+ * @property {string} [routeId]      — references Trip.routes[].id
+ * @property {string} [name]         — generic block (no placeId/routeId)
+ * @property {string} [category]
  * @property {number} [cost]
+ * @property {string} [duration]     — ISO 8601
  * @property {string} [notes]
+ * @property {Insight[]} [insights]  — inline per-item insights
  */
 
 /**
- * @typedef {Experience | Transfer | Insight} ScheduleItem
- */
-
-/**
- * @typedef {Object} TripDay
- * @property {string} num
+ * @typedef {Object} Day
  * @property {string} title
- * @property {string} cls
- * @property {string} [desc]
- * @property {ScheduleItem[]} [schedule]   - Single source of truth; stay derived from items with category=stay; warnings live in Insight items
- * @property {string} [dayCost]
+ * @property {string} [cls]
+ * @property {ScheduleItem[]} schedule
+ * @property {Insight[]} [insights]  — day-wide insights
  * @property {string} [planB]
+ * @property {string} [dayCost]
  */
 
 /**
@@ -93,49 +104,23 @@
  * @property {"confirmed" | "pending"} status
  * @property {boolean} critical
  * @property {string} [link]
+ * @property {string} [placeId]   — optional anchor to Trip.places[]
  */
 
 /**
  * @typedef {Object} BudgetItem
  * @property {string} id
- * @property {string} category    - flights|accommodations|fuel|insurance|food|attractions|shopping|transportation|entertainment|unplanned
+ * @property {string} category
  * @property {number} amount
  * @property {number} pct
  * @property {"paid" | "confirmed" | "estimated" | "reserve"} status
  * @property {string} [notes]
- * @property {{type: string, url: string}[]} [links]
- */
-
-/**
- * @typedef {Object} MapPOI
- * @property {string} id
- * @property {number} lat
- * @property {number} lng
- * @property {string} name
- * @property {string} [description]
- * @property {string} category
- * @property {string} [kind]
- * @property {string} [source]
- * @property {string} updatedBy
- * @property {number} [dayNum]
- * @property {number} [popularity] - mirrored from the linked Experience
- *
- * @typedef {Object} MapRoute
- * @property {string} id
- * @property {string} [name]
- * @property {string} color
- * @property {string} kind        - driving|walking|ferry|transit|flight|train
- * @property {number} [dayNum]
- * @property {{lat: number, lng: number}[]} coordinates
- * @property {string} updatedBy
- *
- * @typedef {Object} TripMapData
- * @property {MapPOI[]} pois
- * @property {MapRoute[]} routes
+ * @property {Link[]} [links]
  */
 
 /**
  * @typedef {Object} Trip
+ * @property {3} schemaVersion
  * @property {string} [id]
  * @property {string} slug
  * @property {string} title
@@ -143,19 +128,25 @@
  * @property {string} [startDate]
  * @property {"draft" | "planned" | "active" | "completed"} status
  * @property {string} currency
+ * @property {string} [homeCurrency]
  * @property {string} [timezone]
  * @property {string} [coverImage]
  * @property {string} [ogImage]
  * @property {boolean} [isPublic]
- * @property {TripDay[]} days
+ * @property {Place[]} places
+ * @property {Route[]} routes
+ * @property {Day[]} days
  * @property {ChecklistGroup[]} [checklist]
  * @property {Booking[]} [bookings]
  * @property {BudgetItem[]} [budget]
  */
 
-// Display helpers — closed enums as plain JS objects ----------------------
+// ---------------------------------------------------------------------------
+// Display helpers — closed enums as plain JS objects
+// ---------------------------------------------------------------------------
 
-export const KIND_ICONS = {
+/** Emoji per Place.kind (and as fallback per Route.mode). */
+export const KIND_EMOJI = {
   // attraction
   nature: "🌲",
   lake: "💧",
@@ -166,6 +157,7 @@ export const KIND_ICONS = {
   waterfall: "💦",
   cave: "🕳️",
   city: "🏙️",
+  town: "🏘️",
   vila: "🏘️",
   unesco: "🏛️",
   memorial: "🕯️",
@@ -190,17 +182,23 @@ export const KIND_ICONS = {
   station: "🚉",
 };
 
-export const TRANSFER_ICONS = {
-  drive: "🚗",
-  walk: "🚶",
-  ferry: "⛴️",
-  flight: "✈️",
-  train: "🚆",
+/** Backward-compat alias — old code used `KIND_ICONS`. */
+export const KIND_ICONS = KIND_EMOJI;
+
+/** Emoji per Route.mode (TravelMode enum, uppercase). */
+export const MODE_EMOJI = {
+  DRIVE: "🚗",
+  WALK: "🚶",
+  BICYCLE: "🚲",
+  TRANSIT: "🚍",
+  TRAIN: "🚆",
+  FLIGHT: "✈️",
+  FERRY: "⛴️",
 };
 
 export const CATEGORY_LABELS = {
-  attraction: "Attraction",
-  stay: "Stay",
+  attraction: "Attractions",
+  stay: "Camping/Hotel",
   food: "Food",
   shopping: "Shopping",
   transport: "Transport",
@@ -220,24 +218,18 @@ export const BUDGET_CATEGORY_LABELS = {
   unplanned: "Unplanned",
 };
 
-export const ROUTE_KIND_DEFAULTS = {
-  driving: "#444444",
-  walking: "#669944",
-  ferry: "#4a6fa5",
-  transit: "#7c5b9b",
-  flight: "#c97e3f",
-  train: "#777777",
-};
+// ---------------------------------------------------------------------------
+// Date / cost / duration helpers
+// ---------------------------------------------------------------------------
 
-/** Day index → ISO date, given trip.startDate. Returns undefined if startDate
- *  is missing or month-only (YYYY-MM). */
-export function dayIsoDate(startDate, num) {
+/** Day index → ISO date, given trip.startDate. `dayIndex` is 0-based.
+ *  Returns undefined if startDate is missing or month-only (YYYY-MM). */
+export function dayIsoDate(startDate, dayIndex) {
   if (!startDate || startDate.length < 10) return undefined;
-  const idx = parseInt(num, 10) - 1;
-  if (!Number.isFinite(idx) || idx < 0) return undefined;
+  if (!Number.isFinite(dayIndex) || dayIndex < 0) return undefined;
   const d = new Date(`${startDate}T00:00:00Z`);
   if (Number.isNaN(d.getTime())) return undefined;
-  d.setUTCDate(d.getUTCDate() + idx);
+  d.setUTCDate(d.getUTCDate() + dayIndex);
   return d.toISOString().slice(0, 10);
 }
 
@@ -251,13 +243,29 @@ export function formatDateRange(startDate, dayCount) {
   end.setUTCDate(end.getUTCDate() + dayCount - 1);
   const fmt = (d) =>
     d.toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
-  const yearSuffix = start.getUTCFullYear() === end.getUTCFullYear() ? `, ${start.getUTCFullYear()}` : "";
+  const yearSuffix =
+    start.getUTCFullYear() === end.getUTCFullYear() ? `, ${start.getUTCFullYear()}` : "";
   return `${fmt(start)} → ${fmt(end)}${yearSuffix}`;
 }
 
-/** Format minutes as "Xh YYm" or "YYm". */
-export function formatDuration(minutes) {
-  if (!Number.isFinite(minutes)) return "";
+/** Parse ISO 8601 duration (PT1H30M / PT45M / PT2H) → minutes. */
+export function parseIsoDuration(iso) {
+  if (typeof iso !== "string") return 0;
+  const m = iso.match(/^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/);
+  if (!m) return 0;
+  const h = Number.parseInt(m[1] || "0", 10);
+  const min = Number.parseInt(m[2] || "0", 10);
+  const s = Number.parseInt(m[3] || "0", 10);
+  return h * 60 + min + Math.floor(s / 60);
+}
+
+/** Format ISO 8601 duration or raw minutes as "Xh YYm" / "YYm". */
+export function formatDuration(input) {
+  let minutes;
+  if (typeof input === "string") minutes = parseIsoDuration(input);
+  else if (typeof input === "number") minutes = input;
+  else return "";
+  if (!Number.isFinite(minutes) || minutes <= 0) return "";
   const h = Math.floor(minutes / 60);
   const m = minutes % 60;
   if (h === 0) return `${m}m`;
@@ -265,9 +273,16 @@ export function formatDuration(minutes) {
   return `${h}h ${m}m`;
 }
 
+/** Meters → human-readable "Xkm" / "Ym". */
+export function formatDistance(meters) {
+  if (!Number.isFinite(meters) || meters < 0) return "";
+  if (meters < 1000) return `${Math.round(meters)}m`;
+  return `${(meters / 1000).toLocaleString("en-US", { maximumFractionDigits: 1 })}km`;
+}
+
 /** Format cost as `<currency> <amount>`. Currency is the trip currency. */
 export function formatCost(amount, currency) {
   if (!Number.isFinite(amount)) return "";
-  const symbol = { EUR: "€", GBP: "£", USD: "$", BRL: "R$" }[currency] || `${currency} `;
+  const symbol = { EUR: "€", GBP: "£", USD: "$", BRL: "R$", JPY: "¥" }[currency] || `${currency} `;
   return `${symbol}${amount.toLocaleString("en-US", { maximumFractionDigits: 0 })}`;
 }

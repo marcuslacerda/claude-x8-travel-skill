@@ -1,10 +1,33 @@
 import { z } from "zod/v4";
 
 // ============================================================================
-// Schema v2 — see /skill/sources-travel-experience.md and spec.md
+// Schema v3 — single-document Trip (catalog + thin schedule)
+// Design spec: ~/.claude/plans/fa-a-uma-analise-critica-lucky-hennessy.md
+// Reference fixture: ~/dev/marcus/travel/docs/spec/trip-v3-scheme.json
 // Canonical source: ~/dev/marcus/travel/src/lib/schemas/trip.ts
 // This file is vendored. Schema-drift CI keeps both files byte-identical.
 // ============================================================================
+
+const SCHEMA_VERSION = 3 as const;
+
+// ----------------------------------------------------------------------------
+// Primitive helpers — shared regex / formats
+// ----------------------------------------------------------------------------
+
+const KEBAB_RE = /^[a-z0-9][a-z0-9-]*$/;
+const HHMM_RE = /^([01]\d|2[0-3]):[0-5]\d$/;
+const ISO_DURATION_RE = /^P(?:T(?:\d+H)?(?:\d+M)?(?:\d+S)?)$/;
+const GOOGLE_PLACE_ID_RE = /^ChIJ[A-Za-z0-9_-]+$/;
+const START_DATE_RE = /^\d{4}-\d{2}(-\d{2})?$/;
+
+export const KebabId = z.string().regex(KEBAB_RE, { message: "id must be lowercase kebab-case" });
+export const HHMM = z.string().regex(HHMM_RE, { message: "time must be HH:MM (00:00–23:59)" });
+export const IsoDuration = z
+  .string()
+  .regex(ISO_DURATION_RE, { message: "duration must be ISO 8601 (e.g. PT45M, PT2H, PT1H30M)" });
+export const GooglePlaceId = z
+  .string()
+  .regex(GOOGLE_PLACE_ID_RE, { message: "googlePlaceId must start with ChIJ" });
 
 // ----------------------------------------------------------------------------
 // Trip status & destination
@@ -25,7 +48,7 @@ export const DestinationSchema = z.object({
 export type Destination = z.infer<typeof DestinationSchema>;
 
 // ----------------------------------------------------------------------------
-// Experience taxonomy — shared between schedule items and map POIs
+// Experience taxonomy — shared between schedule items and place catalog
 // ----------------------------------------------------------------------------
 
 export const ExperienceCategorySchema = z.enum([
@@ -38,9 +61,11 @@ export const ExperienceCategorySchema = z.enum([
 ]);
 export type ExperienceCategory = z.infer<typeof ExperienceCategorySchema>;
 
-/** 27 kinds across 5 categories. `custom` category accepts any kind (or none). */
+/** 28 kinds across 5 categories. `custom` category accepts any kind (or none).
+ *  v3 note: `town` was added alongside the legacy `vila` — both are valid
+ *  ("vila" = villa/village ambiguity from v2; "town" is the clear name). */
 export const ExperienceKindSchema = z.enum([
-  // attraction (14)
+  // attraction (15)
   "nature",
   "lake",
   "castle",
@@ -50,6 +75,7 @@ export const ExperienceKindSchema = z.enum([
   "waterfall",
   "cave",
   "city",
+  "town",
   "vila",
   "unesco",
   "memorial",
@@ -75,7 +101,7 @@ export const ExperienceKindSchema = z.enum([
 ]);
 export type ExperienceKind = z.infer<typeof ExperienceKindSchema>;
 
-/** Travel source — the platform/service that informed the POI or pricing.
+/** Travel source — the platform/service that informed the place or pricing.
  *  See /skill/sources-travel-experience.md for full descriptions. */
 export const TravelSourceSchema = z.enum([
   // Tier 1 — core (10)
@@ -115,7 +141,22 @@ export const TravelSourceSchema = z.enum([
 export type TravelSource = z.infer<typeof TravelSourceSchema>;
 
 // ----------------------------------------------------------------------------
-// Schedule items — discriminated union of Experience | Transfer
+// Travel mode — unified for routes (v3). Replaces v2 TransferModel + MapRouteKind.
+// ----------------------------------------------------------------------------
+
+export const TravelModeSchema = z.enum([
+  "DRIVE",
+  "WALK",
+  "BICYCLE",
+  "TRANSIT",
+  "TRAIN",
+  "FLIGHT",
+  "FERRY",
+]);
+export type TravelMode = z.infer<typeof TravelModeSchema>;
+
+// ----------------------------------------------------------------------------
+// Links & pictures
 // ----------------------------------------------------------------------------
 
 export const ExperienceLinkSchema = z.object({
@@ -126,77 +167,75 @@ export const ExperienceLinkSchema = z.object({
 });
 export type ExperienceLink = z.infer<typeof ExperienceLinkSchema>;
 
-export const ExperienceSchema = z.object({
-  type: z.literal("experience"),
-  /** Time of day or duration (e.g. "09:00", "2h", "afternoon"). */
-  time: z.string(),
+/** Picture metadata — replaces v2's `picture: string` with a structured object
+ *  carrying credit and source-of-truth (Wikimedia / Google Photos / official site / Unsplash). */
+export const PictureSchema = z.object({
+  url: z.string(),
+  credit: z.string().optional(),
+  source: z.enum(["wikipedia", "google-places", "official", "unsplash", "custom"]).optional(),
+});
+export type Picture = z.infer<typeof PictureSchema>;
+
+// ----------------------------------------------------------------------------
+// Place — top-level catalog entry. Replaces v2 MapPOI + de-duplicates the
+// per-occurrence Experience data (name, description, picture, links, kind, ...).
+// `dayNum` is gone — day membership is derived from schedule[].placeId.
+// ----------------------------------------------------------------------------
+
+export const PlaceSchema = z.object({
+  id: KebabId,
   name: z.string(),
-  desc: z.string().optional(),
-  /** Tips, instructions, review notes. **User-only field** — the skill never
-   *  writes here. Reserved for manual edits by the traveler in the viewer
-   *  or directly in trip.json. Skill-generated observations belong in an
-   *  Insight item in the schedule, not in notes. */
-  notes: z.string().optional(),
-  /** Cost in trip currency. Use 0 for free. Omit if unknown. */
-  cost: z.number().optional(),
+  geo: z.object({ lat: z.number(), lng: z.number() }),
   category: ExperienceCategorySchema,
   kind: ExperienceKindSchema.optional(),
-  source: TravelSourceSchema.optional(),
-  /** Public image URL. Wikipedia/Unsplash/official sites only — no socials. */
-  picture: z.string().optional(),
-  links: z.array(ExperienceLinkSchema).optional(),
-  /** When set, this Experience is **specific** — it refers to a real place
-   *  with coordinates, and a corresponding MapPOI exists in map.json with
-   *  the same id. When absent, the Experience is **generic** (a time block
-   *  without a specific location, e.g. "Lunch break"). kebab-case. */
-  poiId: z
-    .string()
-    .regex(/^[a-z0-9][a-z0-9-]*$/, { message: "poiId must be lowercase kebab-case" })
-    .optional(),
-  /** Popularity score (0–10 decimal) derived from Wikipedia annual pageviews:
-   *  `min(log10(annual_views), 10.0)`. Set only when the POI has a Wikipedia
-   *  entry — a cheap signal of "how known is this place". Skill-written;
-   *  not user-edited. See skill/guideline.md "Popularity score". */
+  /** Google Places ID — when present, unlocks Photos / Hours / deep-link.
+   *  Format: ChIJ... (Google standard). */
+  googlePlaceId: GooglePlaceId.optional(),
+  /** Popularity score (0–10 decimal) — `min(log10(annual_views), 10.0)`.
+   *  Set only when Wikipedia (or Google ratings fallback) yields a signal. */
   popularity: z.number().min(0).max(10).optional(),
+  source: TravelSourceSchema.optional(),
+  description: z.string().optional(),
+  picture: PictureSchema.optional(),
+  links: z.array(ExperienceLinkSchema).optional(),
+  /** Reference price for budget hint (per-person, in trip.currency). Schedule
+   *  items can override with a real `cost` for that specific occurrence. */
+  priceHint: z.number().optional(),
 });
-export type Experience = z.infer<typeof ExperienceSchema>;
+export type Place = z.infer<typeof PlaceSchema>;
 
-export const TransferModelSchema = z.enum(["drive", "walk", "ferry", "flight", "train"]);
-export type TransferModel = z.infer<typeof TransferModelSchema>;
+// ----------------------------------------------------------------------------
+// Route — top-level catalog entry. Replaces v2 MapRoute. Polyline is encoded
+// (Google algorithm precision 5) instead of [{lat,lng}] arrays — ~6× smaller.
+// `color` removed (now derived from `mode` in viewer); `dayNum` removed
+// (derived from schedule[].routeId).
+// ----------------------------------------------------------------------------
 
-export const TransferEndpointSchema = z.object({
-  name: z.string(),
-  lat: z.number(),
-  lng: z.number(),
-});
-export type TransferEndpoint = z.infer<typeof TransferEndpointSchema>;
-
-export const TransferSchema = z.object({
-  type: z.literal("transfer"),
-  time: z.string().optional(),
-  from: TransferEndpointSchema,
-  to: TransferEndpointSchema,
-  model: TransferModelSchema,
-  /** Duration in minutes. */
-  duration: z.number(),
-  /** Distance in kilometers. */
-  distance: z.number().optional(),
-  cost: z.number().optional(),
+export const RouteSchema = z.object({
+  id: KebabId,
+  name: z.string().optional(),
+  mode: TravelModeSchema,
+  /** Encoded polyline (Google algorithm, precision 5). Decode in client. */
+  polyline: z.string(),
+  /** ISO 8601 duration (e.g. PT45M, PT2H30M). */
+  duration: IsoDuration,
+  /** Distance in meters. Optional — KML-only routes may lack it. */
+  distance: z.number().int().nonnegative().optional(),
+  /** Semantic tags for UI emphasis (e.g. "scenic", "highlight", "panoramic"). */
+  tags: z.array(z.string()).optional(),
   notes: z.string().optional(),
 });
-export type Transfer = z.infer<typeof TransferSchema>;
+export type Route = z.infer<typeof RouteSchema>;
 
-/** Skill-generated observation about the segment of the day around it.
- *  Inserted between Experiences/Transfers to surface highlights (good light,
- *  small crowds, photo angles) and warnings (parking fills early, traffic at
- *  certain hours, weather risks). Never user-edited — manual notes live in
- *  Experience.notes. */
+// ----------------------------------------------------------------------------
+// Insight — skill observation (highlights + warnings). v3: lives inline on a
+// ScheduleItem (`item.insights[]`) or on the Day (`day.insights[]`). No longer
+// a sibling Schedule type. Always skill-written, never user-edited.
+// ----------------------------------------------------------------------------
+
 export const InsightSchema = z
   .object({
-    type: z.literal("insight"),
-    /** Positive observations the traveler should know in advance. */
     highlights: z.array(z.string()).optional(),
-    /** Cautions and constraints the traveler should plan around. */
     warnings: z.array(z.string()).optional(),
   })
   .refine(
@@ -205,42 +244,58 @@ export const InsightSchema = z
   );
 export type Insight = z.infer<typeof InsightSchema>;
 
-export const ScheduleItemSchema = z.discriminatedUnion("type", [
-  ExperienceSchema,
-  TransferSchema,
-  InsightSchema,
-]);
+// ----------------------------------------------------------------------------
+// ScheduleItem — three flavors collapsed into one shape:
+//   - place reference:  { time, placeId, cost?, duration?, notes?, insights? }
+//   - route reference:  { time, routeId, cost?, notes?, insights? }
+//   - generic block:    { time, name, category, cost?, duration?, notes?, insights? }
+// Discriminator is implicit: presence of placeId, routeId, or name.
+// ----------------------------------------------------------------------------
+
+export const ScheduleItemSchema = z
+  .object({
+    time: HHMM,
+    placeId: KebabId.optional(),
+    routeId: KebabId.optional(),
+    /** Generic block name (e.g. "Almoço livre"). Used when neither placeId nor routeId applies. */
+    name: z.string().optional(),
+    category: ExperienceCategorySchema.optional(),
+    /** Actual cost for THIS occurrence (overrides Place.priceHint for budget). */
+    cost: z.number().optional(),
+    duration: IsoDuration.optional(),
+    notes: z.string().optional(),
+    insights: z.array(InsightSchema).optional(),
+  })
+  .refine((i) => Boolean(i.placeId || i.routeId || i.name), {
+    message: "ScheduleItem must have placeId, routeId, or name",
+  });
 export type ScheduleItem = z.infer<typeof ScheduleItemSchema>;
 
 // ----------------------------------------------------------------------------
-// Trip day
+// Day — array index IS the day number (Day 1 = days[0]). No `num` field:
+// reorder = splice (no renumeration); dates derived from startDate + index.
 // ----------------------------------------------------------------------------
 
-export const TripDaySchema = z.object({
-  /** Day index as string ("1", "2", ...). Date is derived from trip.startDate + (num - 1). */
-  num: z.string(),
+export const DaySchema = z.object({
   title: z.string(),
-  /** CSS class hint for the viewer (e.g. "drive-day", "rest-day"). */
-  cls: z.string(),
-  desc: z.string().optional(),
-  /** Single source of truth for the day's itinerary. Stay (lodging) is
-   *  represented as an Experience with category="stay" — the viewer derives
-   *  "Stay at X" by finding the last such item. Warnings/highlights are
-   *  represented as Insight items interleaved with Experiences/Transfers. */
-  schedule: z.array(ScheduleItemSchema).optional(),
-  dayCost: z.string().optional(),
-  /** Contingency notes — what to do on rain / closure / unexpected change.
-   *  Memory of planning context for stress moments mid-trip. */
+  /** CSS class hint for the viewer (e.g. "active-day", "drive-day", "rest-day"). */
+  cls: z.string().optional(),
+  /** Ordered intra-day timeline. */
+  schedule: z.array(ScheduleItemSchema),
+  /** Day-wide insights (weather, crowds, traffic) — distinct from per-item insights. */
+  insights: z.array(InsightSchema).optional(),
+  /** Contingency note — what to do on rain / closure / unexpected change. */
   planB: z.string().optional(),
+  dayCost: z.string().optional(),
 });
-export type TripDay = z.infer<typeof TripDaySchema>;
+export type Day = z.infer<typeof DaySchema>;
 
 // ----------------------------------------------------------------------------
 // Checklist (merged with packing — discriminated by type)
 // ----------------------------------------------------------------------------
 
 export const ChecklistItemSchema = z.object({
-  id: z.string().regex(/^[a-z0-9][a-z0-9-]*$/, {
+  id: z.string().regex(KEBAB_RE, {
     message: "id must be lowercase kebab-case (e.g. 'book-flights', 'p-passport')",
   }),
   text: z.string(),
@@ -259,7 +314,8 @@ export const ChecklistGroupSchema = z.object({
 export type ChecklistGroup = z.infer<typeof ChecklistGroupSchema>;
 
 // ----------------------------------------------------------------------------
-// Bookings
+// Bookings — v3 adds optional placeId linking to the Place catalog. Viewer
+// hydrates the booking row with the place's picture + click focuses pin on map.
 // ----------------------------------------------------------------------------
 
 export const BookingSchema = z.object({
@@ -270,10 +326,10 @@ export const BookingSchema = z.object({
   status: z.enum(["confirmed", "pending"]),
   /** True when the booking must be secured early (sold-out / price-spike risk). */
   critical: z.boolean(),
-  /** Booking URL. The viewer chooses the label dynamically:
-   *   - status=pending or critical=true → "Booking"
-   *   - status=confirmed → "Open" */
+  /** Booking URL. */
   link: z.string().optional(),
+  /** Optional anchor into the Place catalog (e.g. hotel reservation → its pin). */
+  placeId: KebabId.optional(),
 });
 export type Booking = z.infer<typeof BookingSchema>;
 
@@ -297,7 +353,7 @@ export type BudgetCategory = z.infer<typeof BudgetCategorySchema>;
 
 export const BudgetItemSchema = z.object({
   /** Stable kebab-case slug. Reserved: "unplanned" (must exist on every trip). */
-  id: z.string().regex(/^[a-z0-9][a-z0-9-]*$/, {
+  id: z.string().regex(KEBAB_RE, {
     message: "id must be lowercase kebab-case (e.g. 'flights', 'tolls-vinhetas', 'unplanned')",
   }),
   category: BudgetCategorySchema,
@@ -310,120 +366,70 @@ export const BudgetItemSchema = z.object({
 export type BudgetItem = z.infer<typeof BudgetItemSchema>;
 
 // ----------------------------------------------------------------------------
-// Map data
+// Trip (root) — single document. Replaces v2 Trip + TripMapData.
 // ----------------------------------------------------------------------------
 
-/** Provenance of a map mutation. */
-export const MapUpdatedBySchema = z.enum(["skill", "chat", "webui"]);
-export type MapUpdatedBy = z.infer<typeof MapUpdatedBySchema>;
-
-export const MapPOISchema = z.object({
-  /** Stable id — chat tool targets via this. Unique within trip. kebab-case. */
-  id: z.string().regex(/^[a-z0-9][a-z0-9-]*$/, {
-    message: "POI id must be lowercase kebab-case",
-  }),
-  lat: z.number(),
-  lng: z.number(),
-  name: z.string(),
-  description: z.string().optional(),
-  category: ExperienceCategorySchema,
-  kind: ExperienceKindSchema.optional(),
-  /** Travel-platform source (booking, tripadvisor, ...). For UI infowindow link. */
-  source: TravelSourceSchema.optional(),
-  /** Who/what last touched this POI. */
-  updatedBy: MapUpdatedBySchema.default("skill"),
-  /** Omit = trip-wide overview. Number = single day (e.g. `10`). Array =
-   *  multiple days (e.g. `[9, 10, 11]` for a multi-night stay that
-   *  doubles as the next morning's departure point). */
-  dayNum: z
-    .union([z.number().int().positive(), z.array(z.number().int().positive()).nonempty()])
-    .optional(),
-  /** Popularity score (0–10) — same value as the linked Experience's
-   *  `popularity`. Mirrored here for map-tab UI (e.g. sort POIs by score). */
-  popularity: z.number().min(0).max(10).optional(),
-});
-export type MapPOI = z.infer<typeof MapPOISchema>;
-
-export const MapRouteKindSchema = z.enum([
-  "driving",
-  "walking",
-  "ferry",
-  "transit",
-  "flight",
-  "train",
-]);
-export type MapRouteKind = z.infer<typeof MapRouteKindSchema>;
-
-export const MapRouteSchema = z.object({
-  id: z.string().regex(/^[a-z0-9][a-z0-9-]*$/, {
-    message: "Route id must be lowercase kebab-case",
-  }),
-  name: z.string().optional(),
-  /** Hex color for polyline stroke (e.g. "#669944"). */
-  color: z.string(),
-  kind: MapRouteKindSchema,
-  /** Omit = trip-wide overview polyline. Number = drawn only inside day N.
-   *  Array = drawn on each listed day (e.g. a multi-day driving leg that
-   *  the user wants visible from both endpoints' day filters). */
-  dayNum: z
-    .union([z.number().int().positive(), z.array(z.number().int().positive()).nonempty()])
-    .optional(),
-  coordinates: z.array(z.object({ lat: z.number(), lng: z.number() })),
-  updatedBy: MapUpdatedBySchema.default("skill"),
-});
-export type MapRoute = z.infer<typeof MapRouteSchema>;
-
-export const TripMapDataSchema = z
+export const TripSchema = z
   .object({
-    pois: z.array(MapPOISchema),
-    routes: z.array(MapRouteSchema),
+    schemaVersion: z.literal(SCHEMA_VERSION),
+    /** Optional — assigned at publish time by explor8. */
+    id: z.string().optional(),
+    /** kebab-case, unique per owner. */
+    slug: KebabId,
+    title: z.string(),
+    destination: DestinationSchema,
+    /** Optional. ISO date "YYYY-MM-DD" if known, else "YYYY-MM" for month-only. */
+    startDate: z
+      .string()
+      .regex(START_DATE_RE, { message: 'startDate must be "YYYY-MM-DD" or "YYYY-MM"' })
+      .optional(),
+    status: TripStatusSchema,
+    /** ISO 4217 currency of the destination (EUR, GBP, USD, BRL, ...). */
+    currency: z.string(),
+    /** Traveler's home/preferred display currency (ISO 4217). When set, viewer
+     *  and budget mode show converted costs alongside destination currency. */
+    homeCurrency: z.string().optional(),
+    /** IANA timezone for the destination (e.g. "Europe/Rome"). */
+    timezone: z.string().optional(),
+    coverImage: z.string().optional(),
+    ogImage: z.string().optional(),
+    isPublic: z.boolean().optional(),
+    /** Place catalog — top-level. Schedule items reference these by `placeId`. */
+    places: z.array(PlaceSchema),
+    /** Route catalog — top-level. Schedule items reference these by `routeId`. */
+    routes: z.array(RouteSchema),
+    days: z.array(DaySchema),
+    checklist: z.array(ChecklistGroupSchema).optional(),
+    bookings: z.array(BookingSchema).optional(),
+    budget: z.array(BudgetItemSchema).optional(),
   })
-  .refine((m) => new Set(m.pois.map((p) => p.id)).size === m.pois.length, {
-    message: "POI ids must be unique within trip",
+  .refine((t) => new Set(t.places.map((p) => p.id)).size === t.places.length, {
+    message: "Place ids must be unique within trip",
   })
-  .refine((m) => new Set(m.routes.map((r) => r.id)).size === m.routes.length, {
+  .refine((t) => new Set(t.routes.map((r) => r.id)).size === t.routes.length, {
     message: "Route ids must be unique within trip",
-  });
-export type TripMapData = z.infer<typeof TripMapDataSchema>;
-
-// ----------------------------------------------------------------------------
-// Trip (root)
-// ----------------------------------------------------------------------------
-
-/** Loose ISO date or year-month: "2027-02-14" or "2027-02". */
-const StartDatePattern = /^\d{4}-\d{2}(-\d{2})?$/;
-
-export const TripSchema = z.object({
-  /** Optional — assigned at publish time by explor8. */
-  id: z.string().optional(),
-  /** kebab-case, unique per owner. */
-  slug: z.string().regex(/^[a-z0-9][a-z0-9-]*$/),
-  title: z.string(),
-  destination: DestinationSchema,
-  /** Optional. ISO date "YYYY-MM-DD" if known, else "YYYY-MM" for month-only. */
-  startDate: z
-    .string()
-    .regex(StartDatePattern, {
-      message: 'startDate must be "YYYY-MM-DD" or "YYYY-MM"',
-    })
-    .optional(),
-  status: TripStatusSchema,
-  /** ISO 4217 currency of the destination (EUR, GBP, USD, BRL, ...). */
-  currency: z.string(),
-  /** Traveler's home/preferred display currency (ISO 4217). When set, the viewer and budget mode
-   *  show costs converted to this currency alongside the destination currency. Useful when the
-   *  traveler's base currency differs from the destination's (e.g. BRL traveler visiting Italy). */
-  homeCurrency: z.string().optional(),
-  /** IANA timezone for the destination (e.g. "Europe/Rome"). Drives todayISO() in viewer/explor8. */
-  timezone: z.string().optional(),
-  coverImage: z.string().optional(),
-  ogImage: z.string().optional(),
-  isPublic: z.boolean().optional(),
-  days: z.array(TripDaySchema),
-  checklist: z.array(ChecklistGroupSchema).optional(),
-  bookings: z.array(BookingSchema).optional(),
-  budget: z.array(BudgetItemSchema).optional(),
-});
+  })
+  .refine(
+    /** Referential integrity: schedule[].placeId/routeId and bookings[].placeId
+     *  must point at actual Place/Route ids. Catches skill typos like
+     *  "castelo-blead" vs "castelo-bled" that would otherwise silently break
+     *  rendering (placeholder pin on a real day's schedule). */
+    (t) => {
+      const placeIds = new Set(t.places.map((p) => p.id));
+      const routeIds = new Set(t.routes.map((r) => r.id));
+      for (const day of t.days) {
+        for (const item of day.schedule) {
+          if (item.placeId && !placeIds.has(item.placeId)) return false;
+          if (item.routeId && !routeIds.has(item.routeId)) return false;
+        }
+      }
+      for (const b of t.bookings ?? []) {
+        if (b.placeId && !placeIds.has(b.placeId)) return false;
+      }
+      return true;
+    },
+    { message: "schedule/bookings reference unknown placeId or routeId" },
+  );
 export type Trip = z.infer<typeof TripSchema>;
 
 // ----------------------------------------------------------------------------
@@ -461,11 +467,11 @@ export const TripUpdateSchema = z.object({
 export type TripUpdate = z.infer<typeof TripUpdateSchema>;
 
 // ----------------------------------------------------------------------------
-// Publish envelope — what x8-travel publish POSTs to /api/admin/trips/publish
+// Publish envelope — what x8-travel publish POSTs to /api/admin/trips/publish.
+// v3: single `{ trip }` key (no separate mapData — catalog lives inside trip).
 // ----------------------------------------------------------------------------
 
 export const PublishPayloadSchema = z.object({
   trip: TripSchema,
-  mapData: TripMapDataSchema.optional().nullable(),
 });
 export type PublishPayload = z.infer<typeof PublishPayloadSchema>;

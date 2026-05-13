@@ -66,16 +66,13 @@
 
     <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
     <script type="module">
-      import {
-        formatDateRange,
-        formatCost,
-        BUDGET_CATEGORY_LABELS,
-      } from "./lib/schema-types.js";
+      import { formatDateRange, formatCost, BUDGET_CATEGORY_LABELS } from "./lib/schema-types.js";
       import { renderDayCard } from "./lib/day-card.js";
       import { renderMap } from "./lib/map-renderer.js";
       import { renderGoogleMap } from "./lib/gmap-renderer.js";
       import { loadEnvConfig } from "./lib/env-config.js";
       import { initTabs, bindChecklistPersistence } from "./lib/tabs.js";
+      import { buildHydration, hydrateBooking } from "./lib/hydrate.js";
 
       const params = new URLSearchParams(location.search);
       const slug = params.get("slug");
@@ -87,7 +84,7 @@
       }
 
       // Look in trips/ first (user trips, gitignored). Fall back to examples/
-      // (checked-in showcases like scotland-2027 — works out-of-the-box).
+      // (checked-in showcases) — works out-of-the-box.
       async function fetchFirst(filename) {
         for (const root of [`../trips/${slug}`, `../examples/${slug}`]) {
           try {
@@ -98,17 +95,19 @@
         return null;
       }
 
-      Promise.all([fetchFirst("trip.json"), fetchFirst("map.json"), loadEnvConfig()])
-        .then(([trip, mapData, env]) => {
+      Promise.all([fetchFirst("trip.json"), loadEnvConfig()])
+        .then(([trip, env]) => {
           if (!trip) throw new Error("trip.json not found");
-          render(trip, mapData, env);
+          // Accept both bare trip docs and the publish wrapper { trip }.
+          const doc = trip && typeof trip === "object" && "trip" in trip ? trip.trip : trip;
+          render(doc, env);
         })
         .catch((err) => {
           document.querySelector("main").innerHTML =
             `<div class="error">Failed to load trip "${escape(slug)}": ${escape(err.message)}.<br>Make sure you're serving the repo root via <code>python3 -m http.server</code> and that <code>trips/${escape(slug)}/trip.json</code> exists.</div>`;
         });
 
-      function render(trip, mapData, env) {
+      function render(trip, env) {
         document.title = `${trip.title} · x8-travel`;
 
         const dest =
@@ -125,14 +124,16 @@
           ${trip.timezone ? `<span>tz: ${escape(trip.timezone)}</span>` : ""}
         `;
 
-        renderItinerary(trip);
-        renderBookings(trip);
+        // Build the hydration context once — shared across day-card + both renderers.
+        const hydration = buildHydration(trip);
+
+        renderItinerary(trip, hydration);
+        renderBookings(trip, hydration);
         renderBudget(trip);
         renderChecklist(trip);
 
         // The Google Map tab is only revealed when the user has both env vars
-        // set in `.env.local` (see .env.local.example). Otherwise the button
-        // stays hidden and the panel is unreachable.
+        // set in `.env.local`.
         const gmapKey = env?.GOOGLE_MAPS_API_KEY;
         const gmapId = env?.GOOGLE_MAP_ID;
         const gmapEnabled = Boolean(gmapKey && gmapId);
@@ -141,26 +142,33 @@
         }
 
         // initTabs must run before renderMapTab — the lazy map render checks
-        // whether the map panel is currently active to decide whether to
-        // render immediately or wait for the tab click.
+        // whether the map panel is active before initializing.
         initTabs(document);
-        renderMapTab(mapData);
+        renderMapTab(trip, hydration);
         if (gmapEnabled) {
-          renderGoogleMapTab(mapData, { apiKey: gmapKey, mapId: gmapId });
+          renderGoogleMapTab(trip, hydration, { apiKey: gmapKey, mapId: gmapId });
         }
       }
 
-      function renderItinerary(trip) {
+      function renderItinerary(trip, hydration) {
         const root = document.getElementById("itinerary");
         if (!trip.days || trip.days.length === 0) {
           root.innerHTML = '<div class="empty">No days planned yet.</div>';
           return;
         }
-        const ctx = { startDate: trip.startDate, currency: trip.currency };
-        trip.days.forEach((day) => root.appendChild(renderDayCard(day, trip, ctx)));
+        trip.days.forEach((day, dayIndex) => {
+          root.appendChild(
+            renderDayCard(day, trip, {
+              dayIndex,
+              startDate: trip.startDate,
+              currency: trip.currency,
+              hydration,
+            }),
+          );
+        });
       }
 
-      function renderBookings(trip) {
+      function renderBookings(trip, hydration) {
         const root = document.getElementById("bookings");
         if (!trip.bookings || trip.bookings.length === 0) {
           root.innerHTML = '<div class="empty">No bookings tracked yet.</div>';
@@ -175,16 +183,23 @@
             <tbody>
               ${sorted
                 .map((b) => {
-                  const linkLabel =
-                    b.status === "confirmed" ? "Open" : "Booking";
+                  const { place } = hydrateBooking(b, hydration);
+                  const linkLabel = b.status === "confirmed" ? "Open" : "Booking";
                   const link = b.link
                     ? `<a href="${escape(b.link)}" target="_blank" rel="noopener">${linkLabel} ↗</a>`
                     : "";
                   const critical = b.critical ? '<span class="critical-badge">CRITICAL</span>' : "";
+                  const placeBlock = place
+                    ? `${
+                        place.picture?.url
+                          ? `<img class="booking-thumb" src="${escape(place.picture.url)}" alt="">`
+                          : ""
+                      }<button class="booking-place-link" data-place-id="${escape(place.id)}">📍 ${escape(place.name)}</button>`
+                    : "";
                   return `
                     <tr>
                       <td><code>${escape(b.date)}</code></td>
-                      <td>${escape(b.item)}${critical}</td>
+                      <td>${placeBlock}<br>${escape(b.item)}${critical}</td>
                       <td><span class="booking-status status-${escape(b.status)}">${escape(b.status)}</span></td>
                       <td>${link}</td>
                     </tr>
@@ -194,6 +209,17 @@
             </tbody>
           </table>
         `;
+        root.querySelectorAll(".booking-place-link").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const placeId = btn.getAttribute("data-place-id");
+            const dayIdx = (hydration.placeToDays.get(placeId) || [])[0];
+            if (dayIdx != null) {
+              document.querySelector('[data-tab="itinerary"]')?.click();
+              const target = document.getElementById(`day-${dayIdx}`);
+              setTimeout(() => target?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+            }
+          });
+        });
       }
 
       function renderBudget(trip) {
@@ -292,17 +318,14 @@
           .join("");
       }
 
-      function renderMapTab(mapData) {
+      function renderMapTab(trip, hydration) {
         const root = document.getElementById("map-container");
-        if (!mapData || (!mapData.pois?.length && !mapData.routes?.length)) {
+        if ((!trip.places || trip.places.length === 0) && (!trip.routes || trip.routes.length === 0)) {
           root.innerHTML = '<div class="empty">No map data for this trip.</div>';
           return;
         }
         // MapLibre's `failed to invert matrix` error fires when the container
-        // has zero width or height at init time. Hidden tab panels are
-        // display:none, so even after the panel becomes visible the layout
-        // hasn't computed by the next rAF. Poll until clientWidth/Height are
-        // non-zero before initializing.
+        // has zero width or height at init time. Poll until layout settles.
         let rendered = false;
         let attempts = 0;
         const ensureRendered = () => {
@@ -310,7 +333,7 @@
           if (root.clientWidth === 0 || root.clientHeight === 0) {
             if (++attempts > 60) {
               root.innerHTML =
-                '<div class="error">Map container never received layout (clientWidth/Height stayed 0). The map tab might be styled hidden.</div>';
+                '<div class="error">Map container never received layout (clientWidth/Height stayed 0).</div>';
               return;
             }
             requestAnimationFrame(ensureRendered);
@@ -318,7 +341,7 @@
           }
           rendered = true;
           try {
-            renderMap(root, mapData);
+            renderMap(root, trip, { hydration });
           } catch (err) {
             root.innerHTML = `<div class="error">Map failed to render: ${escape(err.message)}</div>`;
           }
@@ -326,8 +349,6 @@
 
         const mapTab = document.querySelector('[data-tab="map"]');
         mapTab?.addEventListener("click", () => {
-          // Click flips the panel to active; layout settles on the next paint.
-          // Reset attempt counter so we get a fresh polling window.
           attempts = 0;
           requestAnimationFrame(ensureRendered);
         });
@@ -337,14 +358,12 @@
         }
       }
 
-      function renderGoogleMapTab(mapData, config) {
+      function renderGoogleMapTab(trip, hydration, config) {
         const root = document.getElementById("gmap-container");
-        if (!mapData || (!mapData.pois?.length && !mapData.routes?.length)) {
+        if ((!trip.places || trip.places.length === 0) && (!trip.routes || trip.routes.length === 0)) {
           root.innerHTML = '<div class="empty">No map data for this trip.</div>';
           return;
         }
-        // Same layout-ready polling pattern as renderMapTab — Google Maps also
-        // throws on zero-dimension containers.
         let rendered = false;
         let attempts = 0;
         const ensureRendered = () => {
@@ -359,7 +378,7 @@
             return;
           }
           rendered = true;
-          renderGoogleMap(root, mapData, config).catch((err) => {
+          renderGoogleMap(root, trip, { ...config, hydration }).catch((err) => {
             root.innerHTML = `<div class="error">Google Map failed: ${escape(err.message)}.<br>Check that GOOGLE_MAPS_API_KEY is valid and the referrer (localhost) is allowed.</div>`;
           });
         };
