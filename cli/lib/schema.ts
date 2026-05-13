@@ -1,33 +1,26 @@
 import { z } from "zod/v4";
 
 // ============================================================================
-// Schema v3 — single-document Trip (catalog + thin schedule)
-// Design spec: ~/.claude/plans/fa-a-uma-analise-critica-lucky-hennessy.md
-// Reference fixture: ~/dev/marcus/travel/docs/spec/trip-v3-scheme.json
-// Canonical source: ~/dev/marcus/travel/src/lib/schemas/trip.ts
-// This file is vendored. Schema-drift CI keeps both files byte-identical.
+// Trip schema v3 — single document, catalog + thin schedule
+//
+// See:
+//   ~/.claude/plans/fa-a-uma-analise-critica-lucky-hennessy.md  (design rationale)
+//   ~/dev/marcus/travel/docs/spec/trip-v3-scheme.json           (canonical fixture)
+//   ~/dev/marcus/travel/docs/tasks/schema-v3.md                 (consumer plan)
+//
+// Canonical source: this file. The skill (claude-x8-travel-skill) vendors it
+// and schema-drift CI keeps the two byte-identical.
 // ============================================================================
 
 const SCHEMA_VERSION = 3 as const;
 
-// ----------------------------------------------------------------------------
-// Primitive helpers — shared regex / formats
-// ----------------------------------------------------------------------------
-
-const KEBAB_RE = /^[a-z0-9][a-z0-9-]*$/;
-const HHMM_RE = /^([01]\d|2[0-3]):[0-5]\d$/;
-const ISO_DURATION_RE = /^P(?:T(?:\d+H)?(?:\d+M)?(?:\d+S)?)$/;
-const GOOGLE_PLACE_ID_RE = /^ChIJ[A-Za-z0-9_-]+$/;
-const START_DATE_RE = /^\d{4}-\d{2}(-\d{2})?$/;
-
-export const KebabId = z.string().regex(KEBAB_RE, { message: "id must be lowercase kebab-case" });
-export const HHMM = z.string().regex(HHMM_RE, { message: "time must be HH:MM (00:00–23:59)" });
-export const IsoDuration = z
-  .string()
-  .regex(ISO_DURATION_RE, { message: "duration must be ISO 8601 (e.g. PT45M, PT2H, PT1H30M)" });
-export const GooglePlaceId = z
-  .string()
-  .regex(GOOGLE_PLACE_ID_RE, { message: "googlePlaceId must start with ChIJ" });
+// Loose ISO date or year-month: "2027-02-14" or "2027-02".
+const StartDatePattern = /^\d{4}-\d{2}(-\d{2})?$/;
+const KebabIdPattern = /^[a-z0-9][a-z0-9-]*$/;
+const HHMMPattern = /^([01]\d|2[0-3]):[0-5]\d$/;
+// ISO 8601 duration — at least one part (H/M/S) required after PT.
+const IsoDurationPattern = /^PT(\d+[HMS])+$/;
+const GooglePlaceIdPattern = /^ChIJ[A-Za-z0-9_-]+$/;
 
 // ----------------------------------------------------------------------------
 // Trip status & destination
@@ -41,14 +34,13 @@ export const DestinationSchema = z.object({
   startLocation: z.string(),
   /** Primary destination headline (e.g. "Edinburgh", "Italian Dolomites"). */
   headlineTo: z.string(),
-  /** Where the trip ends — usually equal to startLocation, sometimes different
-   *  (e.g. one-way road trip ending in another city). */
+  /** Where the trip ends — usually equal to startLocation, sometimes different. */
   headlineFrom: z.string(),
 });
 export type Destination = z.infer<typeof DestinationSchema>;
 
 // ----------------------------------------------------------------------------
-// Experience taxonomy — shared between schedule items and place catalog
+// Travel taxonomy — categories, kinds, sources
 // ----------------------------------------------------------------------------
 
 export const ExperienceCategorySchema = z.enum([
@@ -61,11 +53,9 @@ export const ExperienceCategorySchema = z.enum([
 ]);
 export type ExperienceCategory = z.infer<typeof ExperienceCategorySchema>;
 
-/** 28 kinds across 5 categories. `custom` category accepts any kind (or none).
- *  v3 note: `town` was added alongside the legacy `vila` — both are valid
- *  ("vila" = villa/village ambiguity from v2; "town" is the clear name). */
+/** 27 kinds across 5 categories. `custom` category accepts any kind (or none). */
 export const ExperienceKindSchema = z.enum([
-  // attraction (15)
+  // attraction (14)
   "nature",
   "lake",
   "castle",
@@ -76,6 +66,7 @@ export const ExperienceKindSchema = z.enum([
   "cave",
   "city",
   "town",
+  // `vila` — deprecated synonym for `town`. Kept during v3 migration; producers should emit `town`.
   "vila",
   "unesco",
   "memorial",
@@ -101,7 +92,7 @@ export const ExperienceKindSchema = z.enum([
 ]);
 export type ExperienceKind = z.infer<typeof ExperienceKindSchema>;
 
-/** Travel source — the platform/service that informed the place or pricing.
+/** Travel source — the platform/service that informed the place/route.
  *  See /skill/sources-travel-experience.md for full descriptions. */
 export const TravelSourceSchema = z.enum([
   // Tier 1 — core (10)
@@ -133,15 +124,24 @@ export const TravelSourceSchema = z.enum([
   "thefork",
   "frankfurter",
   "reddit",
-  // catch-alls (3)
+  // catch-alls (5 — adds wikipedia + unsplash for Place.source provenance)
   "official",
   "website",
   "custom",
+  "wikipedia",
+  "unsplash",
 ]);
 export type TravelSource = z.infer<typeof TravelSourceSchema>;
 
+export const ExperienceLinkSchema = z.object({
+  /** Free-form link type (e.g. "official", "tickets", "menu", "trail-map"). */
+  type: z.string(),
+  url: z.string(),
+});
+export type ExperienceLink = z.infer<typeof ExperienceLinkSchema>;
+
 // ----------------------------------------------------------------------------
-// Travel mode — unified for routes (v3). Replaces v2 TransferModel + MapRouteKind.
+// Travel mode — unified enum (Google Routes API + flight + ferry)
 // ----------------------------------------------------------------------------
 
 export const TravelModeSchema = z.enum([
@@ -156,146 +156,138 @@ export const TravelModeSchema = z.enum([
 export type TravelMode = z.infer<typeof TravelModeSchema>;
 
 // ----------------------------------------------------------------------------
-// Links & pictures
+// Picture — attribution-aware image reference
 // ----------------------------------------------------------------------------
 
-export const ExperienceLinkSchema = z.object({
-  /** Free-form link type (e.g. "official", "tickets", "menu", "trail-map").
-   *  Travel-source links use TravelSource slugs; arbitrary links use any kebab-case. */
-  type: z.string(),
-  url: z.string(),
-});
-export type ExperienceLink = z.infer<typeof ExperienceLinkSchema>;
-
-/** Picture metadata — replaces v2's `picture: string` with a structured object
- *  carrying credit and source-of-truth (Wikimedia / Google Photos / official site / Unsplash). */
 export const PictureSchema = z.object({
-  url: z.string(),
+  url: z.string().url(),
   credit: z.string().optional(),
   source: z.enum(["wikipedia", "google-places", "official", "unsplash", "custom"]).optional(),
 });
 export type Picture = z.infer<typeof PictureSchema>;
 
 // ----------------------------------------------------------------------------
-// Place — top-level catalog entry. Replaces v2 MapPOI + de-duplicates the
-// per-occurrence Experience data (name, description, picture, links, kind, ...).
-// `dayNum` is gone — day membership is derived from schedule[].placeId.
+// Place — entity in the trip catalog (trip.places[])
+// Schedule items + bookings reference places by stable kebab-case id.
 // ----------------------------------------------------------------------------
 
 export const PlaceSchema = z.object({
-  id: KebabId,
+  /** Stable kebab-case id — chat tool and schedule items target this. */
+  id: z.string().regex(KebabIdPattern, "id must be lowercase kebab-case"),
   name: z.string(),
-  geo: z.object({ lat: z.number(), lng: z.number() }),
+  geo: z.object({
+    lat: z.number().min(-90).max(90),
+    lng: z.number().min(-180).max(180),
+  }),
   category: ExperienceCategorySchema,
   kind: ExperienceKindSchema.optional(),
-  /** Google Places ID — when present, unlocks Photos / Hours / deep-link.
-   *  Format: ChIJ... (Google standard). */
-  googlePlaceId: GooglePlaceId.optional(),
-  /** Popularity score (0–10 decimal) — `min(log10(annual_views), 10.0)`.
-   *  Set only when Wikipedia (or Google ratings fallback) yields a signal. */
+  /** Google Places API id (`ChIJ…`) — unlocks photo/hours/website via Places API. */
+  googlePlaceId: z.string().regex(GooglePlaceIdPattern).optional(),
+  /** Popularity score (0–10) — `min(log10(annual_wikipedia_pageviews), 10)`.
+   *  Skill-written, not user-edited. */
   popularity: z.number().min(0).max(10).optional(),
   source: TravelSourceSchema.optional(),
   description: z.string().optional(),
   picture: PictureSchema.optional(),
   links: z.array(ExperienceLinkSchema).optional(),
-  /** Reference price for budget hint (per-person, in trip.currency). Schedule
-   *  items can override with a real `cost` for that specific occurrence. */
+  /** Indicative cost in trip currency (entry ticket, parking, nightly rate…). */
   priceHint: z.number().optional(),
 });
 export type Place = z.infer<typeof PlaceSchema>;
 
 // ----------------------------------------------------------------------------
-// Route — top-level catalog entry. Replaces v2 MapRoute. Polyline is encoded
-// (Google algorithm precision 5) instead of [{lat,lng}] arrays — ~6× smaller.
-// `color` removed (now derived from `mode` in viewer); `dayNum` removed
-// (derived from schedule[].routeId).
+// Route — geometry between places (trip.routes[])
 // ----------------------------------------------------------------------------
 
 export const RouteSchema = z.object({
-  id: KebabId,
+  id: z.string().regex(KebabIdPattern, "id must be lowercase kebab-case"),
   name: z.string().optional(),
   mode: TravelModeSchema,
-  /** Encoded polyline (Google algorithm, precision 5). Decode in client. */
+  /** Google encoded polyline (precision 5). Client decodes via @googlemaps/polyline-codec. */
   polyline: z.string(),
-  /** ISO 8601 duration (e.g. PT45M, PT2H30M). */
-  duration: IsoDuration,
-  /** Distance in meters. Optional — KML-only routes may lack it. */
+  /** ISO 8601 duration (e.g. "PT45M", "PT4H30M"). */
+  duration: z.string().regex(IsoDurationPattern, "duration must be ISO 8601 (e.g. PT45M)"),
+  /** Distance in meters (int, non-negative). */
   distance: z.number().int().nonnegative().optional(),
-  /** Semantic tags for UI emphasis (e.g. "scenic", "highlight", "panoramic"). */
+  /** Free-form flags like "highlight", "scenic" — drive rendering weight/opacity. */
   tags: z.array(z.string()).optional(),
   notes: z.string().optional(),
 });
 export type Route = z.infer<typeof RouteSchema>;
 
 // ----------------------------------------------------------------------------
-// Insight — skill observation (highlights + warnings). v3: lives inline on a
-// ScheduleItem (`item.insights[]`) or on the Day (`day.insights[]`). No longer
-// a sibling Schedule type. Always skill-written, never user-edited.
+// Insight — nested observation (item.insights[] or day.insights[])
+// Replaces the v2 `type: "insight"` schedule item — insights are no longer
+// items themselves, they hang off the item or day they describe.
 // ----------------------------------------------------------------------------
 
 export const InsightSchema = z
   .object({
+    /** Positive observations the traveler should know in advance. */
     highlights: z.array(z.string()).optional(),
+    /** Cautions and constraints the traveler should plan around. */
     warnings: z.array(z.string()).optional(),
   })
-  .refine(
-    (i) => (i.highlights && i.highlights.length > 0) || (i.warnings && i.warnings.length > 0),
-    { message: "Insight must have at least one highlight or warning" },
-  );
+  .refine((i) => (i.highlights?.length ?? 0) + (i.warnings?.length ?? 0) > 0, {
+    message: "Insight must have at least one highlight or warning",
+  });
 export type Insight = z.infer<typeof InsightSchema>;
 
 // ----------------------------------------------------------------------------
-// ScheduleItem — three flavors collapsed into one shape:
-//   - place reference:  { time, placeId, cost?, duration?, notes?, insights? }
-//   - route reference:  { time, routeId, cost?, notes?, insights? }
-//   - generic block:    { time, name, category, cost?, duration?, notes?, insights? }
-// Discriminator is implicit: presence of placeId, routeId, or name.
+// Schedule item — thin reference into the catalog
+// Either references a Place / Route by id, or stands alone as a generic block
+// (Lunch break, free time) via the `name` field.
 // ----------------------------------------------------------------------------
 
 export const ScheduleItemSchema = z
   .object({
-    time: HHMM,
-    placeId: KebabId.optional(),
-    routeId: KebabId.optional(),
-    /** Generic block name (e.g. "Almoço livre"). Used when neither placeId nor routeId applies. */
+    /** Time of day "HH:MM" (24h). */
+    time: z.string().regex(HHMMPattern, "time must be HH:MM (24h)"),
+    /** Reference into trip.places[]. */
+    placeId: z.string().regex(KebabIdPattern).optional(),
+    /** Reference into trip.routes[]. */
+    routeId: z.string().regex(KebabIdPattern).optional(),
+    /** Inline name when no Place exists (generic blocks like "Lunch break"). */
     name: z.string().optional(),
+    /** Category — required for name-only blocks; otherwise inherited from Place. */
     category: ExperienceCategorySchema.optional(),
-    /** Actual cost for THIS occurrence (overrides Place.priceHint for budget). */
     cost: z.number().optional(),
-    duration: IsoDuration.optional(),
+    /** ISO 8601 duration — overrides route.duration when set. */
+    duration: z.string().regex(IsoDurationPattern).optional(),
     notes: z.string().optional(),
+    /** Item-level insights — highlights/warnings about this specific occurrence. */
     insights: z.array(InsightSchema).optional(),
   })
   .refine((i) => Boolean(i.placeId || i.routeId || i.name), {
-    message: "ScheduleItem must have placeId, routeId, or name",
+    message: "schedule item must have placeId, routeId, or name",
   });
 export type ScheduleItem = z.infer<typeof ScheduleItemSchema>;
 
 // ----------------------------------------------------------------------------
-// Day — array index IS the day number (Day 1 = days[0]). No `num` field:
-// reorder = splice (no renumeration); dates derived from startDate + index.
+// Day — position in trip.days[] IS the day number (Day N = days[N-1]).
+// No `num` field: reorder = splice. Dates derive from startDate + index.
 // ----------------------------------------------------------------------------
 
 export const DaySchema = z.object({
   title: z.string(),
-  /** CSS class hint for the viewer (e.g. "active-day", "drive-day", "rest-day"). */
+  /** CSS class hint for the viewer (e.g. "active-day", "drive-day"). */
   cls: z.string().optional(),
-  /** Ordered intra-day timeline. */
   schedule: z.array(ScheduleItemSchema),
-  /** Day-wide insights (weather, crowds, traffic) — distinct from per-item insights. */
+  /** Day-level insights — broader observations covering the whole day. */
   insights: z.array(InsightSchema).optional(),
-  /** Contingency note — what to do on rain / closure / unexpected change. */
+  /** Contingency notes — what to do on rain / closure / unexpected change. */
   planB: z.string().optional(),
+  /** Pre-computed day cost string (e.g. "€85"). */
   dayCost: z.string().optional(),
 });
 export type Day = z.infer<typeof DaySchema>;
 
 // ----------------------------------------------------------------------------
-// Checklist (merged with packing — discriminated by type)
+// Checklist (merged with packing — discriminated by group type)
 // ----------------------------------------------------------------------------
 
 export const ChecklistItemSchema = z.object({
-  id: z.string().regex(KEBAB_RE, {
+  id: z.string().regex(KebabIdPattern, {
     message: "id must be lowercase kebab-case (e.g. 'book-flights', 'p-passport')",
   }),
   text: z.string(),
@@ -314,22 +306,21 @@ export const ChecklistGroupSchema = z.object({
 export type ChecklistGroup = z.infer<typeof ChecklistGroupSchema>;
 
 // ----------------------------------------------------------------------------
-// Bookings — v3 adds optional placeId linking to the Place catalog. Viewer
-// hydrates the booking row with the place's picture + click focuses pin on map.
+// Bookings — reservation entries, optionally anchored to a Place
 // ----------------------------------------------------------------------------
 
 export const BookingSchema = z.object({
   /** ISO date for the booking (e.g. flight day, check-in day). */
   date: z.string(),
-  /** Description of the ticket/reservation (e.g. "LATAM | Flight GRU → MXP | round-trip"). */
+  /** Description of the ticket/reservation. */
   item: z.string(),
   status: z.enum(["confirmed", "pending"]),
   /** True when the booking must be secured early (sold-out / price-spike risk). */
   critical: z.boolean(),
-  /** Booking URL. */
+  /** Booking URL — viewer label depends on status. */
   link: z.string().optional(),
-  /** Optional anchor into the Place catalog (e.g. hotel reservation → its pin). */
-  placeId: KebabId.optional(),
+  /** Reference into trip.places[] — unifies reservations with map pins. */
+  placeId: z.string().regex(KebabIdPattern).optional(),
 });
 export type Booking = z.infer<typeof BookingSchema>;
 
@@ -353,7 +344,7 @@ export type BudgetCategory = z.infer<typeof BudgetCategorySchema>;
 
 export const BudgetItemSchema = z.object({
   /** Stable kebab-case slug. Reserved: "unplanned" (must exist on every trip). */
-  id: z.string().regex(KEBAB_RE, {
+  id: z.string().regex(KebabIdPattern, {
     message: "id must be lowercase kebab-case (e.g. 'flights', 'tolls-vinhetas', 'unplanned')",
   }),
   category: BudgetCategorySchema,
@@ -366,55 +357,51 @@ export const BudgetItemSchema = z.object({
 export type BudgetItem = z.infer<typeof BudgetItemSchema>;
 
 // ----------------------------------------------------------------------------
-// Trip (root) — single document. Replaces v2 Trip + TripMapData.
+// Trip (root) — single-document v3
 // ----------------------------------------------------------------------------
 
 export const TripSchema = z
   .object({
     schemaVersion: z.literal(SCHEMA_VERSION),
-    /** Optional — assigned on import by explor8. */
+    /** Optional — assigned at publish time by explor8. */
     id: z.string().optional(),
-    /** kebab-case, unique per owner. */
-    slug: KebabId,
+    slug: z.string().regex(KebabIdPattern),
     title: z.string(),
     destination: DestinationSchema,
-    /** Optional. ISO date "YYYY-MM-DD" if known, else "YYYY-MM" for month-only. */
+    /** Optional. ISO "YYYY-MM-DD" if known, else "YYYY-MM" for month-only. */
     startDate: z
       .string()
-      .regex(START_DATE_RE, { message: 'startDate must be "YYYY-MM-DD" or "YYYY-MM"' })
+      .regex(StartDatePattern, 'startDate must be "YYYY-MM-DD" or "YYYY-MM"')
       .optional(),
     status: TripStatusSchema,
     /** ISO 4217 currency of the destination (EUR, GBP, USD, BRL, ...). */
     currency: z.string(),
-    /** Traveler's home/preferred display currency (ISO 4217). When set, viewer
-     *  and budget mode show converted costs alongside destination currency. */
+    /** Traveler's home/preferred display currency (ISO 4217). */
     homeCurrency: z.string().optional(),
     /** IANA timezone for the destination (e.g. "Europe/Rome"). */
     timezone: z.string().optional(),
-    coverImage: z.string().optional(),
     ogImage: z.string().optional(),
     isPublic: z.boolean().optional(),
-    /** Place catalog — top-level. Schedule items reference these by `placeId`. */
+    /** Catalog — referenced by schedule items and bookings via id. */
     places: z.array(PlaceSchema),
-    /** Route catalog — top-level. Schedule items reference these by `routeId`. */
+    /** Geometry catalog — referenced by schedule items via id. */
     routes: z.array(RouteSchema),
     days: z.array(DaySchema),
-    checklist: z.array(ChecklistGroupSchema).optional(),
     bookings: z.array(BookingSchema).optional(),
     budget: z.array(BudgetItemSchema).optional(),
+    checklist: z.array(ChecklistGroupSchema).optional(),
   })
   .refine((t) => new Set(t.places.map((p) => p.id)).size === t.places.length, {
-    message: "Place ids must be unique within trip",
+    message: "Place ids must be unique",
   })
   .refine((t) => new Set(t.routes.map((r) => r.id)).size === t.routes.length, {
-    message: "Route ids must be unique within trip",
+    message: "Route ids must be unique",
   })
   .refine(
-    /** Referential integrity: schedule[].placeId/routeId and bookings[].placeId
-     *  must point at actual Place/Route ids. Catches skill typos like
-     *  "castelo-blead" vs "castelo-bled" that would otherwise silently break
-     *  rendering (placeholder pin on a real day's schedule). */
     (t) => {
+      // Referential integrity — schedule and bookings can only reference
+      // places/routes that exist in the catalog. Prevents typos in the skill
+      // from silently breaking the viewer.
       const placeIds = new Set(t.places.map((p) => p.id));
       const routeIds = new Set(t.routes.map((r) => r.id));
       for (const day of t.days) {
@@ -443,7 +430,7 @@ export const TripSummarySchema = z.object({
   startDate: z.string().optional(),
   endDate: z.string().optional(),
   status: TripStatusSchema,
-  coverImage: z.string().optional(),
+  ogImage: z.string().optional(),
   dayCount: z.number(),
   isPublic: z.boolean(),
 });
@@ -465,3 +452,12 @@ export const TripUpdateSchema = z.object({
   currency: z.string().optional(),
 });
 export type TripUpdate = z.infer<typeof TripUpdateSchema>;
+
+// ----------------------------------------------------------------------------
+// Publish envelope — what x8-travel publish POSTs to /api/admin/trips/publish
+// ----------------------------------------------------------------------------
+
+export const PublishPayloadSchema = z.object({
+  trip: TripSchema,
+});
+export type PublishPayload = z.infer<typeof PublishPayloadSchema>;
