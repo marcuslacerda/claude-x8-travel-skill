@@ -4,7 +4,6 @@
  * Convention (v3): all trips live under `<cwd>/trips/<slug>/`. Inside it:
  *   - trip-params.md     (wizard output — origin, destination, duration, ...)
  *   - trip.json          (canonical v3 document — places + routes + days)
- *   - publish.json       (output of `x8-travel build`, ready to POST)
  *
  * The shared user preferences live one level up at `<cwd>/trips/user-preferences.md`.
  *
@@ -25,7 +24,6 @@ export interface TripPaths {
   dir: string;
   tripParams: string;
   tripJson: string;
-  publishJson: string;
   /** Shared across all trips. Lives at `<trips-root>/user-preferences.md`. */
   userPreferences: string;
 }
@@ -40,7 +38,6 @@ export function resolveTripPaths(slugOrPath: string): TripPaths {
     dir,
     tripParams: join(dir, "trip-params.md"),
     tripJson: join(dir, "trip.json"),
-    publishJson: join(dir, "publish.json"),
     userPreferences: join(dir, "..", "user-preferences.md"),
   };
 }

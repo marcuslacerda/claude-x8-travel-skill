@@ -3,8 +3,8 @@
  * TripSchema. Reports issues with structured paths so the user can fix them
  * in the source markdown / skill output.
  *
- * Useful as a sanity gate before `build` / `publish`, or to debug schema
- * failures coming from the publish endpoint.
+ * Useful as a sanity gate before uploading the trip via explor8.ai/import,
+ * or to debug schema failures locally.
  *
  * v3 note: a single `trip.json` per trip — `map.json` no longer exists.
  * Referential integrity (schedule/bookings → places/routes) is enforced by

@@ -372,7 +372,7 @@ export type BudgetItem = z.infer<typeof BudgetItemSchema>;
 export const TripSchema = z
   .object({
     schemaVersion: z.literal(SCHEMA_VERSION),
-    /** Optional — assigned at publish time by explor8. */
+    /** Optional — assigned on import by explor8. */
     id: z.string().optional(),
     /** kebab-case, unique per owner. */
     slug: KebabId,
@@ -465,13 +465,3 @@ export const TripUpdateSchema = z.object({
   currency: z.string().optional(),
 });
 export type TripUpdate = z.infer<typeof TripUpdateSchema>;
-
-// ----------------------------------------------------------------------------
-// Publish envelope — what x8-travel publish POSTs to /api/admin/trips/publish.
-// v3: single `{ trip }` key (no separate mapData — catalog lives inside trip).
-// ----------------------------------------------------------------------------
-
-export const PublishPayloadSchema = z.object({
-  trip: TripSchema,
-});
-export type PublishPayload = z.infer<typeof PublishPayloadSchema>;

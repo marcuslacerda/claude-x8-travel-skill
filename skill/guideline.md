@@ -211,11 +211,11 @@ Picture fetching is **mandatory during `new-trip` generation**, not optional. Em
 
 ### Cascade (stop at first hit)
 
-1. **Wikipedia og:image** (primary). `curl -sL https://en.wikipedia.org/wiki/<Page_Title>` then extract `<meta property="og:image" content="...">`. Returns a pre-generated 1280px thumbnail at HTTP 200. Set `source: "wikipedia"`, `credit: "Wikimedia Commons"`.
+> ⚠️ **NEVER construct Wikipedia thumbnail URLs by hand.** The pattern `/thumb/X/Y/Filename/1280px-Filename.jpg` is **not** stable — half the time the file is named differently (`Kaminarimon_2022.jpg` vs `Sensoji_2023.jpg`), or the size variant isn't pre-generated, and you get a 404 or 429. **Always go through the REST summary endpoint to discover the canonical thumbnail URL.**
 
-2. **Wikipedia REST API** (fallback). `https://en.wikipedia.org/api/rest_v1/page/summary/<title>` → `thumbnail.source`. Two failure modes:
-   - Stale filenames (cached typos, e.g. `Urquhardt_Castle`).
-   - Oversize thumbnails (`3840px-`) that may 404. **Mitigation:** replace `/3840px-/` with `/1280px-/` and validate.
+1. **Wikipedia REST API summary** (primary). `https://en.wikipedia.org/api/rest_v1/page/summary/<URL-encoded-title>` → `thumbnail.source`. This URL is always pre-generated, returns 200, and has the right filename. Set `source: "wikipedia"`, `credit: "Wikimedia Commons"`. If 429 rate-limit, retry after 2s with a `User-Agent` header.
+
+2. **Wikipedia og:image** (fallback). `curl -sL https://en.wikipedia.org/wiki/<Page_Title>` then extract `<meta property="og:image" content="...">`. Use when REST summary returns no `thumbnail` (article has no infobox image).
 
 3. **og:image from official site**. WebFetch the Place's official URL (from `links[type=official]` or a Tier-1 TravelSource) and extract `<meta property="og:image" content="...">`. Set `source: "official"`.
 

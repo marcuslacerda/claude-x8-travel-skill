@@ -1,6 +1,6 @@
 # claude-x8-travel-skill
 
-> A Claude Code skill (and CLI) for planning multi-day, multi-stop trips. Output is a single structured `trip.json` (schema v3) you can view in a local static viewer (no API key) or publish to [explor8.ai](https://explor8.ai) for a richer during-trip experience.
+> A Claude Code skill (and CLI) for planning multi-day, multi-stop trips. Output is a single structured `trip.json` (schema v3) you can view in a local static viewer (no API key) or upload to [explor8.ai](https://explor8.ai) via the self-serve import for a richer during-trip experience.
 
 ## What this is
 
@@ -9,7 +9,7 @@ A planning workflow for trips that don't fit a one-shot itinerary generator: lon
 Three pieces:
 
 - **A Claude Code skill** (`/travel-planner`) — wizard + 7 modes. The skill drives Claude to do the LLM-driven parts (research, weather, budget, map editing).
-- **A CLI** (`x8-travel`) — handles deterministic-code parts: schema validation, publishing.
+- **A CLI** (`x8-travel`) — handles deterministic-code parts: schema validation.
 - **A local static viewer** (`viewer/index.html` + `viewer/trip.html?slug=...`) — MapLibre + OpenStreetMap (no API key), plus an optional Google Map tab. Open in any browser.
 
 Plans live in `trips/<slug>/` (gitignored — personal data) as a single v3 document:
@@ -24,7 +24,7 @@ trips/
 
 **Schema v3 (single document):** `trip.json` has top-level `places[]` and `routes[]` catalogs. The `days[].schedule[]` references them by id (`placeId` / `routeId`) or carries a generic `name` for time-block items (lunch, free time). Insights (highlights + warnings) live inline on schedule items or at day level. Polylines are Google-encoded strings (~6× smaller than `[{lat,lng}]` arrays). See [`cli/lib/schema.ts`](cli/lib/schema.ts).
 
-The viewer renders `trip.json` directly. No build step, no server, no account. Optional: publish to [explor8.ai](https://explor8.ai) when you want a phone-friendly companion app for during-trip use.
+The viewer renders `trip.json` directly. No build step, no server, no account. Optional: upload `trip.json` to [explor8.ai/import](https://explor8.ai/import) when you want a phone-friendly companion app for during-trip use.
 
 ## Why use it
 
@@ -66,7 +66,7 @@ The skill handles the chores you'd otherwise do across a dozen browser tabs and 
 | Multi-currency budget     | `budget`                | Frankfurter API conversion + category breakdown + 5–10% reserve check.      |
 | Source URL rot detection  | `research`, `map`       | WebFetch validates content matches the POI before saving; drops dead links. |
 
-Every POI carries a `source` slug + validated URL, so the published trip never points at a 404.
+Every POI carries a `source` slug + validated URL, so your trip never points at a 404 — locally or after importing into explor8.ai.
 
 ## Install
 
@@ -128,14 +128,15 @@ A 5-minute walkthrough.
    /travel-planner checklist
    ```
 
-5. **(Optional) Publish to explor8.ai:**
+5. **(Optional) Use it on explor8.ai:**
 
-   ```bash
-   pnpm exec tsx cli/index.ts build scotland-2027
-   EXPLOR8_PUBLISH_TOKEN=<token> pnpm exec tsx cli/index.ts publish scotland-2027
-   ```
+   Open [explor8.ai/import](https://explor8.ai/import) in your browser, sign in,
+   and upload `trips/scotland-2027/trip.json`. The trip appears in your dashboard
+   with the same places, routes, and day-by-day schedule the local viewer shows
+   — no CLI step, no token, no admin needed.
 
-   Without a token, stop here — you have a portable trip plan in your `trips/` directory.
+   If you skip this, you still have a portable trip plan in your `trips/`
+   directory that the local viewer renders fully.
 
 ## See it in action
 
@@ -167,18 +168,16 @@ Renders [`examples/italy-2026/`](examples/italy-2026/) — 19-day Italy + Sloven
 
 `pnpm exec tsx cli/index.ts <command> <slug>` — slug resolves to `trips/<slug>/` by default.
 
-| Command           | Purpose                                                |
-| ----------------- | ------------------------------------------------------ |
-| `init <slug>`     | Scaffold a new trip directory under `trips/<slug>/`    |
-| `validate <slug>` | Validate `trip.json` against the v3 `TripSchema`       |
-| `build <slug>`    | Validate + wrap `trip.json` into `publish.json`        |
-| `publish <slug>`  | POST `publish.json` to the configured explor8 endpoint |
+| Command           | Purpose                                             |
+| ----------------- | --------------------------------------------------- |
+| `init <slug>`     | Scaffold a new trip directory under `trips/<slug>/` |
+| `validate <slug>` | Validate `trip.json` against the v3 `TripSchema`    |
 
-The skill (LLM-driven) generates the single v3 `trip.json`. The CLI (deterministic) validates and publishes.
+The skill (LLM-driven) generates the single v3 `trip.json`. The CLI (deterministic) validates the schema. To use the trip on explor8.ai, upload `trip.json` via [explor8.ai/import](https://explor8.ai/import) — no CLI step required.
 
 ### Optional: Google Map tab
 
-The viewer can show a second map rendered with the Google Maps JS API alongside the default MapLibre/OSM one. Useful for Street View, vector styling via a custom Map ID, and parity with the explor8 published view.
+The viewer can show a second map rendered with the Google Maps JS API alongside the default MapLibre/OSM one. Useful for Street View, vector styling via a custom Map ID, and parity with the explor8.ai view.
 
 To enable, copy the example env file and fill in the values from your [Google Cloud Console](https://console.cloud.google.com/google/maps-apis/credentials):
 
@@ -196,13 +195,19 @@ Reload the viewer — a "Google Map" tab appears at the end of the tab bar. With
 
 `.env.local` is gitignored. The viewer fetches it client-side at runtime (the static viewer has no build step, so we can't inject env vars at build time). Restrict the key by HTTP referrer (`http://localhost:8000/*`) and API (Maps JavaScript API only) in the Cloud Console for safety.
 
-## Optional: publish to explor8
+## Optional: use your trip on explor8.ai
 
-[explor8.ai](https://explor8.ai) is the runtime companion app — Telegram bot for during-trip support, expense tracking, proactive insights, offline-aware PWA. Once a trip is published, it's live at `https://explor8.ai/trip/<your-handle>/<slug>`.
+[explor8.ai](https://explor8.ai) is the runtime companion app — Telegram bot for during-trip support, expense tracking, proactive insights, offline-aware PWA.
 
-**Publishing today is invite-only.** Only the founder has a publish token. The skill works fully without it.
+To use a trip there:
 
-See [`docs/publish-to-explor8.md`](docs/publish-to-explor8.md) for setup details.
+1. Open [explor8.ai/import](https://explor8.ai/import) in your browser.
+2. Sign in (or create an account — self-serve, no invite needed).
+3. Upload `trips/<slug>/trip.json`.
+
+The trip appears in your dashboard at `https://explor8.ai/trip/<your-handle>/<slug>`. Re-upload the same `trip.json` any time you change the plan locally — the import upserts on `slug`, so per-user state (checklist checkboxes, expense links) survives.
+
+The skill and viewer work fully without explor8 — the import is purely opt-in.
 
 ## Examples
 

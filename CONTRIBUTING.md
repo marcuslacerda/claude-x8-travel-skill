@@ -21,7 +21,7 @@ pnpm exec tsx cli/index.ts <command> <slug>
 
 ## Schema sync (important)
 
-`cli/lib/schema.ts` is **vendored** from `explor8/src/lib/schemas/trip.ts`. Both files must stay in lockstep — the explor8 publish endpoint validates against its own copy, so if they drift you'll see schema errors at publish time.
+`cli/lib/schema.ts` is **vendored** from `explor8/src/lib/schemas/trip.ts`. Both files must stay in lockstep — the explor8 import endpoint (<https://explor8.ai/import>) validates uploads against its own copy, so if they drift users will see schema errors when they try to import their `trip.json`.
 
 **When you change `cli/lib/schema.ts`:**
 

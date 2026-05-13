@@ -36,6 +36,24 @@ export function buildHydration(trip) {
     }
   });
 
+  // Stays span until the day after their last night. For each stay place,
+  // extend its visible day list to include the checkout day (the day after
+  // each contiguous run of scheduled days). Handles multi-stretch returns
+  // automatically (e.g. Bled days 4-6 + days 12-14 → checkout on 7 AND 15).
+  const dayCount = (trip.days || []).length;
+  for (const [placeId, dayIndices] of placeToDays) {
+    const place = placesById.get(placeId);
+    if (!place || place.category !== "stay") continue;
+    const scheduled = new Set(dayIndices);
+    for (const dayIdx of [...scheduled]) {
+      const checkoutDay = dayIdx + 1;
+      if (checkoutDay >= dayCount) continue;
+      if (scheduled.has(checkoutDay)) continue;
+      dayIndices.push(checkoutDay);
+    }
+    dayIndices.sort((a, b) => a - b);
+  }
+
   return { placesById, routesById, scheduledPlaceIds, scheduledRouteIds, placeToDays };
 }
 

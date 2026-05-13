@@ -1,13 +1,13 @@
 ---
 name: travel-planner
-description: "Plan multi-day, multi-stop trips through an opinionated wizard + research workflow. Generates a single structured trip.json (schema v3 — places + routes + days) that renders in a local static viewer (viewer/trip.html?slug) and optionally publishes to explor8.ai. Modes: use/context (set active trip), new-trip (8-question wizard + research), research (deep-dive on POIs/trails/restaurants), checklist (prep timeline status), budget (cost analysis), weather (open-meteo forecast), validate-routes (Google Maps audit), map (place/route advisory edits on trip.json). Trip context required for all modes except `use` and `new-trip` — set once per session via /travel-planner use <slug>."
+description: "Plan multi-day, multi-stop trips through an opinionated wizard + research workflow. Generates a single structured trip.json (schema v3 — places + routes + days) that renders in a local static viewer (viewer/trip.html?slug) and can be uploaded to explor8.ai via the self-serve import. Modes: use/context (set active trip), new-trip (8-question wizard + research), research (deep-dive on POIs/trails/restaurants), checklist (prep timeline status), budget (cost analysis), weather (open-meteo forecast), validate-routes (Google Maps audit), map (place/route advisory edits on trip.json). Trip context required for all modes except `use` and `new-trip` — set once per session via /travel-planner use <slug>."
 ---
 
 # Travel Planner
 
-A planning workflow for trips that don't fit a one-shot itinerary generator: long-form (1–4 weeks), multi-stop, with rooms for trekking, motorhome, off-grid, and city legs. The output is a single structured JSON file (`trip.json`, schema v3) that renders locally via a static viewer in this repo and can optionally publish to [explor8.ai](https://explor8.ai).
+A planning workflow for trips that don't fit a one-shot itinerary generator: long-form (1–4 weeks), multi-stop, with rooms for trekking, motorhome, off-grid, and city legs. The output is a single structured JSON file (`trip.json`, schema v3) that renders locally via a static viewer in this repo and can optionally be uploaded to [explor8.ai/import](https://explor8.ai/import) for a phone-friendly companion experience.
 
-The skill (you, here, in Claude Code) handles the LLM-driven parts — the wizard, research, populating JSON. The companion CLI `x8-travel` handles the deterministic-code parts (schema validation, HTTP publish).
+The skill (you, here, in Claude Code) handles the LLM-driven parts — the wizard, research, populating JSON. The companion CLI `x8-travel` handles the deterministic-code part (schema validation).
 
 ## What this skill is NOT
 
@@ -27,8 +27,7 @@ trips/
   user-preferences.md            # shared across every trip — read by new-trip
   <slug>/
     trip-params.md               # this trip's wizard answers
-    trip.json                    # canonical v3 document (skill-generated)
-    publish.json                 # output of `x8-travel build` (when publishing)
+    trip.json                    # canonical v3 document (skill-generated, single source of truth)
 ```
 
 **Schema v3 (single document):** `trip.json` contains a top-level **catalog of `places[]` and `routes[]`**. The day-by-day schedule references catalog entries by `placeId` / `routeId` — no more inlined place data, no separate `map.json`. Field shapes:
@@ -176,14 +175,25 @@ If the user provides a clear request, skip the help and go straight to the match
     - `bookings[]` — critical reservations, status `pending` initially. Optional `placeId` references a Place from the catalog (viewer hydrates the row with the place's thumbnail).
     - `budget[]` — enum categories; must include one item with `id: "unplanned"` (5–10% reserve).
     - `checklist[]` — groups with `type: "checklist"` (period titles) + `type: "packing"` (category titles).
-11. **Validate** via the bundled CLI: `pnpm exec tsx cli/index.ts validate <slug>` (or installed `x8-travel validate <slug>`). Referential integrity is enforced — every `schedule[].placeId`/`routeId` AND every `bookings[].placeId` must resolve.
-12. **Update the trips manifest** at `trips/trips-index.json`:
+11. **Self-check** — before declaring the trip generated, walk through this checklist (the Zod schema catches a few; the rest are content checks the LLM owns):
+    - [ ] `schemaVersion: 3` literal present.
+    - [ ] Every `schedule[].placeId` / `routeId` and `bookings[].placeId` resolves (caught by Zod refine in step 12 — fix any orphans here).
+    - [ ] Routes with `mode` in `{DRIVE, WALK, BICYCLE, TRANSIT, TRAIN}` have **real polylines** (≥200 waypoints when decoded). 2-vertex polylines are only acceptable for `FLIGHT` and `FERRY`. If you see lots of 2-vertex on land routes, you skipped the Google MCP cascade — go back and fetch real ones.
+    - [ ] Every `Place.picture.url` HEAD-validated (200 + `content-type: image/*`). Wikipedia URLs came from the REST summary endpoint — **never hand-construct** the `/thumb/.../1280px-Filename.jpg` path (~50% of guessed URLs are 404).
+    - [ ] **`scheduleItem.notes` is EMPTY** on every schedule item. That field is user-only. All skill-emitted per-occurrence text went into `scheduleItem.insights[]` (yellow callout).
+    - [ ] Day-level insights count is small (typically <20% of total insights). Use day-level only for whole-day context (weather, jet lag, transit-wide policies). Item-level is the default — see `guideline.md` "Insights vs notes" decision rule.
+    - [ ] Every Place with high actionability (popular attraction, food spot with dietary considerations, place with timing/etiquette/ticket strategy) has 1+ item-level insights. Densely-touristed places without item-level insights = research gap.
+    - [ ] Bookings with a corresponding Place in catalog have `placeId` set (hotels, ryokans, paid attractions, reserved parking) — unlocks thumbnail rendering + map-focus in viewer.
+    - [ ] One `BudgetItem` with `id: "unplanned"` (5–10% reserve).
+    - [ ] `places[].description` describes the durable place (its character, history, what it is). It does **not** restate per-visit tips — those go in `insights[]`. Avoid redundancy between `description` / `insights` / `notes`.
+12. **Validate** via the bundled CLI: `pnpm exec tsx cli/index.ts validate <slug>` (or installed `x8-travel validate <slug>`). Referential integrity is enforced — every `schedule[].placeId`/`routeId` AND every `bookings[].placeId` must resolve.
+13. **Update the trips manifest** at `trips/trips-index.json`:
     - Read the file (create as `[]` if missing).
     - If `<slug>` is not in the array, append and sort alphabetically.
     - Write back as a JSON array (e.g. `["scotland-2027", "iceland-2028"]`).
     - The local viewer's `index.html` reads this file to list available trips. Without it, the trip won't show on the landing page (though the direct URL `viewer/trip.html?slug=<slug>` still works).
-13. **Auto-set context:** write `<slug>` to `.claude/travel-context`.
-14. **Show banner** with next step:
+14. **Auto-set context:** write `<slug>` to `.claude/travel-context`.
+15. **Show banner** with next step:
 
     ```
     ✅ trips/scotland-2027/ generated.
@@ -192,8 +202,8 @@ If the user provides a clear request, skip the help and go straight to the match
       python3 -m http.server 8000
       open http://localhost:8000/viewer/trip.html?slug=scotland-2027
 
-    Optional publish (requires EXPLOR8_PUBLISH_TOKEN):
-      x8-travel publish scotland-2027
+    Use on explor8.ai (optional):
+      open https://explor8.ai/import and upload trips/scotland-2027/trip.json
     ```
 
 > **Important:** the wizard is the only point where the skill asks structured questions. After this, edits happen by user instruction or in other modes (research, map, etc.) — never bring the user back into the wizard.
@@ -346,25 +356,34 @@ Skill-only Insights and computed fields (picture/popularity/googlePlaceId) exist
 **Workflow:**
 
 1. Read `trip.json.routes[]`, focus on `mode: "DRIVE"` entries.
-2. For each, derive the geographic origin/destination from the polyline's first/last vertex (decode via `viewer/lib/polyline-decoder.js` algorithm) — OR, when the matching `Place.geo` from `schedule[].placeId` adjacent items is more accurate, use that.
-3. Call `mcp__google-maps__maps_directions` with `from.lat,from.lng` → `to.lat,to.lng`.
-4. Compare returned distance/duration to the Route's stored values. Apply +30% margin for mountain/scenic roads.
-5. Present a validation report:
+2. **Geometry pre-check (BEFORE Google calls):** decode each route's polyline (via `viewer/lib/polyline-decoder.js` algorithm) and count vertices. Flag any DRIVE route with **≤2 vertices** as `⚠️ STRAIGHT-LINE` — this means the polyline is just `[origin, destination]` encoded, not real road geometry. Common cause: a previous run saved endpoints without calling Directions API. These routes will render as straight lines in the viewer crossing whatever terrain is between the endpoints. They need their polyline rebuilt, not just their duration/distance audited.
+3. For each route, derive the geographic origin/destination from the polyline's first/last vertex — OR, when the matching `Place.geo` from `schedule[].placeId` adjacent items is more accurate, use that.
+4. Call `mcp__google-maps__maps_directions` with `from.lat,from.lng` → `to.lat,to.lng`.
+5. Compare returned distance/duration to the Route's stored values. Apply +30% margin for mountain/scenic roads.
+6. Present a validation report. Surface STRAIGHT-LINE warnings prominently at the top — they're a different failure class than metric drift:
 
    ```
    ## Route Validation
 
-   | Day | Route | Stored | Google | +30% | Status |
-   |-----|-------|--------|--------|------|--------|
-   | 3 | edinburgh-to-inverness | PT3H, 250km | PT3H12M, 252km | PT4H10M | ✅ OK |
-   | 7 | glencoe-to-skye | PT2H30M, 180km | PT2H45M, 195km | PT3H35M | ⚠️ stored low by ~15min |
+   ### ⚠️ Straight-line polylines (geometry needs rebuild)
+   | Day | Route ID         | Vertices | Status                            |
+   |-----|------------------|----------|-----------------------------------|
+   | 4   | transfer-day4-1  | 2        | ⚠️ Needs polyline rebuild         |
+   | 4   | transfer-day4-2  | 2        | ⚠️ Needs polyline rebuild         |
+
+   ### Metric audit (duration + distance vs Google)
+   | Day | Route                  | Stored        | Google         | +30%      | Status |
+   |-----|------------------------|---------------|----------------|-----------|--------|
+   | 3   | edinburgh-to-inverness | PT3H, 250km   | PT3H12M, 252km | PT4H10M   | ✅ OK |
+   | 7   | glencoe-to-skye        | PT2H30M, 180km| PT2H45M, 195km | PT3H35M   | ⚠️ stored low by ~15min |
    ```
 
-6. If the user confirms, apply Edit tool to `trip.json.routes[<id>]`:
+7. If the user confirms, apply Edit tool to `trip.json.routes[<id>]`:
    - Update `polyline` (encode the Google `overview_polyline.points` — DO NOT store decoded coords).
    - Update `duration` to ISO 8601 (`PT3H12M`, `PT45M`).
    - Update `distance` to meters (km × 1000).
-7. Re-run `validate`.
+   - For straight-line polylines, the polyline update is mandatory — metric updates alone won't fix the visual issue.
+8. Re-run `validate`.
 
 ---
 
@@ -458,7 +477,11 @@ Every Place and Route has a kebab-case `id` (regex `^[a-z0-9][a-z0-9-]*$`). Gene
 
 ### Day binding (v3 — derived, not stored)
 
-Place's "which days it appears on" is **derived from `days[].schedule[].placeId`**, not stored on the Place itself. There is no `dayNum` field anymore. Multi-day stays work by referencing the same `placeId` in each day's schedule (skill emits a `placeId` reference at checkout/check-in/stay times).
+Place's "which days it appears on" is **derived from `days[].schedule[].placeId`**, not stored on the Place itself. There is no `dayNum` field anymore.
+
+**Multi-day stays:** reference the stay's `placeId` on each day from check-in through the LAST NIGHT (typically at the evening time slot when the traveler arrives at the camp/hotel). **Do NOT emit a `placeId` reference for the checkout-day morning** — the viewer's hydration auto-extends a stay's visibility to the day after its last scheduled night (see the "stay checkout day" rule in `viewer/lib/hydrate.js`). This keeps `schedule[]` lean and matches how a traveler actually thinks about lodging ("I sleep there on nights N–M"). For non-contiguous stays (same place revisited later), each stretch gets its own derived checkout day automatically.
+
+On the checkout-day morning, use a generic block instead — `{ time: "09:00", name: "Checkout & breakfast" }` — and let the map filter surface the stay icon automatically. The day-card on that day will not show the stay; that's intentional (the traveler is leaving, not arriving).
 
 The viewer computes `placeToDays` once per trip and uses it for day-filter behavior.
 
@@ -558,13 +581,12 @@ Each `days[N].schedule[i]` is one of three shapes:
 
 ## Working without explor8
 
-Everything except `publish` works locally. You get:
+Everything works locally. You get:
 
 - A `trip.json` (single v3 document) the local viewer renders fully (`viewer/trip.html?slug=<slug>`)
 - A `trip-params.md` you can read, share, version-control (excluded from git by default — opt-in)
-- A `publish.json` you can keep around as a backup or stage for manual upload
 
-Publishing to explor8.ai is opt-in. See `docs/publish-to-explor8.md`.
+Using the trip on explor8.ai is opt-in and self-serve: open <https://explor8.ai/import>, sign in, and upload `trips/<slug>/trip.json` from the browser. No CLI step, no token, no admin needed.
 
 ---
 
@@ -572,7 +594,7 @@ Publishing to explor8.ai is opt-in. See `docs/publish-to-explor8.md`.
 
 `trips/` is gitignored. Treat it as private:
 
-- Booking confirmation codes, passenger document numbers, personal IDs → keep in `trip-params.md` notes if needed; **never** in `trip.json` (publishable).
+- Booking confirmation codes, passenger document numbers, personal IDs → keep in `trip-params.md` notes if needed; **never** in `trip.json` (the file you'd upload to explor8.ai).
 - Flight numbers, schedules, accommodation phone/address → OK in `trip.json` if user wants them visible in the viewer/explor8.
 - Photos of people → keep out of `picture.url`.
 
@@ -581,7 +603,6 @@ Publishing to explor8.ai is opt-in. See `docs/publish-to-explor8.md`.
 ## Reference files
 
 - `cli/lib/schema.ts` — Zod schemas v3 (Trip, Place, Route, ScheduleItem, Day, Insight, Picture, Booking, BudgetItem, ChecklistGroup).
-- `cli/lib/validate-trip.ts` — wraps `trip.json` in the publish envelope `{ trip }`.
 - `tools/migrate-v2-to-v3.ts` — one-shot transform for legacy v2 trips (`trip.json` + `map.json` → single v3 doc).
 - `skill/guideline.md` — planning rules.
 - `skill/sources-travel-experience.md` — the 26 travel sources catalog.

@@ -1,7 +1,7 @@
 {
   "name": "x8-travel",
   "version": "0.1.0",
-  "description": "Claude Code skill + CLI for planning multi-day, multi-stop trips. Outputs JSON + KML + Markdown — usable standalone or publishable to explor8.ai.",
+  "description": "Claude Code skill + CLI for planning multi-day, multi-stop trips. Outputs a single trip.json (schema v3) you can render locally or import into explor8.ai.",
   "license": "MIT",
   "author": "marcuslacerda",
   "homepage": "https://github.com/marcuslacerda/claude-x8-travel-skill#readme",

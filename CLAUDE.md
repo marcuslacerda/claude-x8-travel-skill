@@ -4,7 +4,7 @@ Workspace conventions for working on this repo with Claude Code.
 
 ## What this repo is
 
-A Claude Code skill + CLI + local viewer for trip planning. The skill (`skill/SKILL.md`) drives the LLM-driven planning workflow (wizard, research, generating `trip.json` + `map.json`). The CLI (`cli/`) handles deterministic-code steps (schema validation, HTTP publishing). The viewer (`viewer/`) renders the JSON locally with MapLibre + OSM — no API key, no build step.
+A Claude Code skill + CLI + local viewer for trip planning. The skill (`skill/SKILL.md`) drives the LLM-driven planning workflow (wizard, research, generating `trip.json`). The CLI (`cli/`) handles deterministic-code steps (schema validation). The viewer (`viewer/`) renders the JSON locally with MapLibre + OSM — no API key, no build step. Trips can optionally be uploaded to explor8.ai through the self-serve import at <https://explor8.ai/import> — no admin step, no CLI publish.
 
 The repo's own users are people **using** the skill, not building a backend. Most contributions are doc updates, skill-mode tweaks, viewer polish, and CLI ergonomics.
 
@@ -23,7 +23,7 @@ claude-x8-travel-skill/
     guideline.md                   # planning rules (prices, MCP prefs, validation)
   cli/
     index.ts               # CLI entrypoint (commander)
-    commands/              # one file per subcommand: init, build, validate, publish
+    commands/              # one file per subcommand: init, validate
     lib/                   # vendored schema + helpers
   templates/
     trip-skeleton/         # what `x8-travel init` clones (trip-params.md)
@@ -40,7 +40,6 @@ claude-x8-travel-skill/
     examples-index.json    # list of v2 examples the viewer surfaces
   docs/
     skill-modes.md         # full reference for the 8 skill modes
-    publish-to-explor8.md  # optional explor8 integration
     format-conventions.md  # JSON format conventions
     local-viewer.md        # how to run the local viewer
   .github/
@@ -63,7 +62,7 @@ Anywhere a fact lives in two places, **the file mentioned above is canonical**. 
 
 ## Schema-vendor relationship with explor8
 
-`cli/lib/schema.ts` is a vendored copy of `explor8/src/lib/schemas/trip.ts`. Drift breaks publish. CI in both repos diffs the files. See `CONTRIBUTING.md`.
+`cli/lib/schema.ts` is a vendored copy of `explor8/src/lib/schemas/trip.ts`. Drift breaks the explor8 import — uploads of `trip.json` at <https://explor8.ai/import> validate against explor8's copy and reject any file written against a drifted schema. CI in both repos diffs the files. See `CONTRIBUTING.md`.
 
 ## Commands
 
@@ -128,7 +127,6 @@ When adding a new example trip:
 The README is the entry point — landing-page CTAs link directly to it. Treat it as marketing copy. Keep:
 
 - Concrete (numbers, real outputs)
-- Honest about limitations (publish is invite-only)
 - Linkable (sections referenced from elsewhere)
 
 Avoid borrowed-brand positioning ("X for Y"). The skill stands on its own merits.

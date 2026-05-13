@@ -143,4 +143,3 @@ Sub-actions:
 | `TransferModel` (lowercase) + `MapRouteKind` (lowercase) split | Unified `TravelMode` (uppercase: DRIVE, WALK, BICYCLE, TRANSIT, TRAIN, FLIGHT, FERRY) |
 | `MapRoute.color`                                               | Derived in viewer from `route.mode` (`ROUTE_COLOR_BY_MODE`)                           |
 | `MapPOI.updatedBy`                                             | Implicit (skill writes everything by default)                                         |
-| `{ trip, mapData }` publish envelope                           | `{ trip }` (single key — places + routes inside trip)                                 |

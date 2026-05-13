@@ -66,5 +66,5 @@ export function init(slug: string): void {
   log.step("1. In Claude Code: /travel-planner new-trip " + slug);
   log.step("   The wizard asks 8 questions, fills trip-params.md, then generates trip.json (v3).");
   log.step("2. Visualize: serve viewer/ and open viewer/trip.html?slug=" + slug);
-  log.step("3. Optional publish: x8-travel publish " + slug);
+  log.step("3. To use on explor8.ai: open https://explor8.ai/import and upload trip.json.");
 }

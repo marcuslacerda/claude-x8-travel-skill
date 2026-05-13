@@ -98,7 +98,8 @@
       Promise.all([fetchFirst("trip.json"), loadEnvConfig()])
         .then(([trip, env]) => {
           if (!trip) throw new Error("trip.json not found");
-          // Accept both bare trip docs and the publish wrapper { trip }.
+          // Defensive unwrap for legacy `{ trip: ... }` envelopes (older
+          // exports from when publish.json was a separate artifact).
           const doc = trip && typeof trip === "object" && "trip" in trip ? trip.trip : trip;
           render(doc, env);
         })

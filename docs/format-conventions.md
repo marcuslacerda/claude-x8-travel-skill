@@ -5,9 +5,10 @@
 ```
 trips/<slug>/
   trip-params.md                # wizard answers (markdown)
-  trip.json                     # single v3 document — places + routes + days
-  publish.json                  # output of `x8-travel build`, ready to POST (audit artifact)
+  trip.json                     # single v3 document — places + routes + days (source of truth)
 ```
+
+To use a trip on explor8.ai, upload `trip.json` directly via the self-serve import at <https://explor8.ai/import>.
 
 For legacy v2 trips, run `tools/migrate-v2-to-v3.ts` to consolidate `trip.json` + `map.json` into a single v3 doc.
 
@@ -182,9 +183,9 @@ Every trip MUST have a `BudgetItem` with `id: "unplanned"` (5–10% emergency re
 
 ---
 
-## Stable IDs across publishes
+## Stable IDs across imports
 
-`Place.id`, `Route.id`, `ChecklistItem.id`, `BudgetItem.id`, `Booking` date+item are stable across re-publishes. The explor8 server upserts on slug; per-user state (checklist checkboxes in `localStorage`, expense links) survives a re-publish as long as the ids don't change.
+`Place.id`, `Route.id`, `ChecklistItem.id`, `BudgetItem.id`, `Booking` date+item are stable across re-imports. The explor8 import endpoint upserts on slug; per-user state (checklist checkboxes in `localStorage`, expense links) survives a re-upload as long as the ids don't change.
 
 ---
 
@@ -192,7 +193,7 @@ Every trip MUST have a `BudgetItem` with `id: "unplanned"` (5–10% emergency re
 
 `trips/` is gitignored — treat as private:
 
-- Booking confirmation codes, passenger document numbers, personal IDs → keep in `trip-params.md` notes only; **never** in `trip.json` (publishable).
+- Booking confirmation codes, passenger document numbers, personal IDs → keep in `trip-params.md` notes only; **never** in `trip.json` (the file you'd upload to explor8.ai).
 - Flight numbers, schedules, accommodation phone/address → OK in `trip.json` if the user wants them visible.
 - Photos of people → keep out of `picture.url`.
 
