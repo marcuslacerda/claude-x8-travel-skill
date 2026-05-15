@@ -1753,93 +1753,12 @@
       "cls": "city",
       "schedule": [
         {
-          "time": "09:00",
-          "name": "Vaporetto Fusina → San Marco (~30 min, ~€8/pp)",
-          "category": "transport"
-        },
-        {
-          "time": "09:00",
+          "time": "08:30",
           "routeId": "transfer-day3-0",
           "cost": 16
         },
         {
           "time": "09:30",
-          "name": "Piazza San Marco — a sala de estar da Europa",
-          "category": "custom"
-        },
-        {
-          "time": "09:45",
-          "placeId": "basilica-san-marco",
-          "cost": 3,
-          "insights": [
-            {
-              "highlights": [
-                "Mosaicos bizantinos cobrindo 8.000 m² de superfície interna.",
-                "Pala d'Oro — retábulo de ouro com 2.000 gemas."
-              ],
-              "warnings": [
-                "Ingresso online obrigatório (timed-entry) — esgota com antecedência."
-              ]
-            }
-          ]
-        },
-        {
-          "time": "10:45",
-          "placeId": "campanile-san-marco",
-          "cost": 15,
-          "insights": [
-            {
-              "highlights": [
-                "Vista panorâmica de Veneza e da laguna do alto da torre."
-              ]
-            }
-          ]
-        },
-        {
-          "time": "11:30",
-          "placeId": "palazzo-ducale-itinerari-segreti",
-          "cost": 40,
-          "insights": [
-            {
-              "highlights": [
-                "Tour 'Itinerari Segreti' — grupos pequenos, narrativa sobre Casanova e o sistema judicial veneziano."
-              ],
-              "warnings": [
-                "Reservar online com antecedência — vagas limitadas."
-              ]
-            },
-            {
-              "warnings": [
-                "Palazzo Ducale Itinerari Segreti: RESERVAR ONLINE com antecedência — grupos pequenos, esgota",
-                "Concerto Vivaldi I Musici Veneziani: comprar tickets antecipados",
-                "Basilica di San Marco: ingresso online OBRIGATÓRIO desde Jul/2025 (timed-entry)"
-              ]
-            }
-          ]
-        },
-        {
-          "time": "13:15",
-          "placeId": "basilica-santi-giovanni-paolo",
-          "cost": 3.5
-        },
-        {
-          "time": "14:00",
-          "placeId": "chiesa-gesuiti",
-          "cost": 0
-        },
-        {
-          "time": "14:45",
-          "placeId": "bacari-do-rialto",
-          "insights": [
-            {
-              "highlights": [
-                "Cantina Do Mori funciona desde 1462 — autêntica experiência de bacaro veneziano."
-              ]
-            }
-          ]
-        },
-        {
-          "time": "15:30",
           "placeId": "ponte-di-rialto",
           "insights": [
             {
@@ -1850,26 +1769,59 @@
           ]
         },
         {
-          "time": "16:00",
-          "placeId": "basilica-dei-frari",
-          "cost": 5,
+          "time": "10:00",
+          "placeId": "basilica-santi-giovanni-paolo",
+          "cost": 3.5
+        },
+        {
+          "time": "11:00",
+          "placeId": "palazzo-ducale-itinerari-segreti",
+          "cost": 40,
           "insights": [
             {
               "highlights": [
-                "'Assunção da Virgem' de Tiziano sobre o altar-mor — uma das obras mais importantes do Renascimento veneziano."
+                "Tour 'Itinerari Segreti' — grupos pequenos, narrativa sobre Casanova e o sistema judicial veneziano."
+              ],
+              "warnings": [
+                "Reservar online com antecedência — vagas limitadas."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "13:30",
+          "name": "Piazza San Marco — a sala de estar da Europa",
+          "category": "custom"
+        },        
+        {
+          "time": "15:00",
+          "placeId": "basilica-san-marco",
+          "cost": 3,
+          "insights": [
+            {
+              "highlights": [
+                "Ingresso recomanda 60-90 min pra cobrir toda a visita. Mosaicos bizantinos cobrindo 8.000 m² de superfície interna.",
+                "Pala d'Oro — retábulo de ouro com 2.000 gemas."
+              ],
+              "warnings": [
+                "Ingresso online obrigatório (timed-entry) — esgota com antecedência."
               ]
             }
           ]
         },
         {
           "time": "17:00",
-          "placeId": "santa-maria-della-salute",
-          "cost": 0
-        },
-        {
-          "time": "18:30",
-          "name": "Jantar leve em Veneza",
-          "category": "food"
+          "placeId": "bacari-do-rialto",
+          "insights": [
+            {
+              "highlights": [
+                "Almojanta!!!!! — Cantina Do Mori funciona desde 1462 — autêntica experiência de bacaro veneziano.",
+                "Optional: Passeio pela Basilica dei Frari - Basilica franciscana gótica do séc. XIV.",
+                "Optional: Visitar o Campanile di San Giorgio Maggiore. Precisa atravessar o grande canal. Fila menor e tem vista da bacia de San MArco com o próprio Campanile di San Marco e o Palazzo Ducale no enquadramento.",
+                "Optional: Visitar a Santa Maria della Salute - Igreja gótica do séc. XVII com cúpula dourada e vista panorâmica da bacia de San MArco."
+              ]
+            }
+          ]
         },
         {
           "time": "20:30",
@@ -1881,15 +1833,10 @@
                 "Vivaldi nasceu em Veneza — escutar 'As Quatro Estações' a cinco minutos da casa do compositor é experiência única."
               ],
               "warnings": [
-                "Comprar tickets online antecipados — concertos populares esgotam."
+                "Último horário pra vaporetto de volta para Fusina é 22:30. Ver mais em https://www.terminalfusina.it/en/schedules/"
               ]
             }
           ]
-        },
-        {
-          "time": "22:00",
-          "name": "Vaporetto de volta para Fusina",
-          "category": "transport"
         },
         {
           "time": "22:00",
@@ -1897,7 +1844,7 @@
           "cost": 16
         },
         {
-          "time": "20:00",
+          "time": "22:30",
           "placeId": "camp-fusina-venezia"
         }
       ],
@@ -4044,26 +3991,26 @@
     {
       "id": "flights",
       "category": "flights",
-      "amount": 2090,
-      "pct": 27,
+      "amount": 2170,
+      "pct": 24,
       "status": "paid",
       "notes": "LATAM GRU↔MXP — R$ 12.997"
     },
     {
-      "id": "motorhome",
+      "id": "ground-transport",
       "category": "transportation",
-      "amount": 2170,
-      "pct": 28,
+      "amount": 2389,
+      "pct": 26,
       "status": "confirmed",
-      "notes": "Indie Campers roundtrip MXP + gás"
+      "notes": "Indie Campers MXP + gás (€2.260) + autostrada/e-vinheta SI (€81) + translado GRU R$300 (€48)"
     },
     {
       "id": "campgrounds",
       "category": "accommodations",
       "amount": 714,
-      "pct": 9,
+      "pct": 8,
       "status": "estimated",
-      "notes": "18 nights × ~€42 avg"
+      "notes": "18 noites × ~€42/noite (Camping Olympia wellness incluso)"
     },
     {
       "id": "fuel",
@@ -4071,95 +4018,55 @@
       "amount": 430,
       "pct": 5,
       "status": "estimated",
-      "notes": "~1.870 km × ~11L/100km × €1.85/L"
+      "notes": "~1.870 km × ~11L/100km × €1,85/L"
     },
     {
-      "id": "tolls-vinhetas",
-      "category": "transportation",
-      "amount": 81,
-      "pct": 1,
-      "status": "estimated",
-      "notes": "Autostrada (~€65) + e-vinheta SI (€16)"
-    },
-    {
-      "id": "restaurantes",
+      "id": "food",
       "category": "food",
-      "amount": 350,
-      "pct": 4,
-      "status": "estimated",
-      "notes": "4 experiências gastronômicas"
-    },
-    {
-      "id": "rifugios",
-      "category": "food",
-      "amount": 220,
-      "pct": 3,
-      "status": "estimated",
-      "notes": "Coffee, snacks, sopas"
-    },
-    {
-      "id": "supermercado",
-      "category": "food",
-      "amount": 580,
+      "amount": 750,
       "pct": 8,
       "status": "estimated",
-      "notes": "~€32/dia × 18 dias"
+      "notes": "Supermercado + refeições casuais — ~€32/dia × 18 dias"
     },
     {
-      "id": "cable-cars",
+      "id": "attractions",
       "category": "attractions",
-      "amount": 218,
-      "pct": 3,
+      "amount": 850,
+      "pct": 9,
       "status": "estimated",
-      "notes": "Seceda + Siusi + Vogel"
+      "notes": "Venezia (basilica/palazzo/frari/campanile), Postojna+Predjama, Vintgar, Bled (gorge/boat/castle), Vogel+Savica, rafting Soča, Lago Braies barco, Plan de Corones, Marmolada, Trieste castelo+grotte"
     },
     {
-      "id": "wellness",
+      "id": "entertainment",
       "category": "entertainment",
-      "amount": 50,
-      "pct": 1,
+      "amount": 430,
+      "pct": 5,
       "status": "estimated",
-      "notes": "Camping Olympia (incluído)"
-    },
-    {
-      "id": "activities",
-      "category": "attractions",
-      "amount": 488,
-      "pct": 6,
-      "status": "estimated",
-      "notes": "Postojna, Vintgar, Bled Castle, rafting, Tre Cime…"
+      "notes": "Concerto Vivaldi I Musici Veneziani (€130) + 4 experiências gastronômicas tirolesas/rifúgios especiais (~€300)"
     },
     {
       "id": "souvenirs",
       "category": "shopping",
-      "amount": 130,
-      "pct": 2,
+      "amount": 250,
+      "pct": 3,
       "status": "estimated",
       "notes": "Speck, grappa, mel esloveno"
-    },
-    {
-      "id": "translado-gru",
-      "category": "transportation",
-      "amount": 48,
-      "pct": 1,
-      "status": "confirmed",
-      "notes": "R$ 300"
-    },
-    {
-      "id": "pet-care",
-      "category": "unplanned",
-      "amount": 322,
-      "pct": 4,
-      "status": "confirmed",
-      "notes": "Aurora R$ 2.000 (20 dias)"
     },
     {
       "id": "unplanned",
       "category": "unplanned",
       "amount": 717,
-      "pct": 8,
+      "pct": 10,
       "status": "reserve",
-      "notes": "Catch-all para imprevistos"
-    }
+      "notes": "Reserva para imprevistos €717"
+    }, 
+    {
+      "id": "insurance",
+      "category": "insurance",
+      "amount": 350,
+      "pct": 2,
+      "status": "reserve",
+      "notes": "Pet care Aurora R$2.000 = €322 (confirmado)"
+    }  
   ]
 }

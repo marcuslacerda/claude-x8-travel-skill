@@ -456,6 +456,77 @@ curl 'https://api.frankfurter.dev/v1/2026-04-15?from=EUR&to=BRL'
 
 ---
 
+## Budget
+
+The `trip.budget[]` array drives the viewer's donut chart and the pre-trip cost summary. Two invariants govern its shape: **one item per category**, and **`pct` always sums to 100**.
+
+### One item per category
+
+The schema allows multiple items per category, but the viewer renders one slice per category — splitting `transportation` across `motorhome` + `tolls` + `airport-transfer` clutters the breakdown without adding signal. Consolidate related costs into a single item and itemize the breakdown in `notes`:
+
+```jsonc
+{
+  "id": "ground-transport",
+  "category": "transportation",
+  "amount": 2389,
+  "status": "confirmed",
+  "notes": "Indie Campers €2.260 + autostrada/vinheta €81 + airport transfer €48"
+}
+```
+
+Apply across **all** categories. The reserve `unplanned` is the only line that may absorb planned overhead with no fitting category (pet boarding while away, miscellaneous fees) — merge those into the reserve item with explicit notes, do not create a second `unplanned` row.
+
+### Category assignment cheatsheet
+
+| Category         | Includes                                                            | Excludes                                                         |
+| ---------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `transportation` | Rentals, tolls, vinhetas, transfers, ferries, taxis, vaporetti      | Fuel (own category)                                              |
+| `accommodations` | Hotels, camps, BNBs                                                 | Pet boarding (→ `unplanned`)                                     |
+| `food`           | Supermarket, casual meals                                           | Tasting menus / curated dining (→ `entertainment`)               |
+| `attractions`    | Admissions, cable cars, guided tours, boat rentals at lakes         | Concerts (→ `entertainment`), toll roads (→ `transportation`)    |
+| `entertainment`  | Concerts, theater, tasting menus, à-la-carte spa                    | Wellness already included in the stay (skip — no separate line)  |
+| `shopping`       | Souvenirs, local products                                           | Daily groceries (→ `food`)                                       |
+| `unplanned`      | Reserve fund + planned overhead with no fitting category            | —                                                                |
+
+### Itinerary cross-check before finalizing
+
+For `attractions` and `entertainment` especially, audit against the schedule:
+
+1. Walk every `day.dayCost` + `scheduleItem.cost`.
+2. Sum costs per budget category.
+3. Compare to the corresponding `BudgetItem.amount`.
+
+Common omissions:
+
+- Concerts / performances referenced in `schedule[]` with no `entertainment` line.
+- Per-day toll roads (Tre Cime/Auronzo, Sella Ronda) that belong in `transportation` but get missed when bundled into a daily activity.
+- Lake boat rentals (Braies, Bled) — look free on the map, cost ~€30–40.
+
+Tolerate ~5% gap. Bigger means a missing item or unrealistic estimate.
+
+### Status
+
+| Status      | When                                                                                          |
+| ----------- | --------------------------------------------------------------------------------------------- |
+| `paid`      | Already paid, won't change                                                                    |
+| `confirmed` | Booked, not yet paid (motorhome reservation, accommodations on hold)                          |
+| `estimated` | Planned, not booked (fuel, food, daily activities)                                            |
+| `reserve`   | Contingency — only for the `unplanned` line                                                   |
+
+When a consolidated line mixes statuses, pick the **dominant** by amount. Mixed roughly evenly → `estimated`.
+
+### Recalculate `pct` after every amount change
+
+Whenever you change any `amount`, recompute every `pct`:
+
+1. `total = sum(items.amount)`
+2. For each item: `pct = round(amount / total × 100)`
+3. Verify the rounded `pct` values sum to **exactly** 100. If rounding leaves you at 99 or 101, adjust the **largest item ±1**.
+
+The viewer treats `pct` as authoritative for the donut chart — a sum of 99 leaves a visible gap, 101 oversizes a slice.
+
+---
+
 ## Itinerary conventions
 
 - **Day 1 starts with the outbound flight/drive** as a Route reference (`routeId`).
