@@ -33,7 +33,7 @@ trips/
 **Schema v3 (single document):** `trip.json` contains a top-level **catalog of `places[]` and `routes[]`**. The day-by-day schedule references catalog entries by `placeId` / `routeId` — no more inlined place data, no separate `map.json`. Field shapes:
 
 - `places[]` — Place catalog: `id`, `name`, `geo {lat,lng}`, `category`, optional `kind`/`googlePlaceId`/`popularity`/`description`/`picture`/`links`/`priceHint`.
-- `routes[]` — Route catalog: `id`, optional `name`, `mode` (uppercase: DRIVE/WALK/BICYCLE/TRANSIT/TRAIN/FLIGHT/FERRY), encoded `polyline` (Google algorithm, precision 5), ISO 8601 `duration` (e.g. `PT45M`), optional `distance` (meters), optional `tags[]`.
+- `routes[]` — Route catalog: `id`, optional `name`, `mode` (uppercase: DRIVE/WALK/BICYCLE/TRANSIT/TRAIN/FLIGHT/FERRY), **required `endpoints: { from: { placeId, geo?, label? }, to: {...} }`** (placeId references `places[].id`), encoded `polyline` (Google algorithm, precision 5), ISO 8601 `duration` (e.g. `PT45M`), optional `distance` (meters), optional `stale: true` (cached polyline is estimated / out of sync), optional `tags[]`. **Atomic from→to** — no waypoints; every consecutive place pair in the schedule needs its own route. Run `x8-travel sync-routes <slug>` to refresh `polyline`/`duration`/`distance` via Google Routes API (haversine fallback when `GOOGLE_PLACES_API_KEY` is unset).
 - `days[]` — array index IS the day number (Day 1 = `days[0]`). Each day: `title`, `schedule[]`, optional `insights[]` (day-wide), optional `planB`.
 - `days[].schedule[]` — ordered intra-day timeline. Each item: `time` ("HH:MM") + one of (`placeId` | `routeId` | `name`) + optional `cost`/`duration`/`notes`/`insights[]`.
 
@@ -45,7 +45,7 @@ trips/
 
 **Reference docs the skill loads at the start of `new-trip` and `research`:**
 
-- `skill/guideline.md` — planning rules (field ownership, picture/popularity/route strategies, 15-min Transfer rule, Insight semantics, MCP preferences).
+- `skill/guideline.md` — planning rules (field ownership, picture/popularity/route strategies, atomic routes rule, Insight semantics, MCP preferences, Google APIs setup).
 - `skill/sources-travel-experience.md` — catalog of the 26 travel sources behind the `TravelSource` enum.
 
 ---

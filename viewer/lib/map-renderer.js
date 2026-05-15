@@ -146,7 +146,10 @@ export function renderMap(container, trip, opts = {}) {
       }
       marker.getElement().style.display = categoryOk && dayOk ? "" : "none";
     }
-    const visible = new Set(visibleRoutes(routes, state.view, trip.days || []).map((r) => r.id));
+    const placesById = new Map((trip.places || []).map((p) => [p.id, p]));
+    const visible = new Set(
+      visibleRoutes(routes, state.view, trip.days || [], placesById).map((r) => r.id),
+    );
     for (const [routeId, layerId] of routeLayerIds) {
       if (!map.getLayer(layerId)) continue;
       map.setLayoutProperty(layerId, "visibility", visible.has(routeId) ? "visible" : "none");

@@ -1,429 +1,4229 @@
 {
-  "schemaVersion": 3,
-  "slug": "italy-2026-scheme",
-  "title": "Itália, Eslovênia & Dolomitas 2026 (Schema v3 reference)",
-  "destination": {
-    "startLocation": "São Paulo (GRU)",
-    "headlineTo": "Milão → Lago di Garda → Veneza → Eslovênia → Dolomitas",
-    "headlineFrom": "Milão (MXP)"
-  },
-  "startDate": "2026-06-06",
-  "currency": "EUR",
-  "timezone": "Europe/Rome",
-  "status": "draft",
-  "_doc": "Reference fixture for Schema v3 (Alt 1 — Catalog + thin schedule). Single document replaces trip.json + map.json. Polylines are illustrative truncated samples — real values come from Google Polyline encoder. NOTE: days[] order IS the day number — Day 1 = days[0], Day 2 = days[1]. This fixture shows 3 sample days from what would be a ~14-day trip (Sirmione/Veneza/Tre Cime); they appear here as Days 1/2/3 — the `title` field is the human label that matters.",
-
-  "places": [
+  "id": "b05144e2-15c2-4a69-85cf-95e8b685f554",
+  "days": [
     {
-      "id": "camping-sirmione",
-      "name": "Camping Garda / Sirmione",
-      "geo": { "lat": 45.47, "lng": 10.605 },
-      "category": "stay",
-      "kind": "camp",
-      "source": "acsi-eurocampings",
-      "priceHint": 45,
-      "description": "Camping motorhome na margem sul do Lago di Garda. Boa infra para campers e acesso direto ao lago.",
-      "picture": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/La_Rocca_di_Manerba_del_Garda_con_l%27isola_dei_Conigli.jpg/1280px-La_Rocca_di_Manerba_del_Garda_con_l%27isola_dei_Conigli.jpg",
-        "credit": "Wikimedia Commons / CC-BY-SA",
-        "source": "wikipedia"
-      },
-      "links": [{ "type": "official", "url": "https://www.camping-garda.it/" }]
-    },
-    {
-      "id": "castello-scaligero",
-      "name": "Castello Scaligero di Sirmione",
-      "geo": { "lat": 45.4924, "lng": 10.6086 },
-      "category": "attraction",
-      "kind": "castle",
-      "source": "official",
-      "googlePlaceId": "ChIJM7CKDIBNgUcRu9scQpDOpW8",
-      "popularity": 5.6,
-      "description": "Fortaleza medieval do séc. XIII dos Della Scala, único exemplo preservado de castelo portuário do norte da Itália. Torres com vistas 360° sobre o lago.",
-      "picture": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Italy_-_Sirmione.jpg/1280px-Italy_-_Sirmione.jpg",
-        "credit": "Wikimedia Commons / CC-BY-SA",
-        "source": "wikipedia"
-      },
-      "priceHint": 8,
-      "links": [
+      "title": "São Paulo → Milão",
+      "schedule": [
         {
-          "type": "official",
-          "url": "https://museilombardia.cultura.gov.it/musei/castello-scaligero-di-sirmione/"
-        },
-        { "type": "tickets", "url": "https://museidelgarda.ticka.it/" }
-      ]
-    },
-    {
-      "id": "grotte-catullo",
-      "name": "Grotte di Catullo",
-      "geo": { "lat": 45.505, "lng": 10.611 },
-      "category": "attraction",
-      "kind": "memorial",
-      "source": "official",
-      "googlePlaceId": "ChIJl7vEIVRDgUcR1n0Cy3SXX8E",
-      "popularity": 5.1,
-      "description": "Ruínas romanas no extremo norte da península de Sirmione. Jardim arqueológico com vista panorâmica do lago.",
-      "picture": {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Grotte_di_Catullo_Sirmione.jpg/1280px-Grotte_di_Catullo_Sirmione.jpg",
-        "credit": "Wikimedia Commons",
-        "source": "wikipedia"
-      },
-      "priceHint": 6,
-      "links": [
-        {
-          "type": "official",
-          "url": "https://museilombardia.cultura.gov.it/musei/grotte-di-catullo/"
+          "name": "Embarque no GRU — voo LATAM LA8072 direto para Milão (~12h)",
+          "time": "18:05",
+          "category": "transport"
         }
       ]
     },
     {
-      "id": "camping-venezia",
-      "name": "Camping Fusina (Veneza)",
-      "geo": { "lat": 45.405, "lng": 12.265 },
-      "category": "stay",
+      "title": "Milão → Venezia",
+      "dayCost": "~€350 (motorhome pickup + supermercado D1)",
+      "schedule": [
+        {
+          "name": "Chegada em Milano Malpensa. Imigração e retirar bagagem",
+          "time": "10:15",
+          "category": "transport"
+        },
+        {
+          "name": "Descanso no aeroporto — café e organizar malas",
+          "time": "11:30",
+          "category": "custom"
+        },
+        {
+          "time": "16:00",
+          "placeId": "indie-campers-mxp-pickup-return"
+        },
+        {
+          "name": "⛽ Tanque cheio do pickup MXP (incluído na retirada)",
+          "time": "16:15",
+          "category": "transport"
+        },
+        {
+          "name": "🛒 PRIMEIRA COMPRA DE SUPERMERCADO — Esselunga ou Carrefour perto de MXP. Essenciais para 3 dias: massas, azeite, café, pão, queijos, frutas, água, temperos",
+          "time": "16:30",
+          "category": "shopping"
+        },
+        {
+          "time": "17:00",
+          "routeId": "route-day-1",
+          "insights": [
+            {
+              "highlights": [
+                "🚗 MXP → Venezia | ~308km / ~3h19 base / ~4h19 com margem +30% | A4 leste"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Dirigir pela A4 leste até Venezia (~3h)",
+          "time": "17:00",
+          "category": "transport"
+        },
+        {
+          "name": "Chegada no Camping Fusina — frente à laguna. Montar camp",
+          "time": "20:00",
+          "category": "stay"
+        },
+        {
+          "name": "💧 Encher tanque de água limpa no Camping Fusina",
+          "time": "20:15",
+          "category": "stay"
+        },
+        {
+          "name": "Jantar no motorhome — primeira refeição da viagem!",
+          "time": "20:30",
+          "category": "food"
+        },
+        {
+          "time": "20:00",
+          "placeId": "camp-fusina-venezia"
+        }
+      ]
+    },
+    {
+      "cls": "city",
+      "title": "Venezia Dia Inteiro + Concerto Vivaldi",
+      "dayCost": "~€215 (vaporetto €32 + basílica €24 + campanile €30 + palazzo €80 + frari €10 + concerto €130 + refeições)",
+      "schedule": [
+        {
+          "time": "09:30",
+          "placeId": "ponte-di-rialto",
+          "insights": [
+            {
+              "highlights": ["Ponto turístico icônico — chegar cedo para fotos sem multidão."]
+            }
+          ]
+        },
+        {
+          "cost": 3.5,
+          "time": "10:00",
+          "placeId": "basilica-santi-giovanni-paolo"
+        },
+        {
+          "cost": 40,
+          "time": "11:00",
+          "placeId": "palazzo-ducale-itinerari-segreti",
+          "insights": [
+            {
+              "warnings": ["Reservar online com antecedência — vagas limitadas."],
+              "highlights": [
+                "Tour 'Itinerari Segreti' — grupos pequenos, narrativa sobre Casanova e o sistema judicial veneziano."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Piazza San Marco — a sala de estar da Europa",
+          "time": "13:30",
+          "category": "custom"
+        },
+        {
+          "cost": 3,
+          "time": "15:00",
+          "placeId": "basilica-san-marco",
+          "insights": [
+            {
+              "warnings": ["Ingresso online obrigatório (timed-entry) — esgota com antecedência."],
+              "highlights": [
+                "Ingresso recomanda 60-90 min pra cobrir toda a visita. Mosaicos bizantinos cobrindo 8.000 m² de superfície interna.",
+                "Pala d'Oro — retábulo de ouro com 2.000 gemas."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "17:00",
+          "placeId": "bacari-do-rialto",
+          "insights": [
+            {
+              "highlights": [
+                "Almojanta!!!!! — Cantina Do Mori funciona desde 1462 — autêntica experiência de bacaro veneziano.",
+                "Optional: Passeio pela Basilica dei Frari - Basilica franciscana gótica do séc. XIV.",
+                "Optional: Visitar o Campanile di San Giorgio Maggiore. Precisa atravessar o grande canal. Fila menor e tem vista da bacia de San MArco com o próprio Campanile di San Marco e o Palazzo Ducale no enquadramento.",
+                "Optional: Visitar a Santa Maria della Salute - Igreja gótica do séc. XVII com cúpula dourada e vista panorâmica da bacia de San MArco."
+              ]
+            }
+          ]
+        },
+        {
+          "cost": 65,
+          "time": "20:30",
+          "placeId": "concerto-vivaldi-i-musici-veneziani",
+          "insights": [
+            {
+              "warnings": [
+                "Último horário pra vaporetto de volta para Fusina é 22:30. Ver mais em https://www.terminalfusina.it/en/schedules/"
+              ],
+              "highlights": [
+                "Vivaldi nasceu em Veneza — escutar 'As Quatro Estações' a cinco minutos da casa do compositor é experiência única."
+              ]
+            }
+          ]
+        },
+        {
+          "cost": 16,
+          "time": "22:00",
+          "routeId": "transfer-day3-1"
+        },
+        {
+          "time": "22:30",
+          "placeId": "camp-fusina-venezia"
+        }
+      ]
+    },
+    {
+      "title": "Venezia → Postojna → Predjama → Bled 🇸🇮",
+      "dayCost": "~€110 (combo €94 + vinheta €16)",
+      "schedule": [
+        {
+          "name": "Desmontar camp em Fusina",
+          "time": "07:00",
+          "category": "stay"
+        },
+        {
+          "name": "Dirigir até Postojna (~2h10). ⚠️ Comprar e-vinheta antes da fronteira!",
+          "time": "07:30",
+          "category": "transport"
+        },
+        {
+          "cost": 47,
+          "time": "09:45",
+          "placeId": "postojna-cave",
+          "insights": [
+            {
+              "warnings": ["Comprar combo Postojna+Predjama online — preço melhor."],
+              "highlights": [
+                "Maior caverna turística da Europa — único sistema com trem subterrâneo elétrico."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "11:00",
+          "routeId": "transfer-day4-1"
+        },
+        {
+          "cost": 0,
+          "time": "11:15",
+          "placeId": "predjama-castle",
+          "insights": [
+            {
+              "highlights": ["Maior castelo em caverna do mundo (Guinness)."]
+            }
+          ]
+        },
+        {
+          "name": "Almoço (comida do motorhome)",
+          "time": "12:30",
+          "category": "food"
+        },
+        {
+          "time": "13:00",
+          "routeId": "transfer-day4-2"
+        },
+        {
+          "name": "Dirigir até Bled (~1h30). Paisagem muda de planícies para Alpes",
+          "time": "13:00",
+          "category": "transport"
+        },
+        {
+          "name": "Montar camp no Camping Bled — à beira do lago",
+          "time": "14:30",
+          "category": "stay"
+        },
+        {
+          "name": "Primeira caminhada pelo Lago Bled — pôr do sol com a ilha e o castelo",
+          "time": "15:30",
+          "category": "custom"
+        },
+        {
+          "name": "Jantar no motorhome",
+          "time": "19:00",
+          "category": "food"
+        },
+        {
+          "time": "20:00",
+          "placeId": "camp-bled"
+        }
+      ]
+    },
+    {
+      "title": "Lago Bled & Vintgar Gorge",
+      "dayCost": "~€105 (gorge €30 + boat €40 + castle €38 + kremšnita)",
+      "schedule": [
+        {
+          "name": "Ir até a Vintgar Gorge (~4 km do camping). Abre às 8h",
+          "time": "07:30",
+          "category": "transport"
+        },
+        {
+          "cost": 15,
+          "time": "08:00",
+          "placeId": "vintgar-gorge",
+          "insights": [
+            {
+              "warnings": [
+                "Ingresso online obrigatório, time slots esgotam no verão.",
+                "Trecho com cachoeira pode ter pedras escorregadias após chuva."
+              ],
+              "highlights": ["Águas turquesa devido aos minerais do calcário alpino."]
+            },
+            {
+              "warnings": ["Vintgar Gorge: INGRESSO ONLINE obrigatório, time slots esgotam"]
+            }
+          ]
+        },
+        {
+          "name": "Voltar para Bled",
+          "time": "09:30",
+          "category": "transport"
+        },
+        {
+          "time": "09:30",
+          "routeId": "transfer-day5-1"
+        },
+        {
+          "cost": 20,
+          "time": "10:00",
+          "placeId": "lago-bled",
+          "insights": [
+            {
+              "highlights": [
+                "Cartão-postal da Eslovênia — a Pletna boat até a ilha é experiência tradicional desde 1590.",
+                "Caminhada de 6 km circundando o lago, plana e fácil."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "11:45",
+          "routeId": "transfer-day5-2"
+        },
+        {
+          "cost": 19,
+          "time": "12:00",
+          "placeId": "bled-castle"
+        },
+        {
+          "time": "13:30",
+          "placeId": "confeitaria-park-bled",
+          "insights": [
+            {
+              "highlights": ["Inventores oficiais da Kremšnita — receita protegida desde 1953."]
+            }
+          ]
+        },
+        {
+          "name": "Volta ao redor do Lago Bled a pé — circuito plano de 6 km (~1.5h)",
+          "time": "14:30",
+          "category": "custom"
+        },
+        {
+          "name": "Descanso no camping. 🧺 Lavar roupa",
+          "time": "17:00",
+          "category": "stay"
+        },
+        {
+          "name": "Jantar no motorhome",
+          "time": "19:00",
+          "category": "food"
+        },
+        {
+          "time": "20:00",
+          "placeId": "camp-bled"
+        }
+      ]
+    },
+    {
+      "title": "Lago Bohinj & Vogel",
+      "dayCost": "~€72 (cable car €66 + Savica €6)",
+      "schedule": [
+        {
+          "name": "Dirigir até o Lake Bohinj (~30 min). Maior lago glacial da Eslovênia",
+          "time": "08:00",
+          "category": "transport"
+        },
+        {
+          "cost": 33,
+          "time": "09:00",
+          "placeId": "vogel-cable-car",
+          "insights": [
+            {
+              "highlights": [
+                "Vista 360° do Triglav e dos Alpes Julianos — melhor mirante acessível da Eslovênia."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Caminhada no planalto de Vogel — trilhas leves de 1–2h com vistas 360°",
+          "time": "10:30",
+          "category": "custom"
+        },
+        {
+          "name": "Descer de teleférico. Piquenique à beira do lago",
+          "time": "12:30",
+          "category": "food"
+        },
+        {
+          "time": "13:30",
+          "routeId": "transfer-day6-1"
+        },
+        {
+          "time": "14:00",
+          "placeId": "lago-bohinj",
+          "insights": [
+            {
+              "highlights": ["Mais autêntico que Bled — sem multidões, água potável."]
+            }
+          ]
+        },
+        {
+          "time": "14:30",
+          "placeId": "st-john-baptist-bohinj"
+        },
+        {
+          "cost": 3,
+          "time": "15:30",
+          "placeId": "savica-waterfall"
+        },
+        {
+          "time": "17:00",
+          "routeId": "transfer-day6-2"
+        },
+        {
+          "name": "Voltar para o Camping Bled",
+          "time": "17:30",
+          "category": "transport"
+        },
+        {
+          "name": "Jantar no motorhome",
+          "time": "19:00",
+          "category": "food"
+        },
+        {
+          "time": "20:00",
+          "placeId": "camp-bled"
+        }
+      ]
+    },
+    {
+      "cls": "rest",
+      "title": "REST — Pokljuka, Peričnik & Zelenci",
+      "dayCost": "~€10 (tudo grátis, só café)",
+      "schedule": [
+        {
+          "name": "💧 Reabastecer água + 🧺 lavanderia no camping",
+          "time": "08:00",
+          "category": "stay"
+        },
+        {
+          "name": "Dormir até mais tarde. Café da manhã tranquilo",
+          "time": "09:00",
+          "category": "food"
+        },
+        {
+          "name": "Dirigir até o Pokljuka Plateau (~30 min)",
+          "time": "10:30",
+          "category": "transport"
+        },
+        {
+          "time": "11:30",
+          "placeId": "pokljuka-plateau"
+        },
+        {
+          "name": "Piquenique no planalto",
+          "time": "12:30",
+          "category": "food"
+        },
+        {
+          "name": "Dirigir até Mojstrana (~30 min)",
+          "time": "13:30",
+          "category": "transport"
+        },
+        {
+          "time": "13:30",
+          "routeId": "transfer-day7-1"
+        },
+        {
+          "time": "14:00",
+          "placeId": "pericnik-waterfall",
+          "insights": [
+            {
+              "highlights": [
+                "Permite caminhar atrás da cortina d'água — experiência rara em cachoeiras alpinas."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Dirigir até Zelenci (~30 min via Kranjska Gora)",
+          "time": "14:30",
+          "category": "transport"
+        },
+        {
+          "time": "14:30",
+          "routeId": "transfer-day7-2"
+        },
+        {
+          "time": "15:00",
+          "placeId": "zelenci-nature-reserve",
+          "insights": [
+            {
+              "highlights": [
+                "Cores 'photoshopadas' naturalmente — minerais alpinos refletem o céu como espelho."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "15:45",
+          "routeId": "transfer-day7-3"
+        },
+        {
+          "time": "16:00",
+          "placeId": "kranjska-gora"
+        },
+        {
+          "name": "🅿️ Estacionar no free parking de Kranjska Gora — pé do Vršič para sair cedo amanhã",
+          "time": "17:00",
+          "category": "stay"
+        },
+        {
+          "name": "Jantar no motorhome",
+          "time": "19:00",
+          "category": "food"
+        },
+        {
+          "time": "20:00",
+          "placeId": "free-parking-kranjska-gora"
+        }
+      ]
+    },
+    {
+      "title": "Jasna Lake → Vršič Pass → Vale do Soča",
+      "dayCost": "~€10 (grátis, só lanches)",
+      "schedule": [
+        {
+          "name": "Saída do free parking em Kranjska Gora — sair cedo",
+          "time": "07:00",
+          "category": "transport"
+        },
+        {
+          "time": "07:45",
+          "placeId": "jasna-lake"
+        },
+        {
+          "name": "Início do Vršič Pass — estrada de montanha mais alta da Eslovênia, 50 curvas de ferradura",
+          "time": "09:45",
+          "category": "transport"
+        },
+        {
+          "time": "09:45",
+          "routeId": "transfer-day8-1"
+        },
+        {
+          "time": "10:15",
+          "placeId": "russian-chapel"
+        },
+        {
+          "name": "Paradas nos mirantes — vistas dos Alpes Julianos",
+          "time": "10:45",
+          "category": "custom"
+        },
+        {
+          "time": "11:15",
+          "placeId": "vrsic-pass",
+          "insights": [
+            {
+              "warnings": [
+                "Motorhome PASSA mas exige atenção máxima: cobblestones escorregadios, curvas cegas, gradiente >10%.",
+                "Se choveu na véspera — usar Predel Pass como alternativa."
+              ],
+              "highlights": ["50 hairpin turns numeradas — escultura icônica em cobblestone."]
+            }
+          ]
+        },
+        {
+          "name": "Descida pelo lado sul — vistas do vale do Trenta e do Rio Soča",
+          "time": "11:45",
+          "category": "transport"
+        },
+        {
+          "time": "12:00",
+          "routeId": "transfer-day8-2"
+        },
+        {
+          "name": "Opcional: Izvir Soče — trilha curta (~30 min) até a nascente do rio",
+          "time": "12:15",
+          "category": "custom"
+        },
+        {
+          "name": "Chegada em Bovec. Montar camp",
+          "time": "13:00",
+          "category": "stay"
+        },
+        {
+          "time": "15:00",
+          "placeId": "great-soca-gorge"
+        },
+        {
+          "time": "16:00",
+          "placeId": "bovec"
+        },
+        {
+          "name": "Jantar no motorhome",
+          "time": "19:00",
+          "category": "food"
+        },
+        {
+          "time": "20:00",
+          "placeId": "camp-liza-bovec"
+        }
+      ]
+    },
+    {
+      "title": "Slap Kozjak & Rafting no Soča",
+      "dayCost": "~€150 (rafting €140 + almoço)",
+      "schedule": [
+        {
+          "name": "Dirigir até Slap Kozjak (~25 min de Bovec)",
+          "time": "08:30",
+          "category": "transport"
+        },
+        {
+          "cost": 0,
+          "time": "09:00",
+          "placeId": "slap-kozjak",
+          "insights": [
+            {
+              "highlights": [
+                "Cenário de filme — gruta natural com cachoeira queda livre dentro de câmara rochosa."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Volta para Bovec. Tempo livre no centro",
+          "time": "10:00",
+          "category": "custom"
+        },
+        {
+          "time": "10:00",
+          "routeId": "transfer-day9-1"
+        },
+        {
+          "name": "Almoço em Bovec",
+          "time": "12:00",
+          "category": "food"
+        },
+        {
+          "cost": 70,
+          "time": "14:00",
+          "placeId": "rafting-rio-soca",
+          "insights": [
+            {
+              "highlights": [
+                "Soča é considerado um dos rios mais belos da Europa pela cor verde-esmeralda persistente."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Voltar para o camping. Secar e descansar",
+          "time": "17:00",
+          "category": "stay"
+        },
+        {
+          "name": "Jantar no motorhome — última noite na Eslovênia",
+          "time": "19:00",
+          "category": "food"
+        },
+        {
+          "time": "20:00",
+          "placeId": "camp-liza-bovec"
+        }
+      ]
+    },
+    {
+      "title": "Soča → Predil → Fusine → Cortina",
+      "dayCost": "~€15 (lagos grátis, só lanches)",
+      "schedule": [
+        {
+          "name": "Desmontar camp. Última caminhada matinal pelo Rio Soča",
+          "time": "07:00",
+          "category": "stay"
+        },
+        {
+          "name": "Dirigir: Bovec → Predel Pass (rota cênica pela montanha)",
+          "time": "07:30",
+          "category": "transport"
+        },
+        {
+          "time": "08:30",
+          "placeId": "lago-del-predil"
+        },
+        {
+          "name": "Seguir até Tarvisio (~20 min)",
+          "time": "09:30",
+          "category": "transport"
+        },
+        {
+          "time": "09:30",
+          "routeId": "transfer-day10-1"
+        },
+        {
+          "time": "09:50",
+          "placeId": "lago-di-fusine",
+          "insights": [
+            {
+              "highlights": [
+                "Hidden gem — menos famoso que Braies/Carezza, mas tão fotogênico quanto."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Dirigir até Cortina d'Ampezzo (~2h30 via Dobbiaco/SS51)",
+          "time": "10:30",
+          "category": "transport"
+        },
+        {
+          "time": "10:30",
+          "routeId": "transfer-day10-2"
+        },
+        {
+          "name": "Chegada em Cortina. Montar camp no Camping Dolomiti",
+          "time": "13:00",
+          "category": "stay"
+        },
+        {
+          "name": "Almoço (comida do motorhome)",
+          "time": "14:00",
+          "category": "food"
+        },
+        {
+          "name": "🔥 TROCAR GÁS — Conad ou Eurospar em Cortina, ou no camping",
+          "time": "15:00",
+          "category": "shopping"
+        },
+        {
+          "name": "🛒 Compra grande supermercado: Conad City / Eurospar Cortina",
+          "time": "15:30",
+          "category": "shopping"
+        },
+        {
+          "time": "16:00",
+          "placeId": "cortina-d-ampezzo",
+          "insights": [
+            {
+              "highlights": ["Sede dos JO de Inverno 2026 — restaurantes e infraestrutura premium."]
+            }
+          ]
+        },
+        {
+          "name": "Jantar no motorhome",
+          "time": "19:00",
+          "category": "food"
+        },
+        {
+          "time": "20:00",
+          "placeId": "camp-dolomiti-cortina"
+        }
+      ]
+    },
+    {
+      "title": "Tre Cime di Lavaredo",
+      "dayCost": "~€75 (toll €60 motorhome + rifúgio)",
+      "schedule": [
+        {
+          "name": "Dirigir até a estrada pedagiada do Rifugio Auronzo (~52 min)",
+          "time": "07:00",
+          "category": "transport"
+        },
+        {
+          "cost": 60,
+          "time": "08:30",
+          "placeId": "tre-cime-di-lavaredo",
+          "insights": [
+            {
+              "warnings": [
+                "Reserva online obrigatória da estrada pedagiada (pass.auronzo.info), abre apenas 30 dias antes.",
+                "Pedágio motorhome €60. Lota cedo no verão."
+              ],
+              "highlights": [
+                "Cartão-postal definitivo das Dolomitas — circuito de 10 km com vista das três faces ao longo do trajeto."
+              ]
+            }
+          ]
+        },
+        {
+          "time": "10:30",
+          "placeId": "rifugio-locatelli"
+        },
+        {
+          "time": "12:30",
+          "placeId": "rifugio-auronzo",
+          "insights": [
+            {
+              "warnings": [
+                "RESERVA ONLINE OBRIGATÓRIA da estrada pedagiada — pass.auronzo.info, abre 30 dias antes",
+                "Pedágio motorhome €60. Sair às 7h para garantir vaga e evitar trânsito"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Voltar para Cortina (~40 min)",
+          "time": "14:00",
+          "category": "transport"
+        },
+        {
+          "name": "Descanso no camping — recuperação",
+          "time": "15:00",
+          "category": "stay"
+        },
+        {
+          "name": "Jantar no motorhome",
+          "time": "19:00",
+          "category": "food"
+        },
+        {
+          "time": "20:00",
+          "placeId": "camp-dolomiti-cortina"
+        }
+      ]
+    },
+    {
+      "title": "Lago di Sorapis",
+      "dayCost": "~€15 (rifúgio)",
+      "schedule": [
+        {
+          "name": "Dirigir até Passo Tre Croci (~20 min). Estacionamento lota rápido",
+          "time": "06:30",
+          "category": "transport"
+        },
+        {
+          "time": "07:00",
+          "placeId": "passo-tre-croci",
+          "insights": [
+            {
+              "warnings": [
+                "Sair ANTES das 7h — parking de Passo Tre Croci lota rápido",
+                "Cabos de aço em alguns trechos — levar luvas. NÃO fazer se choveu",
+                "Rifugio Vandelli: SOMENTE CASH"
+              ]
+            }
+          ]
+        },
+        {
+          "time": "07:30",
+          "placeId": "lago-di-sorapis",
+          "insights": [
+            {
+              "warnings": [
+                "Cabos de aço em alguns trechos — luvas de trekking obrigatórias.",
+                "Não fazer se choveu — pedras escorregadias.",
+                "Rifugio Vandelli aceita SOMENTE CASH."
+              ],
+              "highlights": [
+                "Cor turquesa leitosa devido ao 'leite glacial' (sedimentos da geleira) — única no mundo nessa intensidade."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Trilha de volta",
+          "time": "11:30",
+          "category": "custom"
+        },
+        {
+          "name": "Almoço tardio em Cortina",
+          "time": "14:00",
+          "category": "food"
+        },
+        {
+          "time": "13:30",
+          "routeId": "transfer-day12-1"
+        },
+        {
+          "name": "Descanso no camping — recuperação após trilha puxada",
+          "time": "15:30",
+          "category": "stay"
+        },
+        {
+          "name": "Jantar no motorhome",
+          "time": "19:00",
+          "category": "food"
+        },
+        {
+          "time": "20:00",
+          "placeId": "camp-dolomiti-cortina"
+        }
+      ]
+    },
+    {
+      "title": "Cortina → Lago di Braies → Dobbiaco",
+      "dayCost": "~€50 (barco + jantar)",
+      "schedule": [
+        {
+          "name": "Desmontar camp em Cortina",
+          "time": "07:30",
+          "category": "stay"
+        },
+        {
+          "name": "Dirigir até Lago di Braies via Dobbiaco (~1h05)",
+          "time": "08:30",
+          "category": "transport"
+        },
+        {
+          "cost": 18,
+          "time": "09:45",
+          "placeId": "lago-di-braies",
+          "insights": [
+            {
+              "warnings": [
+                "Acesso restrito por reserva entre 10/Jul–10/Set — em junho ainda livre.",
+                "Estacionamento enche cedo no verão."
+              ],
+              "highlights": [
+                "Um dos lagos mais fotografados do mundo — barcos a remo Lärchenboot são marca registrada."
+              ]
+            },
+            {
+              "warnings": [
+                "Sair cedo (08:00) — estacionamento de Braies enche rápido no verão",
+                "Restrições de acesso a Braies: livre em junho, restrito após 10/Jul (sistema de reservas)"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Piquenique à beira do lago",
+          "time": "11:30",
+          "category": "food"
+        },
+        {
+          "name": "Dirigir até Camping Olympia, Dobbiaco (~26 min)",
+          "time": "12:30",
+          "category": "transport"
+        },
+        {
+          "time": "12:30",
+          "routeId": "transfer-day13-1"
+        },
+        {
+          "name": "Montar camp no Camping Olympia. 🧺 Lavanderia",
+          "time": "13:00",
+          "category": "stay"
+        },
+        {
+          "name": "💧 Reabastecer água + 🚽 scarico no camping",
+          "time": "13:30",
+          "category": "stay"
+        },
+        {
+          "time": "15:00",
+          "placeId": "dobbiaco-san-candido"
+        },
+        {
+          "name": "🍽️ Jantar em restaurante tirolês em Dobbiaco/San Candido",
+          "time": "19:00",
+          "category": "food"
+        },
+        {
+          "time": "20:00",
+          "placeId": "camp-olympia-dobbiaco",
+          "insights": [
+            {
+              "highlights": [
+                "Wellness completo incluso na diária — recuperação ideal após Tre Cime/Sorapis."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cls": "rest",
+      "title": "REST — Wellness Olympia & Dobbiaco",
+      "dayCost": "~€10 (wellness incluso, só snacks)",
+      "schedule": [
+        {
+          "name": "Dormir até mais tarde. Café da manhã tranquilo",
+          "time": "09:00",
+          "category": "food"
+        },
+        {
+          "name": "🧖 Wellness no Camping Olympia — sauna finlandesa, banho turco, infravermelhos, piscinas. Incluso na diária!",
+          "time": "10:30",
+          "category": "stay"
+        },
+        {
+          "name": "Almoço no motorhome",
+          "time": "12:30",
+          "category": "food"
+        },
+        {
+          "name": "Passeio por Dobbiaco e/ou San Candido — artesanato, gelato",
+          "time": "14:00",
+          "category": "custom"
+        },
+        {
+          "name": "🧖 Mais wellness — sauna e piscinas no final da tarde",
+          "time": "16:00",
+          "category": "stay"
+        },
+        {
+          "name": "Jantar no motorhome",
+          "time": "19:00",
+          "category": "food"
+        },
+        {
+          "time": "20:00",
+          "placeId": "camp-olympia-dobbiaco",
+          "insights": [
+            {
+              "highlights": [
+                "Wellness completo incluso na diária — recuperação ideal após Tre Cime/Sorapis."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Dobbiaco → Chiusa → Val Gardena",
+      "dayCost": "~€5",
+      "schedule": [
+        {
+          "name": "Desmontar camp em Olympia",
+          "time": "08:00",
+          "category": "stay"
+        },
+        {
+          "name": "Dirigir até Bressanone via SS49 (~1h)",
+          "time": "08:30",
+          "category": "transport"
+        },
+        {
+          "time": "09:00",
+          "placeId": "bressanone-brixen"
+        },
+        {
+          "name": "Dirigir até Chiusa (~15 min)",
+          "time": "09:30",
+          "category": "transport"
+        },
+        {
+          "time": "09:30",
+          "routeId": "transfer-day15-1"
+        },
+        {
+          "time": "09:45",
+          "placeId": "chiusa-klausen"
+        },
+        {
+          "time": "10:30",
+          "placeId": "monastero-di-sabiona"
+        },
+        {
+          "name": "Dirigir até Val Gardena (~25 min)",
+          "time": "11:00",
+          "category": "transport"
+        },
+        {
+          "time": "11:00",
+          "routeId": "transfer-day15-2"
+        },
+        {
+          "name": "Montar camp no Camping Seiser Alm",
+          "time": "11:30",
+          "category": "stay"
+        },
+        {
+          "name": "Almoço no motorhome",
+          "time": "12:00",
+          "category": "food"
+        },
+        {
+          "time": "14:00",
+          "placeId": "ortisei-st-ulrich"
+        },
+        {
+          "name": "Jantar no motorhome",
+          "time": "19:00",
+          "category": "food"
+        },
+        {
+          "time": "20:00",
+          "placeId": "camp-seiser-alm-val-gardena"
+        }
+      ]
+    },
+    {
+      "title": "Seceda Ridgeline",
+      "dayCost": "~€195 (cable car €148 RT + rifúgio + jantar)",
+      "schedule": [
+        {
+          "cost": 74,
+          "time": "09:00",
+          "placeId": "seceda-ridgeline",
+          "insights": [
+            {
+              "warnings": [
+                "Reserva online obrigatória em 2026 (seceda.it). Tickets pessoais e não-reembolsáveis.",
+                "Taxa €5/pp no torniquete (NOVO 2026). Proibido sair das trilhas."
+              ],
+              "highlights": [
+                "Crista icônica das Dolomitas — referência visual em filmes e calendários alpinos."
+              ]
+            },
+            {
+              "warnings": [
+                "RESERVA ONLINE OBRIGATÓRIA em 2026 — seceda.it. Não-reembolsável",
+                "€74/pp RT cable car. Verificar clima na manhã antes de comprar",
+                "Taxa de €5/pp no torniquete (NOVO 2026) — proibido sair das trilhas demarcadas"
+              ]
+            }
+          ]
+        },
+        {
+          "time": "13:00",
+          "placeId": "rifugio-firenze"
+        },
+        {
+          "name": "Descer de teleférico. Passear por Ortisei e gelato",
+          "time": "15:00",
+          "category": "custom"
+        },
+        {
+          "time": "19:00",
+          "placeId": "ortisei-jantar-tiroles"
+        },
+        {
+          "time": "20:00",
+          "placeId": "camp-seiser-alm-val-gardena"
+        }
+      ]
+    },
+    {
+      "title": "Alpe di Siusi — Peak Wildflower Season",
+      "dayCost": "~€75 (cable car €60 RT + snack)",
+      "schedule": [
+        {
+          "cost": 60,
+          "time": "08:45",
+          "placeId": "alpe-di-siusi-compatsch",
+          "insights": [
+            {
+              "highlights": [
+                "Maior prado alpino da Europa — espetáculo de flores silvestres em junho.",
+                "Vista 360° dos três massivos dolomíticos: Sassolungo, Sella, Catinaccio."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Piquenique no planalto com vista do Sciliar",
+          "time": "12:00",
+          "category": "food"
+        },
+        {
+          "name": "Descer de teleférico",
+          "time": "13:00",
+          "category": "transport"
+        },
+        {
+          "time": "14:00",
+          "placeId": "castelrotto"
+        },
+        {
+          "name": "Jantar no motorhome",
+          "time": "19:00",
+          "category": "food"
+        },
+        {
+          "time": "20:00",
+          "placeId": "camp-seiser-alm-val-gardena"
+        }
+      ]
+    },
+    {
+      "title": "Val Gardena → Lago di Carezza → Sirmione",
+      "dayCost": "~€10 (estacionamento + snack)",
+      "schedule": [
+        {
+          "name": "Desmontar camp em Val Gardena",
+          "time": "08:00",
+          "category": "stay"
+        },
+        {
+          "name": "Dirigir até Lago di Carezza via Val d'Ega (~48km, 1h10)",
+          "time": "08:30",
+          "category": "transport"
+        },
+        {
+          "time": "09:45",
+          "placeId": "lago-di-carezza",
+          "insights": [
+            {
+              "highlights": [
+                "Cores 'arco-íris' lendárias — diz a lenda local que uma sereia se transformou no lago.",
+                "Um dos lagos mais fotogênicos das Dolomitas, sempre cheio em julho/agosto."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Packed lunch perto do lago",
+          "time": "10:30",
+          "category": "food"
+        },
+        {
+          "name": "Dirigir até Desenzano del Garda via A22 sul → A4 oeste (~175km, 2h10)",
+          "time": "11:00",
+          "category": "transport"
+        },
+        {
+          "time": "11:00",
+          "routeId": "transfer-day18-1"
+        },
+        {
+          "time": "13:15",
+          "placeId": "desenzano-del-garda"
+        },
+        {
+          "time": "15:00",
+          "routeId": "transfer-day18-2"
+        },
+        {
+          "time": "15:00",
+          "placeId": "sirmione"
+        },
+        {
+          "name": "Retorno ao free parking Desenzano. Jantar no motorhome",
+          "time": "19:00",
+          "category": "food"
+        },
+        {
+          "time": "18:00",
+          "routeId": "transfer-day18-3"
+        },
+        {
+          "time": "20:00",
+          "placeId": "free-parking-desenzano"
+        }
+      ]
+    },
+    {
+      "cls": "city",
+      "title": "Sirmione → MXP",
+      "dayCost": "~€74 (castelo €16 + grotte €20 + farewell lunch)",
+      "schedule": [
+        {
+          "name": "Café da manhã no motorhome com vista do Lago di Garda",
+          "time": "08:30",
+          "category": "food"
+        },
+        {
+          "cost": 8,
+          "time": "09:30",
+          "placeId": "castello-scaligero-sirmione",
+          "insights": [
+            {
+              "highlights": [
+                "Único castelo medieval italiano com darsena (porto interno fortificado) preservada."
+              ]
+            }
+          ]
+        },
+        {
+          "cost": 10,
+          "time": "11:00",
+          "placeId": "grotte-di-catullo"
+        },
+        {
+          "time": "12:30",
+          "placeId": "farewell-lunch-garda"
+        },
+        {
+          "name": "Último passeio por Sirmione. Gelato e souvenir",
+          "time": "14:30",
+          "category": "custom"
+        },
+        {
+          "name": "🧹 LIMPEZA FINAL DO MOTORHOME — esvaziar geladeira, limpar fogão/bancada/pia, varrer, scarico WC + tanque cinza, recolher varal, separar lixo, conferir armários, organizar malas",
+          "time": "15:30",
+          "category": "stay"
+        },
+        {
+          "name": "⛽ Abastecer diesel na A4 (Brescia/Bergamo) — tanque cheio para devolver",
+          "time": "17:00",
+          "category": "transport"
+        },
+        {
+          "name": "Dirigir de Sirmione até a região de MXP pela A4 (~2h)",
+          "time": "17:30",
+          "category": "transport"
+        },
+        {
+          "time": "17:30",
+          "routeId": "route-day-18"
+        },
+        {
+          "name": "Camper Parking Area Ternate",
+          "time": "19:30",
+          "category": "stay"
+        },
+        {
+          "time": "20:00",
+          "placeId": "indie-campers-mxp-pickup-return",
+          "insights": [
+            {
+              "warnings": [
+                "Indie não tem estacionamento pra camping. Ver opcao https://maps.app.goo.gl/6WzKhgDPj1SeDc587"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Return Motorhome → São Paulo",
+      "schedule": [
+        {
+          "name": "Acordar tranquilo — perto do aeroporto",
+          "time": "07:00",
+          "category": "transport"
+        },
+        {
+          "name": "Café da manhã no motorhome. Últimos preparativos",
+          "time": "07:30",
+          "category": "food"
+        },
+        {
+          "time": "08:00",
+          "placeId": "indie-campers-mxp-pickup-return"
+        },
+        {
+          "name": "Transfer até o terminal. Check-in e despachar malas",
+          "time": "09:00",
+          "category": "transport"
+        },
+        {
+          "name": "Tempo livre no aeroporto — duty free, último espresso italiano",
+          "time": "10:30",
+          "category": "food"
+        },
+        {
+          "name": "Voo LATAM LA8073 → GRU",
+          "time": "13:00",
+          "category": "transport"
+        },
+        {
+          "name": "Chegada em São Paulo",
+          "time": "20:00",
+          "category": "transport"
+        }
+      ]
+    }
+  ],
+  "slug": "italy-2026",
+  "title": "Dolomitas (test)\n",
+  "budget": [
+    {
+      "id": "flights",
+      "pct": 24,
+      "notes": "LATAM GRU↔MXP — R$ 12.997",
+      "amount": 2170,
+      "status": "paid",
+      "category": "flights"
+    },
+    {
+      "id": "ground-transport",
+      "pct": 26,
+      "notes": "Indie Campers MXP + gás (€2.260) + autostrada/e-vinheta SI (€81) + translado GRU R$300 (€48)",
+      "amount": 2389,
+      "status": "confirmed",
+      "category": "transportation"
+    },
+    {
+      "id": "campgrounds",
+      "pct": 8,
+      "notes": "18 noites × ~€42/noite (Camping Olympia wellness incluso)",
+      "amount": 714,
+      "status": "estimated",
+      "category": "accommodations"
+    },
+    {
+      "id": "fuel",
+      "pct": 5,
+      "notes": "~1.870 km × ~11L/100km × €1,85/L",
+      "amount": 430,
+      "status": "estimated",
+      "category": "fuel"
+    },
+    {
+      "id": "food",
+      "pct": 8,
+      "notes": "Supermercado + refeições casuais — ~€32/dia × 18 dias",
+      "amount": 750,
+      "status": "estimated",
+      "category": "food"
+    },
+    {
+      "id": "attractions",
+      "pct": 9,
+      "notes": "Venezia (basilica/palazzo/frari/campanile), Postojna+Predjama, Vintgar, Bled (gorge/boat/castle), Vogel+Savica, rafting Soča, Lago Braies barco, Plan de Corones, Marmolada, Trieste castelo+grotte",
+      "amount": 850,
+      "status": "estimated",
+      "category": "attractions"
+    },
+    {
+      "id": "entertainment",
+      "pct": 5,
+      "notes": "Concerto Vivaldi I Musici Veneziani (€130) + 4 experiências gastronômicas tirolesas/rifúgios especiais (~€300)",
+      "amount": 430,
+      "status": "estimated",
+      "category": "entertainment"
+    },
+    {
+      "id": "souvenirs",
+      "pct": 3,
+      "notes": "Speck, grappa, mel esloveno",
+      "amount": 250,
+      "status": "estimated",
+      "category": "shopping"
+    },
+    {
+      "id": "unplanned",
+      "pct": 10,
+      "notes": "Reserva para imprevistos €717",
+      "amount": 717,
+      "status": "reserve",
+      "category": "unplanned"
+    },
+    {
+      "id": "insurance",
+      "pct": 2,
+      "notes": "Pet care Aurora R$2.000 = €322 (confirmado)",
+      "amount": 350,
+      "status": "reserve",
+      "category": "insurance"
+    }
+  ],
+  "places": [
+    {
+      "id": "indie-campers-mxp-pickup-return",
+      "geo": {
+        "lat": 45.6197,
+        "lng": 8.7603
+      },
+      "kind": "destination",
+      "name": "Indie Campers MXP",
+      "links": [
+        {
+          "url": "https://indiecampers.com/it/depots/milan",
+          "type": "official"
+        }
+      ],
+      "source": "official",
+      "category": "transport",
+      "description": "Pickup e devolução do motorhome Indie Campers no aeroporto MXP de Milão Malpensa."
+    },
+    {
+      "id": "venezia",
+      "geo": {
+        "lat": 45.4408,
+        "lng": 12.3375
+      },
+      "kind": "city",
+      "name": "Venezia",
+      "source": "wikivoyage",
+      "category": "attraction",
+      "popularity": 6.2,
+      "description": "Cidade construída sobre 118 ilhas no norte da Itália, conhecida pelos canais, pela Praça de São Marco e pelo carnaval. Patrimônio da Humanidade UNESCO."
+    },
+    {
+      "id": "camp-fusina-venezia",
+      "geo": {
+        "lat": 45.4208,
+        "lng": 12.2582
+      },
       "kind": "camp",
-      "source": "acsi-eurocampings",
-      "priceHint": 50,
-      "description": "Camping em Fusina com ferry direto para Zattere (30min). Único acesso motorhome-friendly à laguna de Veneza.",
-      "links": [{ "type": "official", "url": "https://www.camping-fusina.com/" }]
+      "name": "Camping Fusina, Venezia",
+      "links": [
+        {
+          "url": "https://www.campingfusina.com/",
+          "type": "official"
+        }
+      ],
+      "source": "campercontact",
+      "category": "stay",
+      "description": "Camping Fusina — frente à laguna de Veneza, vaporetto direto para San Marco. Aceita motorhomes."
     },
     {
       "id": "basilica-san-marco",
-      "name": "Basílica di San Marco",
-      "geo": { "lat": 45.4345, "lng": 12.3397 },
-      "category": "attraction",
-      "kind": "unesco",
+      "geo": {
+        "lat": 45.4347,
+        "lng": 12.3398
+      },
+      "kind": "city",
+      "name": "Basilica di San Marco",
+      "links": [
+        {
+          "url": "https://tickets.basilicasanmarco.it/en/store",
+          "type": "official"
+        },
+        {
+          "url": "https://www.tripadvisor.com/Attraction_Review-g187870-d197702-Reviews-Basilica_di_San_Marco-Venice_Veneto.html",
+          "type": "tripadvisor"
+        }
+      ],
       "source": "official",
-      "googlePlaceId": "ChIJN7yL3WJEfkcRsLCikXqkE2k",
-      "popularity": 6.9,
-      "description": "Obra-prima do mosaico bizantino, séc. XI. Campanile com vista 360° sobre Veneza, a lagoa e os Alpes ao norte.",
       "picture": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Venezia_Basilica_di_San_Marco_Fassade_2.jpg/1280px-Venezia_Basilica_di_San_Marco_Fassade_2.jpg",
         "credit": "Wikimedia Commons",
         "source": "wikipedia"
       },
-      "priceHint": 10,
-      "links": [{ "type": "tickets", "url": "https://www.basilicasanmarco.it/" }]
+      "category": "attraction",
+      "popularity": 5.4,
+      "description": "Catedral bizantina do séc. XI, conhecida pelos mosaicos dourados que cobrem cúpulas e abóbadas. Ingresso online obrigatório (timed-entry) desde 2025."
     },
     {
-      "id": "ponte-rialto",
-      "name": "Ponte di Rialto",
-      "geo": { "lat": 45.4381, "lng": 12.3358 },
+      "id": "campanile-san-marco",
+      "geo": {
+        "lat": 45.4341,
+        "lng": 12.339
+      },
+      "kind": "viewpoint",
+      "name": "Campanile di San Marco",
+      "links": [
+        {
+          "url": "https://basilicasanmarco.it/en/visit/campanile/",
+          "type": "official"
+        }
+      ],
+      "source": "official",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Campanile_of_St._Mark%27s_Basilica_-_remote_view.jpg/960px-Campanile_of_St._Mark%27s_Basilica_-_remote_view.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
       "category": "attraction",
-      "kind": "vila",
+      "popularity": 5,
+      "description": "Campanário de 98m da Basílica de São Marco, com elevador para o topo e vista 360° sobre Veneza, a laguna e os Alpes em dias claros."
+    },
+    {
+      "id": "palazzo-ducale-itinerari-segreti",
+      "geo": {
+        "lat": 45.4337,
+        "lng": 12.3402
+      },
+      "kind": "castle",
+      "name": "Palazzo Ducale — Itinerari Segreti",
+      "links": [
+        {
+          "url": "https://palazzoducale.visitmuve.it/en/",
+          "type": "official"
+        },
+        {
+          "url": "https://www.tripadvisor.com/Attraction_Review-g187870-d196648-Reviews-Doge_s_Palace-Venice_Veneto.html",
+          "type": "tripadvisor"
+        }
+      ],
       "source": "tripadvisor",
-      "googlePlaceId": "ChIJJ8R6IGVEfkcRfNVHRk6cKsg",
-      "popularity": 6.1,
-      "description": "Ponte mais famosa do Canal Grande. Mercado de Rialto ao lado (fecha ao meio-dia).",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/%28Venice%29_Doge%27s_Palace_and_campanile_of_St._Mark%27s_Basilica_facing_the_sea.jpg/1280px-%28Venice%29_Doge%27s_Palace_and_campanile_of_St._Mark%27s_Basilica_facing_the_sea.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 5.2,
+      "description": "Palácio gótico-veneziano sede do Doge da Sereníssima por 700+ anos. O tour 'Itinerari Segreti' visita prisões, salas secretas e a passagem de Casanova pela Ponte dei Sospiri."
+    },
+    {
+      "id": "basilica-santi-giovanni-paolo",
+      "geo": {
+        "lat": 45.4392,
+        "lng": 12.3424
+      },
+      "kind": "city",
+      "name": "Basilica dei Santi Giovanni e Paolo",
+      "source": "tripadvisor",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Exterior_of_Santi_Giovanni_e_Paolo_%28Venice%29.jpg/1280px-Exterior_of_Santi_Giovanni_e_Paolo_%28Venice%29.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 4.5,
+      "description": "Maior igreja gótica de Veneza, panteão de 25 doges. Vitrais do séc. XV e teto de Veronese."
+    },
+    {
+      "id": "chiesa-gesuiti",
+      "geo": {
+        "lat": 45.4422,
+        "lng": 12.339
+      },
+      "kind": "city",
+      "name": "Chiesa di Santa Maria Assunta ai Gesuiti",
+      "source": "wikivoyage",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Basilica_di_Santa_Maria_Assunta%2C_Torcello_%28cropped%29.jpg/1280px-Basilica_di_Santa_Maria_Assunta%2C_Torcello_%28cropped%29.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "description": "Igreja barroca dos jesuítas (1729) com teto pintado por Tiepolo e mármore esculpido imitando damasco."
+    },
+    {
+      "id": "ponte-di-rialto",
+      "geo": {
+        "lat": 45.438,
+        "lng": 12.336
+      },
+      "kind": "city",
+      "name": "Ponte di Rialto",
+      "links": [
+        {
+          "url": "https://www.tripadvisor.com/Attraction_Review-g187870-d195579-Reviews-Rialto_Bridge-Venice_Veneto.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "tripadvisor",
       "picture": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Rialto_2025_4.jpg/1280px-Rialto_2025_4.jpg",
         "credit": "Wikimedia Commons",
         "source": "wikipedia"
-      }
-    },
-    {
-      "id": "rifugio-auronzo",
-      "name": "Rifugio Auronzo — Tre Cime parking",
-      "geo": { "lat": 46.6138, "lng": 12.3047 },
-      "category": "transport",
-      "kind": "parking",
-      "source": "official",
-      "description": "Trailhead do loop das Tre Cime di Lavaredo. Parking €60 para campervans, €30 carro. Reserva obrigatória.",
-      "priceHint": 60,
-      "links": [
-        { "type": "tickets", "url": "https://auronzo.info/en/parking-tre-cime-di-lavaredo/" }
-      ]
-    },
-    {
-      "id": "tre-cime-lavaredo",
-      "name": "Tre Cime di Lavaredo",
-      "geo": { "lat": 46.6187, "lng": 12.3028 },
+      },
       "category": "attraction",
+      "popularity": 5.1,
+      "description": "Ponte de pedra do séc. XVI sobre o Grand Canal — a mais antiga das quatro pontes que cruzam o canal e o ponto mais fotografado de Veneza."
+    },
+    {
+      "id": "bacari-do-rialto",
+      "geo": {
+        "lat": 45.4382,
+        "lng": 12.3354
+      },
+      "kind": "restaurant",
+      "name": "Bacari do Rialto (Cantina Do Mori)",
+      "links": [
+        {
+          "url": "https://www.tripadvisor.com/Restaurant_Review-g187870-d1034566-Reviews-Cantina_Do_Mori-Venice_Veneto.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "tripadvisor",
+      "category": "food",
+      "description": "Bares tradicionais venezianos próximos ao mercado de Rialto. Cantina Do Mori (desde 1462) é o mais antigo. Servem cicchetti (petiscos) com ombra (vinho local)."
+    },
+    {
+      "id": "basilica-dei-frari",
+      "geo": {
+        "lat": 45.4366,
+        "lng": 12.3262
+      },
+      "kind": "city",
+      "name": "Basilica dei Frari",
+      "links": [
+        {
+          "url": "https://www.tripadvisor.com/Attraction_Review-g187870-d195913-Reviews-Basilica_dei_Frari-Venice_Veneto.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "tripadvisor",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Facade_of_Santa_Maria_Gloriosa_dei_Frari_%28Venice%29.jpg/1280px-Facade_of_Santa_Maria_Gloriosa_dei_Frari_%28Venice%29.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "description": "Basílica franciscana gótica do séc. XIV. Abriga obras de Tiziano (incluindo a 'Assunção da Virgem') e Bellini, e o túmulo de Cláudio Monteverdi."
+    },
+    {
+      "id": "santa-maria-della-salute",
+      "geo": {
+        "lat": 45.4308,
+        "lng": 12.3342
+      },
+      "kind": "city",
+      "name": "Santa Maria della Salute",
+      "source": "tripadvisor",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Santa_Maria_della_Salute_from_Hotel_Monaco.jpg/960px-Santa_Maria_della_Salute_from_Hotel_Monaco.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 5,
+      "description": "Basílica barroca octogonal (1631–1687) na entrada do Grand Canal, construída como agradecimento pela peste que matou ⅓ dos venezianos. Cúpula icônica."
+    },
+    {
+      "id": "concerto-vivaldi-i-musici-veneziani",
+      "geo": {
+        "lat": 45.434,
+        "lng": 12.336
+      },
+      "kind": "city",
+      "name": "Concerto Vivaldi — I Musici Veneziani",
+      "links": [
+        {
+          "url": "https://www.imusiciveneziani.com/en/concerts/a-vivaldis-four-seasons/",
+          "type": "official"
+        },
+        {
+          "url": "https://www.tripadvisor.com.br/AttractionProductReview-g187870-d11473467-I_Musici_Veneziani_Concert_Vivaldi_Four_Seasons-Venice_Veneto.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "tripadvisor",
+      "category": "attraction",
+      "description": "Concerto interpretando 'As Quatro Estações' de Vivaldi pela orquestra I Musici Veneziani na Scuola Grande di San Teodoro, com músicos em figurinos barrocos do séc. XVIII."
+    },
+    {
+      "id": "cividale-del-friuli",
+      "geo": {
+        "lat": 46.0959,
+        "lng": 13.4275
+      },
+      "kind": "unesco",
+      "name": "Cividale del Friuli (opcional)",
+      "source": "tripadvisor",
+      "category": "attraction",
+      "popularity": 4.6,
+      "description": "Vila medieval do Friuli fundada por Júlio César. Patrimônio UNESCO pelo Tempietto Longobardo (séc. VIII). Ponte do Diabo sobre o Rio Natisone."
+    },
+    {
+      "id": "postojna-cave",
+      "geo": {
+        "lat": 45.783,
+        "lng": 14.2038
+      },
+      "kind": "cave",
+      "name": "Postojna Cave",
+      "links": [
+        {
+          "url": "https://www.postojnska-jama.eu/en/",
+          "type": "official"
+        },
+        {
+          "url": "https://www.tripadvisor.com/Attraction_Review-g274878-d277348-Reviews-Postojna_Cave-Postojna_Inner_Carniola_Region.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "official",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Postojna_%2822206343750%29.jpg/1280px-Postojna_%2822206343750%29.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 4.8,
+      "description": "Sistema de cavernas cársticas de 24 km no sudoeste da Eslovênia. Tour de 1h30 com trem subterrâneo elétrico de 3,7 km. Habitat do Proteus anguinus ('peixe-humano')."
+    },
+    {
+      "id": "predjama-castle",
+      "geo": {
+        "lat": 45.8158,
+        "lng": 14.1269
+      },
+      "kind": "castle",
+      "name": "Predjama Castle",
+      "links": [
+        {
+          "url": "https://www.postojnska-jama.eu/en/predjama-castle/",
+          "type": "official"
+        },
+        {
+          "url": "https://www.tripadvisor.com/Attraction_Review-g274878-d277346-Reviews-Predjama_Castle-Postojna_Inner_Carniola_Region.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "official",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/H%C3%B6hlenburg_Predjama_in_Slovenien.jpg/1280px-H%C3%B6hlenburg_Predjama_in_Slovenien.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 4.8,
+      "description": "Castelo medieval do séc. XII construído dentro de um paredão de 123m de calcário. O maior castelo em caverna do mundo."
+    },
+    {
+      "id": "camp-bled",
+      "geo": {
+        "lat": 46.3614,
+        "lng": 14.081
+      },
+      "kind": "camp",
+      "name": "Camping Bled",
+      "links": [
+        {
+          "url": "https://www.camping-bled.com/",
+          "type": "official"
+        }
+      ],
+      "source": "campercontact",
+      "category": "stay",
+      "description": "Camping Bled — categoria 4 estrelas à beira do Lago Bled, com piscina, restaurantes e acesso direto ao circuito do lago."
+    },
+    {
+      "id": "vintgar-gorge",
+      "geo": {
+        "lat": 46.3936,
+        "lng": 14.0857
+      },
+      "kind": "nature",
+      "name": "Vintgar Gorge",
+      "links": [
+        {
+          "url": "https://www.vintgar.si/en/",
+          "type": "official"
+        },
+        {
+          "url": "https://www.tripadvisor.com/Attraction_Review-g1870874-d519724-Reviews-Vintgar_Gorge-Gorje_Upper_Carniola_Region.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "official",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Slovenia_-_Waterfall_Sum_-_Vintgar_Klamm_%2843686688490%29.jpg/1280px-Slovenia_-_Waterfall_Sum_-_Vintgar_Klamm_%2843686688490%29.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 4.2,
+      "description": "Desfiladeiro de 1,6 km com passarelas de madeira sobre o rio Radovna em águas verde-esmeralda. Termina na Cascata Šum (16m)."
+    },
+    {
+      "id": "lago-bled",
+      "geo": {
+        "lat": 46.3636,
+        "lng": 14.0938
+      },
+      "kind": "lake",
+      "name": "Lago Bled",
+      "links": [
+        {
+          "url": "https://www.blejskiotok.si/en/welcome-to-the-island/",
+          "type": "official"
+        },
+        {
+          "url": "https://www.tripadvisor.com/Attraction_Review-g274863-d296735-Reviews-Lake_Bled-Bled_Upper_Carniola_Region.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "tripadvisor",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Lake_Bled_from_the_Mountain.jpg/1280px-Lake_Bled_from_the_Mountain.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 5.2,
+      "description": "Lago glacial de 2 km com a única ilha natural da Eslovênia, onde fica a Igreja da Assunção (séc. XVII) com 99 degraus e um sino dos desejos."
+    },
+    {
+      "id": "bled-castle",
+      "geo": {
+        "lat": 46.3699,
+        "lng": 14.1006
+      },
+      "kind": "castle",
+      "name": "Bled Castle",
+      "links": [
+        {
+          "url": "https://www.blejski-grad.si/en/",
+          "type": "official"
+        },
+        {
+          "url": "https://www.tripadvisor.com/Attraction_Review-g274863-d300864-Reviews-Bled_Castle-Bled_Upper_Carniola_Region.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "official",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/The_Great_Bled_Castle.jpg/1280px-The_Great_Bled_Castle.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 4.5,
+      "description": "Castelo medieval mais antigo da Eslovênia (séc. XI), no penhasco de 130m sobre o Lago Bled. Museu, capela gótica e gráfica funcional onde se imprime certificados."
+    },
+    {
+      "id": "confeitaria-park-bled",
+      "geo": {
+        "lat": 46.3677,
+        "lng": 14.1131
+      },
+      "kind": "coffee",
+      "name": "Confeitaria Park (Kremšnita)",
+      "source": "tripadvisor",
+      "category": "food",
+      "description": "Confeitaria histórica em Bled (1937) que serve a Kremšnita — bolo de creme com camadas de massa folhada, criado pelo confeiteiro Ištvan Lukačević. Receita nacional protegida."
+    },
+    {
+      "id": "lago-bohinj",
+      "geo": {
+        "lat": 46.284,
+        "lng": 13.8594
+      },
+      "kind": "lake",
+      "name": "Lago Bohinj",
+      "links": [
+        {
+          "url": "https://www.tripadvisor.com/Attraction_Review-g274865-d296736-Reviews-Lake_Bohinj-Bohinjsko_Jezero_Upper_Carniola_Region.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "tripadvisor",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Wocheiner_See.jpg/1280px-Wocheiner_See.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 4.4,
+      "description": "Maior lago glacial da Eslovênia (4,2 km × 1 km), parte do Parque Nacional Triglav. Mais selvagem e tranquilo que Bled. Igreja de São João Batista do séc. XV na ponta leste."
+    },
+    {
+      "id": "vogel-cable-car",
+      "geo": {
+        "lat": 46.2757,
+        "lng": 13.8354
+      },
       "kind": "trek",
+      "name": "Vogel Cable Car (1.535m)",
+      "links": [
+        {
+          "url": "https://vogel.si/en/price-list-summer/",
+          "type": "official"
+        }
+      ],
+      "source": "official",
+      "category": "attraction",
+      "description": "Teleférico que sobe 1.000m até a estação Vogel a 1.535m, com vista panorâmica do Triglav (2.864m, ponto mais alto da Eslovênia) e dos Alpes Julianos. Trilhas leves no planalto."
+    },
+    {
+      "id": "st-john-baptist-bohinj",
+      "geo": {
+        "lat": 46.2802,
+        "lng": 13.8836
+      },
+      "kind": "city",
+      "name": "Igreja de St. John the Baptist",
+      "source": "wikivoyage",
+      "category": "attraction",
+      "description": "Igreja católica medieval na margem leste do Lago Bohinj, com afrescos do séc. XV."
+    },
+    {
+      "id": "savica-waterfall",
+      "geo": {
+        "lat": 46.2927,
+        "lng": 13.7968
+      },
+      "kind": "waterfall",
+      "name": "Savica Waterfall (opcional)",
+      "source": "tripadvisor",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Ukanc_-_slap_Savica.jpg/960px-Ukanc_-_slap_Savica.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 2.8,
+      "description": "Cachoeira de 78m em dois estágios, na nascente do rio Sava Bohinjka. Caminhada curta (~20 min) a partir do estacionamento."
+    },
+    {
+      "id": "pokljuka-plateau",
+      "geo": {
+        "lat": 46.3397,
+        "lng": 13.9236
+      },
+      "kind": "nature",
+      "name": "Pokljuka Plateau",
+      "source": "tripadvisor",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Mountain_pastures_at_Pokljuka_plateau%2C_Julian_alps_%2852339467762%29.jpg/1280px-Mountain_pastures_at_Pokljuka_plateau%2C_Julian_alps_%2852339467762%29.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 3.9,
+      "description": "Planalto karst a 1.300m no Parque Nacional Triglav, coberto por floresta de abetos. Centro de biatlo durante o inverno; trilhas suaves no verão."
+    },
+    {
+      "id": "pericnik-waterfall",
+      "geo": {
+        "lat": 46.4392,
+        "lng": 13.8938
+      },
+      "kind": "waterfall",
+      "name": "Peričnik Waterfall",
+      "links": [
+        {
+          "url": "https://www.alltrails.com/trail/slovenia/kranjska-gora/slap-pericnik",
+          "type": "alltrails"
+        }
+      ],
       "source": "alltrails",
-      "googlePlaceId": "ChIJxxx_tre_cime_placeholder",
-      "popularity": 5.8,
-      "description": "O ícone dos Alpes. Três torres rochosas de 2999m. Loop trail 101: 8.8km, 425m ganho, 2.5–5h, moderado.",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/BurgerPericnikPoleti.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 3.7,
+      "description": "Cachoeira de 52m no vale Vrata, com passagem atrás da cortina d'água. Acessível por trilha de 15 minutos."
+    },
+    {
+      "id": "zelenci-nature-reserve",
+      "geo": {
+        "lat": 46.4926,
+        "lng": 13.7378
+      },
+      "kind": "nature",
+      "name": "Zelenci Nature Reserve",
+      "links": [
+        {
+          "url": "https://www.tripadvisor.com/Attraction_Review-g274870-d3626293-Reviews-Zelenci_Nature_Reserve-Kranjska_Gora_Upper_Carniola_Region.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "tripadvisor",
+      "category": "attraction",
+      "description": "Reserva natural com nascentes do rio Sava Dolinka, em águas esmeralda a 6°C constante o ano todo. Passarela de madeira de 20 minutos."
+    },
+    {
+      "id": "kranjska-gora",
+      "geo": {
+        "lat": 46.4859,
+        "lng": 13.7898
+      },
+      "kind": "vila",
+      "name": "Kranjska Gora",
+      "source": "tripadvisor",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Kranjska_Gora-2736048.jpg/1280px-Kranjska_Gora-2736048.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 4.6,
+      "description": "Vila alpina no extremo noroeste da Eslovênia, na fronteira com Itália e Áustria. Estação de esqui no inverno; base para o Vršič Pass no verão."
+    },
+    {
+      "id": "free-parking-kranjska-gora",
+      "geo": {
+        "lat": 46.4859,
+        "lng": 13.7898
+      },
+      "kind": "camp",
+      "name": "Free Parking Kranjska Gora",
+      "source": "park4night",
+      "category": "stay",
+      "description": "Estacionamento livre em Kranjska Gora — ponto estratégico para sair cedo ao Vršič Pass (8 minutos da entrada do passo)."
+    },
+    {
+      "id": "jasna-lake",
+      "geo": {
+        "lat": 46.474,
+        "lng": 13.7841
+      },
+      "kind": "lake",
+      "name": "Jasna Lake",
+      "links": [
+        {
+          "url": "https://www.tripadvisor.com/Attraction_Review-g274870-d7930362-Reviews-Lake_Jasna-Kranjska_Gora_Upper_Carniola_Region.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "tripadvisor",
+      "category": "attraction",
+      "description": "Lago artificial duplo a 818m de altitude, na entrada sul do vale do Trenta. Reflexo do Triglav e estátua do Zlatorog (cabra-de-cristal mítica eslovena)."
+    },
+    {
+      "id": "vrsic-pass",
+      "geo": {
+        "lat": 46.4329,
+        "lng": 13.7431
+      },
+      "kind": "scenic",
+      "name": "Vršič Pass (1.611m)",
+      "links": [
+        {
+          "url": "https://www.tripadvisor.com/Attraction_Review-g274870-d3630674-Reviews-Vrsic_Pass-Kranjska_Gora_Upper_Carniola_Region.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "tripadvisor",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Vrsic2.JPG/1280px-Vrsic2.JPG",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 4.3,
+      "description": "Estrada de montanha mais alta da Eslovênia (1.611m), com 50 curvas em ferradura conectando Kranjska Gora ao vale do Trenta. Construída pelos prisioneiros russos da 1ª Guerra."
+    },
+    {
+      "id": "russian-chapel",
+      "geo": {
+        "lat": 46.4426,
+        "lng": 13.7677
+      },
+      "kind": "memorial",
+      "name": "Russian Chapel",
+      "source": "wikivoyage",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Ruski_vojni_ujetniki_in_Avstro-ogrski_stra%C5%BEarji_pred_Ruska_kapelico.jpg/960px-Ruski_vojni_ujetniki_in_Avstro-ogrski_stra%C5%BEarji_pred_Ruska_kapelico.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 2.9,
+      "description": "Capela ortodoxa de madeira na curva 8 do Vršič, memorial dos prisioneiros russos da 1ª Guerra mortos em uma avalanche em 1916 enquanto construíam a estrada."
+    },
+    {
+      "id": "great-soca-gorge",
+      "geo": {
+        "lat": 46.3372,
+        "lng": 13.6459
+      },
+      "kind": "nature",
+      "name": "Velika Korita Soče (Great Soča Gorge)",
+      "links": [
+        {
+          "url": "https://www.tripadvisor.com/Attraction_Review-g1091105-d19244212-Reviews-Velika_Korita_Soce-Soca_Slovenian_Littoral_Region.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "tripadvisor",
+      "category": "attraction",
+      "description": "Velika Korita Soče — gargantas estreitas escavadas pelo rio Soča em águas verde-esmeralda. Passarelas e pontes pênseis. Trilha curta (~30 min)."
+    },
+    {
+      "id": "bovec",
+      "geo": {
+        "lat": 46.3376,
+        "lng": 13.5517
+      },
+      "kind": "city",
+      "name": "Bovec",
+      "source": "tripadvisor",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Bovec_aerial_view.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 4.4,
+      "description": "Capital de aventura da Eslovênia, no alto vale do Soča. Base para rafting, kayak, canyoning e zipline. Cercada pelos Alpes Julianos."
+    },
+    {
+      "id": "camp-liza-bovec",
+      "geo": {
+        "lat": 46.3308,
+        "lng": 13.56
+      },
+      "kind": "camp",
+      "name": "Camp Liza, Bovec",
+      "links": [
+        {
+          "url": "https://www.camp-liza.si/en/",
+          "type": "official"
+        }
+      ],
+      "source": "park4night",
+      "category": "stay",
+      "description": "Camp Liza — camping à beira do Rio Soča em Bovec, com acesso direto às atividades aquáticas e trilhas dos Alpes Julianos."
+    },
+    {
+      "id": "slap-kozjak",
+      "geo": {
+        "lat": 46.2648,
+        "lng": 13.5653
+      },
+      "kind": "waterfall",
+      "name": "Slap Kozjak",
+      "links": [
+        {
+          "url": "https://www.tripadvisor.com/Attraction_Review-g319788-d10020027-Reviews-Kozjak_Waterfall-Kobarid_Slovenian_Littoral_Region.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "alltrails",
+      "category": "attraction",
+      "description": "Cachoeira de 15m em gruta semicircular esculpida pela água, formando uma piscina natural esmeralda. Trilha curta e fácil (~30 min ida)."
+    },
+    {
+      "id": "rafting-rio-soca",
+      "geo": {
+        "lat": 46.29,
+        "lng": 13.56
+      },
+      "kind": "adventure",
+      "name": "Rafting Rio Soča (SportMix)",
+      "links": [
+        {
+          "url": "https://sportmix.si/en/rafting/",
+          "type": "official"
+        }
+      ],
+      "source": "official",
+      "category": "attraction",
+      "description": "Rafting comercial no Rio Soča com SportMix, em corredeiras Classe II–III por 2-3h. Wetsuit incluído, fotos grátis no fim do tour."
+    },
+    {
+      "id": "lago-del-predil",
+      "geo": {
+        "lat": 46.4188,
+        "lng": 13.5651
+      },
+      "kind": "lake",
+      "name": "Lago del Predil",
+      "links": [
+        {
+          "url": "https://www.tripadvisor.com/Attraction_Review-g616173-d4828065-Reviews-Lago_del_Predil-Tarvisio_Province_of_Udine_Friuli_Venezia_Giulia.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "tripadvisor",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Lago_del_Predil%2C_Tarvisio%2C_2013.jpg/1280px-Lago_del_Predil%2C_Tarvisio%2C_2013.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 3,
+      "description": "Lago alpino de 1 km a 959m de altitude na fronteira IT/SI. Cercado pelos Alpes Julianos, águas esmeralda. Passeio circular ~1h."
+    },
+    {
+      "id": "lago-di-fusine",
+      "geo": {
+        "lat": 46.4797,
+        "lng": 13.6706
+      },
+      "kind": "lake",
+      "name": "Lago di Fusine",
+      "links": [
+        {
+          "url": "https://www.tripadvisor.com/Attraction_Review-g616173-d3539872-Reviews-Laghi_di_Fusine-Tarvisio_Province_of_Udine_Friuli_Venezia_Giulia.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "tripadvisor",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Tarvisio_Fusine_in_Valromana_Parish_church_Saint_Leonard_17082013_044.jpg/1280px-Tarvisio_Fusine_in_Valromana_Parish_church_Saint_Leonard_17082013_044.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "description": "Pares de lagos glaciais (Superiore + Inferiore) em parque natural italiano na fronteira com Eslovênia. Reflexo do Monte Mangart (2.677m) em águas turquesa."
+    },
+    {
+      "id": "cortina-d-ampezzo",
+      "geo": {
+        "lat": 46.5378,
+        "lng": 12.1359
+      },
+      "kind": "city",
+      "name": "Cortina d'Ampezzo",
+      "links": [
+        {
+          "url": "https://www.tripadvisor.com/Tourism-g194745-Cortina_d_Ampezzo_Province_of_Belluno_Veneto.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "tripadvisor",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Faloria_Cortina_d%27Ampezzo_10.jpg/330px-Faloria_Cortina_d%27Ampezzo_10.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 5.9,
+      "description": "Vila resort em altitude (1.224m) no coração das Dolomitas, conhecida como 'Rainha das Dolomitas'. Sede dos Jogos Olímpicos de Inverno 1956 e 2026 (com Milão)."
+    },
+    {
+      "id": "camp-dolomiti-cortina",
+      "geo": {
+        "lat": 46.542,
+        "lng": 12.145
+      },
+      "kind": "camp",
+      "name": "Camping Dolomiti, Cortina",
+      "source": "campercontact",
+      "category": "stay",
+      "description": "Camping Dolomiti em Cortina — base para Tre Cime, Sorapis, Lago di Braies. Categoria A com lavanderia, restaurante e wellness."
+    },
+    {
+      "id": "tre-cime-di-lavaredo",
+      "geo": {
+        "lat": 46.6187,
+        "lng": 12.3028
+      },
+      "kind": "trek",
+      "name": "Tre Cime di Lavaredo",
+      "links": [
+        {
+          "url": "https://auronzo.info/en/parking-tre-cime-di-lavaredo/",
+          "type": "official"
+        },
+        {
+          "url": "https://www.alltrails.com/trail/italy/veneto/tre-cime-di-lavaredo-laghi-dei-piani?u=m",
+          "type": "alltrails"
+        }
+      ],
+      "source": "alltrails",
       "picture": {
         "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/2019_Tre_Cime.jpg/1280px-2019_Tre_Cime.jpg",
         "credit": "Wikimedia Commons",
         "source": "wikipedia"
       },
+      "category": "attraction",
+      "popularity": 5,
+      "description": "Três torres de calcário (2.999m / 2.973m / 2.857m) no coração das Dolomitas. Trilha circular de 10 km ao redor delas é a caminhada mais icônica do parque."
+    },
+    {
+      "id": "rifugio-auronzo",
+      "geo": {
+        "lat": 46.6131,
+        "lng": 12.2956
+      },
+      "kind": "trek",
+      "name": "Rifugio Auronzo",
+      "source": "refuges-info",
+      "category": "attraction",
+      "description": "Rifúgio a 2.320m no início da trilha das Tre Cime. Estacionamento, café e ponto de partida do circuito clássico."
+    },
+    {
+      "id": "rifugio-locatelli",
+      "geo": {
+        "lat": 46.6166,
+        "lng": 12.3091
+      },
+      "kind": "trek",
+      "name": "Rifugio Locatelli",
+      "source": "refuges-info",
+      "category": "attraction",
+      "description": "Rifúgio Locatelli/Dreizinnenhütte (2.405m) no ponto mais fotografado das Tre Cime — vista frontal das três torres."
+    },
+    {
+      "id": "lago-di-sorapis",
+      "geo": {
+        "lat": 46.5206,
+        "lng": 12.2235
+      },
+      "kind": "lake",
+      "name": "Lago di Sorapis",
       "links": [
         {
-          "type": "alltrails",
-          "url": "https://www.alltrails.com/trail/italy/south-tyrol/rifugio-auronzo-tre-cime-di-lavaredo"
+          "url": "https://www.alltrails.com/trail/italy/veneto/passo-tre-croci-lago-sorapis?u=m",
+          "type": "alltrails"
         }
-      ]
+      ],
+      "source": "alltrails",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Lago_di_Sorapis_1.jpg/1280px-Lago_di_Sorapis_1.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 4.6,
+      "description": "Lago turquesa leitoso a 1.925m, alimentado pelo derretimento da geleira do Sorapis. Trilha de 11,5 km (5–6h) com trechos equipados com cabos de aço."
     },
     {
-      "id": "trento-centro",
-      "name": "Trento — Centro Histórico",
-      "geo": { "lat": 46.0664, "lng": 11.1257 },
+      "id": "passo-tre-croci",
+      "geo": {
+        "lat": 46.5618,
+        "lng": 12.1853
+      },
+      "kind": "parking",
+      "name": "Passo Tre Croci (Sorapis trailhead)",
+      "source": "park4night",
+      "category": "transport",
+      "description": "Passo a 1.809m a leste de Cortina, trailhead para o Lago di Sorapis. Estacionamento limitado — chegar antes das 7h no verão."
+    },
+    {
+      "id": "lago-di-braies",
+      "geo": {
+        "lat": 46.6943,
+        "lng": 12.0854
+      },
+      "kind": "lake",
+      "name": "Lago di Braies",
+      "links": [
+        {
+          "url": "https://www.alltrails.com/trail/italy/south-tyrol/lago-di-braies",
+          "type": "alltrails"
+        },
+        {
+          "url": "https://www.tripadvisor.com/Attraction_Review-g194740-d3395875-Reviews-Pragser_Wildsee-Prags_Braies_Province_of_South_Tyrol_Trentino_Alto_Adige.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "tripadvisor",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Pragser_Wildsee_Seekofel_von_Bucht.jpg/1280px-Pragser_Wildsee_Seekofel_von_Bucht.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
       "category": "attraction",
-      "kind": "town",
+      "description": "Lago alpino de 31 hectares a 1.496m, conhecido como 'Pérola dos Lagos Dolomíticos'. Águas turquesa com reflexo do Croda del Becco. Barcos a remo de madeira disponíveis."
+    },
+    {
+      "id": "dobbiaco-san-candido",
+      "geo": {
+        "lat": 46.7344,
+        "lng": 12.1937
+      },
+      "kind": "vila",
+      "name": "Dobbiaco / San Candido",
+      "source": "tripadvisor",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Dobbiaco.JPG/1280px-Dobbiaco.JPG",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 3.2,
+      "description": "Vilas tirolesas no Alto Adige (Dobbiaco/Toblach + San Candido/Innichen) — arquitetura germânica, ciclovia plana de 14 km entre as duas, gelaterias."
+    },
+    {
+      "id": "camp-olympia-dobbiaco",
+      "geo": {
+        "lat": 46.7344,
+        "lng": 12.1937
+      },
+      "kind": "camp",
+      "name": "Camping Olympia, Dobbiaco",
+      "links": [
+        {
+          "url": "https://www.camping-olympia.com/en/wellness",
+          "type": "official"
+        }
+      ],
+      "source": "campercontact",
+      "category": "stay",
+      "description": "Camping Olympia ★★★★ em Dobbiaco — Categoria A. Wellness completo (sauna finlandesa, banho turco, infravermelhos, piscinas). Self-service laundry. Incluso na diária."
+    },
+    {
+      "id": "bressanone-brixen",
+      "geo": {
+        "lat": 46.7104,
+        "lng": 11.6525
+      },
+      "kind": "city",
+      "name": "Bressanone (Brixen)",
+      "source": "tripadvisor",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Brixen_Dom_Mari%C3%A4_Himmelfahrt_%28BD_14187_3_05-2015%29.jpg/1280px-Brixen_Dom_Mari%C3%A4_Himmelfahrt_%28BD_14187_3_05-2015%29.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 4.8,
+      "description": "Cidade episcopal do Tirol do Sul, fundada em 901. Catedral barroca, claustros românicos, centro pedonal medieval."
+    },
+    {
+      "id": "chiusa-klausen",
+      "geo": {
+        "lat": 46.6392,
+        "lng": 11.5641
+      },
+      "kind": "vila",
+      "name": "Chiusa (Klausen)",
+      "links": [
+        {
+          "url": "https://www.tripadvisor.com/Tourism-g1150025-Chiusa_Province_of_South_Tyrol_Trentino_Alto_Adige.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "tripadvisor",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Chiusa_-_Klausen.jpg/1280px-Chiusa_-_Klausen.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 4,
+      "description": "Vila medieval (Klausen em alemão) no Vale Eisack, fundada na Idade Média como ponto de pedágio. Albrecht Dürer pintou a vista em 1494."
+    },
+    {
+      "id": "monastero-di-sabiona",
+      "geo": {
+        "lat": 46.6432,
+        "lng": 11.5653
+      },
+      "kind": "city",
+      "name": "Monastero di Sabiona",
       "source": "wikivoyage",
-      "popularity": 5.0,
-      "description": "Cidade medieval no Trentino, Duomo, Castello del Buonconsiglio. Candidata para parada no caminho dos Dolomitas — ainda não agendada (idea).",
-      "_doc": "Este place existe no catálogo mas NÃO é referenciado em nenhum day.schedule[].placeId — render do mapa o trata como 'ideia' (pin tracejado, opacity reduzida)."
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Kloster_Saben.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 3.6,
+      "description": "Mosteiro beneditino feminino fundado no séc. X sobre o penhasco acima de Chiusa. Vista panorâmica do Vale Eisack. Caminhada íngreme ~1h."
+    },
+    {
+      "id": "ortisei-st-ulrich",
+      "geo": {
+        "lat": 46.5762,
+        "lng": 11.6745
+      },
+      "kind": "vila",
+      "name": "Ortisei (St. Ulrich)",
+      "links": [
+        {
+          "url": "https://www.tripadvisor.com/Tourism-g194900-Ortisei_St_Ulrich_Province_of_South_Tyrol_Trentino_Alto_Adige-Vacations.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "tripadvisor",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Urtij%C3%ABi_cun_l_Sela_Y_Saslonch_da_Tlesura.jpg/1280px-Urtij%C3%ABi_cun_l_Sela_Y_Saslonch_da_Tlesura.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 4.7,
+      "description": "Capital de Val Gardena (St. Ulrich em alemão, Urtijëi em ladino). Tradição secular de escultura em madeira. Centro pedonal com gelaterias e artesanato."
+    },
+    {
+      "id": "camp-seiser-alm-val-gardena",
+      "geo": {
+        "lat": 46.56,
+        "lng": 11.65
+      },
+      "kind": "camp",
+      "name": "Camping Seiser Alm, Val Gardena",
+      "source": "campercontact",
+      "category": "stay",
+      "description": "Camping em Val Gardena — base para Seceda, Alpe di Siusi, Sassolungo. Vista das Odle/Geisler."
+    },
+    {
+      "id": "seceda-ridgeline",
+      "geo": {
+        "lat": 46.5598,
+        "lng": 11.7049
+      },
+      "kind": "trek",
+      "name": "Seceda Ridgeline (2.519m)",
+      "links": [
+        {
+          "url": "https://www.seceda.it",
+          "type": "official"
+        },
+        {
+          "url": "https://www.alltrails.com/trail/italy/south-tyrol/seceda-cir?u=m",
+          "type": "alltrails"
+        }
+      ],
+      "source": "alltrails",
+      "category": "attraction",
+      "description": "Crista a 2.519m em Val Gardena com a vista das Odle/Geisler — uma das paisagens mais fotografadas das Dolomitas. Cable car de Ortisei + circuito de 10 km."
+    },
+    {
+      "id": "rifugio-firenze",
+      "geo": {
+        "lat": 46.5689,
+        "lng": 11.7286
+      },
+      "kind": "trek",
+      "name": "Rifugio Firenze (Regensburger Hütte)",
+      "source": "refuges-info",
+      "category": "attraction",
+      "description": "Rifugio Firenze (Regensburger Hütte, 2.040m) abaixo das Odle/Geisler. Cozinha tradicional sul-tirolesa, terraço com vista da crista do Seceda."
+    },
+    {
+      "id": "ortisei-jantar-tiroles",
+      "geo": {
+        "lat": 46.5762,
+        "lng": 11.6745
+      },
+      "kind": "restaurant",
+      "name": "Jantar tirolês — Tubladel/Concordia",
+      "source": "tripadvisor",
+      "category": "food",
+      "description": "Restaurantes tradicionais sul-tiroleses em Ortisei — Tubladel (cozinha gourmet ladina), Concordia (familiar) ou Hotel Nives (Michelin-recognized)."
+    },
+    {
+      "id": "alpe-di-siusi-compatsch",
+      "geo": {
+        "lat": 46.5412,
+        "lng": 11.617
+      },
+      "kind": "trek",
+      "name": "Alpe di Siusi (Compatsch)",
+      "links": [
+        {
+          "url": "https://www.seiseralm.it/en/info/getting-around/seiser-alm-aerial-cableway-summer.html",
+          "type": "official"
+        },
+        {
+          "url": "https://www.alltrails.com/trail/italy/south-tyrol/compatsch-biotop-grosses-moos-panorama?u=m",
+          "type": "alltrails"
+        }
+      ],
+      "source": "official",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Saslonch_udu_da_Mont_de_Seuc.jpg/1280px-Saslonch_udu_da_Mont_de_Seuc.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 2.7,
+      "description": "Maior prado alpino contínuo da Europa (56 km² a 1.700–2.300m). Vista panorâmica do Sassolungo, Sella e Catinaccio. Pico de florescimento em junho."
+    },
+    {
+      "id": "castelrotto",
+      "geo": {
+        "lat": 46.5669,
+        "lng": 11.56
+      },
+      "kind": "vila",
+      "name": "Castelrotto (opcional)",
+      "source": "tripadvisor",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Kastelruth_mit_Kirche_Sankt_Peter_und_Paul.jpg/1280px-Kastelruth_mit_Kirche_Sankt_Peter_und_Paul.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 4.4,
+      "description": "Vila tirolesa medieval (Kastelruth em alemão), uma das mais charmosas do Alto Adige. Centro pedonal, igreja com torre barroca, Spitzbuam (banda folk famosa)."
+    },
+    {
+      "id": "lago-di-carezza",
+      "geo": {
+        "lat": 46.4114,
+        "lng": 11.6014
+      },
+      "kind": "lake",
+      "name": "Lago di Carezza (Karersee)",
+      "links": [
+        {
+          "url": "https://www.tripadvisor.com/Attraction_Review-g1023620-d2335498-Reviews-Lake_Carezza-Nova_Levante_Province_of_South_Tyrol_Trentino_Alto_Adige.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "tripadvisor",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Carezza_Lake.jpg/1280px-Carezza_Lake.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "description": "Pequeno lago alpino a 1.520m com reflexo perfeito do Latemar e Catinaccio. Cores entre turquesa e verde-esmeralda. Caminhada circular de 30 min."
+    },
+    {
+      "id": "desenzano-del-garda",
+      "geo": {
+        "lat": 45.4691,
+        "lng": 10.5418
+      },
+      "kind": "city",
+      "name": "Desenzano del Garda",
+      "source": "tripadvisor",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Old_port_of_Desenzano.JPG",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 4.5,
+      "description": "Cidade medieval na margem sul do Lago di Garda, com castelo do séc. X, porto histórico e ruínas romanas. 15 min de Sirmione."
+    },
+    {
+      "id": "sirmione",
+      "geo": {
+        "lat": 45.4925,
+        "lng": 10.6082
+      },
+      "kind": "city",
+      "name": "Sirmione",
+      "links": [
+        {
+          "url": "https://www.tripadvisor.com/Tourism-g187842-Sirmione_Province_of_Brescia_Lombardy.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "tripadvisor",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Italy_-_Sirmione.jpg/1280px-Italy_-_Sirmione.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 4.7,
+      "description": "Península termal no Lago di Garda, com fortaleza scaligera do séc. XIII e ruínas da villa romana de Catulo. Centro storico pedonal com gelaterias."
+    },
+    {
+      "id": "free-parking-desenzano",
+      "geo": {
+        "lat": 45.4597,
+        "lng": 10.5597
+      },
+      "kind": "camp",
+      "name": "Free Parking: Desenzano del Garda",
+      "links": [
+        {
+          "url": "https://park4night.com/en/place/14906",
+          "type": "park4night"
+        }
+      ],
+      "source": "park4night",
+      "category": "stay",
+      "description": "Estacionamento livre em Via Michelangelo 9, Desenzano del Garda. 5 min do centro a pé. Permite pernoite. Park4Night verificado."
+    },
+    {
+      "id": "castello-scaligero-sirmione",
+      "geo": {
+        "lat": 45.4925,
+        "lng": 10.6082
+      },
+      "kind": "castle",
+      "name": "Castello Scaligero (Sirmione)",
+      "links": [
+        {
+          "url": "https://museilombardia.cultura.gov.it/musei/castello-scaligero-di-sirmione/",
+          "type": "official"
+        },
+        {
+          "url": "https://www.tripadvisor.com/Attraction_Review-g187842-d2218711-Reviews-Castello_Scaligero-Sirmione_Province_of_Brescia_Lombardy.html",
+          "type": "tripadvisor"
+        }
+      ],
+      "source": "official",
+      "category": "attraction",
+      "description": "Fortaleza naval do séc. XIII construída pela família Scaligera de Verona. Único castelo italiano com darsena (porto fortificado interno) ainda intacto. Subida na torre com vista do lago."
+    },
+    {
+      "id": "grotte-di-catullo",
+      "geo": {
+        "lat": 45.4982,
+        "lng": 10.6098
+      },
+      "kind": "unesco",
+      "name": "Grotte di Catullo",
+      "links": [
+        {
+          "url": "https://www.grottedicatullo.beniculturali.it/",
+          "type": "official"
+        }
+      ],
+      "source": "official",
+      "picture": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Grottoes_of_Catullus_-_Grotte_di_Catullo_%285364%29.jpg/1280px-Grottoes_of_Catullus_-_Grotte_di_Catullo_%285364%29.jpg",
+        "credit": "Wikimedia Commons",
+        "source": "wikipedia"
+      },
+      "category": "attraction",
+      "popularity": 4.3,
+      "description": "Ruínas de villa romana do séc. I a.C. na ponta da península de Sirmione, atribuída ao poeta Catulo. Vista panorâmica do Lago di Garda do alto das ruínas."
+    },
+    {
+      "id": "farewell-lunch-garda",
+      "geo": {
+        "lat": 45.492,
+        "lng": 10.608
+      },
+      "kind": "restaurant",
+      "name": "Farewell Lunch — Lago di Garda",
+      "source": "tripadvisor",
+      "category": "food",
+      "description": "Almoço de despedida na península de Sirmione — pedir peixe do Garda (lavarello, luccioperca) acompanhado de Lugana DOC, vinho branco local DOC."
     }
   ],
-
   "routes": [
     {
-      "id": "castello-to-grotte",
-      "name": "Castello Scaligero → Grotte di Catullo (a pé)",
-      "mode": "WALK",
-      "polyline": "}f|jHsd_y@e@v@U`@oAvAcAhAm@n@oA`AaAj@",
-      "duration": "PT15M",
-      "distance": 1300,
-      "notes": "Caminhada plana pela rua principal da península, sombra parcial."
-    },
-    {
-      "id": "fusina-zattere",
-      "name": "Ferry Fusina → Zattere (Veneza)",
-      "mode": "FERRY",
-      "polyline": "ah}eHql{}@oCh@oFlAcGv@aDh@yEr@uFp@",
-      "duration": "PT30M",
-      "distance": 8500,
-      "notes": "Linha 17 ACTV. Bilhete €8/pax ida e volta. Saídas: 7:30, 9:30, 11:30..."
-    },
-    {
-      "id": "cortina-rifugio-auronzo",
-      "name": "Cortina → Rifugio Auronzo (SS51 + estrada pedágio)",
+      "id": "route-day-1",
       "mode": "DRIVE",
-      "polyline": "yi_lHwbtt@_DkAuFwEoGqJyEcLgEsMaCwM",
-      "duration": "PT45M",
-      "distance": 28000,
-      "tags": ["highlight"],
-      "notes": "SS51 → Misurina → estrada a pedágio para Rifugio Auronzo. Reserva via auronzo.info obrigatória. Chegada antes das 7h para vagas."
+      "name": "Dia 2: MXP → Venezia (A4 leste, ~308km)",
+      "notes": "A4 leste — motorhome com +30% margin.",
+      "distance": 302871,
+      "duration": "PT3H43M",
+      "polyline": "{cmuGy~mt@?C@eADqAHkAXuBZoBp@{Bp@qBFO~@}Cn@sBHUDQJSLKJIHADEDEBG@I@IAIAIAGEEEEGCG?KEKKEGe@w@s@mAyKcQcHaLEGgHcL{@uAyBmDyBmDq@gAcBmC{C}Es@eAeCaE]i@MQm@aAaB_CoAqAOMsAgAa@a@OWMY]mA_@iAO]S[g@q@gA{AaAqA[a@y@iAOSg@u@SWy@iAq@_ACC_@i@]c@iBeCu@cAEIo@u@BKAMCGEGCEGAEAGBc@m@MOkBgCMSSWkBgCcAwA_@g@U[gAwAc@c@a@Yk@[c@O{A[[K?EAECCEAEAC@CBAB]EaC_@_@@AIEGEEC?E?E@CBCFMK_AScAYqAUwAYgAUaAQAAG?qBa@UCG?IAO?E?OEWEGCGCKECCDi@?[D_AF}@XyCXoB\\iB^wAh@oBNk@VkAVeBzCkLd@iBZeBVoBNqBFcBToXDwFb@ei@LuNJ{MNcQVsXF_IFeGBwAFaBJyBTeEb@{Hv@_NvCuh@l@qKXgF~Bya@Ba@?y@Au@K_AMq@Uw@_@w@SYU[q@m@}DeDo@y@Y]OWMUM_@Ke@Ic@Ci@Ai@?e@Dm@De@Hi@Jm@No@X}@r@}ChEaNfJeZfQej@Ng@zHmVb@sAdCgI|FqQp@qB`C}H~GsTlDwK`@qAtKc]HY`BmFl@eBjKo\\hKm\\vAsEX_A|Wmz@dDiKlOaf@jFsPbK{[fH}TjFsPtFcQtB}GrAaEjBkGjB}FdGkR`@qAtE}NxAyEJWbQyi@z[ycAnZi`AxVyw@zBcHlFwP`IyVrAcErBmGbAwCfAmCnCwGbA_CdC{FbCqFfSie@vAgDpFoLzLqXnBqEvGmObHyOxAiDfAeCvHcQdAgCbC_GbB_ExBmFrDkIvEwKxLwXRe@|FwMrEqKfCiGhBsEr@cBj@uAVk@Na@jBmEt@aBlA{CbFiLLYpAqCrByDhAiBVg@d@cAh@kADIDMN[HUN_@t@}BxAuDlBoEpBgEtAaDxOi^nRoc@p@{A|Qqb@lIkRlDcIhAkCt@eBxPe`@rFgMhAiCfDwHhAkCzCaHrBuEb@eAjEwJvCsG|EoKnCaG~BiFrE{JzIqR|A_D^o@Zg@^e@p@u@HKx@aAtAmAn@k@dA}@^_@`@a@`@g@^g@b@o@Vc@Xi@\\q@JYHYHYDQDUD[BUBS@Y@W?]?Y?[C]C[CYEYEUGW]_B]sAQq@Wu@So@KYKWKWO_@O_@Sc@Wg@Ue@QY[i@Ua@_@o@iAmBw@qAw@sAy@yAw@}Aq@yAo@_By@wBaBsDm@_BeB}EyHkS}BaGy@wBgEyKiEgLKUOa@sGyPyMy]qIqT{Yyv@aBmEkAuCm@cBoCeHsDkKwA{DYw@i@yAc@kAm@gBeBaFiBwGy@_DK]c@cBg@uBOo@cA{EG[g@iCsAeHyAcIwBaLKi@yAmI{DuUy@cFO}@wLgt@_CmN}@uGa@sDGq@Y}DQ{DM_EEkDe@gg@AsAEwCMkNO_PAk@OaFQ_FC[m@eJEc@yA_R_BcRiAkMEi@w@yKm@sI_@_FIaAGgAo@yHOkB{Ekm@kA{NiBiUKkAeAuMc@gFYmD{@gKm@eH{@uKuAgQOqBGyAAu@AuACwBC{@GgAKwAAOCMOcBIq@Ky@i@sCYiAMcAI_AMuBWcD{@aKu@sJ{Ci`@iFwp@w@uJmCw]i@cHyCm[y@eJw@aKm@}HgE_j@uAyQsCy]a@eFiAaNaCo\\eEsg@u@_JwDkf@}BuZEm@YkDyAmR]kEmAoOaAmOyCi^qB_WmDia@a@wFSiCIcAIy@yD{f@Eg@qDme@gCwToBqQoCcWiEu_@EWq@{GMwAmKs_AeAoJkD{ZoHmp@mFse@gF}d@y@gHcHyn@{BcS{AqMyFuf@OsAy@oH}Fyh@aGci@kFye@w@iHyF_g@wA_MqAkIi@kC_AyEgB_Ia@iBaDyLYkBoMej@_BsGuFaWoEiRaA_EmEmRiBuHy@}DuCyLsBoIoN{k@iIy]o@mC_C}JuByIyGeYa@mBiJ{a@cAsEiAuEmK_c@uYolA_C_KqDiNaAyCqBgGwKyVqKiUeLiVsBiEqEsJ}AkDqEyJgSqc@yFeMoBcEkFiLk@kAa@_AcA{B[w@gEcJcRia@wGwNyMyYmRab@eAaCkXul@uSid@}EoKkNsZiNqZs@yAa@}@wB_FeIiQaBoDe@_Au@_Bw@qBg@}A]yAi@{CWeCGeBC}B@_CPoCx@uH|Fqi@pH}r@lBiQvIsx@~BoTDa@vBkS~Z{tCpAuLtAmMtKobA~BmUtBmUx@yIrLyoAdBeOtGig@hNaeAZ{Bhf@yrD~Y{zBdSozA~CyUvCwUjBgNHm@dh@ixD|@_G~BkOjC{RnAcJfDmVtCcU`@yCf@_EbAgJrC}TjCqSx@uFn@sDnAkGxAmGfBkGjA_EvBcGtCeHpPo]`lBk|DbT{c@du@y|A`CgFxBiF`BsE~AmFpA}ErAkGnAgH`AqHnK{bA`DqZ~Eod@`@oDX}B|Eo`@l@aGjDg\\jWicChOkwAdBoPfDq[nIaw@jD_\\nA}IjBoKdBeIbCyJ`CeItBgGrKaYvKoYL[HUxF}N~EqLh@qApBaFp@_Bb@eAdPy`@zAoDzBmFlBeFp@gBtCwH`B{EbDkJhIuTdPsa@jXor@tH{Rh@yAfB_FtDqKJ[fLk\\|Mu_@Pg@lFiOPi@bGwPHU`@cAlCeIn@mBxFyP~AwEpAgEbA}DfCcM`AoGv@oGf@oFZkFx@_NrC_j@bBwYj@_K\\aGV}DN{APuAPyAVuAt@uDb@gBd@aBjEcMzEyMpLo\\nMo^Rm@vDoKRi@xDsKz@eCv@mCl@sBf@qB`AcEv@{Dt@gEd@cD`@gDp@sG`BwV^yE^iDf@gEbCsQ`BgLb@cDdBcMr@}EbAcHrB{Nr@aF`@{B\\oBl@aD`B{I~BaMvC_PfBmJjDiR~AsIr@yDjBwJ~@gFdA{FbCoMh@sCzAcIl@wCp@uClAmFdGcXxCwM|CeNzBwJ`AoE^aBj@kCh@uCN_A\\wBhBiLt@sEtCwQ|ByNdF}[vGya@rEwYrBwNxCkT|B{PxFqa@fEqZfAcIpE{[hEg[jCiRtBmOxBcPjBwMvHej@jEg[nC_ShBuMpE{[|BuPdDyU^}CpA}LVyCpDe`@n@aHXyCRaCp@mHd@gFXcDJsAPmCL{BNyDNoEf@sNfGmeB\\mJvAk^j@sLl@sHvA{KhDkX|@oHdDaX~@qHfE_]XyB~BuQvAcJJk@|Kis@fBwKh@aDbCeRPyChAwQd@gN\\sW@c@f@wShB}[|AcXNuClCkg@b@}H`AoUvAs\\vAy\\v@cQj@aM\\gINqDXcFV}D`@}E^yDj@cFj@kEf@eDn@{Dl@kDx@aEhAkFpBwJd@cCToAf@yCb@wCf@sD\\sCh@_F|AuN`@sDlDg\\tAwMvD{]z@cIlDi\\~BoTdDwZnAwLfEo`@j@kFzEmd@p@aG~CwXzBoTjAcLdAgK|@kOZsJPcK\\uPpAgr@l@}\\`@mT^cT\\sQl@}\\BeA|@_b@L{EnA}e@LsFp@mWRcHVyJDaBvA}i@LeFpB_u@@w@LyDb@uPdAs_@\\cMBu@NwF@m@BoAD}BHcLEsQAkCGqf@AeLC{VOmaAA}TCcMCsU@}DFeGLgHFuCJsCLgDDiAb@aJf@eKj@gLj@_MjA_V@WPgDf@cKJqBbA_Tl@uMTsEz@mQpAsWn@{MhA}UPgDTgDd@uFNyAd@eEl@cEv@wEr@iDx@sD`AsDpFaRvBqHz@yCx@yCxAaGtAeGlAcGfAcG`@eCzAgJr@uFn@oF|AeP`@oGfA{Q~Ai[xAoYT_GJcEDkE?wDC}DIsEmAu_@cAi\\KoCcA_\\i@aQWeIIoCGiDEyBE_EAgB?wCBoDBaDLeGJwDJyCNwCXuEZkEVaDr@eHf@_Fz@uI~AyONyA~@iJTiCTeCX}DRaDPgDL{CJiDVqKZyMLiGf@cTd@iSRqIRcJ^gPf@cTZyMTwJRcJNkEPsDXuE\\{Eb@cFb@cEd@aEr@gF~@{F|@gFtBoL|DyT~Joj@nDiSpFoZbC_Nr@aEt@eEr@eEl@aEPyAh@qEj@qEzG}j@nE__@b@mD~D}\\b@oD~@_IdAwIn@oFf@gEj@}ETmBPoBTaD`@kHDw@`@cGVwFLsDH}EHaF?Y\\wSZeTNoJBoCRaMH_FFkFBaD@{@?MAqDCqDGgDKiDU_G[iFy@}K{@iKi@iH]aHSgEMmCQsDQwEQwEGuBSwH_@yKm@aMu@cPcAiT{@gR}@iRwAsZk@cMYeF]gF]eF]gFQkE]uHY{FAG]sH]oHMaDIcDOeIUiGQ_ES_EgHg`BiAqXq@oQc@kMm@}OMuCQ{CWaDSuBYoC[gCe@eDm@sDeEaVgHka@_EoUoAiHkBwK_C_NeCuNgDsRaH}`@uCuPw@eEk@sCi@aCw@aD_AwD{AcGmJo_@qBmH{A}F{AoG_@aB_@eB]gBg@uCo@kE]uCYqCUaCSkCOiCMiCKqCEeBCsBCwBAiC?mCB}CH{DPwFb@sLz@wUj@qONcE|Amb@p@aP|Aok@tAmx@@q@D{BJmDLoCNoCRqCToCVeCl@aFt@kFJy@h@qDnA}InA_Jr@cFr@eFnBmN`AoGd@kDb@cDj@eFh@eFv@cKf@kK`D_s@FyAhBsa@`AuTj@}L|@mSdAaUl@iN^uIf@mM`@iJ^kIDk@VeGj@qLZqI`@mJZcH\\sHPwDf@uKVqFj@gMb@oJPyD@YRaEHmB^_ILkDHkCDmCD{DA}DGcMIuLK_N?cAEiEC_BIsCIwBa@aH_@qE]uDa@aD[{BqFa_@qB}MmAoI[oBiFa^sAiJqDmVaB{KCMQqAcCkPyA_K{BqOgC_QyA{Jo@eEcEcYg@yCk@_Do@yCw@_DeAaEqAcEcCmH{@oCyCgJgAeD_JsXi@{A}EgOsGgSuAcEcM}_@uIqXkCaIuBkGmCeIgCeIcDyJm@kBy@kCyIaX}D}L}@oCmA_Eo@_Co@kC_BwHs@iEo@iEYoBcA_HeBsJiAuEmAuEoBmG{@_CaAiC{BgFcCyEqAyByBkDaCkDsI}LiD_FaGsIyBaD}@yA}@wAiBgDcAmB{@qB}AuD{@_Cq@oBEMiBeG{DeMiBcFeBgEM_@eAwBgAuBkAuBoAsBuAsBs@eAmA{AkCiDkDmEgB{B_HsIgCqDuAwBk@_AcG{JsH_MsHcMcLiScB_DaBgDeCcFcAsBgAwBiB}Ca@m@c@s@q@cA{@sAYe@[g@y@kAcAaBk@}@[c@a@k@QUOSa@i@[_@W[_@_@e@k@e@k@a@m@uC}C[_@eAsAmAyAc@i@sBeCoJ{KgAqAkHsIqDiEsEmF}KsMuKgMcAmAgCyCiBsBiCyCmJ}KsLkNcKqLs@y@mJ}K{CqDkA{AiAaB]g@[g@y@sAu@qAq@sA{@eBu@eBm@wAm@}Ao@aBi@eBEMmA{Di@gBg@iBcAkEs@iDm@gDu@_Fs@eFs@cFw@aFKq@WuAeA}Eo@kC]uA{@iDiAkEs@sCkA}EsAcGkAwEsEiQmCoKeFaSuDuNoAaFqA}EuFoT{DaP}BsJSy@e@iB]{AOo@QaA]uBOkAQqAM{AIcAGoAGyBCm@?c@IcJCqJCkCCsCAkCAoCA{BAuG@uGEo\\CeNAwI@_GLyFHaCJaCLeCNgCh@aG\\uD^wEXcFT_F|@{W^aLd@_N\\}JtA}a@JeEDaD?eC?gCMkGMkGCmGP}MBqB?qBAqCCoC_@eSSeHGwAW}FImA]_GS{ESwGQyFeAy]GkBMoFAeCBcCFsBDgABo@NiBPkB\\_D`@cCj@wCzMsr@vFmY^kBvAmHhEsTvB_Lp@_EbAiFzBaLf@_Cz@eEfBcJxJog@h@qC`@sBzA}HlEcU|AoIrB{KDS~DoSfCqM^iB`@iBVeAVeA~Kid@FWhSgy@FU`Oem@l@mCt@wDvA_INy@vWyxA`@uBXuAd@wB`@cBpM_f@Le@zFaT`AqD|@yDpXwmAFYtCmMvDwPxZqtA`EyQPu@`FsTtEsS^gB^qBb@eC`@gCXyBVoBVeCRmBpEog@`De^|Dyc@xDgb@V{C\\iDXeC^iCb@sCf@yCp@eDzRu`AJi@vUejAd@cC^{Bb@mC\\oCZoCZuCTsCjSauCBW`BsU~Cwc@NqB^eFVoDPkChD_f@l@oHReCRwCzBq[Da@lAwPLoBTuCRqBRqBZ{Cb@_EzBqSfAqJvBaSvAoMbBoOj@mFbAcJrB_R~AeOdEo_@dB{OFq@DYvB}RNuAZoCPqAPsAPkAPkARgABMZgB`@qB\\aBvDwOZsAnD_O|AsGrCiLvAcGtAwFFWRw@^wAb@}AdHcV|DaNdAqDzAeFhFmQpD_MRo@XaAZ_Aj@aBr@sBr@eBfAiCfDwH|@yBr@_BjAmCzAmDr@aBrEmKn@wAlF}L|@uBlAsClBkEv@iBzCeHjDqHb@_Al@_B`@iAZcA\\uA^}A\\iB^oCPeBLwADu@B]DuADiB@mB?aAAw@GsBGuAK}AMsAe@wDm@{EE]uAsKe@cEa@eDe@sDaAcIkHyk@cAgIaBcNi@cEe@yDyA{LeAoIa@cD}C_WiBaOcBcNiBaOeF{a@eAqIyBmQsAuKaCuRiAaJeBiNeDcXy@yGmCqTwBaQgEi]iMydAuAeLwHkn@aEe\\yDo[wGki@y@_HwB_QgDyXG]kG}g@iDoX}BcRQ{CQgBYiCw@sHiA}Jq@iGSaBMy@OmAa@}B[aBYaB]oBYiB[yBw@yGu@iG_DmWaD}WUgB_CgR}Dc\\m@aFm@aFcC}R_Eo\\e@}Dk@oEeAqIc@oDmFoc@KeAkHql@S_Bmc@qqDq@yF@e@Q{ASaCIaASeBuBcQE_@A[?W@U@QDM@GJQPQHEJCH?L@F@HDJJJLL^DfAAZARKxACb@@j@@p@Bz@Df@BTJ`@DPHVT`@NNHF\\NTDR@RATC`@OZQRK`@a@LELAVDNFL@JAJGJOJ[@WAWGQIQOIMCUKIGKOYo@IYWy@Oo@Qy@QqAEk@E{@AYCm@Ak@?q@?e@BcAFw@RcBl@{FDOLo@Rs@HMDCFEBE@IBI?IAMCKCICc@BaAVkBHa@Pw@J_@Ng@L]Rk@Xq@Zo@L]Xs@f@iALWj@uAbB}DVm@Ra@`@s@R[V_@^e@~@kAb@s@HMFKl@yANe@To@lAwDXy@tAaER_@LSJMJKD@JKHU@QA]Bc@Ha@La@L_@FQJYHWTo@Nc@J_@Na@FKVo@dDwG`D}Gv@sBl@wB`@gBj@eDJm@Jo@l@oDh@eDjC_PF]xDqUN_ALi@Lg@L[J[pAmB^c@\\_@`@]VQXKf@DXFJJNNJHRJLFNBZFX@VCVETITGPMPQPSPYL[HWHYDYDYX_@HKLKJEPAXBlAXnIdCdAZpGfBpAd@z@Tl@J`Bj@p@\\r@b@DQHAFGFS@O?MAOKYMc@IMQWs@yAk@kA}@mBgA{B{A_D[eAQq@K}@Es@Ao@Ds@Ha@NUZO^G^Ax@GXANAHCHGFGFIFKBKBKBQ?O?OCOEOISKOGOKQI[K[Qw@Ga@?Q?Q@KBS@EJUFIDIDCr@Wl`@eDVCJ@J@HFFFDFHv@@LDV@LALCVEJ?L?LBHDFFDFBF?HCFIDKHMDEBCHEDEJOl@eA|J}QhBcDnAyBlJ_QnDwGXi@Vm@Ri@To@Ng@Ro@Nq@Lo@Lq@Hq@Ho@Hy@Fy@D{@BiALgFBc@B[D]DMHYFQBU?YGUK_@E]?o@j@{]FcEv@kf@DaBF_BDeAJeAHo@Hk@Jo@Pu@bA{ENq@PeABMBG@CBCBAFC@ANGF@D@B@D?DAD?BAJGFEDE@EFMBIFIDENMHKJEVMPO`@e@hC_D`DiE~@sAHGFAF@JBPNjA~@BFTe@pA{Bf@w@f@u@rEwGfEgG~DaGjAeB\\m@\\q@Xs@Xy@ZcAV_ARw@FQj@yBWZI{@GAECkBq@c@OCSGK?OAI?QAKIODM@GAQEOCO[w@GOMKAUSE",
+      "endpoints": {
+        "from": {
+          "placeId": "indie-campers-mxp-pickup-return",
+          "geo": {
+            "lat": 45.6197,
+            "lng": 8.7603
+          }
+        },
+        "to": {
+          "placeId": "camp-fusina-venezia",
+          "geo": {
+            "lat": 45.4208,
+            "lng": 12.2582
+          }
+        }
+      }
     },
     {
-      "id": "tre-cime-loop",
-      "name": "Loop Tre Cime di Lavaredo (trilha 101)",
-      "mode": "WALK",
-      "polyline": "_q`mH}~at@aB[oC?cDl@gDfAkCfBoB`CcA|CKfDz@`Dj@xBh@dB",
-      "duration": "PT4H",
-      "distance": 8800,
-      "tags": ["scenic", "highlight"],
-      "notes": "Rifugio Auronzo → face norte → Rifugio Locatelli → Forcella Lavaredo → retorno. 425m ganho."
+      "id": "route-day-18",
+      "mode": "DRIVE",
+      "name": "Dia 19: Sirmione → MXP (A4 oeste, ~174km)",
+      "notes": "A4 oeste. Tanque cheio antes de devolver.",
+      "distance": 159867,
+      "duration": "PT2H2M",
+      "polyline": "uymtG}lm_ALaAJ}@@E@GFm@BQBMP{@RgAH[Li@BIj@oB|A_ElA}Cf@aAr@_Bx@uAdAkBb@q@dA}ADIDFDBJRF\\Hj@Lp@FRF\\N`@LT^h@VZj@^^Np@FVAl@CNCRCj@Ih@O`Ao@HEl@Y|@]LIj@WpAo@@?x@_@VKRIf@OJEvAEFGLQFKT[PSHCLBZ@`CnBn@f@bBnA`Ap@TJLLJJ?D?J@FDFDDD@DAN?NDJJb@d@t@t@JHVNp@`@b@P^n@D\\@f@S~AA^Bf@J\\f@hBTfAJt@_Hzo@M`AS~AKz@}DlXu@bFkCvQO~@e@fDO`AcBhLa@rCWjBsClSs@bFe@bDw@zESdAU~@g@nBwHbZWf@YfAOh@K\\KXM\\aCpFk@nA]r@Wb@KLKJWTMFWJWFQBS?K@I@KHIFKLEHEFCLCT?N?J@JDPDHDHFDHBFBLATEHEXFLDNHf@TvAh@ZF|AL^BlC^^Jt@n@v@h@dBjA`BdAPJ`@LLFDHFHFB@J@P?VBj@@N@PDLFNHJHJHHLFj@NLDLDPBH@H?\\Af@Dt@Ft@NVHVLVVPTNZHTHVDVDX@VIxCK|I{Av\\kCtl@i@|L]`HkChh@MhCeBfYoBf\\Y`NI`D]|Wc@xMaBtW_ClQc@nCsOzaAcBlKoBbO_@zCgEh]{Er`@kFvb@{AvLk@|Ho@tKuAt^[dJgBzf@uCfz@o@`ROjEOxDM~BOfCMvA_AhKo@lH]rDOdBq@`HkDd_@]zDqAvL_@|CcDxUeClQcDrUcB~Lk@dEmB|MsF`a@sHti@eB~L}BtPwBlOkCjRkEf[oEv[iAfIcFz^sD~WwBpOeEvZsBzNiEbXgCbPyBlNcHhc@}AzJmErXqBlMi@~Ce@jCk@lC{AzGyBrJaDpN}C`NcG|WwAlGk@dCc@nB{@nEi@tCyCdPsAjHgAxFgBzJy@dEuAtHmDhRiBtJyC~O{B|Lq@nDq@pDo@hD_@tBa@bCo@jEeBvLsAlJo@xEmChRuA~JmCvRi@jE_@jDq@tIqAxRo@tGa@bDe@bDw@fEs@tDcAfEi@rBk@rBy@hCy@dC{DxKSf@}DzKSj@gMz]qLp\\yEzMmEdMe@bBe@jBu@pDUxAQtAQvAOzAY`E[`GmCve@wC`j@w@|MWjFi@vFw@dG_ArGsAnGw@lDcAxDmAdEcBrEwFvPo@lBoCfIc@fAeGzPQh@sFrOQf@mIzUsPjf@KXuDtKsCxHuHvRmXpr@kJdVqEdLoH|ReDpJqCdIsAjDs@hBeBpEgClGcB~DkP`a@c@bAo@|AqA~Ce@hA_GrN{F`OIVMZwKjYsKbYsBfGaC~HcC~JiBlIkBpKmAxIoDb\\_Hho@eDd[sCpXkOjwAiWlcCmDb\\e@vE_Gxe@a@nDcDnZ}Ejd@mK|bAaApHmAdHuAlGqAzE}AjF_BlE{BlFaCdFgw@h`BaRh`@_lBf|DqPv]wCjHyBhGaAzCoBbHcAfEiAlFiAnGqEr[sCbUcA`JgBlNm@nEiA|IaDnV{@lGyDhX[jBeAbHgAbH{Zr|BaLxz@Ij@{@`GgChSgDnW_UjbB}YzzBof@lsDYxBgNrdAwGjg@iB`OoLzoAsG~p@wKddAoB~QsAxL{ZftC{BlSE`@uMlnAiBpPcIhu@OxAo@bGoBlQqAvLk@fGIpBC~BB~BHfBVrCh@zC^zAh@~Av@rBx@~Ab@`A|I`SbEhJr@xArMvYzT~f@l@rAxa@p}@~Wzk@~V~i@|JlTrHjP`GjMvB~E^r@|@nB^t@l@tArE~JbBpD|Vbj@hT|d@jKdUrPp^xGlO~BnFvD~KrCxKZfA`C`K~XrkAjIr]n@fCdAjElMhl@XfAjFdTpHd[tBbJ~AzG`B~GjKbc@|F~UtCxLz@~DnApF~H|\\|BzJr@~CnC~LfEtQhJ|`@pBnI|DrOXlAp@tClAxFhA`GvA`JpA~LdFlf@|@|HpFze@fG`i@`Gph@x@hHNrAxD|]xC~Xd@zDfArJhHfo@x@bHhF~d@nFpe@pHjp@vBdRfEb^bCdU`Gnj@`@pD`F`d@|Exc@fDj\\hI~dAHbAv@pJv@|KnB~TdBxTvE|k@x@|JbAzMvBtXbDnc@zAdRx@zKxCf_@fFvo@TpCb@lF`Ejh@rAdQtC|^p@nI~C`a@lCl[zCr^F|@XjEtBxWdDla@f@fGh@hGnCp]f@zGLbBVrC\\`EPrEDvBP`E@L@NZvCXxAJf@TnAf@vDdBhT|@|Kd@pFf@jGZzDx@|JbAbMHfAnAzOJrALzAlHz}@NlBD\\j@hHPhCL~AJ|Bd@tG~@zMDd@hAnMHz@xA~OzAbRB^n@fJB\\P~EN~E@j@P~OJhJFtGHzKPrQDzDHzILfERxD`@pF`@dE~@fGT|AfBzKrDrT`Gb^PdAtFx\\xAhIJj@zB|LpAfHzA`Id@tBFZx@bEPp@n@dC`@`BJ^x@`DjBtGtBzGnAnDp@hBZv@|JbXn@`B~AjEN\\fArCtYxv@|I`UjMb]lGpPZx@jFbNlD~IrBlFdB~E\\|@\\x@\\|@\\|@Zz@\\z@Zx@Zz@\\x@Zz@Zx@Zz@Zx@Zx@\\z@Zx@Zz@\\z@Xx@\\z@\\z@\\z@^x@^t@NZPZNZPXPZPXNXPXPXNXPXNXPXL`@j@`AzAxCRd@Tl@Vx@Jb@H^D^BXBZ@f@@V?ZA\\C^Ed@Gb@Kn@Mb@w@fCw@`CuC|IY`A_@fA_@fAO^i@tAe@|A{B~EkC|F}MzYw@bBgDnHcF|K}C|GuEjKcBxDyCzGcB|D{AjDiBbEk@pA}BhFcFhLsCrGs@bBuGbO}Rhd@kRfc@mD~HoSbe@iQ|`@o@xAe@z@a@r@o@v@UV_@\\UVSVQ^O\\_@z@GHELUj@Yz@g@dB_AbDYz@[v@]v@y@hBmB`EwD~IeBzDwAhD{@nBiE|JgErK{E~K}D~I{DdJmApCyDzIsEhKuDtImAtCoCrGaJ|S}DbJ}ApDwA`DyFnMsEjKeA`CiBfEeItQ_JnS{ArD}FbMsKjUoCrGcE~J}AxDmAzDq@rBiDpKoA`Eg@~Ag@zAaI`WqC`J}Zz`AkEdNkE~MuM`b@y[xcAaQxi@KVyGxSIXkHhUaBhFgInWwFnQKXCFgBvFsBtG_CpH{Jf[qDbLkFnPmJhZcI`WoGjS_O~d@[fAeBnFyCpJ}Olg@cBnFe@tAaBjFGNwKl]a@pAkDnKoDfLoBpGgCbIgI`WcC|HuInXm@lB{O~f@gH|TcAzCiEbNgAbCa@z@k@p@_@Xg@RiARUHSNQTKZCZ?\\DZJZTXb@`@lBzAtGtF`CrBl@f@j@r@Zp@Tv@Ll@H|@@p@?t@IrAwBd`@YfFk@pKyCrh@k@dKK~Ae@jISxDKpBE|@Ad@ElBEdGIjHUrXObQKxMMtNc@fi@IdKQ~SIdBMlBUjB[`Be@jB{ChLu@bBYt@u@zCm@jCg@bDQ~AMrAQ|CEb@?PCFADAFAH@F?F@F@B?@FJHDHBH?HEFIBEXQDEDAZID?N?H@F?TBpB`@F?@@`APfATvAXpATbAX~@RLJAD?H@F@DBFD@D@D?BCDE@E@G?G^A`C^\\DAB@DBDD@D?BADA@CZJzAZb@Nj@Z`@Xb@b@fAvATZ^f@bAvAjBfCRVLRjBfCLNb@l@CFAF?JBJDDDDB@F?D?DEn@t@DHt@bAhBdC\\b@^h@BBp@~@x@hARVf@t@NRx@hAZ`@`ApAfAzAf@p@RZN\\^hA\\lALXNV`@`@rAfANLnApA`B~Bl@`ALP\\h@dC`Er@dAzC|EbBlCp@fAxBlDxBlDz@tAfHbLDFbH`LxKbQr@lAHRRj@DHBP@RAH@H@J?PCTEXEPITo@rB_A|CGNq@pBq@zB[nBYtBIjAEpAAdA?B",
+      "endpoints": {
+        "from": {
+          "placeId": "farewell-lunch-garda",
+          "geo": {
+            "lat": 45.492,
+            "lng": 10.608
+          }
+        },
+        "to": {
+          "placeId": "indie-campers-mxp-pickup-return",
+          "geo": {
+            "lat": 45.6197,
+            "lng": 8.7603
+          }
+        }
+      }
+    },
+    {
+      "id": "transfer-day3-1",
+      "mode": "FERRY",
+      "name": "Basilica di San Marco → Camping Fusina, Venezia",
+      "notes": "Vaporetto Linea 16 noturno.",
+      "distance": 9000,
+      "duration": "PT30M",
+      "polyline": "{}htGwbijAzuA~|N",
+      "endpoints": {
+        "from": {
+          "placeId": "concerto-vivaldi-i-musici-veneziani",
+          "geo": {
+            "lat": 45.434,
+            "lng": 12.336
+          }
+        },
+        "to": {
+          "placeId": "camp-fusina-venezia",
+          "geo": {
+            "lat": 45.4208,
+            "lng": 12.2582
+          }
+        }
+      }
+    },
+    {
+      "id": "transfer-day4-1",
+      "mode": "DRIVE",
+      "name": "Postojna Cave → Predjama Castle",
+      "distance": 10159,
+      "duration": "PT16M",
+      "polyline": "m|lvGocuuAf@e@Xy@J]TkBRs@FQRYb@OjASTJBGfFuAHDNMVBTLg@hCa@pD[|Aa@vAg@fAcAhAe@\\}@Xs@L{ADu@J]Pm@j@OV_@fAUvAI|@QrF@^Fn@ClAOn@S^qA|@}@\\}@TcFdEsAt@W^iAdCsDlFi@x@e@XiD|ASXm@hAa@XYF}@Ae@VUZ]vAmAfIOj@a@n@aA`A]n@eBvEiAdC_AbBoBdDoBnDiA~BeA|AqA`BWh@cAhCkDpFqD|Fe@hAoCvIk@tAeB|A]Ne@J[RU`@GVQfBMdCMp@Yd@qDhC[l@On@WhC?fA?hAIj@q@~BsB~Em@|@aBhB[z@On@Ix@QbEm@`DW`AqA|BaB`CaAhBWjAg@`E[jBWdAm@lBy@jAm@j@cCrB{BjCeCrBeAp@c@Nk@?[ImAk@e@EyATc@AkAWUDUp@Fv@FZPTbAz@P^Ff@Ch@Ur@If@GfB@pATrC?vCDx@I`AO~@A`@DjBDZ`@t@RTpAj@\\^NZdAvA^t@Jb@@p@Ez@e@dDSfB[lBGRYZo@d@]j@g@rBeAdFUd@a@b@m@Zg@Fg@Co@Wg@g@sB}C]]a@O[?[JYR_@p@i@fAa@d@s@h@m@r@y@xAe@d@cB|@aAb@k@H}ACWHWRW^m@jAcAbA{@t@}AhByB`Bu@x@g@dAK|@MdAe@jBMr@Ix@Mf@UZgBtA{@v@c@LsD@[Og@c@OBKPGt@GpAMjBKhA?d@p@xAPXNJ~@^zBh@vALfA?nCMPJRd@b@pAZh@pAvAzAfAJDzAEtAJb@HXPNZFr@?lB^rAb@x@xArBP^Ff@JrAJd@\\n@dCrBXb@Ld@BVCj@[rAQj@Ip@E~@Mz@MZsA|@_A@YF{@t@e@t@Qd@Sz@",
+      "endpoints": {
+        "from": {
+          "placeId": "postojna-cave",
+          "geo": {
+            "lat": 45.783,
+            "lng": 14.2038
+          }
+        },
+        "to": {
+          "placeId": "predjama-castle",
+          "geo": {
+            "lat": 45.8158,
+            "lng": 14.1269
+          }
+        }
+      }
+    },
+    {
+      "id": "transfer-day4-2",
+      "mode": "DRIVE",
+      "name": "Predjama Castle → Camping Bled",
+      "notes": "Paisagem muda de planícies para Alpes Julianos.",
+      "distance": 116865,
+      "duration": "PT1H35M",
+      "polyline": "oksvGydfuAR{@Pe@d@u@z@u@XG~@ArA}@L[N_AH{ABS`@wALo@?q@G]Yi@m@k@_BqA]o@Ke@OiBKa@a@s@aAoAc@y@_@sA?mBGs@Q]WOmAQoACw@DUKqAaAqAwA[i@o@iBMSSEgCLgA?wAMoCq@k@WOKk@gAWk@@u@JiAX}EHSNGLDr@j@z@B|BCb@MxAsAhAy@T[Lg@Hy@XuAXiAVwBPi@Zi@t@{@tB}A|AiBrBiBh@}@Xm@VY\\OPE`BBl@MfCqAj@e@Xc@f@_Al@s@lAeAb@w@b@_ATWZOZEXD\\Pj@t@|A~Bf@f@n@Vf@Bf@Gl@[`@c@Te@pAoGZiA^m@x@k@LSPy@PgARgBh@cE@y@Gi@M]g@_Au@_AO[]_@qAk@_@e@Ue@Ge@CaBDm@ReB?o@CeB?kAUkD@qBDy@Nq@Ni@?g@Ii@MUUWm@c@QUG[Gw@Tq@TEzAX`@AtASZDzAp@h@Bb@Er@_@~AoAfA_AbCsCzCiCt@_APYt@eCNm@ZkBf@aEZqAjAsBrAqBpA}B\\uAf@mCPcEH{@XeAZo@vA}Al@}@xBgFp@gCDi@AcCViCNo@Zm@pDiCXe@Lq@LeCPgBRk@TYd@Ob@MjB_B`@y@hCgIb@sAp@qArHmLVg@`AiCf@w@dB{BXc@pB_EtBwD`A}A~@cBhBcEpAqDd@o@v@s@\\q@ZcBbA{GT_AT[d@WHAr@B\\I\\Wz@}AhAk@zBeAVSnB{CdBcCnAoCZ]hAm@bFeEhA[p@WpA}@R_@No@BmAI}@DcBNeET}AV_AL[f@o@TSp@Wd@GvACfASh@Sn@g@z@aAr@eBd@mBRaBVwBf@iC~@eCp@uA^_Ad@w@hCkDh@k@bAsB\\gAr@iCpCnBPNP^Rr@n@tDbBzHV`BFhBAn@HvAT~A\\bAjDrGbClEDPj@d@NHFTPHXTb@~@Nt@h@hELf@FJ?XJPP?DEb@J|GrAXHF^LPPHRCPSBGlD^~FnAtBj@jFx@R?fFj@bAZtBlA^VLLr@Z|@XfSvEpA\\fAT|Bl@HaDM_Am@qAmAoBgAwBoCaFq@aBo@cCYsBMe@yAoMwAqKuAyIoCuOeAaFw@mE]}AgAcFcBmGyAeFuByFmAuCkByDsA}BsD_FqDmDy@m@{CgBi@WcCcAeBe@eEw@sBOuBCsDFcHj@cEb@_F^mBJuFHyBJaBIwFe@cEi@eDs@mDaAmAy@eGmCqEeCwDmCkEsD_C_CcDsD}DoFmAiBkCuEkCoFeC_GgDaK}@_DcBkHq@gDk@oDu@}Eu@qGe@{Ey@kJgGyz@m@eH]iD[eC{AwImAuFoAwEcEiMsIeWcBkG_@{AmAoFcHw^{@iEkBwHoB{GyAcE{BqFaCcF_CgEcCeD}AaByAsAsCcByAk@cA[}Bc@qCSuB@yBNsF~@mCh@iBZcCVsCLkDAeCMmCYgCg@mA[aCy@eAa@_Bw@cF{CoBaB{A{A_CsCcK{NkCgDgBmBiB{A_C{A}C{A_Bg@yBg@_BUgCOqCAeCH_Fb@wDl@sBb@oEpAeCx@aGhCgCpA_FlDaEdDkEjE}KlMoEhE_JdH_ErCiItGuE|DkF`Fak@~i@wExD{CnBkCtAyCnAcC|@uHbCuFvBuCxAmDzBmCtB}AvA_ElE}DtEsBzB}@|@gBxAaBhAkBdAgCdAaD|@oB\\wBRqCHiKLaEV}Cb@cB\\{EtAuBx@mEvBuBlAoKvGqF~CwElB{JhDqHlBsEv@oFp@gE^uCPkHHuEImG[oFg@_Fs@oIkB}EqAwGiCw@WiGoCgIaEy@i@eCuAaF{CkGiEmFaEsHgGuBeBoAcAgGkEkI{EkDgB{Ao@uG_CcFyAoDy@uCm@gEs@aD]{CWyH_AsAUwFuAuBq@sD{AsBmAqA_AoBcBiBiBeG_HuCmCy@q@eDgBaFiCqBsAiAaAeBkBgA}AaAaBgAcCm@aBw@gCmAqE_@aBw@aE_@eCq@sFq@uIm@qL[cEk@}Fs@wEgAkGiAyEqAqE}AmEuC{GsAeCgCgEq@cAuAgBaEuEuBmB}CwB_FuCmAk@qFmB}Bm@eCe@gEe@kFOmEHmDVuK~AyEn@oCZuFVeEC}H[}Dg@aF{@mH}BaEaBsE_CcDkBoGiEoDqCcGqFoDqDiGcHmJ_LsE{FeJ_McGuI_IwLgDuFqGaLsF{J{BgEcIaPyFuLqFwL}H{QyFqN_I_T_F}NiCyIgB}GuAoGeBeJm@yDs@eFo@sFe@cFcDud@w@kG_AaGsBqKeAcEq@}BaAyCmBiFiAiCwEmJgUac@cG}LiBqE}AeEoA_EeBoGuAkGsAwHcA}GiA{JeFuh@uQmkBmEid@_@_EuAsMgAwJkBaOsA_K}@sF}AsI_DsNaAaEwAmFeCiIgBaF_BgD{@qAiB}BuAoAuBqAmCmAwIcD}As@m@]cCsBq@{@QCqBiB{@o@sAu@iAi@_B]cBM{@?q@D{@HeBd@aBt@w@f@mB`BuBpBmBbBsBnAuClAsBb@{@LmCJqDOaBWiAWgA]_CkAw@m@mIkHiFuEaD}BaDuBuBgAmD}AcBo@wFaB}JgCcEiAmOaEwHyBcM}C_b@qK{IoBcIwAeKuAkJ{@oJk@eJScJCoPRkG?_KSgQaBgGu@aCa@kCo@gBi@aBo@mFeCwHmFqUaSkF}D_F_DqEcC}FeCkBs@{JwCmD_AsLaCkEkAsBw@kBy@sDuBqCkBoC}B{CaD}CwD{EmG{EkFw@s@{EmDmCyAqD}AaGkBaDq@eDYyCQaECeDJuD\\}Bb@{Cp@aCr@kGlCaKzFa@XkLtG_ChAyBz@}DnAgFjAwAVaD`@gF\\mGLmFQeFe@gBWuFiAkEmAkHcCmgA}`@{HoCuKmD{FwAeDq@cHkAaEc@eG[mFKeCC}IX{E\\kEh@iC\\uJvByEtAoIfD{CtAoAl@wDvBqGnEkFbE}CpCiE~DmBlBuHfIqQjSkApAgA`AgC`DqDnF}FhH}GxI}OxTgIdLgHrKeOzUgKxPsN`WsL|TuHbOkHbOyFpLwJpT{Nt]uCfHiW~o@sY~s@mGfOgB`EqH`O{HfNiFdIwDlFq@hA{HtJ{CnDkG|GeWjWeKtKqGrHmCdDyBzCuE`H}ChFaCnEkCxFkDjIyD`LyArEoApEqBfI{@vDoAxGaAzFgAjH{ClX}AnOuB`UqApLuFlj@eDzU_A`GuBpLcCjLgEzPaAjD{AzEgBdGcAxCoFdNuChHqChGwFjLaAvBwGdPkD|JmBjG}BzIqAxFcA~EmAtGuAfJaAjI{@bJ}BnYsCn^s@rI]vCy@|FoBvJoA~EuAfDaAdB_CnDu@~@}C`DiBpAeClAsC`A}GbBoBj@eCdA{ErCqFvE_Ah@sBzA{A`AiCrAeBp@wCt@kBTmB\\o@FkBBeBFqJ[{H@oGZqDh@sDn@mDz@uCx@aBl@wCpAwEbCeEfC}B~AyCjCqBtBmAxAyBdDyAlCyBfFoBlGo@vCsAlHu@zGWnCYjG_@vPYlRK|MMjIe@jJy@`KkA`J_@lCcAjEqAxEoBdGkA|CwAfEuBzFeIjUiFdNcFrNyAbFeC~J{Hx\\qB|Jm@~CiChOm@dE_C|RiClViB`PiBdLsAbHyBxJmDdMeCtHcDtIuF~L{DrHsHdNcKdQ}St[iKlNmHhJ_PfRiJ`KaPnPu\\r\\}`@ja@yCtC}LzMeEtD_CtBOCu@l@s@Zm@De@IiAo@i@Wo@C]J_@\\Sl@Cv@Dr@F\\bAnEdA|Cv@lBrCzFBVFNLvAGh@Dj@P`@`@\\T?j@r@^x@Z`@|DxLhBtFr@bBnAbEThAFz@Ez@O`Ai@lC[bC]hKIhA[dCyClMa@j@OHGVDrA[lA}@~EcArF[h@OJCVBP@pAa@|BOf@o@xA]j@kBlCg@fAg@bBg@`COrACZEzAD|BVrBx@pEf@pDt@`EPj@h@`CXnDD~A@z@GzA]hFCp@J|EL`DAbAC^OVE\\@RInA]p@kBpEs@hBm@jBi@fCU|BGzB?lCEJ_@RkDf@g@NiB|@qBrA}A~AcB|BmAhBy@bA{@x@gAz@kIlFuAhAo@p@k@z@w@|Aw@zBg@~Cg@jEMxBGzDB`ELlB|@zF|A|H~@dEjA`Dt@`Bh@~A\\zAb@pCJzA@xAGfCKtAi@~D[~AMhAkAnD`@bBL~@|@xHn@~Dd@dB^jAxDpHL`AA`@M~@?p@D^jAdDf@|@b@Zl@PzB\\fBn@rB`AlJ`GZBz@AfAt@fAx@LDhBVjBJ^Sz@Wd@[z@}@`@i@l@wA`@uAl@H|@`@|BbBh@^^f@rAzCp@p@THh@M\\IZMpAw@XfAHt@Av@Dv@",
+      "endpoints": {
+        "from": {
+          "placeId": "predjama-castle",
+          "geo": {
+            "lat": 45.8158,
+            "lng": 14.1269
+          }
+        },
+        "to": {
+          "placeId": "camp-bled",
+          "geo": {
+            "lat": 46.3614,
+            "lng": 14.081
+          }
+        }
+      }
+    },
+    {
+      "id": "transfer-day5-1",
+      "mode": "DRIVE",
+      "name": "Vintgar Gorge → Lago Bled",
+      "distance": 6253,
+      "duration": "PT20M",
+      "polyline": "cgdzGcb~tAx@NNHLNv@pB\\d@v@d@|@Tf@?~AIz@D^VHLXp@PdARJxA?LIDI@[o@yCBOJAJPTh@TP|@T?Sr@eAh@s@x@g@fAc@\\uCN}@n@{B`AmFPk@TSp@g@Pg@B_@Ec@I[g@iAmAaBk@iAM_@Mw@G}ABoAtAOfANzBCTKCiAQwDAYf@}@nA]h@W|@k@fA_AdFwFpCyCzJ{K`Ay@`CgBhJmHzAmAdCqB`B_@bBMhAUXIwAsHs@sEOwBAwDF{DLyBf@kEf@_Dx@}Bt@{A|@qA\\[tAiApJkG|AwA~@iArB}CpA_BjAiAhBmAhB}@l@QdDe@d@@BBf@vFHZLpATvGDX\\hB`CxKnBlJPh@Rb@hDdCjAv@|AtAb@r@HTf@tCdAnCPr@JdCN`An@vBt@dC~@bEr@jEr@hCp@lBRTHD",
+      "endpoints": {
+        "from": {
+          "placeId": "vintgar-gorge",
+          "geo": {
+            "lat": 46.3936,
+            "lng": 14.0857
+          }
+        },
+        "to": {
+          "placeId": "lago-bled",
+          "geo": {
+            "lat": 46.3636,
+            "lng": 14.0938
+          }
+        }
+      }
+    },
+    {
+      "id": "transfer-day5-2",
+      "mode": "DRIVE",
+      "name": "Lago Bled → Bled Castle",
+      "distance": 3223,
+      "duration": "PT9M",
+      "polyline": "sb~yGyv`uAUOUc@qAiEg@uCa@cCs@yC{A{EQy@Gy@GgBQs@eAoCg@uC[s@QU}AuAiFqDOQg@yAkE{Se@mBWuA{B?s@FYR_AlD{FzPiAlD{A`DSn@QfAKbBIvAWjAaAtCa@pA[\\MBaAh@uBv@MLERIfB?^Hd@`@dAj@jAbAtAv@zAT\\Vn@BT\\Xv@jA|BzD`@n@^t@JFNZd@|AJFRIZm@Pk@Z_BLgAEeASkASq@OSYGQOOw@j@@XGX?@A",
+      "endpoints": {
+        "from": {
+          "placeId": "lago-bled",
+          "geo": {
+            "lat": 46.3636,
+            "lng": 14.0938
+          }
+        },
+        "to": {
+          "placeId": "bled-castle",
+          "geo": {
+            "lat": 46.3699,
+            "lng": 14.1006
+          }
+        }
+      }
+    },
+    {
+      "id": "transfer-day6-1",
+      "mode": "DRIVE",
+      "name": "Vogel Cable Car (1.535m) → Lago Bohinj",
+      "distance": 1979,
+      "duration": "PT4M",
+      "polyline": "igmyGcimsAM@a@_@]EULc@j@_@TW?o@m@SYg@aBg@gAcDoFi@aAYw@i@eCWwCsCiSSoBSyCi@gDYq@}@qAg@kB_AoEIk@?qAVoDA_@}@_DGs@@mAL_BJg@vByEVy@L}@PkBh@iBFg@AeBHeAJy@RaAHaBF_CBS",
+      "endpoints": {
+        "from": {
+          "placeId": "vogel-cable-car",
+          "geo": {
+            "lat": 46.2757,
+            "lng": 13.8354
+          }
+        },
+        "to": {
+          "placeId": "lago-bohinj",
+          "geo": {
+            "lat": 46.284,
+            "lng": 13.8594
+          }
+        }
+      }
+    },
+    {
+      "id": "transfer-day6-2",
+      "mode": "DRIVE",
+      "name": "Savica Waterfall (opcional) → Camping Bled",
+      "distance": 33841,
+      "duration": "PT39M",
+      "polyline": "cbpyGavfsAr@QhAFGy@Ki@c@yACs@FwALk@Zg@`@_@ZIl@ETKDSMgHKcA@k@Rm@PSb@?rARhAHj@Fl@ApBe@d@BzAQt@Hx@PZGd@U^WLEdAAxBk@n@_@|AcAx@WXAr@Lx@D`Ag@`@Kx@k@Na@Du@@g@HWXc@x@}@f@Sp@?hBHz@Ch@IhCkBTUTa@Lw@Hq@JSf@Gj@q@`AmBNa@Zm@|@eAXe@XaAJq@JeBAs@Gq@Ko@c@yAGa@@WN}A?]W_C?k@b@_CfBwFHe@BsALq@HU`@c@l@c@FM@YGc@k@wAOm@?c@Jg@d@cADe@Cq@b@iFCcAc@iBKgACs@D_BZgCZcBD{@K}CBe@CgAw@wGEq@C}@FoCQiAmAuEQy@[gCa@kECu@DoDGo@g@aBg@gAcDoFi@aAYw@i@eCWwCsCiSSoBSyCi@gDYq@}@qAg@kB_AoEIk@?qAVoDA_@}@_DGs@@mAL_BJg@vByEVy@L}@PkBh@iBFg@AeBHeAJy@RaAHaBF_CHk@j@cCLaALmBNaA\\gAr@oA`AoBd@w@Nm@Hy@DsADkAUuCIUa@kC?_CKqBQ{AEu@MuA]uBE_@?y@Fi@RmAHgBDoADm@^iCFy@NcKRyEDkCAcABmAf@eEf@wEj@_EDo@XgJDoARsBLc@dBeD`@a@j@e@\\c@Rm@Ha@FsDKs@Sg@k@_A_@[}Au@SOWc@}@kDOeAE{@?s@Rw@vAwDj@cAj@{@z@wArCgFnBcCvBkD`@q@Re@N}@N_Ah@oBfA}Cj@oAf@w@d@cAd@s@pA{Az@{@dC_BjAq@bCgAhEeBd@[x@{@\\q@n@sBLe@f@gDd@eEFqACiBOoB?w@@a@f@qEZsBn@{BHe@@u@Cc@]mBGaA?eICeBIeBMyACgAG{@mAmFU{AQaBSu@O]_@Uy@OyB?c@Ae@Og@g@_@aAwAgGu@gBw@_BwAsD[o@Mc@QmAAaADuA@aBI{@a@uB_@oBK_BO{EKsA]uCUoCQu@eAgBMo@Co@?oBDkBDo@ZmBVcANuAHkAJ_@\\s@`@[l@a@^m@j@aCPa@v@gAJYDYDuAIaBWeAUi@Mg@]{By@aFW_A_CaGWcAOqAm@kDQuAEaB@uAFu@X}Af@cBd@aA^q@Tk@Lm@Fw@AsAMgEBeCBcCAwCIm@m@oCIi@E}@CmA?iEMgDi@_IIu@Bo@J_@fA_Cf@aAf@{AHYFi@Sy@c@iAFSEQMGMJATkGfCwAv@iBfAU\\Ut@c@n@wDtB_@N]FSCOIa@q@k@yA]gAoByE_@_@YUYKc@MyACuDJqAGiA]k@_@w@u@a@q@q@{Ak@}Bs@gDaAoG}@qIWuDQiDMmGAuEPwDR_C^gCn@kCz@iCv@yBh@{BRaBHwA?oAOwB[aB[eAe@eAoAgBqFsGaB_CmDwFcFiH_@u@m@eB_@}Au@kEqAsI{@{GW_DMiDOqOOwG_AkTS{IKyKMkGYeIa@{IYuJQyK?cJDyFTgIj@wJ|@qJx@qGl@eD^{Ap@iB^s@|AoBxA}AjBiCfB_D^{@b@kAT{@Z{ALqAJeB@eBGiBGaA_@sBa@gBkAwD}C{IwEgN_C}G}BsFs@sAyBsDaCoDyBiD}AgB}@w@aAo@aBu@o@UaCq@aH_BSMgAwAi@]u@U{AMmB]iAi@c@[q@s@kGmKYu@k@eBSs@w@}A}A{C{@sCq@mCaAwBcEsHy@gBw@aEk@{CwAsFQuAGiA?cFFcI?y@GaCkAsNQ_DKeHEy@SuAMg@q@_Bo@mA[_AsAmF_@mAg@u@g@]{@UgCGkAO_A[aCcA{AY}BYoAc@iCgB}@]s@GcAH}AXk@DsGGoCCo@L}@RwBD[J}@v@}@v@SJkEn@k@RsMtIwBz@}Al@gBdAaCvAUFcBd@kADw@GqA[sAk@G?cKyGkAg@mAY_F_@{A]kBu@eD}AsA_@iBQyAAwERqBAiAKmA]mAm@_D{BcAe@s@QkAIkCEmAM_Bc@qB_A{CsBkBqAyA{@{B{@iA[cBYuBQ_HEaDAmAMe@Ku@WkAy@aAiAS[i@qAe@}AgA}E_@oAc@eAy@kAkAeAeAi@{CgAuAu@_Ay@y@gA}@mBq@uBEQQwAeAcG{@cEGOY_B_@yAc@kAgAiBsBcCi@aA[u@s@{CmC_Na@iB]yBo@sC}@gFkAiEaCuHuAiD_BuDaAaCKm@@c@\\mBBq@Em@Mm@IU[c@UQ_Ag@[LOh@`AzG\\tCCb@_@|ACb@Hh@|@nC@f@Mj@KVs@t@WJQCm@Yi@Kk@Na@d@Sz@Kr@IfBIz@]dBWp@W^gATs@Nu@`@oAt@q@Nw@AmA[{AK]JINCXDZt@tBNl@JzAAnAI`@OZk@j@XfAHt@Av@Dv@",
+      "endpoints": {
+        "from": {
+          "placeId": "savica-waterfall",
+          "geo": {
+            "lat": 46.2927,
+            "lng": 13.7968
+          }
+        },
+        "to": {
+          "placeId": "camp-bled",
+          "geo": {
+            "lat": 46.3614,
+            "lng": 14.081
+          }
+        }
+      }
+    },
+    {
+      "id": "transfer-day7-1",
+      "mode": "DRIVE",
+      "name": "Pokljuka Plateau → Peričnik Waterfall",
+      "notes": "Via Mojstrana.",
+      "distance": 37517,
+      "duration": "PT52M",
+      "polyline": "adzyGih~sAB^CP]n@E\\BjAEl@mA[m@GSK_BmAwDsB]GwA@QEmAm@k@e@oA{@_By@k@_@gBiBqDeBo@q@k@w@mA}Be@{AgAmEc@}@s@gAY{@Qw@O{Bc@uHGq@WkAgA{CMi@Gi@Cm@AsAM_BO}@Qe@}@yAmAsBe@_AIq@Ay@h@oGh@kF`@sCv@{ERm@NYj@o@|BiBbAsAl@iAp@oB^eBhA_I`@kBdAaE\\gBv@}GTaA`@cAr@{Af@iBlCgLlBgHf@_CnByGh@iA^i@`AeAzJiI^_@nAcBNYh@eB\\gBHmA?oAE_AK_A[}A_DqLC_@CmAHwGEcBSsAMq@{@eCq@iAm@s@}@q@kAg@{Bm@uCi@qAg@aBeAs@i@y@y@a@g@g@}@i@qA[qA[qB_AcLMeByCa_@iA}Ne@mFQaBAy@Jk@Ve@b@_@\\k@X}@BWA{@MiAWqAuAkDA_@By@JqABuAEeAQeDBi@Hg@XeAFg@Aw@UgBQqFI[SWIEgAGc@USWOc@UiBWcA[m@o@m@WQsDqAs@e@kBaB}BiBaAqAk@[y@MmBIwAe@[SsAyAU_@]iAM{@Wy@aC_EW{@Es@b@uEH[v@mADa@Aa@m@}AA[HgAJu@BqACqBI[eAsA]c@}CsAc@a@aA{Bk@mAm@sCMMiBWa@Qk@g@Yg@Oc@[eCK}@Ye@wA{@SUG[@[h@eCT{Bt@qAH_@Aq@IW_@[q@Om@Au@Ne@EgA[i@?[?QKU_@e@mCKUaAiAg@s@K]I_BCiAHWLM\\MPOHc@?a@Oo@Y]c@QgBIUWM_@Ce@Hi@Tk@~@wATk@Dm@Gk@Sk@_C}Dw@g@yCuAwBUWSQ[WqAmA}DU[WQ_@EwA?UGUO{@qAYImABUE_Aq@Sg@Cg@Bs@KuAIw@D]Xy@Ly@B_BAoFKu@s@{BMsAHuAVgAdBgGP{@rAwEV[jBo@X]Li@Bk@Ii@O[iAw@qAs@u@Oc@Aw@Lu@\\g@d@y@|@w@`@qBn@gBhA}@Ze@BcAMq@LmA`@c@IwAe@QUQm@a@yBYo@c@UsAgAUg@K_A[eAkDkBM@c@a@Yo@Ei@D]LWp@{@HY?USiAC_ABa@XsAJq@?_@CKQUAWGOKMEMm@e@CIE_@CaAy@mFA]DW@Wv@{CJQXIzBJx@Mt@F|AZRExAkAhAq@r@{@pA_Bb@Sp@UJOFk@E_@ISs@eAQc@Ic@QaDB_AN{@r@gDJuBBaCHe@`AqBLo@JqAHuBJ]RSREhDKVMJSBc@Gc@Yc@y@y@OWC_@F_@n@{A@SC[O]SMUCqAB}Ew@sCaAWM{AiAc@QwC?qCWiBSoAc@i@c@a@w@]gAAPR|@f@dA^`@l@Z^NNVV|@?f@I^SVSFwA?q@MkAk@a@Ye@G]LU`@iC`D@hCi@~CU~A]pAk@`AcAdBg@d@i@R_@J]ZaArAqAzC}@vB_BbDg@zAMh@Ir@KdBg@pAKb@g@bEc@zAsCtIeAlD[lAOdAOtCGh@a@tAuAjDcAhBg@xAGn@Dn@Lh@dBzFNt@Bl@QlCDdD@pDk@xDMrAIRiA~AUT_Ap@{@t@UZ_@hAaA`EQ\\SLoBl@aAt@k@p@a@v@Ql@InAK|AYr@e@t@sAxA[t@[~@s@l@_@HUF[\\iBzDs@jBiBhFmA|CiBpDw@rAUf@kAfDi@dBo@v@u@|@k@jA]nAMzAQlCI|@ElBE~Di@bLBtCAfBc@hIG`CEdAId@{@tEUfA_@~@y@bAg@hAgA`E_AxC[|BGl@Ob@c@p@c@\\k@v@cBlAYPe@HcFNwAFg@G_Ai@YIeACgCPo@WoDsC]Kc@@UH_Al@yArAaBpBiA|Aq@x@sAhBY\\SLcBn@oAr@aEfC{D`Cm@h@_@h@m@~AORu@b@wBl@mBn@{@d@}@nAi@v@o@r@sApAwBpAsAtAg@bA_@z@a@v@k@p@qAzAmBlCe@j@c@\\eEtBu@V{AvBi@dAc@pAWjAc@dD[~E_B~Ji@rCOhAIjAMjAg@pBgAvGM`A]vC[hBQj@{CrFi@n@oItOWh@w@bAu@l@wA~@gAj@aJpF}ApA{ClDSf@Wv@q@lAu@bAuAzAuArBw@zA]~@[|@a@vBUrAQrBSvEApAOdAa@jAk@zASbAYhBG`A@lCE|CBlAnA~Hx@vCJj@VxBHb@\\xAXvCZt@\\b@Tr@BZEl@YjDEhA@rAEdCIrC?lBHpAp@hGj@rBp@jBD`@?HGFuGnEu@bAyBbEe@tA_A|E_AxCMr@MbC]jEe@tCm@x@Kz@?|@\\|GFp@d@tCDr@Ar@QfDOzAO`@q@|@M\\Q|AMr@Ub@eBpCWr@Gn@Al@DxAJL\\FFFATU^g@j@a@j@q@vAUT[Dc@QeBaAoDcAeCFs@HkAF_@BkCQ_AQ]?k@\\a@Z_@@q@SYY_@w@Uo@W[]QgEe@mBXo@?_GYaAYsBeAq@KcA@aE\\_AEcC]oC@w@GgHkB{@i@}@}@Uc@eAaEc@u@c@k@UOq@U{AKaAg@oA_AOGi@CwDNYGKOCa@DcAGe@Yk@_DmDyBiCYEODaAp@U@WMiDsDY]S_@c@wAYYoBi@_A{@WUg@MWGw@c@cEwCwAUi@]_BuAc@c@Ww@GSECm@?a@T_@b@Sh@UP|@dDBf@Ed@ORy@t@PpANlCH`@Xf@xA|A`EfFv@bA~AdB\\r@l@~A^h@|A~A`AbBnD~EbA|DZp@\\Zv@T`APZRfBdCxF~FzAnA\\^\\l@d@tAVb@j@l@nAbANXL^f@dCTh@`@^nAf@`Ah@^f@V\\pCpBh@z@j@lBLj@XlEG`CD|ALd@|@xAt@n@f@`APf@Px@?^CHk@lAEj@Fj@XjAZfA\\dARb@t@nAd@h@\\Th@p@R~@xB`Hf@dC`A`DVrANxAFXTf@p@h@b@XXf@\\bAd@bARv@Hv@D`@n@nAHb@?n@YdDAfAHx@FTTh@n@jANl@Fj@HXp@t@Th@Hv@LnAp@|D\\dCH~ABbAx@bFDv@?|AFj@Nb@`@f@h@ZtBr@dA|@hAxALXl@`C\\dAZvAXlB^lB`@hAl@nApAnBZRr@XPTx@bI",
+      "endpoints": {
+        "from": {
+          "placeId": "pokljuka-plateau",
+          "geo": {
+            "lat": 46.3397,
+            "lng": 13.9236
+          }
+        },
+        "to": {
+          "placeId": "pericnik-waterfall",
+          "geo": {
+            "lat": 46.4392,
+            "lng": 13.8938
+          }
+        }
+      }
+    },
+    {
+      "id": "transfer-day7-2",
+      "mode": "DRIVE",
+      "name": "Peričnik Waterfall → Zelenci Nature Reserve",
+      "distance": 22241,
+      "duration": "PT27M",
+      "polyline": "}{lzGwvxsAo@oGIs@QUiAg@cAwAk@eAm@wAUy@e@uCSoAOm@]eAs@oCu@eA}@aAk@_@yBu@k@e@Yc@Me@Ek@?aBKeAq@cECcAI_B_@kCy@aFIuAOe@m@s@MMKc@Kw@Oc@q@mAM[Mo@C}@By@VyCAw@Og@g@_AEa@Iw@Sw@y@mBOe@[c@u@e@_@a@M[Mo@KiAUmAaAaDg@eCyBaHSaAi@o@]Ue@i@u@oAUe@[cAo@{BKy@@k@DQf@eADWEe@Me@o@}AUYi@a@}@yAMe@E}AFoCY_E[qAg@yA_@i@{C{Bc@s@YSiAk@w@Ya@_@Ui@g@eCM_@OYmBaB[a@Um@Yy@]o@{@y@}@s@yF_GgBeCg@YyAW_@QW]Wi@aA{DoD_FgAkByAyAe@w@{@uBk@s@{@_AwCyDcBuBwAyAYg@Ia@OmCQqAeAmBo@oAiAsA]Sq@MKIw@gAECaAC_@IMUHo@@]O]SOoBg@iAu@kAtPu@fKQxBa@zCg@nC{BhLo@dDS|Bg@dIA|@FnATlDBbBG`EK|AOpAe@bC]vA[hBUzB_@jEM|@e@xBW|@o@vAkB|CwAzCeApCy@rCa@xAq@|AoApCc@xA]jBo@nEi@dCQp@e@bA}@jAyFxGs@dAmHnOc@dAiAhDSbAO~AEbABr@N|Ah@vBV~@h@~CNjBFbD@jYGhDUdC{Frc@e@~BcBnFW`ASzAUvC{@vMUtAQn@qAhD_@jAc@nBKvACjF?xFHnBv@jHF~@BtBA~EBrAZ~EJhDEpCM`B_@jCyAnIc@`Ds@nIeAbOCrBFbF@bEGvC{AnRi@fEmAfFGj@G~D?jAZlF@b@GvAKz@}@xEIl@IjB?pBAr@Gj@Q~@Up@_AbB_BzBiApBq@vAuAxDm@pB]pAIx@AtBgA`TEb@?rBLfBVvA`@jA^v@`@h@`Ax@|DvCX\\Rn@Dn@E|@U`A_AnD_BzGYt@aA`BYt@O|@Q|B_@`C]nBKrA@j@P|AAx@In@aAzB{BdEeBlEoAdCW~@G|@AfBMnGStD?`ATjI?f@QvH?nDNjD?jBIfAUhA}@tCYdBIpAEnBKbAg@rCSbCSnFGnGBjFLtEP~BFjAV`CbBzLLbBJdCCV~@vV\\|E\\vCd@tB`@jCBfBEzAUxA[fAi@fAsCnEkAvBqAjCo@pBiAxDGJMLEX?`@c@~CK~@YfCUzDIxCA|D@jAV`GxBzUJt@CV?n@AZHRJp@JVT|CDjC?pBQrDm@rEo@dCgBrFq@lD[fCK~ASlG]dEWbCMdCBrERrHExDM`BY~A[hAgFxMs@fCS|@_@~@KN?VFLFf@k@nFe@fCsA~Do@pCOdAm@~GYpCkAxIOzBOdL@xCBp@l@zH^jGPpED|DCfCUdEc@pDObA",
+      "endpoints": {
+        "from": {
+          "placeId": "pericnik-waterfall",
+          "geo": {
+            "lat": 46.4392,
+            "lng": 13.8938
+          }
+        },
+        "to": {
+          "placeId": "zelenci-nature-reserve",
+          "geo": {
+            "lat": 46.4926,
+            "lng": 13.7378
+          }
+        }
+      }
+    },
+    {
+      "id": "transfer-day7-3",
+      "mode": "DRIVE",
+      "name": "Zelenci Nature Reserve → Kranjska Gora",
+      "distance": 4376,
+      "duration": "PT5M",
+      "polyline": "mxwzG}gzrAb@}CVyCNoD@_CI{ESqE{@aMKuAEqBFkGFaFN{BjAyIXqCl@_Hd@iC`@_BjAmDd@gCj@oFLg@HQAWDkAb@kBb@yAfFyMZiAX_BLaBDyDUcJAcDNoCh@oFHoARmGJaBZeCp@mDfBsFn@eCl@sEP}D?uBE}BU}CD[Fq@HWCYMOa@q@Ku@yB{UWaGAsEFuCH_CNuBd@yDf@mCPc@|@I`DC`G_A",
+      "endpoints": {
+        "from": {
+          "placeId": "zelenci-nature-reserve",
+          "geo": {
+            "lat": 46.4926,
+            "lng": 13.7378
+          }
+        },
+        "to": {
+          "placeId": "kranjska-gora",
+          "geo": {
+            "lat": 46.4859,
+            "lng": 13.7898
+          }
+        }
+      }
+    },
+    {
+      "id": "transfer-day8-1",
+      "mode": "DRIVE",
+      "name": "Jasna Lake → Vršič Pass (1.611m)",
+      "notes": "50 hairpin turns — marcha baixa, buzinar nas curvas cegas.",
+      "distance": 10373,
+      "duration": "PT26M",
+      "polyline": "u~szGikcsAfAi@h@C`@Nj@^p@Zj@DzBc@nCKhAFbFv@`@N^Tn@z@|@jBNf@VxAVp@V^ZP^Bh@El@S|@o@`@IZDXHXXRd@x@|BJLZF`AH`Bh@dAJx@In@OrAmAbAK|@U^?rFbAz@FrABb@DLLBTC^UZWRq@^q@ZIPCXDd@HPtC`BXC`Ak@nB]P?r@NdC|@n@AnAU^Y\\YlAOpEOFB~@r@`ALfA@|@TXBv@Rt@C~BARHFXJz@Xr@RVr@\\f@\\f@v@TDJIJ]F_@HINC`@Rd@`@r@b@dCbAl@PlAj@RVRt@HHlADdAZ|@j@nCxApA`AVf@Pj@XR\\D|@Y|CPbB@n@RdAf@dATx@f@x@z@r@d@ZNDNEHI?kCwAOFALHLp@RlAx@p@n@DP@d@Gp@Sv@AZFZNVXHd@ITPV\\\\Pj@FLTB\\MtAIl@GnFD~@DPJFRE^_@T[NENRAHk@l@g@dAUl@?PHFLKFWb@i@JGVRTb@^~@TVZT@LCLKB]Qi@_@c@I[JYXa@rAUVKDO?SOa@cAc@yAOyBS_@WO]AQHIRI^Dv@Jf@pCjJPj@Lr@BjACvAF~@j@lBp@lBPXt@j@rAn@bHtFVLrARj@Bb@UVQ`@_@d@OZAVNXXZd@Vl@Ll@F`AHXRHVCj@YLDDR?V_@|BINOEc@q@WKwAWw@k@M@GRDPrBpBBROLi@Jq@XqDLc@BCH@RJHl@MfCJtAGNFBJCPSHsCBmAD_@JINDTJBl@MJBpBxARHl@?l@IHLAVg@f@m@Ty@NSPS^YrAEf@FdAHl@HPr@t@Td@tArDLfABdAARKZg@|@Id@K~CERMLc@Hm@Sw@_@o@w@MG[?q@VaAf@q@FGNFPDB`AItAU\\L|@jAzBrDNNh@PLPAPKF}@k@OCOHSNi@BIN@NHFvAL^PFPCLG@m@Mc@Nc@Bw@Oa@DUNGL?Tt@hBp@hAx@dA\\`AHj@ELm@`@]`@EXBVLLNBb@A~@Nf@Pz@f@~@r@XF\\AvAc@JF?P{@vASNmAf@c@Fe@FGHBVFHlAD\\JrDhB|AzA|AdAlAjApCnBh@t@tB|An@Vt@Nl@?~AQN@\\JNJD?B\\",
+      "endpoints": {
+        "from": {
+          "placeId": "jasna-lake",
+          "geo": {
+            "lat": 46.474,
+            "lng": 13.7841
+          }
+        },
+        "to": {
+          "placeId": "russian-chapel",
+          "geo": {
+            "lat": 46.4426,
+            "lng": 13.7677
+          }
+        }
+      }
+    },
+    {
+      "id": "transfer-day8-2",
+      "mode": "DRIVE",
+      "name": "Vršič Pass (1.611m) → Camp Liza, Bovec",
+      "notes": "Descida pelo vale do Trenta + Rio Soča.",
+      "distance": 33157,
+      "duration": "PT51M",
+      "polyline": "k}kzG}e{rAC]f@Uj@m@hAiBdAgATM`AYn@]p@k@RAFLARINm@f@ANDLRBvA]j@[\\c@^g@XIRAn@Jv@`@n@\\X@tBm@v@SZBPP`@lAVd@RF`@K^QHDBLEJYJ[FGJ@LLHl@BTHt@j@zBf@|AVZAz@[d@CnCt@d@B|@Wn@YT?`@RzCGtCs@n@QXQJOPg@NU~@]j@K^FjA|@t@T`@Ht@^hDxBVZXj@NTbAt@bAf@jAPj@`@fApA\\N`@NzApAXNT?VO~@aAPc@b@}A\\{@Fk@FgBP}BRs@r@k@LSXw@XoAHIPCl@Fj@QtB}BJYHYJAFLARqAfCc@`Aa@l@?PFJPAn@i@hEeF`@]z@a@n@MTD`@ZVFb@KTYJ]AY_@}@ESBYf@oA?QESOWy@}@Sm@Kk@@q@v@oDDg@GmAAcBLeAPm@XSz@QLOh@_BD]Mq@BSFEJDNh@Hn@Cl@Gn@Gj@KXq@b@IT?^@Ln@zBVxA@ZQxADNLBFEb@eBBc@UsCBa@LQ`@KXSfAiAFYFmDOmABKNEFNPnDJj@Xt@@d@MbBFNL?FUPiCCa@Qw@Em@@[FKH@FNBdAHTb@t@DZHpBHx@FLJBFKBUGuADs@Di@AUa@qAAq@JeBA_@SkAAiABUNUh@m@BUEU]k@@ILIHDd@x@B`@Kn@Op@?\\Pz@n@rADRDdAJh@LVp@|@Nd@Jn@Bb@XZRXFR?b@UfCGPgAvASV?NFJJCf@e@|@ONKTg@^gA\\g@NIL@BRAJc@ZQ`@?TBz@CNINiAx@GRBfAIfAg@tB[xAWd@_@p@?NFJLC^eAj@eAZu@d@c@PQFUHaAJIJF?XKr@C^MVW`@eAbDGd@G~@_@dC]rAcAnC@PLHJG`@sATa@d@k@dAqB\\uAJCFHCVm@fCQv@a@t@?PJHPIpAoC`@mAJEHPANo@rBw@jD_@t@a@l@Eb@C`AMv@U\\OTKv@E|AW`BW`A@RLBLO^iAr@wAXw@h@{@L]D[LUNER?t@LNEdA}@ZYJ@@RELy@tAITYtA[|@AXHhAEVa@x@IVKh@C^CbAUlADTFBhAu@XK\\FRPLb@DZ?\\MjA?XJPRLVCPOPg@H_@VqBTw@l@k@rAi@|@]l@m@n@gA~@yBd@kBd@gAj@}@Na@`@mBTq@Ry@l@}ARWp@g@d@Gj@F^R`@Vn@h@P?h@w@LERFvAnAZTl@TN?NGtB{CXMtBa@dA]l@Gv@LjDhBzAdApBdAXBREZS^e@p@yAj@w@pAiAj@Sp@@bAT~@Vf@F~@Ij@Ol@c@fAkApAeAnB_Ab@_@Zi@|@}CjA}CvC_Fp@oAb@m@^Sf@GnA@\\Kj@c@vAmBp@kA`AiCTe@n@y@\\]dAuA^c@^{@^yAJq@XwBl@mCf@oCNc@|@_ARQXk@ZoA\\eBDAFH@JWrACv@DbAlBvPNZ`A`@DJObD@jAJnALf@d@t@|@n@pGjB~G~Cb@TvBhB|@rAnAdCdBzDf@tAf@nBJnA@^IjASlASv@El@Df@ZdBx@xCjAhFXfBh@|AvB|Cb@`ArAzE`@lAXtADt@?r@MrCFhATrAf@rAn@vA`BnCrC`ENRhAlBf@pATbAJv@DpACp@q@vEAz@Bp@Pz@~@fBNb@f@bDRd@\\f@~AtAlAp@pAd@X^p@dB^z@H`@f@rEL|DLbA^z@bAzB^j@hAt@`Aj@tApA\\`@\\p@Rl@\\xB\\`B^bArBdEj@rARt@z@`HZhAf@~@^d@f@Z|@TdAPb@`@Nb@DR@^QbBY`CAn@B|AHz@Nr@Rf@hEfH`AxAf@f@lB~DRl@x@bF\\xATb@zAzANVRhANpAH\\LXj@|@h@f@bAZNTVx@LzAB~FFfBNbBXlBN\\|@jBb@zANZPRj@PzBnBdAv@d@h@j@\\r@Xn@~@f@d@NH^J\\RZ`@`BvChCzDjCxC`Ax@dBhAj@b@t@t@~BrCdDvExCxEfAlAjAn@vBx@bB`AZZlA|BxCtGx@xApAhApAl@hCp@t@FpABZT~@jAfAbAz@p@^l@Rb@Ph@^hB`@lAt@lANn@PjDA`Ba@hDEzB}@`IGX_BvDOdAQtAOrBYlHk@dFGbASdG[bEUpB?Pj@lD\\jCNr@^zCx@jLj@bEPzAL`D?~AG`Au@tEIbABVRn@h@v@j@f@VJZd@Nh@@fACnCFfCc@zDYzDBdARjAHt@FdA@t@AlCSrDEbEBr@t@rDVnBNl@j@xAlBfE~@zApAjB\\\\bAb@^TdAjAL\\RtAd@fAnB`Et@`CpDvGT\\|BnB|@r@RTP^J^Db@A|@K~@Qx@c@jAS~@mA~DOT{@|@MPO\\c@tBg@lDa@jDWz@aAdDGh@GjAUdC@d@LfAA|@MdBIt@w@|CYtCCp@HzK]xDSfAGjABfBLdBNdB\\zI?tAIpA]~COl@u@hBWbAMz@Cr@Ff@JVh@v@lBpBR`@Hx@NhC?bCChAq@tFEx@DdBHlAAdACXMt@@j@\\`CZ~ARv@Df@Ar@Er@m@bFk@|DMtASfEOdBWfCGhASbBy@lMCr@BhBHbAXfB\\zA\\j@v@|@|At@`@^zGzEhAt@p@n@b@~@lBlFVbAzA~K\\|DDx@E^Qd@m@bAg@jAwCnCe@Rs@Jk@XINM`@CR?zDHzCBp@?f@ShBMv@c@xAUl@Kj@Gv@I|FmAhTk@fLHzLEbAI`@GTSZgBzAS\\Un@[j@cAfAWRg@PiA@oBE[Ke@g@cAeB[a@_@]I?IN?THRtAfB\\r@Nd@Dj@?HS~@MTaAdAkAz@c@Nq@Fm@Gm@Sa@[a@k@i@aA{@{@w@y@y@aAoA_B]e@MYe@]U?UNT~BLbCPvALb@p@zAjBpCr@l@\\TrCdA`@Tr@n@t@dAVd@Th@`AhDp@xCd@nIL|HRtBJp@XdA~BtG~CxIt@zACPFLLA@AdAjB~@~@x@d@lAf@`Bz@bAv@nCzArB~@|@t@HK`@SZErC\\bAET_AHsB`@_A~@gAjB_BZu@Hq@FaARg@BC",
+      "endpoints": {
+        "from": {
+          "placeId": "vrsic-pass",
+          "geo": {
+            "lat": 46.4329,
+            "lng": 13.7431
+          }
+        },
+        "to": {
+          "placeId": "great-soca-gorge",
+          "geo": {
+            "lat": 46.3372,
+            "lng": 13.6459
+          }
+        }
+      }
+    },
+    {
+      "id": "transfer-day9-1",
+      "mode": "DRIVE",
+      "name": "Slap Kozjak → Rafting Rio Soča (SportMix)",
+      "distance": 18000,
+      "duration": "PT30M",
+      "polyline": "_bkyGcnxqAo|Cb`@",
+      "endpoints": {
+        "from": {
+          "placeId": "slap-kozjak",
+          "geo": {
+            "lat": 46.2648,
+            "lng": 13.5653
+          }
+        },
+        "to": {
+          "placeId": "rafting-rio-soca",
+          "geo": {
+            "lat": 46.29,
+            "lng": 13.56
+          }
+        }
+      }
+    },
+    {
+      "id": "transfer-day10-1",
+      "mode": "DRIVE",
+      "name": "Lago del Predil → Lago di Fusine",
+      "notes": "Cruzar para Itália — Tarvisio.",
+      "distance": 19903,
+      "duration": "PT25M",
+      "polyline": "qoizG{wwqAwBoB{AqAiAu@yAu@sAg@y@Y}@IYSOW{AcHO]QQi@M}@Kc@E[Bo@d@gAz@U@_AOiA[qDcBiEeBgAg@_AxAWR[?UOq@y@a@Oc@@c@Tg@`@YBYK[k@wBwFY]i@Us@GqHW}BQ{AOeAHeBl@w@DqFQy@Gw@UeCgAiAs@_A_A}AmBSq@oA_KQ[i@MaVcEeC?y@UmBw@q@I_DRyC`@s@AoBa@w@]g@c@uAyAoBaBaAi@oAe@gAQaLKeLGkCLwBTw@NwDvBc@HgLM_BN}A`@yAt@cC~AcCp@q@JeEPi@Ro@^q@RmALe@^iAdBUNWA{@_A]Mk@@y@PmA`AcAp@_A\\s@DmAEe@Jg@\\eAx@YHyBXc@IWSS]s@qBsBcDSMMDGRBTRLTHXXP\\Lr@Dn@@rBJp@C^y@v@QBQOwCgEmAaCkAaC]a@e@_@k@OgA@aAPcBr@eHLs@GmBs@wA}@}AiB_BwBkB{Ae@Y_@G_@FmD`Ae@Do@Iy@]_@]Uk@e@wBc@wDY_Aa@q@wByBqCgBy@_A_BaC{@y@q@[wA]sASc@Wa@c@o@wAg@i@_A{@U[kAoBa@i@M_@YiBMm@Um@c@a@qAy@q@q@i@Ki@CQM]w@_B{Eg@y@g@i@gAoB]c@u@_@_@Kg@Cu@DcDf@qG\\SH_@^e@n@e@RaARo@Mk@Cc@We@q@Uo@aAsDa@}@k@s@[[w@[eHw@_AAyCT@i@FMNKrAQPOD]Gc@IMkHwDuBkAo@g@Sc@m@aCMYg@i@kCcBQUm@_BQa@]i@q@Mc@WOWg@_BkB{EaC{HIi@]_CIoABs@Ba@bAgGTgATc@r@g@`C{AVa@Lo@?u@Eg@Me@cB}C}@aBy@eCE]{AkFwB{F_AeBMIgA}BqCyE_AmAmAeAmAaAYc@[y@SkA@UAmAHoBH{@ZoAh@mAb@m@`@]|@c@tBy@l@]bEuD`@SlAa@X]BGE{@GM{HgJS_@Mo@Au@Fq@JYf@o@fBgBdBcAXc@Lc@RuDL{@Tm@bEyG`@}@~@eCj@kAtFqIpAoBX_Al@mCt@}A~DuHh@w@dBcBtCoCn@y@Vw@zAkHzA}GhCwOd@sBXmBHoAE}@MeB?mBBy@BQdAyCp@uBLkAHuGCmFGsAUgAo@iBYoAEi@@o@j@eFTeABu@E_En@sJRoDAsBIwGOeBkC_PGk@E}ACyAK_@EM^m@La@^uC\\}AdBeFv@gCl@kCPoAP}GBwCHaCTiCP_AHS`@o@TU~@m@^a@V_@^Ol@DVG^YVc@PkANsDAc@G[k@cAEa@Hc@TYZE`@Jd@G|@c@^Wx@}@tD{E^Sv@Fp@Rt@\\|@p@n@j@ZN\\BZIxCsAlAs@lA{Ad@Mz@Mn@[bAo@hCUlB?Z]l@s@n@[bAOf@C`AYb@Ob@B|@j@\\X`@V`Bp@Zd@|@hB\\\\pBx@rBd@",
+      "endpoints": {
+        "from": {
+          "placeId": "lago-del-predil",
+          "geo": {
+            "lat": 46.4188,
+            "lng": 13.5651
+          }
+        },
+        "to": {
+          "placeId": "lago-di-fusine",
+          "geo": {
+            "lat": 46.4797,
+            "lng": 13.6706
+          }
+        }
+      }
+    },
+    {
+      "id": "transfer-day10-2",
+      "mode": "DRIVE",
+      "name": "Lago di Fusine → Camping Dolomiti, Cortina",
+      "notes": "Via Dobbiaco / SS51 — paisagem alpina toda a viagem.",
+      "distance": 176135,
+      "duration": "PT3H7M",
+      "polyline": "_`uzGkomrAsBe@qBy@]]mAcC[UqAg@a@W}@s@_@Sg@?kA`@WD}@Fk@Lm@Xs@z@WTsB?aCTcAn@o@Z{AX]Xy@fA_Bx@oClA]B]Ie@Y[]y@m@}@a@i@Ow@G_@RuDzEy@|@_Aj@]Nk@Fa@KUDUXIb@Fd@h@~@FZ@l@S~DMt@Wd@e@XQDs@EYNs@|@]Xe@V_@b@]h@IZUlBKjAIvCCdCQxGSvAs@vCo@rBqAxDc@xAY`BSbBSh@Yd@L^D\\BrBBv@XrB|BfNLrBJxHEvA[nFc@jG@~A@~BAT_@lBc@pE?j@PbA^pA\\|@TfAFrABfGKbGKbAq@tBeAxCEh@C`CJzAHjACv@Q`B_@dBg@bC}BhNkCzLi@bCQf@o@x@cFzEi@l@_BtC_DbGYz@m@lC[t@uFlIcA|Aw@bBiAtCaAfBmCfEUl@Mz@StDMb@Yb@eBbAcCdCS^Id@At@Hx@L\\`CrChEhFF^@b@U\\k@V}@\\qAfA_CtBgAl@aC|@g@\\i@j@YZ]p@Wx@QlAMnB?nABZDLRjAZx@Xb@~ApAbA|@v@dApCxEfA|BRb@~ApD^~@fCjIJRx@dC|@`BbB|CPx@@~@Gl@Ub@GHgDvBY^Sj@Kj@gAjG?FMt@?|@n@tDlCtI|B`G\\dATTd@P`@H\\h@\\t@`@jAyC|HYf@oBvAa@^INMd@iAhNAr@Fn@L\\u@j@RzBNrDPlADnAAzBKjB{@nIm@zFH|CNbD@hCQ`FSlEs@zHcBpJKv@SXOCKJETDRFHFrB@HNbG?dBM~BeBfRoAzNIlBGpFQxCkAfMI~AAfBF~A~AxOLrBFfCEpDa@xF}@zIEP{@pIeAtMAf@SjCUd@ITUPE\\?ZHZJHFpA?hCFdDHvBrAjWdDxl@x@nMV`HFdFAbCEpC_@bHSxCIb@k@xIYt@KRCZHZHJVzAXrCHh@T~@RlAdDzPrBdLLFz@hFpAhJfEx[b@xEFdBEvDIpBm@~FoAfHq@fDi@rByAdDqDxJwAzEg@vBqAhHu@|Fa@nEKpAMnFGpEFv^DhAFxTGdEQbE_@vEm@xEcAjF}ApGa@nBW|Ak@pFEf@EpBBbELfD^jEPvAXrA|@fDn@hB`DdH`ElJdAzCj@xBXvAXbBd@hEPxCFpBNhJTzG`@pGVbDRrB`BxL~BjPl@tE~@tJn@lIr@|Pz@~UPnCXjDZrCl@~Dr@jDhAhEnFlP|BhH|@nDn@pDj@hELtAZzHD|BAtDWrFo@nI[hJuA|TObDEtD?xDNpER|Cl@|FZ~Bj@pGTrEHjE@lDK~DeB~]M|DC`D@~ANrGr@vMHvDA~CMvD[lDyJb}@k@rDk@dCk@fBeAbCgAfBqAzAu@t@mHrFiBfBwApBqA|BaA~Bu@fC[rAm@lD_B|OyAxNo@lDq@hC{@`CsAlCoBpCuDnEiBhCaBzCmAdDw@nCs@dDc@rC]hDYfGgAb_@yAng@C`CFjELlD`@zEVtB|@vEx@dDv@bCnAzCv@dB`AbBlL~OnCtDhA|AlHtJtPtUvFzHd`@th@fXd^hBbCnAdB|DhF`RpV`CfCdCrBlC`BfCjA`Ct@nCj@zCXjCFbCGxCYtB_@bDaAxCsAdhAin@lDaBnDqAvDgAjE{@xEo@jEY~Xu@tF[nEe@nF}@vD}@pH{Bzy@aXfEoAzHqCzJcEzBkA`IqEhKgGjD}AtDoAbKiCfE{A|BoAdLmH`CmAxCiAtBg@`De@pBMbMGvBEtU@bO?~DLtBZdAThDpAdCvA|@p@zApArA|Al@t@`CtDxApDv@`Cd@hB`@nBp@jEfA|I~MnkAnBjPjCrU`@hE^lF\\rIJlH@fI?pIDpGPbCjBbO`Kpm@dB|I|AnInAnDvCjKdKf^f@rBf@vCT|CD~BC|BMlCm@xFg@|ESnDGlDCt]FrCPhDVhCl@|DnCpMp@fDn@tEPrDBlDK`EaAfQwA|TqCpd@i@dGq@xEeAnGsElV}@bGm@pFa@|EWzEQ|GErFDlGN~F\\|Gl@rGxKpeAVhDNrDFvECbFMfEa@rFo@lFm@fDw@fDsAnEgClHeAbDaCjHiAjE]bBo@bE]~CSrCSpEE~DFnF^lGb@fEj@rDp@bDfA|Dj@hBfD~IbBbF`AdDpM|^nDdKvA|Eh@nC^zB`@hEZ|FDrEC|TH|Hb@nRpApe@NfC^bDp@hDVbAb@pAr@`BtA~BdEjGfBxC~AfDrBjFdFtNfBrExBlElBzCfCdDvB~B|BpBhHvFhBhBrBdCtApB|AlCr@xAlAvCtAjEhAtExBrKtA|Fh@lBrBzF~ArDzEpJhBxDz@tBjA`ExAlGh@|Cj@`FrAxMJjApAbMbA`Kh@nEv@hFhBnJfBlHdAbEl@hClEhPRn@AXn@vBTdBHlBC|AOrA]tAa@dA{@lAEL{C`Du@t@oA`Bk@pAY~@WvAMlASlESh@WZMVg@R_@b@Sn@CHSPU\\[NMDgABaCAaEFo@LYLc@`@_@v@SbAE~@Dz@NdAb@fAv@dB^vALz@Dr@@pAItCIjO?xEHtGl@~WDvHGdCKdBs@vDk@bB{@pBiNnQu[n`@aGnH_DhDmI|FsF~CkA~@{A|A]`@q@fAoB~Ee@pBc@|C]rDQdEWxJOlKu@|Qe@tQWxDo@tF{@tEe@~AeB`Fw_@v_AgA|BkB|CqJzN[N{BjC{BzBs@`@q@Ns@?cASQ@cB_@kBU_BWw@CKB]VWd@Ij@?b@Jf@R^p@f@rAZl@^JRBt@E`AyC~Sg@bCq@|B_@fAiEpKiBlFcAfD_BrGqArGk@lDm@jEs@tGi@dHsAdYu@vPg@|Hq@zGs@vFsAzHgDpPcDtOc@xCSpCO~CGlBAvDJhFErBGfAuAhIOpACh@DdFHdHDfPFhAlAbJFpAC~JMxAUdAYt@]v@q@xBSjAc@fES|@u@nBk@lCa@nC[nDCdAd@rPHnC@zAGdAKd@OLG\\Gz@Gh@q@~BiDtPQn@_@z@aCjEgDfIYjAWrBa@|E]vL_@`EIzAKj@q@dC}B|RAV?jAMDGTBVLHNEBE~AhCdG~J\\r@f@fBhHdZd@zAxFbVRh@zFxUP~@PtAl@lIt@~KNnHn@n]G`AKl@e@fBoA`ESjAC`AH`At@pHAhASzE?hDJzOBf@P|AJdBGjEEbJXlBR`A@b@QzC[~H?TtBbDnA~AnA`BpAbC~FzIt@vBj@rBR`BNxCBlAAtCSzHAbBDfBTxCVxBr@dDdDtK`AtDjAdHbHfg@XlCRrB\\bGb@fRd@tZCdHW|KW~I?h@KvDAhBJzDfApSFhB?nCQbDYjJIfAaAzDc@rCOnA?hAd@lGEz@Mx@[n@[l@i@tAS~@YzBKl@Sl@e@t@_@^oCvAENC`NGz@Qn@Yn@A`@NvDEp@Qz@[xA@h@JRLFbARNV?h@W`EMhCGp@YpAAZF|ALrBCv@c@lCa@jBm@pA[`BEv@@lDJn@LZZf@L^B~@K~CDv@Fv@b@zHC`@OTSBMMGUA[VyAAo@YwBQg@OIQA[PgA~AUJWCOMwEeGm@k@}@c@aFcBqC}@}@Wm@AUDyB~@kAJsB@{@PaDhAm@d@_@h@Oh@Mn@Ev@@t@\\vB|@lEHlACnAWtCSp@]l@SLqAf@UR_@n@_BzEsCpI}@pCk@~Ak@pAE\\Ab@F~@AZM^c@bC@`AJ|@VdA^pC@pAMf@ILcBAULMZ_BdGIv@Bf@Ll@|@tAVPdEbAd@DXGV[^aBx@iAnAcBNEXDNTp@`CFv@AdAKjB@t@Jh@\\^nANXNn@v@h@`BZdALRdA^ZXLx@Dr@@|Aa@jCSdBItAIvBKr@GXWj@W\\]RuBr@]XkDvDYd@GTC^@l@vA~H\\jCNj@f@jANx@VlEBlAEzASdEE|DHhAh@zCFd@Br@Aj@U|As@|DCf@@XJx@Tl@z@rAXl@DTB\\C^K\\STc@L]GgDiB_@QWA[HY`@EPAd@Fj@Zj@h@j@rD`Ff@`A`AlCTZr@f@VF^CTGXQNWHYFo@CgCF}@F_@P_@\\]z@_@d@Cd@Lh@d@rChDdBlBf@v@r@pBF`@?dAQzB@bAFz@V~@|DpHb@n@b@T|BZr@Xt@h@b@n@vAhDbCjG`CxDtAtBn@t@b@RlDv@hBZbFb@`@Lx@h@tBjB|@~@n@j@n@~@`@hApAvET|AFhHD`ALx@l@`BpCdHfAjCh@jBdBpHhAjCTn@Pt@b@rDJn@b@hAj@v@p@x@T\\Vh@Pr@R|APvBC`ACTMb@SXUNgAZ[PWXS^_@jASd@YZSLo@HsAQg@JUVKPMj@A|@F`DVzCXlBr@nCPj@V`@p@j@|@\\^ZNXL^Bj@C~@Ij@Uh@W`@y@~@M^CT@`@Ff@FVB`@Ch@IXsAxCM^In@A`@Bf@H^Pd@Zj@p@|@Vf@BT?t@I|@A\\Bb@Ff@TjABrAEvB?|@TpCEz@EPWf@M`@E`@Af@BvDBjAFXHPl@j@\\XZh@Pj@Jz@DrFAr@QxCOdAO`@{A~BkFjN}BfH_BdGoAvFoAfHaA~Gs@fHi@zHYtGOvGQxO@pENjE^nFf@lEx@xEx@rDhAtDjHjSPd@PpCFlEBx@~@pGLlAB~BGfBe@xGAlAHzIJf@n@\\hA\\d@FRGT[xAcDJONKTDNRTjA|@|FX|ArAjJd@zHL|Ep@bRNzCJj@V|@d@r@T\\Rl@Fj@AjBKpEMlBMfB?tFIbA]xA_AlCY~AWnB]jAy@~A[h@kCvDm@hAa@pA[lByAjLa@fDk@pDkA~FGp@w@rLKxAEbBHv@HZz@zAlFlIv@|AZfAHn@XzG?bAIlASbAYp@[j@WXSH[?SIg@_@YG[DKFUf@Of@A^BRpC`KfArCLn@Dr@IpCe@jJEfIQ`CqGvk@Gz@Af@HtECn@SjBeA~EYx@QXy@l@cAr@m@r@sBlD]hA{@rDWdAQxBK\\KTY\\e@z@Ot@Y`CQt@_@x@u@`Ay@z@U`@Oh@@^Tj@Vd@FVDd@C^Ql@a@l@KLc@Nu@EUF_@XOTITIlAIlAKh@i@l@OVQn@o@rEMlAA~BOlAwBnL[bBQt@Yv@u@rA]h@q@t@aA`Aw@lAaBhDwIfPeHbNq@~AOn@GzAUjRObA]n@mBbC}AnCu@jBeDzKs@tEMf@m@nAsAxBs@h@g@JoEAaANiBd@o@Xs@f@_AdAqF~IWh@eCfAiFpB{LdDaDf@cBTYLQNUp@Ir@WxGYhGM~@e@`BeArCKd@Mv@Gt@?hFFjVI|BG\\mAvC_ClFYnAS~Ay@lHOl@GRkAlB]nAq@z@Wd@sC`HSr@]dBSlAYr@q@v@_@Zc@f@Ub@{BzHgAlEKRa@Xc@LeAFo@XuAxAMRK`@?j@x@hF\\nBXxFAb@Yn@k@r@Ud@GTCn@BzBAhAOdAWp@S`@SRqCxAg@h@yAvB_@r@M`@kArFe@vAk@pAs@vA[\\k@ZaANWLUTmArBc@Z_@Pw@LcBJoBh@]HgBBkChAa@ZW\\eBjASV_@|@c@Vk@J[P[Vu@|@uA`Ay@f@iEtAa@\\[z@W~@g@~@{AbCMVSfAAlDC`@[x@y@z@eClBqAx@a@ZSp@EXe@`A[p@k@hB_@rBi@tAa@lBw@lB_BrDo@~@Q^YfAUTu@j@]~@KZqApAk@n@eAd@_@`@K\\A\\Lj@LJ\\EpCk@XBFDJZB`@?b@WzDIrEG~DLnBNbAxAhEP|AJ`CCt@I`@Yt@?`@Dv@GJM@KM?g@PaAPs@Ao@u@mDY_Aa@o@i@u@m@qAmAoEaAiDKIKDER@Xl@pB`@zC^vDRv@~@fCVfBBz@G\\OR{@d@g@v@M^A\\A|@EZIHOEEM?SPyAPa@p@eAf@c@H[ASe@{@o@mAmBmEUwAc@}@oAeB_@WqA?WJKR?NFLPDf@WZGPDPRb@nA^t@Lh@B`BH^fAbCF`@AXa@vASz@Sb@Oj@QrEM|@SZsBdASBq@?QNOf@UxASd@YTqCv@{@b@[f@Sr@SvAKh@Sb@[h@EVDd@T^t@r@Xn@B^Ej@_AtCKlAMvAUp@Yd@u@j@WDYIa@e@KSCcBWmA_@w@c@S_@@]VUd@eBrFs@dCY`@o@f@eE~Bm@b@M`@ATBhCMr@O\\SPa@L_@@YPSPuBnDi@`B}@`Dg@n@eA^QVGb@LpCC|EK`@]Z_AZkAJaAOSDQVEVNv@X~ADn@AtBKv@MX_@Z_@TOVELAd@DNTVt@x@Rj@J|@?t@QjCMn@o@jAc@p@O\\Kj@?r@Dv@LbAAd@I^UXs@^MNGTA\\@Pd@nADZATG`@Un@CXDPPFHILg@HqADuBFQTOx@En@YX]Na@ZmCb@oDN[PKV?VTJl@R~CPnBPr@rBlGj@t@j@p@FN?TGNKDOGm@y@eBwAWGQBUNo@|Ac@x@ARDTLHF?JK^cANKV@PNh@bCVh@f@l@VVFVETQFa@O[K_@FYJg@`@_B~Aa@t@{@pC]l@aAr@Wd@Mz@CjAM`A_@jB]hDs@hDa@xGMzCI|HDdBRtCKxAs@jEIv@?d@D~@CdAOnAQ^Wf@Cd@?t@G`@ILy@`@u@j@UX_@v@SfAUxBMd@iBrDM\\ObAMjCM|@MZq@fAGNSxAG|A?pCExBMrAg@~CYfAWn@_A|@m@hA}AnDEn@@dLIhAg@lBw@vEYhAi@vAMf@GjA@pEPjD?xAO|AQ~@g@dAa@l@UR_@Rk@JcBLi@C{BqAg@a@O[Yw@_@k@u@g@}Aw@SUg@iAUQy@OY[Oc@YwAIw@]uAs@qBSe@yAwBUUUAMJGNiArGUn@a@Rk@PYb@{@hB{@tB[Za@LU@QC{BcAiB_AaB}@SBMJI`@KzBMh@mAhCyAvC_D`DaCtBYJ_@A[QYy@i@cCgB_J_@kAQa@sG{M]mA[yBMYQAQLIZ@\\~@bKDnAEnAYhFIp@OJKCIMGw@w@cOMoAa@sAcAaBS][cAOy@KcAIoBOyAe@yCQ{ACu@?uAIa@c@w@MMUAq@^YZIZA`@JbCOrA?x@Fj@\\fBPpBHpBCf@O`@QP[Bo@SeAg@YBUVOb@C^H\\d@r@Lf@?h@}@lHiA`JU|A{EbU}BzHo@dBa@h@s@j@c@Vu@HyACa@Lo@\\_@FmDA_@DQCEDgBG_BMg@UqAsAq@a@k@[mAgAcDoB}Bs@gBc@gF{@_Bo@w@a@uMyJg@Um@G_CLiAHy@A}AWgAAyDXw@IaBk@yEuBuC}AaAw@y@}@_DkE}@}@oFyDuCqBaA_AmCcDm@_@i@QaJeBkCyA}IsFuA_AqBcCe@e@_Ak@y@_@s@Ky@BsB^eAFsDWk@D{@XyBbAc@Fg@?k@[qBsBs@g@o@QWAsECyB_@{Co@uC{@wJ{BeBe@oAWaACoBTg@P]TqA`B_Az@qBbA_CbA_Cl@qDl@yABWFQNqCrDk@z@k@~AkApDo@nAi@t@cAt@kBjA_@NiD|@mBl@WXUh@m@zBmBrDo@`A_J|IkAhAo@z@Qp@KHETBR?^_@bCYlA[v@gA~BeAjCg@|AQ`@u@jDs@zA_BtCYxAYdCMt@UdAy@tBUf@e@xAWvA}@jFe@hBqAtEk@xBq@`BkD~G[|@_AxCwAbDQZ[`Aq@jAQb@El@Az@Jh@`AfDx@tDHfAE`EDlEEjBa@pDa@zBWv@e@x@mAvA]r@i@hBcBpG]|@m@h@yEjDuClA_C|@qAp@[`@_@pAmB|O]nBOd@aDpG}AlC}AjBs@pA{@hCq@bAiCzCa@~@m@bBK\\UjBI~@i@pJYbBuJbXuCfHuHbQk@~AeDlLgClISt@eAzBs@dAiCfCcB~A}@dA{ErHkAxBqElKmKpWc@tAKpAAdBDxICdAEn@WpAYp@{@nAm@d@oDnBe@^UXUf@YlAe@jDEp@@`Ap@rNrAtURxF?vOM~KI`DO~AIt@eBbKCr@Br@dBfKZdBtB~Lb@|BtIj]zAlFXj@`FpG~@~@r@f@vAb@nKlCbA`@^V`ClBz@d@fH|CjAz@jBxB`@h@x@pAdAvCdB`HRj@Rb@t@jAxJpMrCfDnFrE^h@~ApCdB~Ap@`@h@V|FzBpI`FnG~ChBfAt@x@l@vAl@tB~AnHzBdGfDrHpF|Kh@x@fDhEhBjC|CpF|ElFfCzCv@f@`B`@v@b@rBjB`@x@Tj@n@hCNv@PzA^`GN~CFpIHz@Hh@bCjK`@rBb@rDx@|JDb@^vBRp@vE`LtCdI`@v@hAzCp@dC\\rDBbCUpIA^HtAHz@P|@p@~BpGpRjDxFpDzEvItNt@hBzAxElGvUPhABh@@zCD`AJ`AbA~FRvADtAEzC]pL]xDg@pCoA`Gu@bFY`EIjDCfGBbAfAxIHhAA|@EfAOhAQp@Sj@oAbB]v@Ml@E~@DdBdAjHBp@Bt@Cp@C`@y@hCi@lA[d@s@f@oBjAw@r@KLQj@Qx@_B~FiAxCmAxCaB~CsE`GaBjB}AjAaD`B_EtCq@n@_A~Ak@d@qA|@eAdAi@ZeB^[TqAtC]VkARu@`Ai@Z]^]f@cAnBc@j@oDvCwEhD}@^_Af@a@ZsA~AOJs@Pk@AYQ]Ys@EkFd@}@Ha@PkA`AoClCWd@a@fAONQ@KOA]HkAHm@Lc@Tq@B]GUGGOBU^Y~@i@~B[n@MPe@VaCJ{@J{@By@XyAXoBNy@BQIEQD]HSNKpAq@VQP[f@kBBYCQKK_@BcC`@WP]`ASVUDy@Ci@K_@B]NmBvBQFaALg@?OEWOw@{@w@]iAUeEuAmDQSBOH[GUGMFG\\I`BKXg@f@CJAd@@PPt@AXELQFUIEMG[Sm@W]i@a@UGq@PcBF]Qm@e@YEQFKNAb@Fh@lBxGBn@E\\CLSVg@h@UFWAa@]MYa@uBKSQU_@QIC}@Fd@dBLjANvAHVf@lAHh@Dr@Nd@XXn@V~@PVPv@tATd@PfANlAHT^\\p@\\RTfAbCbBvDZTn@Pf@^\\b@Nf@N~BPr@d@bAZZh@V`@D~@SX@~AZf@ZZd@jCnEj@d@VZZl@l@|Ad@`AVdAJ`ARhDJ|BPn@Tb@b@zAVrAh@hEHxA?zAIdByAtLQlEOjEGf@Y~@Yp@Y~B[pCCdCE\\[z@Yd@qBtBe@|@]rAMbAApAHxAPbATn@b@v@VVhBbALPPn@PlANj@\\X^JtAL\\PNZDV@d@IhKOrBc@fDA|@LbBB`AGhCFfDpAzHFr@?~@[pE{BtLg@fBq@zAIX?d@Hl@Nt@Db@Ad@SlAYtAEnAJhBErAOrAB`@JXz@n@TVr@zALPPDRIJU@M@kDDmBFWLSV?TLHJ`AzCxA|D`BxEr@pB|DbQrAfHXrBN`@HLXJTATQL]x@{C`@mANMPDHNVxATbBB`BEv@WbBGrFB`AT~@\\d@lApAZf@Xz@rCxPFr@@xAAzA@p@`@|GJlBBtCFjALr@`AzBZbAb@~BLlADh@CvBG~B?l@fAdMP|AXpAJRh@P\\?ZST]n@iAPSZGL@VRNXJn@Gt@a@jAe@jAEh@JdBC`DIt@mA|DO|@IrBDZHV\\\\TFNALGTa@Ps@n@uEL_@V[RCPDXRJRJb@T|BHbACrDIpDLVP@NQB[@oAJc@Ri@p@kA`@a@RCLDHJHV\\vCLl@`@rAVnAb@vCHPLLl@HjBGdANjCh@d@PPPNf@R|@NlA@xAUlGIx@Q`@YReDd@[TSh@CZ@b@Nf@TTjCdBXZTb@Jx@HbBPn@~@|AJb@A\\CNyApDMFMAMOK]Kq@IUUYk@Ym@OU@SLGTAh@JtDFVFNfAlAHLH^@n@Od@_A`BKb@A^Ff@NZl@n@FTCd@AHQV[HyAeAWCc@LmAlAa@t@I^Eb@@h@v@pGr@`FDn@^nAPhAVlAxAfFtFxQ`@t@^XjBdA^`@JTNv@?v@Kl@eAlC?VHT\\T`Ah@LP@d@WlDkDeCq@o@o@w@}AcBgBqCYc@iDoDcBoBQg@Cc@EqDlI{@lAe@Ha@@wAX{ALYPG",
+      "endpoints": {
+        "from": {
+          "placeId": "lago-di-fusine",
+          "geo": {
+            "lat": 46.4797,
+            "lng": 13.6706
+          }
+        },
+        "to": {
+          "placeId": "cortina-d-ampezzo",
+          "geo": {
+            "lat": 46.5378,
+            "lng": 12.1359
+          }
+        }
+      }
+    },
+    {
+      "id": "transfer-day12-1",
+      "mode": "DRIVE",
+      "name": "Passo Tre Croci (Sorapis trailhead) → Camping Dolomiti, Cortina",
+      "distance": 8263,
+      "duration": "PT14M",
+      "polyline": "{ad{GibmiAPDRIJU@M@kDDmBFWLSV?TLHJ`AzCxA|D`BxEr@pB|DbQrAfHXrBN`@HLXJTATQL]x@{C`@mANMPDHNVxATbBB`BEv@WbBGrFB`AT~@\\d@lApAZf@Xz@rCxPFr@@xAAzA@p@`@|GJlBBtCFjALr@`AzBZbAb@~BLlADh@CvBG~B?l@fAdMP|AXpAJRh@P\\?ZST]n@iAPSZGL@VRNXJn@Gt@a@jAe@jAEh@JdBC`DIt@mA|DO|@IrBDZHV\\\\TFNALGTa@Ps@n@uEL_@V[RCPDXRJRJb@T|BHbACrDIpDLVP@NQB[@oAJc@Ri@p@kA`@a@RCLDHJHV\\vCLl@`@rAVnAb@vCHPLLl@HjBGdANjCh@d@PPPNf@R|@NlA@xAUlGIx@Q`@YReDd@[TSh@CZ@b@Nf@TTjCdBXZTb@Jx@HbBPn@~@|AJb@A\\CNyApDMFMAMOK]Kq@IUUYk@Ym@OU@SLGTAh@JtDFVFNfAlAHLH^@n@Od@_A`BKb@A^Ff@NZl@n@FTCd@AHQV[HyAeAWCc@LmAlAa@t@I^Eb@@h@v@pGr@`FDn@^nAPhAVlAxAfFtFxQ`@t@^XjBdA^`@JTNv@?v@Kl@eAlC?VHT\\T`Ah@LP@d@WlDkDeCq@o@o@w@}AcBgBqCYc@iDoDcBoBQg@Cc@EqDlI{@lAe@Ha@@wAX{ALYPG",
+      "endpoints": {
+        "from": {
+          "placeId": "lago-di-sorapis",
+          "geo": {
+            "lat": 46.5206,
+            "lng": 12.2235
+          }
+        },
+        "to": {
+          "placeId": "camp-dolomiti-cortina",
+          "geo": {
+            "lat": 46.542,
+            "lng": 12.145
+          }
+        }
+      }
+    },
+    {
+      "id": "transfer-day13-1",
+      "mode": "DRIVE",
+      "name": "Lago di Braies → Camping Olympia, Dobbiaco",
+      "distance": 14484,
+      "duration": "PT17M",
+      "polyline": "}v_|GobwhAaAg@QOg@}@{@_CU_@a@WoAe@ESMIMJCN_BEeFa@aAQqAa@wFmD_B}@q@]w@KW@wBl@k@@u@Ky@c@eB}A_FsDq@We@MwDSiASs@a@i@i@Yc@Wq@yAmGu@mDm@wCYkBe@aHWuE_@sCgAqHiA_GEWeAoB_QeUq@w@[qAsAsHIqBAmHAm@c@sB}CmJQmBFuBHs@f@uApIcVNwA?q@Eg@Ic@]gAcDwHWmACW?qAPuCDmBf@qLHyDAs@WuBiCmM[aBaEiP_CwJkDiNGUmD}Nu@wFM}@@GJO?WIQQ@ILkAo@kA]qB]eHi@I@ePwAkEIyVI_AFuE`AcAXo@V_Av@{ApB_DxE}BzE{ClDuAfAgAj@sAb@kIfA_AZyBhAy@JQKQFIRANy@r@aEvBIJwCvAcALe@CW?CCBw@Cs@JqDPaB\\_BfB}Fh@eCjAeIzCqX\\aFRaD`@_DhCqQf@kBnC_HZuAjB{LR}BDm@F_@VmCT}AXaAd@gA`@q@xBuCxAeCBY`@}ARaBDaA?}AUkGGgEBcENqEZ{EjAuPZgGNaGBgBCmHWkOAcAFuCVwCJu@p@aIHmECoDSoDIwCAiC@wDf@wOV}Dh@aFz@yEpAaGrG}WfE}QJi@^yEBQi@Q[LSTo@nBWtAQnBKnCMt@eAdD}AtE_ChJUK",
+      "endpoints": {
+        "from": {
+          "placeId": "lago-di-braies",
+          "geo": {
+            "lat": 46.6943,
+            "lng": 12.0854
+          }
+        },
+        "to": {
+          "placeId": "dobbiaco-san-candido",
+          "geo": {
+            "lat": 46.7344,
+            "lng": 12.1937
+          }
+        }
+      }
+    },
+    {
+      "id": "transfer-day15-1",
+      "mode": "DRIVE",
+      "name": "Bressanone (Brixen) → Chiusa (Klausen)",
+      "distance": 11905,
+      "duration": "PT16M",
+      "polyline": "_cb|Gc{bfA?VGz@GRDRJDJI|ABnD\\`B^v@\\j@`@`BdBt@|@HR`@d@PNFRL@f@p@tAlAp@\\pGvAhAJHE@CvEv@p@PJRRDLIv@XpG|DNN|FfDlGhDZHlc@|Uv@r@TTh@x@\\x@dAxEdAbFn@xBv@lBzDxIzAbEvDhL~DnMvAfEhAdCjEvHLZbEfIVx@ZxAIXB\\LPPBJEv@j@JBpAfA`BbAtMzDvD|@hDfAl@XrWzPn`@vWdD|Bf@b@jBrBtH`K`ArAtBxClIbLn@d@t@X~@H|GK^Ld@d@T^t@pBvAzBzC`E`A|B~@vC`@jBPtBLjBZjBHRdBvKJvAJ~CJ`ARp@|@pBT`AHbAB`A@pDZ`HT~Ab@jB^z@n@j@lKxG|CxBpBrDjC`Fv@pAr@tA`ApAl@f@n@`@~@hA~D`Gf@r@Zh@b@~@Xv@r@bBTZDT|@xBFZBf@JPB@Zt@Fn@CvADvA\\tC\\jBJ`@x@nBRl@TvAf@zBJb@b@nB|AxETjAJpAl@rLAXNlAX|@P^x@dAt@d@j@Z`@\\`BxCpAdBrCpD\\l@xBdFjAtBRl@`@|BvBrNVv@\\b@d@XvCbA`BfAt@v@~@rAHRtArBFKAs@SiAkA{D_AyB{@}@a@Ii@PUMQ]G[QcD",
+      "endpoints": {
+        "from": {
+          "placeId": "bressanone-brixen",
+          "geo": {
+            "lat": 46.7104,
+            "lng": 11.6525
+          }
+        },
+        "to": {
+          "placeId": "chiusa-klausen",
+          "geo": {
+            "lat": 46.6392,
+            "lng": 11.5641
+          }
+        }
+      }
+    },
+    {
+      "id": "transfer-day15-2",
+      "mode": "DRIVE",
+      "name": "Chiusa (Klausen) → Camping Seiser Alm, Val Gardena",
+      "distance": 27188,
+      "duration": "PT40M",
+      "polyline": "uet{GmrqeAPbDLf@LPRLj@Q^Hz@|@~@xBjAzDRjA@p@GJpC|Dt@dB\\hBP~A^hBnDvM^z@nD|Fr@r@xRfOj@XfAPdALb@V\\\\r@lA^t@r@~@`@T^Hl@?`AIl@@t@T~AbAlE|C\\`@d@`AfA`Dv@lBn@lAt@dAdDrDb@`@tAp@hBj@p@d@VZfAdBj@vAThATlBZtA\\x@`@j@hB`Bb@X\\FvAHZDn@^n@r@|@fAjCdCf@XfDt@jF`A~@^j@d@lCjC|@rArEvIlAtA`@Zf@PjC\\n@X`Ah@bBZbAFlDBtEQnAMhBa@v@Gr@HhD|@dJ|B`B`@j@@hBG`AJtJxC|Ap@rAz@nDfFf@x@j@p@zA|@h@P~@HfEMh@MxAAP@^sHJQ?Sh@GfCNpC^f@Ex@S`Bm@ZE`AAr@Fd@Nz@d@b@^jA~AdEzGp@p@j@VlBn@xAx@lAZfARp@p@vB|CRFb@F^Gf@Qh@@d@LnAt@f@FxBC`D`@hCBrAPpCh@h@Db@A|Cm@`A@tAZtCIj@UVMbA]l@@dAb@~@@XC^OhBqBNM`@O`@Ad@LbAb@b@RJ?RKh@c@fCkCVQh@WdACr@Dl@NlA^J@dAAZDlAj@j@FhAOhBIl@]Z[h@{AZqB^eBHo@DgABcANu@DOpBcBlAqAnAw@p@[b@]j@gAZ}@FW@[CSEMUOM@WN}@dAm@d@k@r@S?MW@UHQdAu@~@aAzA{Bp@y@Xw@Jw@?y@Mw@Sg@a@c@qByAw@eAe@iA[sAO{AA}AJyAfAcHD{@EuAWcDUq@Wu@Go@A{BKw@Yo@o@mAQw@E{@FiAJ{ACiA[wCAuAPsBZiDAs@Mm@u@eBMy@C_DHs@LeA?u@Ik@a@oAm@gAg@a@GUAWJSNAt@dAx@Th@EREPQh@{@LG`@CLDt@lAZZTFpFDZAj@KjAa@|Au@fAYjCUvAIj@IrC}@n@?h@FRARMF]C[EOY[aAs@wAaBc@SW?}@^SGM]JObDs@|AAtADTChAURCr@FpAl@h@F^Cb@MfDiBzAk@~@I|DJnCBZARGbAy@l@cAXy@NMDMt@a@lBc@|CiAlAm@?{@Fa@HGH_@JWTY|CcBvDeBVQd@q@`@{@Na@T{ADuAAa@KaAiA{EEs@A}@Be@Fo@`@gA^o@~@s@`@c@P]La@PsAVeDReAL_@d@o@Zo@Ha@Fi@Aq@A[Ki@eAgBm@aBYiAK}A@mBFuFEmCc@uMHkADa@DWj@aAR[h@aAd@gAHg@A_@EUGS]e@yA_Ae@c@Qg@Ii@SwDAoA@QNk@\\g@p@m@lAy@hAi@d@a@\\a@fAaEhAkEPm@Vc@~AyAdByAJJLEBS?E`@]t@QhAATF`@Pn@LNEBCBC?_@EKe@Su@UQKa@g@a@q@w@k@_@Ew@@c@KEMAYBMFKNI`@M~@E~@Hp@PdA`@dAFv@C|AOZJ^^b@vBNrAL`@X`@`@Rl@Z^b@NVf@`Bf@fAHJPFR?NQHMJu@HcAx@aFxAsDh@u@d@c@`A[dBCTDhAd@t@?PCd@i@LSVcAZaCLo@V]v@y@NYA]GMKCK@ID{@~AgBrCk@Zw@He@GeBiAa@IeAEIEIM@OBK`@CrAHrAPh@CZUb@uAR_A^mAfA_Cz@gCh@{BBiBAyBBwAJcB\\kCdBmJ\\y@FW@QGKGEQAKN_EtL[jAo@zC_@v@O|@Al@MpAc@bAWPYDOAKIGYBc@FSX_@R]Z{AHw@@e@b@sEFmD^yCdAqGh@eFFeBHw@Ly@Ty@Xe@r@i@^Ux@}@hA{B\\gAAaAMo@Qk@Ye@I_@Ca@@q@Hi@\\cAt@eCJc@C_@CGQEKDITIv@Q\\[Xi@H}BHsAIQOCQDYJIn@F^IVUN_@R{Bb@oBAYIMKCOJ_@t@c@`@i@Pc@AOC]S_AgAi@y@Wq@u@kCg@{@}AcB[g@Mq@Cw@Dw@FUZs@lAuEZuCHa@Xo@PYr@y@Te@Rm@Jm@Bu@RwBBuAx@{G\\aCKcFYaGCsA@uH|@if@DaBEa@Mo@SsBYmEKcASw@iA_Bu@aB[u@e@cDSiA_@}Ao@oASy@G}@@mARkB`@kCPqBM{HDyANeBSqAEmAAgB@u@X_FAuAGoEHoE?aDBo@Us@]wA[m@SSg@Ya@BOJOSMQGO[kCg@aBUWgBg@e@GcAPeBd@UAKMUc@MGODw@p@QCOWQq@MOYSE_@?i@Ic@i@aAUOWCc@Ly@p@]b@OTU`AGRKLkBzAc@Rw@G[F_B~@a@Pu@Dw@Mm@Uw@QwA|BUPqCBQIk@k@kAsA]Y_B}AIG_@i@e@e@i@q@QWs@wCKSc@We@USWKi@AMg@cDYkBSi@i@oDUq@a@k@u@m@Yg@CI",
+      "endpoints": {
+        "from": {
+          "placeId": "monastero-di-sabiona",
+          "geo": {
+            "lat": 46.6432,
+            "lng": 11.5653
+          }
+        },
+        "to": {
+          "placeId": "ortisei-st-ulrich",
+          "geo": {
+            "lat": 46.5762,
+            "lng": 11.6745
+          }
+        }
+      }
+    },
+    {
+      "id": "transfer-day18-1",
+      "mode": "DRIVE",
+      "name": "Lago di Carezza (Karersee) → Free Parking: Desenzano del Garda",
+      "notes": "A22 sul → A4 oeste. Posto Brescia/Bergamo é boa parada.",
+      "distance": 186765,
+      "duration": "PT2H16M",
+      "polyline": "msgzGcqxeAvAe@NMlAuCN_@PSj@YtDcA^Qb@c@X_@tBcE`@a@ApA\\jPKhBs@zICbAJjBh@pGNl@b@z@j@|@Rh@Jr@Bn@I~DBdBZ~ICx@IfAQ`BAjAHfBPzANn@x@rB`@z@H\\@XIzCGbDGp@q@zBm@jBWh@g@h@}CdBg@d@cAvA[TuDtBsAr@s@z@gGtMI^Db@LRTBtAg@dD_@jAe@JFBPEVMJg@H]TS^iAlDGx@AzE?J`@hAf@hBjAzBd@l@b@d@T`@Ld@Bn@Cn@e@bA{@xAkEfGy@xAsD~EOZGf@@r@LrA?t@Kz@[bAMZE`@BZNRXH`ACn@Mj@]`@k@JAHLE\\MXaAd@[\\q@z@o@h@q@\\cAt@oErFq@l@a@LYG[a@m@gAQs@@gAHmA?i@SaAOw@IaDGc@SQM@ONc@hAWR}At@q@f@g@h@U@SUKW?k@bBsMAi@CUO_@YSWCIB]f@cAdEg@jAu@|C[dA[r@o@jAsBnCm@nAa@~@sAfAM^S`COn@oAlCs@xD[x@}AvCIXC`@Bh@zB~I@XAXOXSHWEOMuAiBYEa@JSVGPyAbJWt@[d@oGfFKLQ`@{CxK]z@_AdBmAbFi@lA}BvEi@vBoAbC]h@eAbCYr@]|A]`AgBdE}@vCqC`HW\\QFYE[UkD{DWAQNU\\Gf@?fA@^Jn@\\nAPTx@d@dDzAZZXx@b@|AXh@bFjGp@v@l@`AH`@@`@GhA_@dDQlC?jAFfBNhCC~@YxCEvLHz@X~ABd@Ij@UfA?l@Hn@`BrIHvADnBJh@\\`ADjB\\|BPpA@`AK~DDb@`AdDTvABhAEx@c@lCCb@Bh@Ll@rAdFdBzGN~@Bf@QdMIz@m@pCg@rBIbA?rAj@jICj@m@`BEb@F|BFhBE`AMjAm@fDIbAAnAfBj^d@~S^jOpCrk@KxBq@nGChAF|FCRKTQRODWh@G`@Bl@\\x@|@~APp@@b@Gz@_@|BGTg@r@cFfEeAx@wF`FeB|@oDtAiAT_CX[J_CzA}@x@sBhCq@~@Yp@Q~@qArM[lAYt@}CbFc@lAuA`E_ApBa@j@g@f@_Ap@]h@q@vA[`@i@N_@AgC{@DUGQOAIL?Bm@?o@NaCbBcA~@UXUb@sAdDy@pAsBlCURo@Po@CqDa@c@B{@VWRc@j@wA`C[z@i@pBiAfD[f@yAbBQb@WbAe@dAwA~G[v@gCpE]bA{BpHw@vC_IfXw@lDWj@qBnCgCzC_C|Bc@z@wBfGuEbTSl@[h@i@h@wBjA]^Wp@Iv@Aj@XnDh@pG?tAGlASdAa@hAyBlDqDdI]vAQrA?dBBtBN|DFdD?hCQhAEVu@bBcBbCiDdEoBtAo@~@Sj@S|A]hIKfBiBzLe@lB{BxHM`AC|@BdDIpAQlBIVQR[HqAJoCbBk@TsCbBORMd@]nBQr@Uf@YRo@JcBJe@P[\\Q`@e@xBk@rAOlAYl@{AvBUv@Sj@Y\\WZc@z@o@v@_@|@Q\\mAx@{A^e@?YA{@HoCK_AJaA^}@r@s@bAeGlLg@p@w@n@c@TU@oDAaBIw@@mAD}A_@yA[}@EcAJo@Tq@^wArAaJpJcG`HSXmAlAw@lAmMzSw@pAcCfBy@d@yA?e@KoAm@{@s@o@_Ai@qA_@}AsD_Uc@}Ai@mAw@iAy@w@mAo@oA]}AEs@JcA\\oAx@cAnAe@x@e@lA[lAo@`Ea@rAi@dAy@vA[|@YNUGI?QcAu@mGSsAMSgCqZOaEA}BD_DNqDbAwOEs@UGMF]jBItAStDAxADj@M|@m@tAeBbDQN_@Fe@MyAcAW]Mc@?q@DMLUZK\\DT\\Jj@FlB@b@Ln@HxBJdBt@bIv@`HnB~Rh@zF~@jL\\pEFnAB|CG~CKzB_@dIMpFApBHzCZ~I@dCEhCY|ESzCGhDSrYBdDL~Cb@pE|E|a@dCfP^|CRlDD|DE~CQjDu@vJMdCGxCDtBHlALlFZzEdDl`@`BpNhBbKx@rDfBrFv@zCZlBb@pDNzDDxBTpGXvChCbTh@xD~@xEzCtPx@tD~@hD`@hAdAjCfBfDbA`BnCvDt@dAvEtGvAtBdB~CzDzIj@~@f@p@vAlBhBfBpNfKpQrMfFhEjEfEfFxFjEtFrJ~MfB|BdBpBnCfCnBzArBrA~C|AbDhAtCr@zB\\jDVdDBtCIfDa@dDq@tA_@pCgAnB_AfF}CvP{KzDoCzD_DrEcEvVwUnDuCjCiBrC{AjDwAlDeAhCg@tDe@zCOpCArABxCN~u@jGhEd@~B`@lD~@hBl@~CxA`Bz@t_@zTdz@pf@`}@ng@jB`AxA~@lGbDlClAzCdAnD`AbCd@ni@vIvShDnh@nIxEf@pDNvEFdVUbINxMj@bFf@hEp@`BXpXdHhPnEpDnAvEpBxEdCnFfDpVfPfDjBrEvBhEzArHnBlw@tR~EnAzEvA|CtAlC|Aff@p\\bE|CjE|DlBpBdCzClCrDd[`e@vC`EfD|DlDtDbDzC|HhGdgB`uAvH|FvCpBhEfCbFhChFzBzFlBdItBtEz@t`AtMvGhAbDx@vBt@nD`Bt`@|SrD~Bx@n@tBhBjXhXzO|OvBdCdB`CtDzF`LvQrBtCdDzDvLtM~B~C`BpC`AhB~AzDhBnF`Ptg@`BdGvOvq@rLhh@pSx{@~EhShDlMbXnaAzNrh@hA|DrAtD~AnDhAvBzA|BnB`CdAfAbCtBfCbBlCrAt_@|Nrs@nXvLrEvCvAhC|AtB|AhBxAvC~ChDbE~A`CbZhf@fEtGxSnXfMjP`DrDbDzCfDbCtI~Ebi@|Yrl@d^lKvGzC`ClDhDtr@`t@zBlBvBxA|Ax@pDxAfEjAz{@vTnGlBnMbFff@vR~@`@zGnC~HnC`Cl@vDj@`DRdDBnCMnDc@xBe@jDcAvL}EfRyHpEcBpDaAjB_@bEi@fDU`ReAjCWrGcA~l@mLjDaAnE_BfEwBzCkBvDuC~VsU~k@ii@~BoBxAaAdCqAlCaArBk@|Ce@|BMnN]|DUn[sDrK}Av|@mSzCe@tCSjCC~DVxHdAnS~CrCXtCHhFC~COdE_@jDi@|D_AtDmAfEiB~DyBzDmChDsCjGiG`NeNdC{BzC{BlCaBvDeB|By@hNoDp[eI~FqAfC[xESxOAhk@HlFJt]|AzIZnW`@le@t@hETvFh@pDj@jE|@|FdBdFjBfEnBlCxArEtC|ErD|FfF`[lYbCpBjC`BxAx@lAh@nC~@bCd@hD`@rvBpObIp@bFp@pCh@tCv@~I|CrT|H~M`FxB`AnCvA`CxAvCrBtD|CpCjClE`F`b@hg@hGzGdc@hd@bFpFjBhC~AtCxAdDjAjDv@vCx@fEf@`ETrCP~DDtDCdDKvCa@jF{AhM}AxMUpCOtCGpEBrDN`ENzBPtBr@tEv@rDv@rCxA`ErDhIbi@~hAbH~NfBnD~B`EbCtDhCnDvDhEfE`EdBxA`IvFd[hTt[tTvDzC|@x@pDtDrBbCnCnDfWb`@nBjCjBvBvCpCnCrBdCxArErBpe@rRhM|EhDdAxD~@nG~@hj@~G`Dl@hCt@pCjAdDhBnVtOtNdJnCrArBz@dDx@rARdDN~BAbCSdC[hHyAnCc@hCQjCAlCNlBXpD`A~HdCdDr@`D\\bDN`DAzCSbDe@vCq@nC_AtEwBpGaDpCaA~Bk@nBYlCQvQWp`@e@dDSnAOzCi@jCe@jFs@lHU`JS`EWvB[jCs@hCcAnAm@~AaAnBwAtMeLxCiCtB{AdCuApGsCfBu@jDiBvCkB~EcE`GqGfDcDbBuAv@k@jJcFtVaMdG}ClFgC`Bm@pBg@tCe@vBQdDAjCHbJbAtTrCjDv@xBv@xC`BfAr@tDvCvD|CnBtAfAl@dCfAnPpFlSvG`VfItDtApBbAx@b@tCtBbB~AtBbCfBfCx@vAfAtBhDvHpOr^vBxEdB~CdAvA|AbBfCvBx~@xo@hCfBlDpCdCfCpBhCbA|ApA|BdBzDjBjFlF|PjKl\\`FbPzArEfDpIbLvXj@vAvAzEr@pCl@jDXfBj@hFjA|Nb@rDr@pEx@~DhB`Hr@tBbFdM~Ot_@pAlCzCpF`CxDbCdDzCnDrCvC|CpCtCxBdGzDrj@x\\~NdJbE|CdIfH~N|M~D~C`DpBdDdBnFbCbh@vTxAl@zDzBnAz@dBzAbEnEbB|B|FlJbJpObMvSfBnCpBjCrCvCdDnCrChBnCnAvDpA|Dx@xUfDbEv@jHfBrE~AlFtB`F~BdCrAjKnG`MxHjIhFpM`IxIbFdErBxFvBrEtA~MpDxFhBjBt@hDdBrDzBnOjKfErCdT|NrBvA`D|B`GzDdFtDjEtDhIhIhC|BfChBfCbBnB|AbA`ArBfCjDtE~EdFdGxFzGvFrYvUlNdLtf@x`@jC~Bvf@bf@PXpEtElE|DtDjCpB`AlLbFzFvClDrBhFnDfEhD~I`Ihg@tc@`D`CzEzC|Az@dLnF|EpBvFvClD~BhA~@hDpDhCdDvAzBlBjDxAfDpApD`AdD~@xD^jBp@~D\\hCZ~CjDxd@~@~H`@pCdArFh@`C`AxDhBrF|@fCbB|DhBpDlAvBfAfBdBdCfBxBfBrBdD~CrDtCnBnAdDfBdEdBpBp@jE`AbCb@`\\xD~Dj@fn@xKzDz@lC|@zBbAdCxA`BnAdBbBfAjAlBdClAlBbB`DpIrR?`@z@hCRx@Hx@D~@Cr@Ir@S~@[j@{@hAaCvBu@|@Uh@EREpAEl@IVQT_@F]\\MXC^@l@@RJZD`@xBvLDf@Gh@Mf@a@b@[p@Qv@I|@B~@Lz@Tr@^j@n@`@j@Jl@Ef@Qd@a@Zi@z@_@`@CnFj@pDj@nDp@`Hv@tBd@nNjEdF~@xDr@tBh@vCjAvFdCpC|@jDr@rCVdI\\pAXpIjCvdA~^dGpBdDr@xEf@jp@jGnCLdOMz{@_AnCHdCT|c@xH|p@dLvLpBdIzAlCp@~[lItCn@zXxE~Cz@|B`ArAv@tb@j[`_@nXhDvBtCxAfY|K`VjJ`K`EtDvAzDbBPAtAf@J?|KhE~Aj@vC~@rInBvAVp@F~DHvBM`Fo@p@B`@Hv@\\n@j@j@z@Th@Tr@VvA`ApHn@vF`@xENlD?xDOpEq@hMq@dRMtG@tDLzKVxgAGvBM|Ag@`Di@lBw@pBiDfHg@~Aa@hBW~BEnA@pBPfBb@dDL|A\\nPRzE^|Pz@j_@BzCC~EKhC[lEoAlHg@fBk@vAoAjC_CvDqAzAwClC}G~EuOzKsJ`H{AvAu@`Aq@rAi@`Bk@`C{CpRa@fDStCIdDAvDDdCNtC~A`Qj@vIfCpy@FxCE|CWpD[dCa@~BcApDUr@wExKaClGc@tBWrAMrAYzEAr@Cv_@d@b{AGdJSjIYvH{A~g@[`SC~Hi@|m@Kp@_@dKKdAIp@S`@ADe@d@g@XYHQPoBt@m@b@WVWLMBE[OUYKUDQRI\\?`@HZPTg@tAkA|AqAbA{B~Ag@f@QRMXQf@_FtTm@dCUh@c@|@iFzGiA`BgAdAcDpC_AfAs@r@kCnBKPgCpFQX_@`@s@Tw@FOAUIMJCVFTFDHj@i@rMGtBCxBERDRDDAZ?jAF`ARbAd@`BvBhJ^xCVvEKN?TLNB?Av@XfOC~@Gr@S~@OZ_@^QFITBXBF}FrIuBdFiBxEq@vBq@nCi@hCUvAU|B",
+      "endpoints": {
+        "from": {
+          "placeId": "lago-di-carezza",
+          "geo": {
+            "lat": 46.4114,
+            "lng": 11.6014
+          }
+        },
+        "to": {
+          "placeId": "desenzano-del-garda",
+          "geo": {
+            "lat": 45.4691,
+            "lng": 10.5418
+          }
+        }
+      }
+    },
+    {
+      "id": "transfer-day18-2",
+      "mode": "DRIVE",
+      "name": "Free Parking: Desenzano del Garda → Sirmione",
+      "distance": 7312,
+      "duration": "PT19M",
+      "polyline": "uymtG}lm_AIz@OBGJQEyBgB_@QsAg@EGA}E@oH@o@^mGDULuBNkAJM@UIOECEa@NaFHoBJeABqAl@kJJOAUCIh@{LdAaONBPOFUC_@IIUsGGYMyDg@aJ@o@IsABeADWLO?YIQUa@U_Aq@uNJaBJWGUIKK@]OOK_AwByCkGuC}GkAyDUeAGuA?aKHuA?KLO@WGSDm@EyAqAwJ_@uCC_@k@cFkBqN}@eG@m@Ii@Og@EECs@QcDASIa@M}C@aADWDyJHI@WGKOBA@uBi@KOO@YOWA}Ao@iB]{BRg@CkCq@i@[?QIIKFADqDqAoB{@}EcCKKI?y@S]U_Aw@{AmBc@c@g@UaBk@k@Ms@EeCJGOO?GPaKv@_@@wAT}FvB{At@}AdAcAb@u@J_@E{A[o@Bk@Rq@`@[La@HiAHiBEgE[}Cq@gCm@}CUmBC_A@yDN_@N]d@}@~Aq@j@_A^WDeJIiBEw@G}@j@_@Zc@NKi@",
+      "endpoints": {
+        "from": {
+          "placeId": "desenzano-del-garda",
+          "geo": {
+            "lat": 45.4691,
+            "lng": 10.5418
+          }
+        },
+        "to": {
+          "placeId": "sirmione",
+          "geo": {
+            "lat": 45.4925,
+            "lng": 10.6082
+          }
+        }
+      }
+    },
+    {
+      "id": "transfer-day18-3",
+      "mode": "DRIVE",
+      "name": "Sirmione → Free Parking: Desenzano del Garda",
+      "distance": 7283,
+      "duration": "PT17M",
+      "polyline": "kgttGy{v_AJh@f@QZYj@a@PIv@F^jDBHfEkAvE{@FYJEd@M~@e@Z[jAuBZW\\GnDOhBArBH|BR`GvAfALvEVn@?`AI^Il@Y|@e@p@Il@HnAVj@Cz@WpAy@v@i@lCiAzDwAzAU`AEtGk@dAEDPLDJM?KlCMj@D`ATpBx@@?p@p@lA~AjBzA^\\DTLDLK^E|DlBRxBz@dGLj@p@xDNv@FdBITBXLPDFn@~Ar@r@z@j@~BnA~@p@@VJNPAHKtJxCd@Jx@h@Lf@T\\nAjCFZJbAlAjJd@bDl@hEH^dB~M@lACl@If@MJCTFVBBHfB?`KFtATdAnAbErCtGhEbJ\\v@NTBZBF@n@Hx@v@jPLf@GRBVCh@HzANfBf@`JLxDARLrGQHIXBXmAfSg@fIIP@TBBSnDEzAk@bKKtFELBV@@OrCCv@BR_@lGAn@CfLMbBIVDTNDJM@E^Ep@V^PxBfBPDAVJNN@JQ?WKOF{@",
+      "endpoints": {
+        "from": {
+          "placeId": "sirmione",
+          "geo": {
+            "lat": 45.4925,
+            "lng": 10.6082
+          }
+        },
+        "to": {
+          "placeId": "free-parking-desenzano",
+          "geo": {
+            "lat": 45.4597,
+            "lng": 10.5597
+          }
+        }
+      }
     }
   ],
-
-  "days": [
-    {
-      "title": "Sirmione — Castello Scaligero",
-      "cls": "active-day",
-      "schedule": [
-        {
-          "time": "08:00",
-          "name": "Caminhada matinal pela península",
-          "category": "attraction",
-          "duration": "PT1H",
-          "cost": 0,
-          "notes": "Vielas medievais antes da multidão. Café no Bar Centrale."
-        },
-        {
-          "time": "09:00",
-          "placeId": "castello-scaligero",
-          "duration": "PT2H",
-          "cost": 8,
-          "insights": [
-            {
-              "highlights": [
-                "Bilhete combinado €18: Castello + Grotte di Catullo + Villa Romana (válido 5 dias). Vale a pena fazer os 3.",
-                "As vistas do alto das muralhas no lado norte têm enquadramento perfeito do lago com as montanhas ao fundo — melhor luz pela manhã."
-              ],
-              "warnings": [
-                "Entrada proibida para menores de 14 anos sem adulto. Trilhas internas com degraus irregulares.",
-                "Fechado segundas-feiras. Sábados e domingos com fila — chegue às 8h15 (abertura).",
-                "Domingo fecha às 13h45 — não deixe para a tarde."
-              ]
-            }
-          ]
-        },
-        {
-          "time": "11:15",
-          "routeId": "castello-to-grotte"
-        },
-        {
-          "time": "11:30",
-          "placeId": "grotte-catullo",
-          "duration": "PT1H30M",
-          "cost": 6,
-          "notes": "Após o museu, descer ao mirante norte para foto do lago."
-        },
-        {
-          "time": "13:00",
-          "name": "Almoço na Piazza Giosuè Carducci",
-          "category": "food",
-          "cost": 30,
-          "notes": "Trattorias com vista para o porto. Evitar as 3 da praça central (turísticas)."
-        },
-        {
-          "time": "17:00",
-          "placeId": "camping-sirmione",
-          "cost": 45,
-          "notes": "Volta ao motorhome. Banho de lago possível em junho (~22°C)."
-        }
-      ],
-      "insights": [
-        {
-          "highlights": [
-            "Junho: nascer do sol ~05:30 — vale madrugar para a península vazia e luz dourada nas torres."
-          ]
-        }
-      ],
-      "planB": "Chuva: Museo Civico (coberto) + degustação Lugana na cantina local."
-    },
-    {
-      "title": "Veneza — Rialto, San Marco, Vivaldi",
-      "cls": "active-day",
-      "schedule": [
-        {
-          "time": "07:30",
-          "routeId": "fusina-zattere"
-        },
-        {
-          "time": "08:30",
-          "name": "Café da manhã em Dorsoduro",
-          "category": "food",
-          "cost": 12,
-          "notes": "Pasticceria Tonolo (Calle San Pantalon) — clássico veneziano, fila de locais."
-        },
-        {
-          "time": "10:00",
-          "placeId": "ponte-rialto",
-          "duration": "PT1H30M",
-          "cost": 0,
-          "notes": "Mercado de Rialto (peixe) fecha 12h — passe antes."
-        },
-        {
-          "time": "11:30",
-          "placeId": "basilica-san-marco",
-          "duration": "PT1H30M",
-          "cost": 10,
-          "insights": [
-            {
-              "highlights": [
-                "Entrar na Basílica de graça até às 17h (fachada + nártex). Interior com mosaico dourado: €3 a reserva de slot horário.",
-                "Campanile: €10, filas geralmente menores que a Basílica. Vista 360° inclui Canal Grande, lagoa e Alpes ao norte nos dias limpos."
-              ],
-              "warnings": [
-                "Piazza San Marco lotada o dia todo. Reserva online evita fila de 45min em junho.",
-                "Evite restaurantes na Piazza — preços 3x superiores ao normal de Veneza."
-              ]
-            }
-          ]
-        },
-        {
-          "time": "13:30",
-          "name": "Almoço em Cannaregio (cicchetti)",
-          "category": "food",
-          "cost": 25,
-          "notes": "Bairro residencial, bares de bacaro. Ombra (copo de vinho) + cicchetti = €2–4 cada."
-        }
-      ],
-      "insights": [
-        {
-          "warnings": [
-            "Motorhomes proibidos na ilha de Veneza — deixe em Fusina e use ferry/vaporetto.",
-            "Veneza cobra taxa de entrada diária €5–10 para visitantes em horários de pico — verificar datas no acesso.veneziaunica.it."
-          ]
-        }
-      ],
-      "planB": "Chuva: Galleria dell'Accademia (Bellini/Tiziano/Tintoretto) + Museu Correr (Piazza San Marco)."
-    },
-    {
-      "title": "Tre Cime di Lavaredo — Must-Have",
-      "cls": "active-day",
-      "schedule": [
-        {
-          "time": "06:30",
-          "routeId": "cortina-rifugio-auronzo"
-        },
-        {
-          "time": "07:30",
-          "placeId": "rifugio-auronzo",
-          "cost": 60,
-          "notes": "Vistoria do parking, banheiros, último café antes do loop."
-        },
-        {
-          "time": "08:00",
-          "routeId": "tre-cime-loop"
-        },
-        {
-          "time": "08:00",
-          "placeId": "tre-cime-lavaredo",
-          "duration": "PT5H",
-          "cost": 0,
-          "insights": [
-            {
-              "highlights": [
-                "Face norte das Torres: o lado mais dramático. Paredes verticais de 900m com neve perpétua nas reentrâncias em junho.",
-                "Rifugio Lavaredo (na base da face norte, 2344m): parada obrigatória para café e croissant.",
-                "Forcella Lavaredo (2454m): cume do loop com 360° dos Dolomites de Sexten — a vista mais impressionante."
-              ],
-              "warnings": [
-                "Vento intenso na face norte (>30 km/h em junho). Levar corta-vento.",
-                "Trovoadas de tarde comuns em junho (>50% após 14h). Sair do cume antes das 13h.",
-                "Neve residual nas partes altas em início de junho — checar mountain-forecast.com véspera."
-              ]
-            }
-          ]
-        },
-        {
-          "time": "13:00",
-          "name": "Almoço no Rifugio Auronzo",
-          "category": "food",
-          "cost": 22,
-          "notes": "Pasta al porcini, zuppa di farro, vista direta para as Torres."
-        }
-      ],
-      "insights": [
-        {
-          "warnings": [
-            "Reserva do parking OBRIGATÓRIA via auronzo.info — sem reserva = entrada bloqueada na cancela.",
-            "Estrada a pedágio abre ~final de maio; em 2026 verificar abertura após neve tardia."
-          ]
-        }
-      ],
-      "planB": "Clima ruim: adiar o loop e fazer Sorapis (trilha 215) que é mais baixa e menos exposta a vento."
-    }
-  ],
-
+  "status": "planned",
+  "ogImage": "https://www.snoezelsontheroad.com/wp-content/uploads/2026/02/dolomieten-scaled.jpg",
   "bookings": [
     {
       "date": "2026-06-08",
-      "item": "Camping Garda — 3 noites (motorhome)",
-      "status": "pending",
-      "critical": true,
-      "placeId": "camping-sirmione",
-      "link": "https://www.camping-garda.it/"
+      "item": "Seguro Viagem (credit-card issuer / travel insurance)",
+      "link": "https://drive.google.com/file/d/1132jG9xZs7ZdOnMdiwAs0yJX8xMwc44r/view",
+      "status": "confirmed",
+      "critical": false
+    },
+    {
+      "date": "2026-06-08",
+      "item": "Passagem aérea GRU ↔ MXP (LATAM LA8072/LA8073)",
+      "link": "https://drive.google.com/file/d/12SaF4BwKbDIEtcUD9daWoB2NSgWge0hN/view",
+      "status": "confirmed",
+      "critical": false
+    },
+    {
+      "date": "2026-06-09",
+      "item": "Contrato Motorhome Indie Campers",
+      "link": "https://drive.google.com/file/d/1dbNhWoKDhOdCfTDo-us1MgPaYyHh-zYQ/view",
+      "status": "confirmed",
+      "critical": false
+    },
+    {
+      "date": "2026-06-09",
+      "item": "Reserva Camping Fusina",
+      "link": "https://drive.google.com/file/d/1HfWfW2MmMemtNkGSdo8pQRB8JPEYQq8H/view",
+      "status": "confirmed",
+      "critical": false
     },
     {
       "date": "2026-06-10",
-      "item": "Camping Fusina — 2 noites + ferry passes",
-      "status": "pending",
-      "critical": false,
-      "placeId": "camping-venezia",
-      "link": "https://www.camping-fusina.com/"
+      "item": "Itinerari Segreti — Palazzo Ducale",
+      "status": "confirmed",
+      "critical": false
     },
     {
-      "date": "2026-06-14",
-      "item": "Rifugio Auronzo parking — campervan €60 (RESERVA OBRIGATÓRIA)",
-      "status": "pending",
-      "critical": true,
-      "placeId": "rifugio-auronzo",
-      "link": "https://auronzo.info/en/parking-tre-cime-di-lavaredo/"
+      "date": "2026-06-10",
+      "item": "Ingresso Basilica di San Marco",
+      "link": "https://drive.google.com/file/d/1pfIx_Hz3suSQ3ChOSM-APW3-PripBO6q/view?usp=sharing",
+      "status": "confirmed",
+      "critical": true
     },
     {
-      "date": "2026-06-06",
-      "item": "Voos GRU ↔ MXP — 2 pax roundtrip",
+      "date": "2026-06-10",
+      "item": "Concerto Vivaldi — Four Seasons (I Musici Veneziani)",
+      "link": "https://drive.google.com/file/d/1bJQ2rOp91vYe5Y-qfhiVeEKIPnoruD72/view?usp=sharing",
+      "status": "confirmed",
+      "critical": true
+    },
+    {
+      "date": "2026-06-11",
+      "item": "E-vinheta eslovena (7 dias)",
+      "link": "https://evinjeta.dars.si/en",
       "status": "pending",
-      "critical": true,
-      "link": "https://www.skyscanner.com.br/rotas/gru/mxp/"
+      "critical": false
+    },
+    {
+      "date": "2026-06-11",
+      "item": "Postojna Cave + Predjama Castle combo",
+      "link": "https://drive.google.com/file/d/1fmbj3RMympdMC1SWyq_XKYRUmd78CxzY/view?usp=sharing",
+      "status": "confirmed",
+      "critical": false
+    },
+    {
+      "date": "2026-06-11",
+      "item": "Reserva Camping Bled",
+      "link": "https://drive.google.com/file/d/1wxOdJxbN1d0-QOZJ_DKeTmWuCTNM3euD/view",
+      "status": "confirmed",
+      "critical": false
+    },
+    {
+      "date": "2026-06-12",
+      "item": "Ingresso Vintgar Gorge",
+      "link": "https://www.vintgar.si/en/",
+      "status": "pending",
+      "critical": false
+    },
+    {
+      "date": "2026-06-12",
+      "item": "Ingresso Bled Castle",
+      "link": "https://www.blejski-grad.si/en/",
+      "status": "pending",
+      "critical": false
+    },
+    {
+      "date": "2026-06-13",
+      "item": "Vogel Cable Car",
+      "link": "https://www.vogel.si/en/",
+      "status": "pending",
+      "critical": false
+    },
+    {
+      "date": "2026-06-16",
+      "item": "Rafting Rio Soča (SportMix)",
+      "link": "https://sportmix.si/en/rafting/",
+      "status": "pending",
+      "critical": false
+    },
+    {
+      "date": "2026-06-18",
+      "item": "Tre Cime toll road (slot 7h–8h)",
+      "link": "https://pass.auronzo.info",
+      "status": "pending",
+      "critical": true
+    },
+    {
+      "date": "2026-06-20",
+      "item": "Camping Olympia (Dobbiaco)",
+      "link": "https://drive.google.com/file/d/1S4mlh_jpZnoxD2iFZAVtgeFOgpWZxOhJ/view",
+      "status": "confirmed",
+      "critical": false
+    },
+    {
+      "date": "2026-06-23",
+      "item": "Seceda Cable Car",
+      "link": "https://www.seceda.it/en/",
+      "status": "pending",
+      "critical": true
+    },
+    {
+      "date": "2026-06-23",
+      "item": "Jantar tirolês em Ortisei",
+      "status": "pending",
+      "critical": false
+    },
+    {
+      "date": "2026-06-25",
+      "item": "Free parking Desenzano (Park4Night)",
+      "link": "https://park4night.com/en/place/14906",
+      "status": "confirmed",
+      "critical": false
+    },
+    {
+      "date": "2026-06-26",
+      "item": "Pernoite pátio Indie Campers",
+      "status": "pending",
+      "critical": false
     }
-  ]
+  ],
+  "currency": "EUR",
+  "isPublic": false,
+  "timezone": "Europe/Rome",
+  "checklist": [
+    {
+      "type": "checklist",
+      "items": [
+        {
+          "id": "c-voo",
+          "text": "Voos LATAM GRU↔MXP — Confirmado",
+          "status": "done"
+        },
+        {
+          "id": "c-mh",
+          "text": "Motorhome Indie Campers — Confirmado",
+          "status": "done"
+        },
+        {
+          "id": "c-seg",
+          "text": "Seguro viagem credit-card issuer / travel insurance",
+          "status": "done"
+        }
+      ],
+      "title": "Março 2026 — 3 meses antes"
+    },
+    {
+      "type": "checklist",
+      "items": [
+        {
+          "id": "c-trecime",
+          "text": "✅ Tre Cime toll road — cadastro criado em pass.auronzo.info. Tickets abrem ~final de maio",
+          "status": "done"
+        },
+        {
+          "id": "c-vrsic",
+          "text": "✅ Vršič Pass: motorhome PASSA mas desafiador. Sair cedo, marcha baixa na descida. Plan B: Predel Pass se chover",
+          "status": "done"
+        },
+        {
+          "id": "c-seceda",
+          "text": "Seceda cable car — RESERVA ONLINE OBRIGATÓRIA em 2026 com time slot. seceda.it para Jun 23",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "c-palazzo",
+          "text": "⚠️ Itinerari Segreti — Palazzo Ducale (tour inglês 11:30, Jun 10) — solicitação enviada, aguardando confirmação",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "c-sanmarco",
+          "text": "⚠️ Comprar ingresso Basilica di San Marco online — timed-entry obrigatório desde Jul/2025",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "c-fisico",
+          "text": "Condicionamento físico (trilhas de 6h com 700m+ desnível)",
+          "status": "done"
+        },
+        {
+          "id": "c-fusina",
+          "text": "Reservar Camping Fusina (Venezia) — Jun 9–11 — Confirmado",
+          "status": "done"
+        },
+        {
+          "id": "c-bled",
+          "text": "Reservar Camping Bled (Jun 11–14) — 3 noites confirmadas",
+          "status": "done"
+        },
+        {
+          "id": "c-olympia",
+          "text": "Reservar Camping Olympia (Dobbiaco) — Jun 20–22, €65.50/noite. Confirmado",
+          "status": "done"
+        },
+        {
+          "id": "c-sirmione-camp",
+          "text": "Camping Sirmione não aceita 1 noite. Alternativa: free parking Desenzano (Park4Night)",
+          "status": "done"
+        },
+        {
+          "id": "c-postojna",
+          "text": "Comprar combo Postojna+Predjama online (~€47/pp)",
+          "status": "done"
+        },
+        {
+          "id": "c-rafting",
+          "text": "Reservar rafting Soča (SportMix)",
+          "status": "pending"
+        },
+        {
+          "id": "c-indie-overnight",
+          "text": "Perguntar Indie Campers sobre pernoite no pátio na noite de 26 Jun",
+          "status": "pending"
+        }
+      ],
+      "title": "Abril 2026 — 2 meses antes"
+    },
+    {
+      "type": "checklist",
+      "items": [
+        {
+          "id": "c-translado",
+          "text": "Translado para GRU — ônibus + Uber. R$300",
+          "status": "done"
+        },
+        {
+          "id": "c-aurora",
+          "text": "Pet care reservation confirmed. R$100/dia × 20 dias = R$2.000",
+          "status": "done"
+        },
+        {
+          "id": "c-confirmar",
+          "text": "Confirmar todas as reservas (motorhome, campings, voos)",
+          "status": "pending"
+        },
+        {
+          "id": "c-vinheta",
+          "text": "Comprar e-vinheta eslovena (evinjeta.dars.si) — 7-day pass, Cat 2A",
+          "status": "pending"
+        },
+        {
+          "id": "c-banco",
+          "text": "Avisar banco sobre viagem (Itália + Eslovênia)",
+          "status": "done"
+        },
+        {
+          "id": "c-cnh",
+          "text": "Verificar carteira de motorista internacional",
+          "status": "done"
+        },
+        {
+          "id": "c-roaming",
+          "text": "Verificar roaming celular (EU roaming cobre IT + SI)",
+          "status": "done"
+        },
+        {
+          "id": "c-drone-dflight",
+          "text": "Drone Avata 2 — Registrar D-Flight (d-flight.it). €6/ano",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "c-drone-seguro",
+          "text": "Drone — Contratar seguro RC (obrigatório UE, ~€920k cobertura)",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "c-drone-qr",
+          "text": "Drone — Colar QR code (eID) no Avata 2",
+          "status": "pending"
+        },
+        {
+          "id": "c-drone-app",
+          "text": "Drone — Baixar app D-Flight",
+          "status": "pending"
+        },
+        {
+          "id": "c-drone-guide",
+          "text": "Drone — Estudar drone-guide.md. Spots permitidos vs proibidos",
+          "status": "pending"
+        },
+        {
+          "id": "c-placa-mh",
+          "text": "Pedir placa do motorhome a Indie Campers — necessária para Tre Cime toll",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "c-franquia",
+          "text": "Verificar franquia seguro Indie Campers (€1.500-3.000). Considerar redução (~€10-15/dia)",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "c-ztl",
+          "text": "Estudar ZTL (Zona Traffico Limitato) das cidades italianas",
+          "status": "pending"
+        },
+        {
+          "id": "c-farois-si",
+          "text": "Eslovênia: faróis baixos obrigatórios 24h/dia. Multa ~€40",
+          "status": "pending"
+        },
+        {
+          "id": "c-mapas",
+          "text": "Baixar mapas offline: Google Maps (IT + SI), Komoot/AllTrails",
+          "status": "pending"
+        },
+        {
+          "id": "c-apps",
+          "text": "Baixar apps: Park4Night, CamperContact, MeteoTrentino, ARSO",
+          "status": "pending"
+        }
+      ],
+      "title": "Maio 2026 — 1 mês antes"
+    },
+    {
+      "type": "checklist",
+      "items": [
+        {
+          "id": "c-trecime-ticket",
+          "text": "⚠️ ~19 Mai (30 dias antes): Reservar Tre Cime toll road ticket — placa do veículo necessária",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "c-concerto",
+          "text": "⚠️ Comprar tickets Concerto I Musici Veneziani (Jun 10, 20:30) — ~€65/pp",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "c-missa",
+          "text": "Verificar horário de missas na Basilica di San Marco (orarimesse.it)",
+          "status": "pending"
+        },
+        {
+          "id": "c-clima",
+          "text": "Verificar condições climáticas de longo prazo",
+          "status": "pending"
+        },
+        {
+          "id": "c-vrsicopen",
+          "text": "Verificar se Vršič Pass está aberto (geralmente abre maio/junho)",
+          "status": "pending"
+        },
+        {
+          "id": "c-vrsic-vespera",
+          "text": "⚠️ Véspera do Vršič: checar condições da estrada. Se choveu → Predel Pass",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "c-sorapis-check",
+          "text": "Verificar condições Lago di Sorapis (1 semana antes): neve/gelo nos cabos. Instagram Rifugio Vandelli",
+          "status": "pending",
+          "critical": true
+        },
+        {
+          "id": "c-neve",
+          "text": "Verificar condições de neve nos passes dolomíticos (Gardena, Sella)",
+          "status": "pending"
+        },
+        {
+          "id": "c-cash",
+          "text": "Trocar €300 em espécie (notas pequenas)",
+          "status": "pending"
+        },
+        {
+          "id": "c-playlist",
+          "text": "Preparar playlist/podcasts para estrada",
+          "status": "pending"
+        },
+        {
+          "id": "c-mala",
+          "text": "Fazer mala seguindo packing list",
+          "status": "pending"
+        },
+        {
+          "id": "c-eletro",
+          "text": "Carregar eletrônicos + power bank",
+          "status": "pending"
+        },
+        {
+          "id": "c-checkin",
+          "text": "Check-in LATAM (24h antes do voo)",
+          "status": "pending"
+        }
+      ],
+      "title": "Semanas anterior (início de junho)"
+    },
+    {
+      "type": "checklist",
+      "items": [
+        {
+          "id": "c-seguro2",
+          "text": "⚠️ Emitir NOVO seguro viagem premium — bilhete expira 07/06. NÃO deixar para o dia do voo!",
+          "status": "pending",
+          "critical": true
+        }
+      ],
+      "title": "2-3 dias antes do voo (05-06/06)"
+    },
+    {
+      "type": "checklist",
+      "items": [
+        {
+          "id": "c-seceda2",
+          "text": "Seceda cable car — confirmar time slot Jun 23. Levar €10 cash para taxa da crista (€5/pp)",
+          "status": "pending",
+          "critical": true
+        }
+      ],
+      "title": "Dia do voo — 08/06/2026"
+    },
+    {
+      "type": "packing",
+      "items": [
+        {
+          "id": "p-passaporte",
+          "text": "Passaportes (validade 6+ meses)",
+          "status": "pending"
+        },
+        {
+          "id": "p-cnh",
+          "text": "Carteira de motorista internacional",
+          "status": "pending"
+        },
+        {
+          "id": "p-cartoes",
+          "text": "Cartões de crédito (avisar banco!)",
+          "status": "pending"
+        },
+        {
+          "id": "p-cash",
+          "text": "€300 em cash (notas pequenas — rifúgios só aceitam cash)",
+          "status": "pending"
+        },
+        {
+          "id": "p-reservas",
+          "text": "Confirmações impressas: motorhome, voos, campings, Tre Cime, Seceda, Postojna, rafting",
+          "status": "pending"
+        },
+        {
+          "id": "p-copiadigital",
+          "text": "Cópia digital de todos os docs no celular",
+          "status": "pending"
+        },
+        {
+          "id": "p-seguro",
+          "text": "Seguro viagem emitido (emitir 08/06)",
+          "status": "pending"
+        },
+        {
+          "id": "p-vinheta",
+          "text": "E-vinheta eslovena comprada (evinjeta.dars.si)",
+          "status": "pending"
+        }
+      ],
+      "title": "🔴 Documentos & Dinheiro"
+    },
+    {
+      "type": "packing",
+      "items": [
+        {
+          "id": "p-botas",
+          "text": "Botas de trekking impermeáveis (já amaciadas!)",
+          "status": "pending"
+        },
+        {
+          "id": "p-mochila",
+          "text": "Mochila de trilha 25-35L com capa de chuva",
+          "status": "pending"
+        },
+        {
+          "id": "p-bastoes",
+          "text": "Bastões de caminhada telescópicos",
+          "status": "pending"
+        },
+        {
+          "id": "p-garrafa",
+          "text": "Garrafa d'água reutilizável 1L cada",
+          "status": "pending"
+        },
+        {
+          "id": "p-luvas",
+          "text": "Luvas leves de trekking (cabos de aço em Sorapis)",
+          "status": "pending"
+        },
+        {
+          "id": "p-headlamp",
+          "text": "Headlamp/lanterna de cabeça (Postojna + saídas cedo)",
+          "status": "pending"
+        },
+        {
+          "id": "p-protetor",
+          "text": "Protetor solar SPF 50 + protetor labial com FPS",
+          "status": "pending"
+        },
+        {
+          "id": "p-oculos",
+          "text": "Óculos de sol categoria 3-4 (mountain-grade)",
+          "status": "pending"
+        },
+        {
+          "id": "p-buff",
+          "text": "Buff / neck gaiter (multiuso)",
+          "status": "pending"
+        },
+        {
+          "id": "p-sacoseco",
+          "text": "Saco estanque para eletrônicos (chuvas Dolomitas)",
+          "status": "pending"
+        },
+        {
+          "id": "p-apito",
+          "text": "Apito de emergência",
+          "status": "pending"
+        },
+        {
+          "id": "p-snacks",
+          "text": "Snacks de trilha: barras energéticas, frutas secas, nuts",
+          "status": "pending"
+        }
+      ],
+      "title": "🥾 Trekking"
+    },
+    {
+      "type": "packing",
+      "items": [
+        {
+          "id": "p-bolhas",
+          "text": "Kit primeiros socorros: band-aids/Compeed, fita atlética, gaze, esparadrapo",
+          "status": "pending"
+        },
+        {
+          "id": "p-antisseptico",
+          "text": "Antisséptico: Povidona iodada (Betadine) sachês",
+          "status": "pending"
+        },
+        {
+          "id": "p-analgesico",
+          "text": "Ibuprofeno 400mg + Paracetamol 750mg",
+          "status": "pending"
+        },
+        {
+          "id": "p-antidiarreia",
+          "text": "Loperamida/Imosec — mudança de dieta",
+          "status": "pending"
+        },
+        {
+          "id": "p-antialergico",
+          "text": "Loratadina/Cetirizina — pólen alpino em junho",
+          "status": "pending"
+        },
+        {
+          "id": "p-antiacido",
+          "text": "Omeprazol — jantares pesados (Tyrolean cuisine)",
+          "status": "pending"
+        },
+        {
+          "id": "p-relaxante",
+          "text": "Ciclobenzaprina/Miosan — pernas após trilhas",
+          "status": "pending"
+        },
+        {
+          "id": "p-sro",
+          "text": "Sal de reidratação oral (2-3 sachês)",
+          "status": "pending"
+        },
+        {
+          "id": "p-colirio",
+          "text": "Colírio lubrificante",
+          "status": "pending"
+        },
+        {
+          "id": "p-buscopan",
+          "text": "Buscopan — cólica por frio/alimentação",
+          "status": "pending"
+        },
+        {
+          "id": "p-repelente",
+          "text": "Repelente de insetos (lagos ao entardecer)",
+          "status": "pending"
+        },
+        {
+          "id": "p-medicamentos",
+          "text": "Medicamentos pessoais + receitas",
+          "status": "pending"
+        },
+        {
+          "id": "p-pastilhas",
+          "text": "Pastilhas para purificar água (emergência)",
+          "status": "pending"
+        },
+        {
+          "id": "p-emergencia",
+          "text": "Emergência: 112 (Europa), 118 (resgate montanha IT)",
+          "status": "pending"
+        }
+      ],
+      "title": "💊 Saúde & Segurança"
+    },
+    {
+      "type": "packing",
+      "items": [
+        {
+          "id": "p-camisetas",
+          "text": "Base layer: 5-6 camisetas técnicas dry-fit",
+          "status": "pending"
+        },
+        {
+          "id": "p-fleece",
+          "text": "Mid layer: 2 fleece / softshell",
+          "status": "pending"
+        },
+        {
+          "id": "p-jaqueta",
+          "text": "Outer layer: 1 jaqueta corta-vento impermeável (ESSENCIAL)",
+          "status": "pending"
+        },
+        {
+          "id": "p-puffer",
+          "text": "Insulation: 1 puffer jacket leve (noites em altitude 2-8°C)",
+          "status": "pending"
+        },
+        {
+          "id": "p-calcas",
+          "text": "2 calças de trekking (1 conversível em shorts)",
+          "status": "pending"
+        },
+        {
+          "id": "p-shorts",
+          "text": "2 shorts para vales quentes (20-28°C)",
+          "status": "pending"
+        },
+        {
+          "id": "p-calcacasual",
+          "text": "1 calça casual/jeans para cidades",
+          "status": "pending"
+        },
+        {
+          "id": "p-meias",
+          "text": "5 pares meias trekking merino (não algodão!)",
+          "status": "pending"
+        },
+        {
+          "id": "p-meiasnormais",
+          "text": "2 pares de meias normais",
+          "status": "pending"
+        },
+        {
+          "id": "p-chinelo",
+          "text": "Chinelo para camping/wellness",
+          "status": "pending"
+        },
+        {
+          "id": "p-tenis",
+          "text": "Tênis casual/walking shoes para cidades",
+          "status": "pending"
+        },
+        {
+          "id": "p-casual",
+          "text": "2-3 conjuntos casuais para cidades e jantares",
+          "status": "pending"
+        },
+        {
+          "id": "p-bone",
+          "text": "Boné / chapéu de sol UV",
+          "status": "pending"
+        },
+        {
+          "id": "p-toalha",
+          "text": "Toalha de secagem rápida (microfiber)",
+          "status": "pending"
+        },
+        {
+          "id": "p-banho",
+          "text": "Roupa de banho (piscinas, Bohinj, rafting)",
+          "status": "pending"
+        },
+        {
+          "id": "p-canga",
+          "text": "Canga ou roupão leve (wellness)",
+          "status": "pending"
+        },
+        {
+          "id": "p-interior",
+          "text": "Roupa interior para ~7 dias (lavar mid-trip)",
+          "status": "pending"
+        }
+      ],
+      "title": "👕 Roupas (Junho: 8-30°C, variável por altitude)"
+    },
+    {
+      "type": "packing",
+      "items": [
+        {
+          "id": "p-bedding",
+          "text": "⚠️ Bedding Kit — verificar reserva Indie Campers ou alugar Essential Travel Kit",
+          "status": "pending"
+        },
+        {
+          "id": "p-toalhas",
+          "text": "Toalhas de banho microfiber (2) — Indie Campers NÃO fornece",
+          "status": "pending"
+        },
+        {
+          "id": "p-panosprato",
+          "text": "Panos de prato / multiuso (3-4)",
+          "status": "pending"
+        },
+        {
+          "id": "p-abridor",
+          "text": "Abridor de lata/garrafa + saca-rolhas",
+          "status": "pending"
+        },
+        {
+          "id": "p-facachef",
+          "text": "Faca de chef pequena (facas do kit são básicas)",
+          "status": "pending"
+        },
+        {
+          "id": "p-moka",
+          "text": "Moka pot para café italiano",
+          "status": "pending"
+        },
+        {
+          "id": "p-varal",
+          "text": "Varal + pregadores (secar em 2-3h ao sol)",
+          "status": "pending"
+        },
+        {
+          "id": "p-prendedores",
+          "text": "Prendedores de mola / clips",
+          "status": "pending"
+        },
+        {
+          "id": "p-faca",
+          "text": "Faca multiuso / canivete",
+          "status": "pending"
+        },
+        {
+          "id": "p-tupperware",
+          "text": "Tupperware / potes herméticos para packed lunch",
+          "status": "pending"
+        },
+        {
+          "id": "p-sacotermico",
+          "text": "Saco térmico pequeno",
+          "status": "pending"
+        },
+        {
+          "id": "p-lanterna",
+          "text": "Lanterna (camping sem iluminação)",
+          "status": "pending"
+        },
+        {
+          "id": "p-extensao",
+          "text": "Extensão elétrica curta",
+          "status": "pending"
+        },
+        {
+          "id": "p-adaptgas",
+          "text": "Adaptador de gás europeu universal",
+          "status": "pending"
+        },
+        {
+          "id": "p-temperos",
+          "text": "Temperos básicos em potes pequenos: sal, pimenta, azeite mini",
+          "status": "pending"
+        }
+      ],
+      "title": "🚐 Motorhome — itens para trazer do Brasil"
+    },
+    {
+      "type": "packing",
+      "items": [
+        {
+          "id": "p-limpeza",
+          "text": "Kit de limpeza: esponja, detergente, pano de chão",
+          "status": "pending"
+        },
+        {
+          "id": "p-lixo",
+          "text": "Sacos de lixo extras (separar reciclável — obrigatório IT)",
+          "status": "pending"
+        },
+        {
+          "id": "p-papeltoalha",
+          "text": "Papel toalha + papel higiênico",
+          "status": "pending"
+        },
+        {
+          "id": "p-pastilhaswc",
+          "text": "Pastilhas WC químico (Thetford Aqua Kem)",
+          "status": "pending"
+        },
+        {
+          "id": "p-temperosgrandes",
+          "text": "Azeite, sal, temperos (embalagens maiores)",
+          "status": "pending"
+        }
+      ],
+      "title": "🛒 Motorhome — comprar no primeiro supermercado (D1)"
+    },
+    {
+      "type": "packing",
+      "items": [
+        {
+          "id": "p-carregador",
+          "text": "Celulares + carregadores + power bank 10.000+ mAh",
+          "status": "pending"
+        },
+        {
+          "id": "p-cabousb",
+          "text": "Cabo USB-C extra (backup)",
+          "status": "pending"
+        },
+        {
+          "id": "p-adaptador",
+          "text": "Adaptador de tomada europeu Tipo C/F",
+          "status": "pending"
+        },
+        {
+          "id": "p-roaming",
+          "text": "Celular com roaming EU ativo",
+          "status": "pending"
+        },
+        {
+          "id": "p-mapas2",
+          "text": "Mapas offline: Google Maps (Trentino + Eslovênia), AllTrails (7 trilhas), Komoot",
+          "status": "pending"
+        },
+        {
+          "id": "p-apps2",
+          "text": "Apps: Park4Night, CamperContact, MeteoTrentino, ARSO, AllTrails, Google Translate",
+          "status": "pending"
+        }
+      ],
+      "title": "📱 Tech & Navegação"
+    },
+    {
+      "type": "packing",
+      "items": [
+        {
+          "id": "p-camera",
+          "text": "Câmera + carregador + bateria reserva",
+          "status": "pending"
+        },
+        {
+          "id": "p-cartao",
+          "text": "Cartão de memória extra",
+          "status": "pending"
+        },
+        {
+          "id": "p-tripe",
+          "text": "Tripé compacto / gorillapod (long exposure em lagos)",
+          "status": "pending"
+        },
+        {
+          "id": "p-panolente",
+          "text": "Pano de limpeza para lente",
+          "status": "pending"
+        }
+      ],
+      "title": "📷 Câmera & Fotografia"
+    }
+  ],
+  "startDate": "2026-06-08",
+  "destination": {
+    "headlineTo": "Milan, Italy",
+    "headlineFrom": "Milan, Italy",
+    "startLocation": "São Paulo"
+  },
+  "schemaVersion": 3
 }

@@ -24,6 +24,7 @@ import { dirname, resolve } from "path";
 import { fileURLToPath } from "url";
 import { init } from "./commands/init.ts";
 import { validate } from "./commands/validate.ts";
+import { syncRoutes } from "./commands/sync-routes.ts";
 import { log } from "./lib/log.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -45,6 +46,22 @@ program
   .command("validate <slug>")
   .description("Validate trip.json against the v3 TripSchema")
   .action((slug: string) => withErrors(() => validate(slug)));
+
+program
+  .command("sync-routes <slug>")
+  .description("Regenerate trip.routes[] from the schedule via Google Routes API (or haversine fallback)")
+  .option("--dry-run", "Show diff, don't write")
+  .option("--output <path>", "Write to a different file (default: in-place with .bak backup)")
+  .option("--no-api", "Force haversine fallback even when GOOGLE_PLACES_API_KEY is set")
+  .action((slug: string, opts: { dryRun?: boolean; output?: string; api?: boolean }) =>
+    withErrors(() =>
+      syncRoutes(slug, {
+        dryRun: opts.dryRun ?? false,
+        output: opts.output ?? null,
+        noApi: opts.api === false,
+      }),
+    ),
+  );
 
 program.parseAsync(process.argv).catch((err) => {
   log.error(err instanceof Error ? err.message : String(err));

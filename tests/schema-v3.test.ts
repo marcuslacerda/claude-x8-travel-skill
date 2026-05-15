@@ -128,6 +128,10 @@ describe("Sub-schemas", () => {
     const base = {
       id: "x",
       mode: "DRIVE" as const,
+      endpoints: {
+        from: { placeId: "place-a" },
+        to: { placeId: "place-b" },
+      },
       polyline: "abc",
       duration: "PT45M",
     };

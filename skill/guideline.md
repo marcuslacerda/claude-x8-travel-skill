@@ -173,25 +173,58 @@ If you're tempted to add a `notes` entry while generating, ask: "Could this be a
 
 ---
 
-## Transfers — the 15-minute rule
+## Routes — atomic, every transition
 
-Every displacement between two points that takes **more than 15 minutes**, or that requires a vehicle (car, bus, train, ferry, flight), MUST appear as a Route reference in the schedule. Walks under 15 min between adjacent Places may be omitted (implicit walking).
+**Every transition between two consecutive placeIds in the schedule needs a Route.** No more "implicit walking" — the model is atomic from→to, and explor8's map filters/sync logic depend on each leg being declared.
 
-Concretely:
+Three structural rules:
 
-- Distance ≤ 1 km AND on foot → omit (implicit walking, viewer doesn't need a route).
-- Distance > 1 km OR duration > 15 min OR mode ≠ WALK → emit a Route + reference it via `schedule[].routeId`.
+1. **Endpoints are mandatory.** Every route declares `endpoints: { from: { placeId }, to: { placeId } }`. Both placeIds must reference entries in `trip.places[]`. The geo cache is optional — when set, it's a snapshot of `places[placeId].geo` at compute time for drift detection.
 
-A schedule item with `routeId` represents the leg starting at `time`. Stack drive-rest-drive sequences as separate route references:
+2. **Atomic, not macro.** A route connects exactly two places. Multi-stop translados (Venezia → Postojna → Bled) are a **sequence of atomic routes**, not one macro route with waypoints. Promote each stop to a Place; emit one route per pair.
+
+3. **No "implicit walks".** Even a 200m stroll between two adjacent Places gets its own WALK route. The schedule shape is always `place → route → place → route → place`. If the model feels too verbose, simplify by collapsing places (don't drop routes).
+
+Example — Day 5 in Bled, a loop that starts and ends at the same stay:
 
 ```jsonc
 "schedule": [
-  { "time": "08:00", "routeId": "milan-to-verona" },     // drive 1
-  { "time": "10:30", "placeId": "verona-arena", "duration": "PT1H30M" },
-  { "time": "12:30", "routeId": "verona-to-padua" },     // drive 2
-  { "time": "14:00", "placeId": "padua-old-town", "duration": "PT2H" }
+  { "time": "08:00", "placeId": "camping-bled" },
+  { "time": "08:30", "routeId": "camping-bled__to__vintgar-gorge" },
+  { "time": "09:00", "placeId": "vintgar-gorge", "duration": "PT2H" },
+  { "time": "11:30", "routeId": "vintgar-gorge__to__bled-castle" },
+  { "time": "12:00", "placeId": "bled-castle", "duration": "PT1H30M" },
+  { "time": "14:00", "routeId": "bled-castle__to__kremsnita-cafe" },
+  { "time": "14:30", "placeId": "kremsnita-cafe", "duration": "PT1H" },
+  { "time": "16:00", "routeId": "kremsnita-cafe__to__camping-bled" },
+  { "time": "16:30", "placeId": "camping-bled" }
 ]
 ```
+
+The loop is an emergent property (`first.from.placeId === last.to.placeId`) — no special-cased schema, just the same atomic pattern repeated.
+
+---
+
+## Google APIs for routes (optional)
+
+If `GOOGLE_PLACES_API_KEY` is set in the local environment, the skill calls Places API (New) + Routes API directly to compute real polylines, durations, and distances.
+
+**With the key:**
+- `route.polyline` ← `routes.googleapis.com` encoded polyline
+- `route.duration` ← ISO 8601 from the API response
+- `route.distance` ← meters
+- `route.stale` is unset (route is fresh)
+
+**Without the key:**
+- Fallback to haversine geometry + per-mode speed estimates (`WALK ≈ 5 km/h`, `DRIVE ≈ 60 km/h`, `FERRY ≈ 25 km/h`, `TRAIN ≈ 100 km/h`, `FLIGHT ≈ 800 km/h`)
+- `route.polyline` is a straight-line encoding between the endpoints' geo
+- `route.stale = true` — flags the route as "estimated, please refine"
+
+**Modes Google Routes API covers reliably:** DRIVE, WALK, BICYCLE, TRANSIT. For TRAIN, FLIGHT, FERRY the API doesn't return useful results, so the skill keeps the haversine estimate and marks `stale: true` regardless of key availability. The advisor can paste a manual polyline later (e.g. for a ferry where the actual route follows a specific channel).
+
+**Refinement on upload:** when the user uploads `publish.json` via the explor8 `/import` UI, the backend (if configured with its own `GOOGLE_PLACES_API_KEY`) detects routes flagged `stale: true` in covered modes and recomputes them server-side before persisting. So a stale-emitting skill run still produces a publishable trip — the polylines get refined when they land.
+
+**Photo: the skill does NOT download place photos.** It only populates `place.googlePlaceId`. The explor8 backend resolves the photo on demand (Add Place flow) and uploads it to Vercel Blob — keeping the skill side-effect-free and the binary out of the JSON.
 
 ---
 

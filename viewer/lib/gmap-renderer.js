@@ -247,7 +247,10 @@ export async function renderGoogleMap(container, trip, config) {
     clusterer?.addMarkers(updatedVisible);
 
     // Filter routes
-    const visible = new Set(visibleRoutes(routes, state.view, trip.days || []).map((r) => r.id));
+    const placesByIdForRoutes = new Map((trip.places || []).map((p) => [p.id, p]));
+    const visible = new Set(
+      visibleRoutes(routes, state.view, trip.days || [], placesByIdForRoutes).map((r) => r.id),
+    );
     for (const { route, polyline } of polylines) {
       polyline.setMap(visible.has(route.id) ? map : null);
     }

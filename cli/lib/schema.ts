@@ -196,19 +196,47 @@ export const PlaceSchema = z.object({
 export type Place = z.infer<typeof PlaceSchema>;
 
 // ----------------------------------------------------------------------------
-// Route — geometry between places (trip.routes[])
+// Route — atomic geometry between two places (trip.routes[])
+//
+// endpoints declares intent (which two places this route connects).
+// polyline/duration/distance are the cached result of the last Routes API
+// compute — when endpoints change, the cache goes stale and is refined by
+// the post-pass sync helper.
 // ----------------------------------------------------------------------------
+
+export const RouteEndpointSchema = z.object({
+  /** Stable kebab-case reference into trip.places[]. */
+  placeId: z.string().regex(KebabIdPattern, "endpoint placeId must be lowercase kebab-case"),
+  /** Cache of trip.places[placeId].geo at compute time — protects against drift. */
+  geo: z
+    .object({
+      lat: z.number().min(-90).max(90),
+      lng: z.number().min(-180).max(180),
+    })
+    .optional(),
+  /** Free-form human label (e.g. "Sirmione harbour", "Postojna entrance"). */
+  label: z.string().optional(),
+});
+export type RouteEndpoint = z.infer<typeof RouteEndpointSchema>;
 
 export const RouteSchema = z.object({
   id: z.string().regex(KebabIdPattern, "id must be lowercase kebab-case"),
   name: z.string().optional(),
   mode: TravelModeSchema,
-  /** Google encoded polyline (precision 5). Client decodes via @googlemaps/polyline-codec. */
+  /** From → to. placeId required on both ends; toda rota conecta places do catálogo. */
+  endpoints: z.object({
+    from: RouteEndpointSchema,
+    to: RouteEndpointSchema,
+  }),
+  /** Google encoded polyline (precision 5). Cache of the last compute. */
   polyline: z.string(),
-  /** ISO 8601 duration (e.g. "PT45M", "PT4H30M"). */
+  /** ISO 8601 duration (e.g. "PT45M", "PT4H30M"). Cache of the last compute. */
   duration: z.string().regex(IsoDurationPattern, "duration must be ISO 8601 (e.g. PT45M)"),
-  /** Distance in meters (int, non-negative). */
+  /** Distance in meters (int, non-negative). Cache of the last compute. */
   distance: z.number().int().nonnegative().optional(),
+  /** True when polyline/duration/distance are estimated (haversine fallback) or
+   *  out of sync with endpoints — needs Routes API recompute. */
+  stale: z.boolean().optional(),
   /** Free-form flags like "highlight", "scenic" — drive rendering weight/opacity. */
   tags: z.array(z.string()).optional(),
   notes: z.string().optional(),
@@ -399,9 +427,9 @@ export const TripSchema = z
   })
   .refine(
     (t) => {
-      // Referential integrity — schedule and bookings can only reference
-      // places/routes that exist in the catalog. Prevents typos in the skill
-      // from silently breaking the viewer.
+      // Referential integrity — schedule, bookings, and route endpoints can
+      // only reference places/routes that exist in the catalog. Prevents typos
+      // in the skill from silently breaking the viewer or map sync.
       const placeIds = new Set(t.places.map((p) => p.id));
       const routeIds = new Set(t.routes.map((r) => r.id));
       for (const day of t.days) {
@@ -410,12 +438,16 @@ export const TripSchema = z
           if (item.routeId && !routeIds.has(item.routeId)) return false;
         }
       }
+      for (const r of t.routes) {
+        if (!placeIds.has(r.endpoints.from.placeId)) return false;
+        if (!placeIds.has(r.endpoints.to.placeId)) return false;
+      }
       for (const b of t.bookings ?? []) {
         if (b.placeId && !placeIds.has(b.placeId)) return false;
       }
       return true;
     },
-    { message: "schedule/bookings reference unknown placeId or routeId" },
+    { message: "schedule/bookings/route endpoints reference unknown placeId or routeId" },
   );
 export type Trip = z.infer<typeof TripSchema>;
 

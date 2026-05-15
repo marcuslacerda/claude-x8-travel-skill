@@ -315,12 +315,24 @@ export function migrateV2toV3(
       : undefined;
     const notes = matchedTransfer?.notes;
 
+    // Endpoints in v2 weren't normalized to placeIds — the v2 Route stored
+    // a polyline, not from/to references. Emit a placeholder endpoint
+    // pointing at a sentinel placeId so the schema accepts the shape; the
+    // caller is expected to follow up with `x8-travel sync-routes <slug>`,
+    // which re-derives endpoints from the migrated schedule.
+    const firstCoord = r.coordinates[0];
+    const lastCoord = r.coordinates[r.coordinates.length - 1];
     routes.push({
       id: r.id,
       ...(r.name && { name: r.name }),
       mode,
+      endpoints: {
+        from: { placeId: "__migrate_unknown__", geo: { lat: firstCoord.lat, lng: firstCoord.lng } },
+        to: { placeId: "__migrate_unknown__", geo: { lat: lastCoord.lat, lng: lastCoord.lng } },
+      },
       polyline,
       duration,
+      stale: true,
       ...(distance != null && { distance }),
       ...(notes && { notes }),
     });
@@ -349,8 +361,16 @@ export function migrateV2toV3(
           id: synId,
           name: `${item.from.name} → ${item.to.name}`,
           mode,
+          endpoints: {
+            from: {
+              placeId: "__migrate_unknown__",
+              geo: { lat: item.from.lat, lng: item.from.lng },
+            },
+            to: { placeId: "__migrate_unknown__", geo: { lat: item.to.lat, lng: item.to.lng } },
+          },
           polyline,
           duration: minutesToIso(item.duration),
+          stale: true,
           ...(distance != null && { distance }),
           ...(item.notes && { notes: item.notes }),
         });
