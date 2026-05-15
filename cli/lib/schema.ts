@@ -486,7 +486,8 @@ export const TripUpdateSchema = z.object({
 export type TripUpdate = z.infer<typeof TripUpdateSchema>;
 
 // ----------------------------------------------------------------------------
-// Publish envelope — what x8-travel publish POSTs to /api/admin/trips/publish
+// Publish envelope — `{ trip }` wrapper accepted by POST /api/trips/publish
+// (the user-facing /import upload endpoint).
 // ----------------------------------------------------------------------------
 
 export const PublishPayloadSchema = z.object({
