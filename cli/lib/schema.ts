@@ -17,6 +17,11 @@ const SCHEMA_VERSION = 3 as const;
 // Loose ISO date or year-month: "2027-02-14" or "2027-02".
 const StartDatePattern = /^\d{4}-\d{2}(-\d{2})?$/;
 const KebabIdPattern = /^[a-z0-9][a-z0-9-]*$/;
+// Route IDs are machine-generated as `${fromPlaceId}__to__${toPlaceId}` (double
+// underscore prevents ambiguous parsing when placeIds themselves are kebab-case).
+// Same shape as KebabIdPattern but additionally allows underscore. Applied only
+// to Route.id and ScheduleItem.routeId; place / day / expense IDs stay strict.
+const RouteIdPattern = /^[a-z0-9][a-z0-9_-]*$/;
 const HHMMPattern = /^([01]\d|2[0-3]):[0-5]\d$/;
 // ISO 8601 duration — at least one part (H/M/S) required after PT.
 const IsoDurationPattern = /^PT(\d+[HMS])+$/;
@@ -220,7 +225,9 @@ export const RouteEndpointSchema = z.object({
 export type RouteEndpoint = z.infer<typeof RouteEndpointSchema>;
 
 export const RouteSchema = z.object({
-  id: z.string().regex(KebabIdPattern, "id must be lowercase kebab-case"),
+  id: z
+    .string()
+    .regex(RouteIdPattern, "id must be lowercase kebab-case (underscore allowed; e.g. 'a__to__b')"),
   name: z.string().optional(),
   mode: TravelModeSchema,
   /** From → to. placeId required on both ends; toda rota conecta places do catálogo. */
@@ -273,8 +280,8 @@ export const ScheduleItemSchema = z
     time: z.string().regex(HHMMPattern, "time must be HH:MM (24h)"),
     /** Reference into trip.places[]. */
     placeId: z.string().regex(KebabIdPattern).optional(),
-    /** Reference into trip.routes[]. */
-    routeId: z.string().regex(KebabIdPattern).optional(),
+    /** Reference into trip.routes[] — same shape as Route.id (allows __to__). */
+    routeId: z.string().regex(RouteIdPattern).optional(),
     /** Inline name when no Place exists (generic blocks like "Lunch break"). */
     name: z.string().optional(),
     /** Category — required for name-only blocks; otherwise inherited from Place. */
