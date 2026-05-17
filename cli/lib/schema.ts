@@ -432,30 +432,65 @@ export const TripSchema = z
   .refine((t) => new Set(t.routes.map((r) => r.id)).size === t.routes.length, {
     message: "Route ids must be unique",
   })
-  .refine(
-    (t) => {
-      // Referential integrity — schedule, bookings, and route endpoints can
-      // only reference places/routes that exist in the catalog. Prevents typos
-      // in the skill from silently breaking the viewer or map sync.
-      const placeIds = new Set(t.places.map((p) => p.id));
-      const routeIds = new Set(t.routes.map((r) => r.id));
-      for (const day of t.days) {
-        for (const item of day.schedule) {
-          if (item.placeId && !placeIds.has(item.placeId)) return false;
-          if (item.routeId && !routeIds.has(item.routeId)) return false;
+  .superRefine((t, ctx) => {
+    // Referential integrity — schedule, bookings, and route endpoints can
+    // only reference places/routes that exist in the catalog. Prevents typos
+    // in the skill from silently breaking the viewer or map sync.
+    //
+    // Uses superRefine so each broken reference gets its own issue with the
+    // exact JSON path — much easier to debug than the prior aggregate message
+    // ("schedule/bookings/route endpoints reference unknown placeId or routeId").
+    const placeIds = new Set(t.places.map((p) => p.id));
+    const routeIds = new Set(t.routes.map((r) => r.id));
+    for (let dayIdx = 0; dayIdx < t.days.length; dayIdx++) {
+      const day = t.days[dayIdx];
+      for (let itemIdx = 0; itemIdx < day.schedule.length; itemIdx++) {
+        const item = day.schedule[itemIdx];
+        if (item.placeId && !placeIds.has(item.placeId)) {
+          ctx.addIssue({
+            code: "custom",
+            path: ["days", dayIdx, "schedule", itemIdx, "placeId"],
+            message: `schedule references unknown placeId "${item.placeId}"`,
+          });
+        }
+        if (item.routeId && !routeIds.has(item.routeId)) {
+          ctx.addIssue({
+            code: "custom",
+            path: ["days", dayIdx, "schedule", itemIdx, "routeId"],
+            message: `schedule references unknown routeId "${item.routeId}"`,
+          });
         }
       }
-      for (const r of t.routes) {
-        if (!placeIds.has(r.endpoints.from.placeId)) return false;
-        if (!placeIds.has(r.endpoints.to.placeId)) return false;
+    }
+    for (let i = 0; i < t.routes.length; i++) {
+      const r = t.routes[i];
+      if (!placeIds.has(r.endpoints.from.placeId)) {
+        ctx.addIssue({
+          code: "custom",
+          path: ["routes", i, "endpoints", "from", "placeId"],
+          message: `route "${r.id}" endpoints.from references unknown placeId "${r.endpoints.from.placeId}"`,
+        });
       }
-      for (const b of t.bookings ?? []) {
-        if (b.placeId && !placeIds.has(b.placeId)) return false;
+      if (!placeIds.has(r.endpoints.to.placeId)) {
+        ctx.addIssue({
+          code: "custom",
+          path: ["routes", i, "endpoints", "to", "placeId"],
+          message: `route "${r.id}" endpoints.to references unknown placeId "${r.endpoints.to.placeId}"`,
+        });
       }
-      return true;
-    },
-    { message: "schedule/bookings/route endpoints reference unknown placeId or routeId" },
-  );
+    }
+    const bookings = t.bookings ?? [];
+    for (let i = 0; i < bookings.length; i++) {
+      const b = bookings[i];
+      if (b.placeId && !placeIds.has(b.placeId)) {
+        ctx.addIssue({
+          code: "custom",
+          path: ["bookings", i, "placeId"],
+          message: `booking references unknown placeId "${b.placeId}"`,
+        });
+      }
+    }
+  });
 export type Trip = z.infer<typeof TripSchema>;
 
 // ----------------------------------------------------------------------------
